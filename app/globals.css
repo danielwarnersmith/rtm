@@ -142,6 +142,10 @@
     @apply text-[18px] leading-tight;
   }
 
+  .prose li {
+    @apply text-[18px] leading-tight;
+  }
+
   .prose h1 {
     @apply text-[28px] leading-tight;
   }
@@ -166,6 +170,16 @@
   .prose h5[id],
   .prose h6[id] {
     @apply scroll-mt-20;
+  }
+
+  /* Table border styling */
+  .prose tr {
+    border-bottom-width: 0.5px;
+  }
+
+  /* Remove underline from table links */
+  .prose td a {
+    @apply no-underline;
   }
 }
 

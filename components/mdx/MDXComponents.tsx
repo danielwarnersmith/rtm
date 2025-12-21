@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { Children as ReactChildren, isValidElement } from "react";
+import { ClickableTableRow } from "./ClickableTableRow";
 
 /**
  * Custom anchor component that uses Next.js Link for internal navigation.
@@ -136,6 +137,7 @@ function CustomTd(props: ComponentPropsWithoutRef<"td">) {
           ? "text-right tabular-nums text-neutral-500 dark:text-neutral-400"
           : "text-neutral-700 dark:text-neutral-300"
       }`}
+      style={{ borderBottomWidth: '0.5px' }}
     >
       {children}
     </td>
@@ -143,11 +145,45 @@ function CustomTd(props: ComponentPropsWithoutRef<"td">) {
 }
 
 function CustomTr(props: ComponentPropsWithoutRef<"tr">) {
+  const { children, ...rest } = props;
+  
+  // Collect cell contents
+  const cells: string[] = [];
+  ReactChildren.forEach(children, (child) => {
+    if (isValidElement(child)) {
+      const text = getTextContent(child.props.children).trim();
+      cells.push(text);
+    }
+  });
+  
+  // Determine if row should be hidden
+  let shouldHide = false;
+  
+  // Hide rows that contain only dashes in any cell (separator rows)
+  if (cells.length > 0 && cells.some(cell => /^-+$/.test(cell))) {
+    shouldHide = true;
+  }
+  
+  // Hide completely empty rows
+  if (cells.length > 0 && cells.every(cell => !cell)) {
+    shouldHide = true;
+  }
+  
+  // Hide 2-column TOC rows where either column is empty
+  if (cells.length === 2 && (!cells[0] || !cells[1])) {
+    shouldHide = true;
+  }
+  
+  // Hide duplicate header rows (e.g., "Section Page" that ended up in tbody)
+  const fullText = cells.join(" ").trim();
+  if (fullText === "Section Page") {
+    shouldHide = true;
+  }
+  
   return (
-    <tr
-      {...props}
-      className="hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
-    />
+    <ClickableTableRow {...rest} shouldHide={shouldHide}>
+      {children}
+    </ClickableTableRow>
   );
 }
 

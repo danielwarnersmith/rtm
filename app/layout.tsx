@@ -44,30 +44,6 @@ export default function RootLayout({
               {/* Navigation Links */}
               <ul className="flex items-center gap-6">
                 <li>
-                  <Link
-                    href="/"
-                    className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/machines/getting-started"
-                    className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
-                  >
-                    Machines
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/search"
-                    className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
-                  >
-                    Search
-                  </Link>
-                </li>
-                <li>
                   <ThemeToggle />
                 </li>
               </ul>
@@ -80,7 +56,7 @@ export default function RootLayout({
           </main>
 
           {/* Footer */}
-          <footer className="border-t border-neutral-200 dark:border-neutral-800">
+          <footer>
             <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
               <p className="text-center text-sm text-neutral-500 dark:text-neutral-400">
                 Status: Work in progress
