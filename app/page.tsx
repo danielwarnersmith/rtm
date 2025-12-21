@@ -49,13 +49,13 @@ export default function HomePage() {
               <li key={machine.slug}>
                 <Link
                   href={machine.url}
-                  className="group block rounded-lg border border-neutral-200 p-5 transition-all hover:border-indigo-500 hover:shadow-md dark:border-neutral-800 dark:hover:border-indigo-500"
+                  className="group block h-full rounded-lg border border-neutral-200 p-5 transition-all hover:border-indigo-500 hover:shadow-md dark:border-neutral-800 dark:hover:border-indigo-500"
                 >
                   <h3 className="font-semibold text-neutral-900 group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
                     {machine.title}
                   </h3>
                   {machine.description && (
-                    <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <p className="mt-2 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">
                       {machine.description}
                     </p>
                   )}

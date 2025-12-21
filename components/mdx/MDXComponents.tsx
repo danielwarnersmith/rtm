@@ -104,20 +104,40 @@ function CustomThead(props: ComponentPropsWithoutRef<"thead">) {
 }
 
 function CustomTh(props: ComponentPropsWithoutRef<"th">) {
+  const { children, ...rest } = props;
+  // Right-align if content looks numeric or is "Page"
+  const text = typeof children === "string" ? children.trim() : "";
+  const isNumericColumn = text === "Page" || /^\d+$/.test(text);
+  
   return (
     <th
-      {...props}
-      className="px-4 py-2 text-left font-semibold text-neutral-900 dark:text-neutral-100"
-    />
+      {...rest}
+      className={`px-4 py-2 font-semibold text-neutral-900 dark:text-neutral-100 ${
+        isNumericColumn ? "text-right" : "text-left"
+      }`}
+    >
+      {children}
+    </th>
   );
 }
 
 function CustomTd(props: ComponentPropsWithoutRef<"td">) {
+  const { children, ...rest } = props;
+  // Right-align if content is purely numeric
+  const text = typeof children === "string" ? children.trim() : "";
+  const isNumeric = /^\d+$/.test(text);
+  
   return (
     <td
-      {...props}
-      className="border-b border-neutral-200 px-4 py-2 text-neutral-700 dark:border-neutral-700 dark:text-neutral-300"
-    />
+      {...rest}
+      className={`border-b border-neutral-200 px-4 py-2 dark:border-neutral-700 ${
+        isNumeric
+          ? "text-right tabular-nums text-neutral-500 dark:text-neutral-400"
+          : "text-neutral-700 dark:text-neutral-300"
+      }`}
+    >
+      {children}
+    </td>
   );
 }
 

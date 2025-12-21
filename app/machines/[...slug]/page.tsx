@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { allMachines } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import { MDXComponents } from "@/components/mdx/MDXComponents";
+import { TableOfContents } from "@/components/TableOfContents";
 import type { Metadata } from "next";
 
 interface MachinePageProps {
@@ -66,42 +67,47 @@ export default async function MachinePage({ params }: MachinePageProps) {
   }
 
   return (
-    <article className="prose prose-neutral max-w-3xl dark:prose-invert">
-      {/* Document Header */}
-      <header className="mb-8 border-b border-neutral-200 pb-8 dark:border-neutral-800">
-        <h1 className="mb-2">{machine.title}</h1>
-        {machine.description && (
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            {machine.description}
-          </p>
-        )}
-        <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-neutral-500">
-          {machine.date && (
-            <time>
-              {new Date(machine.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
+    <>
+      <article className="prose prose-neutral max-w-3xl dark:prose-invert">
+        {/* Document Header */}
+        <header className="mb-8 border-b border-neutral-200 pb-8 dark:border-neutral-800">
+          <h1 className="mb-2">{machine.title}</h1>
+          {machine.description && (
+            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+              {machine.description}
+            </p>
           )}
-          {machine.tags && machine.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {machine.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium dark:bg-neutral-800"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-      </header>
+          <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-neutral-500">
+            {machine.date && (
+              <time>
+                {new Date(machine.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+            )}
+            {machine.tags && machine.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {machine.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium dark:bg-neutral-800"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </header>
 
-      {/* MDX Content - wrapped in prose for typography styling */}
-      <MDXContent code={machine.body.code} />
-    </article>
+        {/* MDX Content - wrapped in prose for typography styling */}
+        <MDXContent code={machine.body.code} />
+      </article>
+
+      {/* Floating Table of Contents */}
+      <TableOfContents />
+    </>
   );
 }
