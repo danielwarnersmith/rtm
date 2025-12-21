@@ -1,0 +1,38 @@
+{
+  "name": "rtm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Content-driven documentation site built with Next.js and MDX",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "npx pagefind --site .next/server/app --output-path public/pagefind",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": ["documentation", "nextjs", "mdx", "contentlayer"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.16",
+    "contentlayer2": "^0.5.8",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "next": "^14.0.4",
+    "next-contentlayer2": "^0.5.8",
+    "postcss": "^8.4.32",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rehype-pretty-code": "^0.14.0",
+    "shiki": "^1.0.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "pagefind": "^1.4.0"
+  }
+}

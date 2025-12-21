@@ -1,0 +1,127 @@
+---
+title: "Getting Started"
+description: "An introduction to the documentation and how to get started with the project"
+tags: ["intro", "guide", "tutorial"]
+date: "2024-01-15"
+---
+
+# Getting Started
+
+Welcome to the documentation! This guide will help you understand the project structure and get up and running quickly.
+
+## Overview
+
+This documentation site is built with modern web technologies:
+
+- **Next.js** - React framework with App Router
+- **Contentlayer** - Type-safe content layer for MDX
+- **Tailwind CSS** - Utility-first CSS framework
+- **Pagefind** - Static full-text search
+
+## Quick Start
+
+To run this project locally, follow these steps:
+
+```bash
+# Clone the repository
+git clone <your-repo-url>
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+> **Note:** The search functionality requires a production build. Run `npm run build` to generate the search index.
+
+## Project Structure
+
+Here's an overview of the key directories:
+
+```
+app/                  # Next.js App Router pages
+  docs/[slug]/        # Dynamic documentation routes
+  search/             # Search page
+components/           # React components
+  mdx/                # MDX component overrides
+content/              # MDX content files
+  docs/               # Documentation pages
+```
+
+## Adding Content
+
+To add new documentation pages:
+
+1. Create a new `.mdx` file in `content/docs/`
+2. Add frontmatter with required fields:
+
+```mdx
+---
+title: "Your Page Title"
+description: "A brief description"
+tags: ["tag1", "tag2"]
+date: "2024-01-15"
+---
+
+# Your Content Here
+```
+
+3. The page will automatically be available at `/docs/your-file-name`
+
+## Code Highlighting
+
+Code blocks are automatically highlighted using Shiki:
+
+```typescript
+// TypeScript example with syntax highlighting
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+function greetUser(user: User): string {
+  return `Hello, ${user.name}!`;
+}
+```
+
+```python
+# Python example
+def fibonacci(n: int) -> list[int]:
+    """Generate Fibonacci sequence up to n numbers."""
+    sequence = [0, 1]
+    while len(sequence) < n:
+        sequence.append(sequence[-1] + sequence[-2])
+    return sequence[:n]
+```
+
+## Callouts
+
+Use blockquotes for important notes and callouts:
+
+> **Important:** This is a callout block. Use it to highlight important information that readers should pay attention to.
+
+## Links
+
+Internal links work with Next.js routing:
+
+- [Back to Home](/)
+- [Search Documentation](/search)
+
+External links open in a new tab:
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com)
+
+## Next Steps
+
+Now that you're familiar with the basics:
+
+1. Explore the existing documentation
+2. Try adding your own content
+3. Customize the styling in `tailwind.config.ts`
+4. Build and test the search functionality
+
+Happy documenting!
+
