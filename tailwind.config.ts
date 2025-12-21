@@ -19,18 +19,13 @@ const config: Config = {
       typography: {
         DEFAULT: {
           css: {
-            // Heading styles
+            // Heading styles (font-weight controlled in globals.css for hot reload)
             h1: {
-              fontWeight: "800",
               letterSpacing: "-0.025em",
             },
             h2: {
-              fontWeight: "700",
               letterSpacing: "-0.025em",
               marginTop: "2em",
-            },
-            h3: {
-              fontWeight: "600",
             },
             // Link styles
             a: {

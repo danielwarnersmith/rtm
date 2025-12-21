@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   // Avoid hydration mismatch
   useEffect(() => {
@@ -15,7 +15,7 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="rounded-lg p-2 text-neutral-600 transition-colors hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
+        className="rounded-lg p-2 text-neutral-600 transition-colors active:bg-neutral-100 dark:text-neutral-400 dark:active:bg-neutral-800"
         aria-label="Toggle theme"
       >
         <span className="h-5 w-5 block" />
@@ -25,11 +25,11 @@ export function ThemeToggle() {
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="rounded-lg p-2 text-neutral-600 transition-colors hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      className="rounded-lg p-2 text-neutral-600 transition-colors active:bg-neutral-100 dark:text-neutral-400 dark:active:bg-neutral-800"
+      aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}
     >
-      {theme === "dark" ? (
+      {resolvedTheme === "dark" ? (
         // Sun icon for dark mode (click to switch to light)
         <svg
           xmlns="http://www.w3.org/2000/svg"

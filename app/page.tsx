@@ -169,6 +169,9 @@ export default function HomePage() {
               handleSearch("");
               e.currentTarget.blur();
             }
+            if (e.key === "Enter") {
+              e.currentTarget.blur();
+            }
           }}
           placeholder="Search..."
           className="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 pr-12 text-neutral-900 placeholder-neutral-500 shadow-sm transition-colors focus:border-neutral-900 focus:outline-none focus:ring-0 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-400 dark:focus:border-white"
@@ -181,7 +184,7 @@ export default function HomePage() {
         ) : query && (
           <button
             onClick={() => handleSearch("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+            className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-neutral-400 transition-colors hover:bg-neutral-100 active:bg-neutral-100 hover:text-neutral-600 active:text-neutral-600 dark:hover:bg-neutral-800 dark:active:bg-neutral-800 dark:hover:text-neutral-300 dark:active:text-neutral-300"
             aria-label="Clear search"
           >
             <svg
@@ -222,7 +225,7 @@ export default function HomePage() {
                 <li key={result.id}>
                   <Link
                     href={url}
-                    className="group block rounded-lg border border-neutral-200 p-5 transition-all hover:bg-neutral-50/50 dark:border-neutral-800 dark:hover:bg-neutral-800/30"
+                    className="group block rounded-lg border border-neutral-200 p-5 transition-all hover:bg-neutral-50/50 active:bg-neutral-50/50 dark:border-neutral-800 dark:hover:bg-neutral-800/30 dark:active:bg-neutral-800/30"
                   >
                     <h3 className="font-semibold text-neutral-900 dark:text-white">
                       {result.meta.title || "Untitled"}
@@ -265,7 +268,7 @@ export default function HomePage() {
                 <li key={machine.slug}>
                   <Link
                     href={machine.url}
-                    className="group block h-full rounded-lg border border-neutral-200 p-5 transition-all hover:bg-neutral-50/50 dark:border-neutral-800 dark:hover:bg-neutral-800/30"
+                    className="group block h-full rounded-lg border border-neutral-200 p-5 transition-all hover:bg-neutral-50/50 active:bg-neutral-50/50 dark:border-neutral-800 dark:hover:bg-neutral-800/30 dark:active:bg-neutral-800/30"
                   >
                     <h3 className="font-semibold text-neutral-900 dark:text-white">
                       {machine.title}

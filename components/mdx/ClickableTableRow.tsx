@@ -69,7 +69,7 @@ export function ClickableTableRow({ children, shouldHide, ...rest }: ClickableTa
   return (
     <tr
       {...rest}
-      className={`hover:bg-neutral-50 dark:hover:bg-neutral-800/50 ${rowHref ? 'cursor-pointer' : ''}`}
+      className={`hover:bg-neutral-50 active:bg-neutral-50 dark:hover:bg-neutral-800/50 dark:active:bg-neutral-800/50 ${rowHref ? 'cursor-pointer' : ''}`}
       onClick={handleRowClick}
     >
       {children}

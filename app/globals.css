@@ -115,6 +115,27 @@
   font-display: swap;
 }
 
+/* Touch device handling - disable sticky hover, use active states with fade-out */
+@media (hover: none) {
+  /* Disable all hover background states on touch devices using attribute selector */
+  [class*="hover:bg-"]:hover {
+    background-color: inherit !important;
+  }
+  
+  /* Also handle dark mode hover states */
+  .dark [class*="dark:hover:bg-"]:hover {
+    background-color: inherit !important;
+  }
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a,
+[role="button"],
+tr {
+  transition: background-color 150ms ease-out, opacity 150ms ease-out;
+}
+
 /* Base styles for the application */
 @layer base {
   :root {
@@ -146,20 +167,32 @@
     @apply text-[18px] leading-tight;
   }
 
-  .prose h1 {
+  .prose h1,
+  .prose h1 a {
     @apply text-[28px] leading-tight;
+    font-weight: 600 !important;
   }
 
-  .prose h2 {
+  .prose h2,
+  .prose h2 a {
     @apply text-[24px] leading-tight;
+    font-weight: 400 !important;
+    margin-top: 1.5em !important;
+    margin-bottom: 0.5em !important;
   }
 
-  .prose h3 {
+  .prose h3,
+  .prose h3 a {
     @apply text-[20px] leading-tight;
+    font-weight: 400 !important;
+    margin-top: 1.25em !important;
+    margin-bottom: 0.5em !important;
   }
 
-  .prose h4 {
+  .prose h4,
+  .prose h4 a {
     @apply text-[18px] leading-tight;
+    font-weight: 400 !important;
   }
 
   /* Offset anchor links to account for sticky header (h-16 = 4rem) */
@@ -174,7 +207,7 @@
 
   /* Table border styling */
   .prose tr {
-    border-bottom-width: 0.5px;
+    @apply border-b border-neutral-200 dark:border-neutral-800;
   }
 
   /* Remove underline from table links */

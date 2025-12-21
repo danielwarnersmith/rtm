@@ -259,7 +259,7 @@ export function TableOfContents() {
         </kbd>
         <button
           onClick={() => setIsOpen(true)}
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900 text-white shadow-lg hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
+          className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900 text-white shadow-lg hover:bg-neutral-800 active:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 dark:active:bg-neutral-100"
           aria-label="Open table of contents"
         >
           <svg
@@ -295,7 +295,7 @@ export function TableOfContents() {
               {selectedSection && (
                 <button
                   onClick={goBack}
-                  className="flex max-w-[200px] items-center gap-1 rounded-md bg-neutral-100 px-2 py-1 text-xs text-neutral-700 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
+                  className="flex max-w-[200px] items-center gap-1 rounded-md bg-neutral-100 px-2 py-1 text-xs text-neutral-700 transition-colors hover:bg-neutral-200 active:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-700"
                 >
                   <span className="truncate">{selectedSection.text}</span>
                   <svg
@@ -322,16 +322,16 @@ export function TableOfContents() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleInputKeyDown}
                 placeholder={selectedSection ? "Filter..." : "Jump to section..."}
-                className="min-w-0 flex-1 bg-transparent py-4 pl-[7px] text-sm text-neutral-900 outline-none placeholder:text-neutral-400 dark:text-white"
+                className="min-w-0 flex-1 bg-transparent py-4 pl-[7px] text-base text-neutral-900 outline-none placeholder:text-neutral-400 sm:text-sm dark:text-white"
               />
-              <kbd className="flex-shrink-0 rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs text-neutral-500 shadow-none dark:bg-neutral-800 dark:text-neutral-400">
+              <kbd className="hidden flex-shrink-0 rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs text-neutral-500 shadow-none sm:block dark:bg-neutral-800 dark:text-neutral-400">
                 esc
               </kbd>
             </div>
 
             {/* List */}
             <div className="relative">
-              <ul ref={listRef} className="max-h-[60vh] overflow-y-auto pb-[53px]">
+              <ul ref={listRef} className="max-h-[60vh] overflow-y-auto pb-[93px]">
               {items.length === 0 ? (
                 <li className="py-8 text-center text-sm text-neutral-500">
                   No results
@@ -380,7 +380,7 @@ export function TableOfContents() {
             {/* Footer hint */}
             <div className="absolute inset-x-0 bottom-0 z-20 flex h-[53px] items-center px-4">
               <div className="flex w-full items-center justify-between text-xs text-neutral-500 dark:text-neutral-400">
-                <div className="flex items-center gap-3">
+                <div className="hidden items-center gap-3 sm:flex">
                   {selectedSection && (
                     <span className="flex items-center gap-1">
                       <kbd className="flex h-5 w-5 items-center justify-center rounded bg-neutral-100 font-mono shadow-none dark:bg-neutral-800">
@@ -407,7 +407,7 @@ export function TableOfContents() {
                     <span>Select</span>
                   </span>
                 </div>
-                <span className="pr-1.5">{items.length} item{items.length !== 1 ? "s" : ""}</span>
+                <span className="ml-auto pr-1.5">{items.length} item{items.length !== 1 ? "s" : ""}</span>
               </div>
             </div>
           </div>
