@@ -13,6 +13,9 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
+# Get script directory for helper scripts
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Check arguments
 if [ $# -lt 2 ]; then
     echo -e "${RED}Usage: $0 <machine-name> <source-md-file> [title]${NC}"
@@ -102,39 +105,175 @@ sed -i '' 's/<br>/<br \/>/g' "$MDX_FILE"
 sed -i '' 's/<hr>/<hr \/>/g' "$MDX_FILE"
 sed -i '' 's/<img \([^>]*[^/]\)>/<img \1 \/>/g' "$MDX_FILE"
 
-# Escape common angle bracket patterns used in manuals (not HTML tags)
+# Escape angle bracket patterns used in manuals (not HTML tags)
 echo -e "${YELLOW}Escaping angle bracket labels...${NC}"
-
-# Common patterns in Elektron manuals and similar
-sed -i '' 's/<PATTERN PAGE>/\\<PATTERN PAGE\\>/g' "$MDX_FILE"
-sed -i '' 's/<PATTERN MODE>/\\<PATTERN MODE\\>/g' "$MDX_FILE"
-sed -i '' 's/<PADS>/\\<PADS\\>/g' "$MDX_FILE"
-sed -i '' 's/<PAD>/\\<PAD\\>/g' "$MDX_FILE"
-sed -i '' 's/<TRIG>/\\<TRIG\\>/g' "$MDX_FILE"
-sed -i '' 's/<LED>/\\<LED\\>/g' "$MDX_FILE"
-sed -i '' 's/<SCREEN>/\\<SCREEN\\>/g' "$MDX_FILE"
-sed -i '' 's/<DISPLAY>/\\<DISPLAY\\>/g' "$MDX_FILE"
-sed -i '' 's/<BUTTON>/\\<BUTTON\\>/g' "$MDX_FILE"
-sed -i '' 's/<ENCODER>/\\<ENCODER\\>/g' "$MDX_FILE"
-sed -i '' 's/<KNOB>/\\<KNOB\\>/g' "$MDX_FILE"
-
 # Generic pattern: escape <ALLCAPS> or <ALLCAPS ALLCAPS> that aren't HTML
-# This catches most hardware label patterns
 sed -i '' -E 's/<([A-Z][A-Z0-9 ]+[A-Z0-9])>/\\<\1\\>/g' "$MDX_FILE"
+
+# Fix table formatting issues from PDF conversion
+echo -e "${YELLOW}Fixing table formatting...${NC}"
+
+# Create temporary Python script for complex table fixes
+cat > /tmp/fix_tables.py << 'PYTHON_SCRIPT'
+import re
+import sys
+
+content = open(sys.argv[1]).read()
+
+# 1. Convert table section headers to actual headings
+# Pattern: | SECTION_NAME | | | | | followed by separator
+def fix_section_headers(content):
+    pattern = r'\n\| ([A-Z][A-Z ]+?) +\|(?:\s*\|)+\s*\n(\|[-|: ]+\|)\n(\| [A-Za-z])'
+    
+    def replace_header(match):
+        section_name = match.group(1).strip()
+        rest = match.group(3)
+        return f"\n#### {section_name}\n\n{rest}"
+    
+    return re.sub(pattern, replace_header, content)
+
+# 2. Add missing table separator rows after header rows
+def fix_table_separators(content):
+    lines = content.split('\n')
+    result = []
+    i = 0
+    
+    while i < len(lines):
+        line = lines[i]
+        
+        # Check if this looks like a table header
+        if (line.strip().startswith('|') and 
+            line.strip().endswith('|') and 
+            '---' not in line and
+            i + 1 < len(lines)):
+            
+            next_line = lines[i + 1]
+            
+            # If next line is a table row but NOT a separator
+            if (next_line.strip().startswith('|') and 
+                next_line.strip().endswith('|') and 
+                '---' not in next_line):
+                
+                # Check if this might be a header row
+                header_words = ['Parameter', 'Name', 'CC MSB', 'CC LSB', 'NRPN', 'Description', 
+                               'Type', 'PAD', 'Machine', 'Value', 'Section', 'Page']
+                is_likely_header = any(word in line for word in header_words)
+                
+                if is_likely_header:
+                    cols = line.count('|') - 1
+                    if cols > 0:
+                        separator = '|' + '|'.join(['---'] * cols) + '|'
+                        result.append(line)
+                        result.append(separator)
+                        i += 1
+                        continue
+        
+        result.append(line)
+        i += 1
+    
+    return '\n'.join(result)
+
+# 3. Remove trailing empty cells from table rows
+def clean_table_rows(content):
+    return re.sub(r'\|\s*\|\s*$', '|', content, flags=re.MULTILINE)
+
+# Apply fixes
+content = fix_section_headers(content)
+content = fix_table_separators(content)
+content = clean_table_rows(content)
+
+print(content)
+PYTHON_SCRIPT
+
+python3 /tmp/fix_tables.py "$MDX_FILE" > /tmp/fixed_manual.mdx
+cat /tmp/fixed_manual.mdx > "$MDX_FILE"
+
+# Add TOC links
+echo -e "${YELLOW}Adding Table of Contents links...${NC}"
+
+cat > /tmp/add_toc_links.py << 'PYTHON_SCRIPT'
+import re
+import sys
+
+def to_anchor(text):
+    """Convert section title to anchor ID"""
+    text = text.strip().lower()
+    text = re.sub(r'[^a-z0-9]+', '-', text)
+    text = re.sub(r'^-|-$', '', text)
+    return text
+
+def process_toc_entry(entry_text):
+    """Convert TOC entry text to markdown links"""
+    parts = re.split(r'<br\s*/>', entry_text)
+    
+    linked_parts = []
+    for part in parts:
+        part = part.strip()
+        if not part or part in ['Section', 'Page', '']:
+            linked_parts.append(part)
+            continue
+        
+        anchor = to_anchor(part)
+        if anchor:
+            linked_parts.append(f'[{part}](#{anchor})')
+        else:
+            linked_parts.append(part)
+    
+    return '<br />'.join(linked_parts)
+
+content = open(sys.argv[1]).read()
+lines = content.split('\n')
+in_toc = False
+result = []
+
+for line in lines:
+    if line.strip() == '# TABLE OF CONTENTS':
+        in_toc = True
+        result.append(line)
+        continue
+    
+    if in_toc and line.startswith('# ') and 'TABLE OF CONTENTS' not in line:
+        in_toc = False
+    
+    if in_toc and line.strip().startswith('|') and '---' not in line:
+        match = re.match(r'\|(.+?)\|(.+?)\|', line)
+        if match:
+            entry = match.group(1)
+            page = match.group(2)
+            linked_entry = process_toc_entry(entry)
+            line = f'| {linked_entry} | {page.strip()} |'
+    
+    result.append(line)
+
+print('\n'.join(result))
+PYTHON_SCRIPT
+
+python3 /tmp/add_toc_links.py "$MDX_FILE" > /tmp/toc_manual.mdx
+cat /tmp/toc_manual.mdx > "$MDX_FILE"
+
+# Cleanup temp files
+rm -f /tmp/fix_tables.py /tmp/add_toc_links.py /tmp/fixed_manual.mdx /tmp/toc_manual.mdx
 
 echo ""
 echo -e "${GREEN}✓ Import complete!${NC}"
 echo ""
 echo "Files created:"
 echo "  - $MDX_FILE"
-echo "  - $PUBLIC_IMAGES_DIR/ ($(ls -1 "$PUBLIC_IMAGES_DIR" 2>/dev/null | wc -l | tr -d ' ') images)"
+echo "  - $PUBLIC_IMAGES_DIR/ ($IMAGE_COUNT images)"
+echo ""
+echo "Fixes applied:"
+echo "  - Image paths converted to /machines/$MACHINE_NAME/images/"
+echo "  - Self-closing HTML tags fixed (<br>, <hr>, <img>)"
+echo "  - Angle bracket labels escaped (<ALLCAPS>)"
+echo "  - Table section headers converted to headings"
+echo "  - Missing table separator rows added"
+echo "  - Table of Contents entries linked to sections"
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"
 echo "  1. Edit $MDX_FILE to add tags and verify frontmatter"
 echo "  2. Run 'npm run build' to check for MDX errors"
-echo "  3. If build fails, check for unescaped angle brackets"
+echo "  3. If build fails, check for unescaped angle brackets or malformed tables"
 echo ""
 echo "To test locally:"
 echo "  npm run dev"
 echo "  Open: http://localhost:3000/machines/$MACHINE_NAME/manual"
-
