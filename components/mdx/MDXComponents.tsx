@@ -1,5 +1,6 @@
 import Link from "next/link";
-import type { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import { Children as ReactChildren, isValidElement } from "react";
 
 /**
  * Custom anchor component that uses Next.js Link for internal navigation.
@@ -182,6 +183,58 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
 }
 
 /**
+ * Helper to extract text content from React children
+ */
+function getTextContent(children: ReactNode): string {
+  let text = "";
+  ReactChildren.forEach(children, (child) => {
+    if (typeof child === "string") {
+      text += child;
+    } else if (typeof child === "number") {
+      text += String(child);
+    } else if (isValidElement(child) && child.props.children) {
+      text += getTextContent(child.props.children);
+    }
+  });
+  return text;
+}
+
+/**
+ * Custom unordered list that detects numbered content.
+ * If list items start with numbers, renders without bullets.
+ */
+function CustomUl(props: ComponentPropsWithoutRef<"ul">) {
+  const { children, ...rest } = props;
+  
+  // Check if first li child starts with a number pattern
+  let hasNumberedContent = false;
+  ReactChildren.forEach(children, (child) => {
+    if (isValidElement(child) && child.type === "li") {
+      const text = getTextContent(child.props.children).trim();
+      if (/^\d+[\.\)]\s/.test(text)) {
+        hasNumberedContent = true;
+      }
+    }
+  });
+
+  return (
+    <ul
+      {...rest}
+      className={hasNumberedContent ? "list-none pl-0" : ""}
+    >
+      {children}
+    </ul>
+  );
+}
+
+/**
+ * Custom ordered list styling.
+ */
+function CustomOl(props: ComponentPropsWithoutRef<"ol">) {
+  return <ol {...props} className="list-decimal" />;
+}
+
+/**
  * Centralized MDX component mapping.
  * Override default HTML elements with custom styled components.
  */
@@ -201,5 +254,7 @@ export const MDXComponents = {
   th: CustomTh,
   td: CustomTd,
   tr: CustomTr,
+  ul: CustomUl,
+  ol: CustomOl,
 };
 
