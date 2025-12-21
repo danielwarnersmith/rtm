@@ -81,6 +81,56 @@ function CustomBlockquote(props: ComponentPropsWithoutRef<"blockquote">) {
 }
 
 /**
+ * Custom table components for better styling.
+ */
+function CustomTable(props: ComponentPropsWithoutRef<"table">) {
+  return (
+    <div className="my-6 w-full overflow-x-auto">
+      <table
+        {...props}
+        className="min-w-full border-collapse text-sm"
+      />
+    </div>
+  );
+}
+
+function CustomThead(props: ComponentPropsWithoutRef<"thead">) {
+  return (
+    <thead
+      {...props}
+      className="border-b border-neutral-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800"
+    />
+  );
+}
+
+function CustomTh(props: ComponentPropsWithoutRef<"th">) {
+  return (
+    <th
+      {...props}
+      className="px-4 py-2 text-left font-semibold text-neutral-900 dark:text-neutral-100"
+    />
+  );
+}
+
+function CustomTd(props: ComponentPropsWithoutRef<"td">) {
+  return (
+    <td
+      {...props}
+      className="border-b border-neutral-200 px-4 py-2 text-neutral-700 dark:border-neutral-700 dark:text-neutral-300"
+    />
+  );
+}
+
+function CustomTr(props: ComponentPropsWithoutRef<"tr">) {
+  return (
+    <tr
+      {...props}
+      className="hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+    />
+  );
+}
+
+/**
  * Custom heading components with anchor links.
  * Allows direct linking to specific sections.
  */
@@ -126,5 +176,10 @@ export const MDXComponents = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
+  table: CustomTable,
+  thead: CustomThead,
+  th: CustomTh,
+  td: CustomTd,
+  tr: CustomTr,
 };
 

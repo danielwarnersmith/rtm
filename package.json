@@ -6,11 +6,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "npx pagefind --site out --output-path out/pagefind && cp -r out/pagefind public/pagefind",
+    "postbuild": "npx pagefind --site out --output-path out/pagefind && rm -rf public/pagefind && cp -r out/pagefind public/pagefind",
     "start": "next start",
     "lint": "next lint"
   },
-  "keywords": ["documentation", "nextjs", "mdx", "contentlayer"],
+  "keywords": [
+    "documentation",
+    "nextjs",
+    "mdx",
+    "contentlayer"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -27,6 +32,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rehype-pretty-code": "^0.14.0",
+    "remark-gfm": "^4.0.1",
     "shiki": "^1.0.0",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3"

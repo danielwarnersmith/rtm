@@ -1,5 +1,6 @@
 import { defineDocumentType, makeSource } from "contentlayer2/source-files";
 import rehypePrettyCode from "rehype-pretty-code";
+import remarkGfm from "remark-gfm";
 
 /**
  * Document type for machine manuals.
@@ -50,6 +51,8 @@ export default makeSource({
   contentDirPath: "content",
   documentTypes: [Machine],
   mdx: {
+    // Enable GitHub Flavored Markdown (tables, strikethrough, etc.)
+    remarkPlugins: [remarkGfm],
     // Configure rehype-pretty-code for Shiki-based syntax highlighting
     rehypePlugins: [
       [
