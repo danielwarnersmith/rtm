@@ -87,7 +87,7 @@ function CustomBlockquote(props: ComponentPropsWithoutRef<"blockquote">) {
  */
 function CustomTable(props: ComponentPropsWithoutRef<"table">) {
   return (
-    <div className="my-6 w-full overflow-x-auto">
+    <div className="mb-6 w-full overflow-x-auto">
       <table
         {...props}
         className="min-w-full border-collapse text-sm"
@@ -97,11 +97,21 @@ function CustomTable(props: ComponentPropsWithoutRef<"table">) {
 }
 
 function CustomThead(props: ComponentPropsWithoutRef<"thead">) {
+  const { children, ...rest } = props;
+  
+  // Hide TOC-style headers (Section | Page)
+  const text = getTextContent(children).trim();
+  if (text === "Section Page") {
+    return null;
+  }
+  
   return (
     <thead
-      {...props}
+      {...rest}
       className="border-b border-neutral-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800"
-    />
+    >
+      {children}
+    </thead>
   );
 }
 
@@ -197,8 +207,8 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
   return function Heading(props: ComponentPropsWithoutRef<typeof Tag>) {
     const { children, ...rest } = props;
     
-    // Generate ID from children text for anchor linking
-    const text = typeof children === "string" ? children : "";
+    // Extract text from children (handles nested elements like spans)
+    const text = getTextContent(children);
     const id = text
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")

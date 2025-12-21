@@ -66,7 +66,7 @@ const config: Config = {
               borderRadius: "0",
               fontSize: "0.875em",
             },
-            // Blockquote styles
+// Blockquote styles
             blockquote: {
               fontStyle: "normal",
               borderLeftColor: "rgb(99 102 241)",

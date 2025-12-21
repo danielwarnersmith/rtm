@@ -171,6 +171,7 @@ tr {
   .prose h1 a {
     @apply text-[28px] leading-tight;
     font-weight: 600 !important;
+    margin-bottom: 0 !important;
   }
 
   .prose h2,
