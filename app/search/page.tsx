@@ -29,6 +29,14 @@ interface Pagefind {
 }
 
 /**
+ * Normalize Pagefind URLs by removing .html extension.
+ * Pagefind indexes static HTML files, but Next.js routes don't use extensions.
+ */
+function normalizeUrl(url: string): string {
+  return url.replace(/\.html$/, "");
+}
+
+/**
  * Search page with client-side Pagefind integration.
  * Pagefind indexes are generated at build time from static HTML output.
  */
@@ -174,25 +182,28 @@ export default function SearchPage() {
             {results.length} result{results.length === 1 ? "" : "s"} found
           </h2>
           <ul className="space-y-4">
-            {results.map((result) => (
-              <li key={result.id}>
-                <Link
-                  href={result.url}
-                  className="group block rounded-lg border border-neutral-200 p-5 transition-all hover:border-indigo-500 hover:shadow-md dark:border-neutral-800 dark:hover:border-indigo-500"
-                >
-                  <h3 className="font-semibold text-neutral-900 group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
-                    {result.meta.title || "Untitled"}
-                  </h3>
-                  <p
-                    className="mt-2 text-sm text-neutral-600 dark:text-neutral-400"
-                    dangerouslySetInnerHTML={{ __html: result.excerpt }}
-                  />
-                  <span className="mt-2 block text-xs text-neutral-500">
-                    {result.url}
-                  </span>
-                </Link>
-              </li>
-            ))}
+            {results.map((result) => {
+              const url = normalizeUrl(result.url);
+              return (
+                <li key={result.id}>
+                  <Link
+                    href={url}
+                    className="group block rounded-lg border border-neutral-200 p-5 transition-all hover:border-indigo-500 hover:shadow-md dark:border-neutral-800 dark:hover:border-indigo-500"
+                  >
+                    <h3 className="font-semibold text-neutral-900 group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
+                      {result.meta.title || "Untitled"}
+                    </h3>
+                    <p
+                      className="mt-2 text-sm text-neutral-600 dark:text-neutral-400"
+                      dangerouslySetInnerHTML={{ __html: result.excerpt }}
+                    />
+                    <span className="mt-2 block text-xs text-neutral-500">
+                      {url}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </section>
       )}
