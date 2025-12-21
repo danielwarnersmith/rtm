@@ -45,10 +45,10 @@ export default function RootLayout({
               </li>
               <li>
                 <Link
-                  href="/docs/getting-started"
+                  href="/machines/getting-started"
                   className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
                 >
-                  Docs
+                  Machines
                 </Link>
               </li>
               <li>
@@ -72,7 +72,7 @@ export default function RootLayout({
         <footer className="border-t border-neutral-200 dark:border-neutral-800">
           <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
             <p className="text-center text-sm text-neutral-500 dark:text-neutral-400">
-              Built with Next.js, Contentlayer, and Tailwind CSS
+              Status: Work in progress
             </p>
           </div>
         </footer>

@@ -2,12 +2,12 @@ import { defineDocumentType, makeSource } from "contentlayer2/source-files";
 import rehypePrettyCode from "rehype-pretty-code";
 
 /**
- * Document type for documentation pages.
- * Content is sourced from /content/docs/ as MDX files.
+ * Document type for machine manuals.
+ * Content is sourced from /content/machines/ as MDX files.
  */
-export const Doc = defineDocumentType(() => ({
-  name: "Doc",
-  filePathPattern: "docs/**/*.mdx",
+export const Machine = defineDocumentType(() => ({
+  name: "Machine",
+  filePathPattern: "machines/**/*.mdx",
   contentType: "mdx",
   fields: {
     title: {
@@ -33,22 +33,22 @@ export const Doc = defineDocumentType(() => ({
     },
   },
   computedFields: {
-    // Generate URL-friendly slug from file path
+    // Generate URL-friendly slug from file path (supports nested paths)
     slug: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.replace("docs/", ""),
+      resolve: (doc) => doc._raw.flattenedPath.replace("machines/", ""),
     },
     // Generate full URL path for linking
     url: {
       type: "string",
-      resolve: (doc) => `/docs/${doc._raw.flattenedPath.replace("docs/", "")}`,
+      resolve: (doc) => `/machines/${doc._raw.flattenedPath.replace("machines/", "")}`,
     },
   },
 }));
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Doc],
+  documentTypes: [Machine],
   mdx: {
     // Configure rehype-pretty-code for Shiki-based syntax highlighting
     rehypePlugins: [

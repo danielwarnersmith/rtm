@@ -1,22 +1,22 @@
 import { notFound } from "next/navigation";
-import { allDocs } from "contentlayer/generated";
+import { allMachines } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import { MDXComponents } from "@/components/mdx/MDXComponents";
 import type { Metadata } from "next";
 
-interface DocPageProps {
+interface MachinePageProps {
   params: Promise<{
-    slug: string;
+    slug: string[];
   }>;
 }
 
 /**
- * Generate static paths for all documentation pages.
+ * Generate static paths for all machine manual pages.
  * This enables full static generation at build time.
  */
 export async function generateStaticParams() {
-  return allDocs.map((doc) => ({
-    slug: doc.slug,
+  return allMachines.map((machine) => ({
+    slug: machine.slug.split("/"),
   }));
 }
 
@@ -24,20 +24,21 @@ export async function generateStaticParams() {
  * Generate metadata for SEO and social sharing.
  */
 export async function generateMetadata(
-  { params }: DocPageProps
+  { params }: MachinePageProps
 ): Promise<Metadata> {
   const { slug } = await params;
-  const doc = allDocs.find((doc) => doc.slug === slug);
+  const slugPath = slug.join("/");
+  const machine = allMachines.find((m) => m.slug === slugPath);
 
-  if (!doc) {
+  if (!machine) {
     return {
       title: "Not Found",
     };
   }
 
   return {
-    title: doc.title,
-    description: doc.description,
+    title: machine.title,
+    description: machine.description,
   };
 }
 
@@ -51,41 +52,42 @@ function MDXContent({ code }: { code: string }) {
 }
 
 /**
- * Documentation page component.
+ * Machine manual page component.
  * Renders a single MDX document based on the slug parameter.
  */
-export default async function DocPage({ params }: DocPageProps) {
+export default async function MachinePage({ params }: MachinePageProps) {
   const { slug } = await params;
-  const doc = allDocs.find((doc) => doc.slug === slug);
+  const slugPath = slug.join("/");
+  const machine = allMachines.find((m) => m.slug === slugPath);
 
   // Return 404 if document not found
-  if (!doc) {
+  if (!machine) {
     notFound();
   }
 
   return (
-    <article className="prose prose-neutral max-w-none dark:prose-invert">
+    <article className="prose prose-neutral max-w-3xl dark:prose-invert">
       {/* Document Header */}
       <header className="mb-8 border-b border-neutral-200 pb-8 dark:border-neutral-800">
-        <h1 className="mb-2">{doc.title}</h1>
-        {doc.description && (
+        <h1 className="mb-2">{machine.title}</h1>
+        {machine.description && (
           <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            {doc.description}
+            {machine.description}
           </p>
         )}
         <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-neutral-500">
-          {doc.date && (
+          {machine.date && (
             <time>
-              {new Date(doc.date).toLocaleDateString("en-US", {
+              {new Date(machine.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
               })}
             </time>
           )}
-          {doc.tags && doc.tags.length > 0 && (
+          {machine.tags && machine.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
-              {doc.tags.map((tag) => (
+              {machine.tags.map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium dark:bg-neutral-800"
@@ -99,8 +101,7 @@ export default async function DocPage({ params }: DocPageProps) {
       </header>
 
       {/* MDX Content - wrapped in prose for typography styling */}
-      <MDXContent code={doc.body.code} />
+      <MDXContent code={machine.body.code} />
     </article>
   );
 }
-

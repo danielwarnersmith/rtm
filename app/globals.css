@@ -23,6 +23,25 @@
   }
 }
 
+/* Custom prose styles for better readability */
+@layer components {
+  .prose h1 {
+    @apply text-[28px] leading-tight;
+  }
+
+  .prose h2 {
+    @apply text-2xl;
+  }
+
+  .prose h3 {
+    @apply text-xl;
+  }
+
+  .prose h4 {
+    @apply text-lg;
+  }
+}
+
 /* Code block styles for rehype-pretty-code */
 @layer components {
   /* Code block container from rehype-pretty-code */
