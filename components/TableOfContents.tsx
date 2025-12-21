@@ -1,125 +1,271 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 
-interface Heading {
+interface TocEntry {
   id: string;
   text: string;
-  level: number;
+  level: number; // 1 = main section (1., 2., etc), 2 = subsection (1.1, 2.1), 3 = sub-subsection (1.1.1)
 }
 
-/**
- * Floating Table of Contents component.
- * Scans the page for headings and displays them in a modal overlay.
- * Includes search functionality scoped to the current manual.
- */
 export function TableOfContents() {
   const [isOpen, setIsOpen] = useState(false);
-  const [headings, setHeadings] = useState<Heading[]>([]);
+  const [entries, setEntries] = useState<TocEntry[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedSection, setSelectedSection] = useState<TocEntry | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
 
-  // Extract headings from the page on mount
+  // Extract TOC entries from the page
   useEffect(() => {
     const article = document.querySelector("article");
     if (!article) return;
 
-    const elements = article.querySelectorAll("h1, h2, h3, h4, h5, h6");
-    const extracted: Heading[] = [];
+    // Find the TABLE OF CONTENTS section
+    const tocHeading = Array.from(article.querySelectorAll("h1, h2")).find(
+      (el) => el.textContent?.includes("TABLE OF CONTENTS")
+    );
 
-    elements.forEach((el) => {
-      const id = el.id;
-      const text = el.textContent || "";
-      const level = parseInt(el.tagName[1], 10);
+    if (!tocHeading) {
+      // Fallback to extracting all headings if no TOC table found
+      const elements = article.querySelectorAll("h1[id], h2[id], h3[id], h4[id]");
+      const extracted: TocEntry[] = [];
+      elements.forEach((el) => {
+        const id = el.id;
+        const text = el.textContent || "";
+        const level = parseInt(el.tagName[1], 10);
+        if (id && text && !text.includes("TABLE OF CONTENTS")) {
+          extracted.push({ id, text, level });
+        }
+      });
+      setEntries(extracted);
+      return;
+    }
 
-      // Skip the main title (first h1 in header)
+    // Find the table after the TOC heading
+    let tocTable: HTMLTableElement | null = null;
+    let sibling = tocHeading.nextElementSibling;
+    while (sibling) {
+      if (sibling.tagName === "DIV" && sibling.querySelector("table")) {
+        tocTable = sibling.querySelector("table");
+        break;
+      }
+      if (sibling.tagName === "TABLE") {
+        tocTable = sibling as HTMLTableElement;
+        break;
+      }
+      // Stop if we hit another heading
+      if (sibling.tagName.match(/^H[1-6]$/)) break;
+      sibling = sibling.nextElementSibling;
+    }
+
+    if (!tocTable) {
+      setEntries([]);
+      return;
+    }
+
+    // Extract entries from the table
+    const extracted: TocEntry[] = [];
+    const rows = tocTable.querySelectorAll("tr");
+    
+    rows.forEach((row) => {
+      const firstCell = row.querySelector("td:first-child");
+      if (!firstCell) return;
+
+      const link = firstCell.querySelector("a");
+      if (!link) return;
+
+      const href = link.getAttribute("href");
+      if (!href || !href.startsWith("#")) return;
+
+      const id = href.slice(1);
+      const text = link.textContent?.trim() || "";
+      
+      // Determine level based on section number pattern
+      // "1." = level 1, "1.1" = level 2, "1.1.1" = level 3
+      const sectionMatch = text.match(/^(\d+(?:\.\d+)*)/);
+      let level = 1;
+      if (sectionMatch) {
+        const parts = sectionMatch[1].split(".");
+        level = parts.length;
+      }
+
       if (id && text) {
         extracted.push({ id, text, level });
       }
     });
 
-    setHeadings(extracted);
+    setEntries(extracted);
   }, []);
 
-  // Handle keyboard shortcuts
+  // Get main sections (level 1)
+  const mainSections = useMemo(
+    () => entries.filter((e) => e.level === 1),
+    [entries]
+  );
+
+  // Get children of a section
+  const getChildren = useCallback(
+    (section: TocEntry) => {
+      const idx = entries.findIndex((e) => e.id === section.id);
+      if (idx === -1) return [];
+
+      const children: TocEntry[] = [];
+      for (let i = idx + 1; i < entries.length; i++) {
+        if (entries[i].level <= section.level) break;
+        children.push(entries[i]);
+      }
+      return children;
+    },
+    [entries]
+  );
+
+  // What to display
+  const items = useMemo(() => {
+    if (selectedSection) {
+      const children = getChildren(selectedSection);
+      const filtered = searchQuery
+        ? children.filter((e) =>
+            e.text.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+        : children;
+      return filtered;
+    }
+
+    // Show main sections or search all entries
+    if (searchQuery) {
+      return entries.filter((e) =>
+        e.text.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    return mainSections;
+  }, [selectedSection, searchQuery, mainSections, entries, getChildren]);
+
+  // Reset selected index when items change
+  useEffect(() => {
+    setSelectedIndex(0);
+  }, [items]);
+
+  // Scroll selected item into view
+  useEffect(() => {
+    if (listRef.current && items.length > 0) {
+      const selectedEl = listRef.current.querySelector(
+        `[data-index="${selectedIndex}"]`
+      );
+      selectedEl?.scrollIntoView({ block: "nearest" });
+    }
+  }, [selectedIndex, items.length]);
+
+  // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Open on Cmd/Ctrl + K
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         setIsOpen(true);
       }
     };
-
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Prevent body scroll when modal is open and focus search input
+  // Modal open/close effects
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      // Focus search input when modal opens
-      setTimeout(() => searchInputRef.current?.focus(), 100);
+      setTimeout(() => searchInputRef.current?.focus(), 50);
     } else {
       document.body.style.overflow = "";
-      setSearchQuery(""); // Clear search when closing
+      setSearchQuery("");
+      setSelectedSection(null);
+      setSelectedIndex(0);
     }
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
-  // Filter headings based on search query
-  const filteredHeadings = headings.filter((heading) =>
-    heading.text.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  // Close modal and optionally navigate to a heading
-  const closeModal = useCallback((targetId?: string) => {
-    // Blur the input first to prevent Safari focus issues
+  // Navigate to entry
+  const navigateTo = useCallback((id: string) => {
     searchInputRef.current?.blur();
-    
-    // Store current scroll position before closing
-    const scrollY = window.scrollY;
-    
     setIsOpen(false);
-    
-    if (targetId) {
-      // Navigate to the target heading
-      setTimeout(() => {
-        const element = document.getElementById(targetId);
-        if (element) {
-          element.scrollIntoView({ behavior: "instant", block: "start" });
-          history.pushState(null, "", `#${targetId}`);
-        }
-      }, 50);
-    } else {
-      // Restore scroll position when just closing (not navigating)
-      requestAnimationFrame(() => {
-        window.scrollTo(0, scrollY);
-      });
-    }
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "instant" });
+      history.pushState(null, "", `#${id}`);
+    }, 50);
   }, []);
 
-  if (headings.length === 0) return null;
+  // Go back to top level
+  const goBack = useCallback(() => {
+    setSelectedSection(null);
+    setSearchQuery("");
+    setSelectedIndex(0);
+    // Keep focus on input
+    setTimeout(() => searchInputRef.current?.focus(), 0);
+  }, []);
+
+  // Handle item selection
+  const handleSelect = useCallback(
+    (item: TocEntry) => {
+      const hasChildren = !selectedSection && getChildren(item).length > 0;
+      if (hasChildren) {
+        setSelectedSection(item);
+        setSearchQuery("");
+        setSelectedIndex(0);
+        // Keep focus on input
+        setTimeout(() => searchInputRef.current?.focus(), 0);
+      } else {
+        navigateTo(item.id);
+      }
+    },
+    [selectedSection, getChildren, navigateTo]
+  );
+
+  // Keyboard navigation within modal
+  const handleInputKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setIsOpen(false);
+      }
+      if ((e.key === "Backspace" || e.key === "ArrowLeft") && !searchQuery && selectedSection) {
+        goBack();
+      }
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setSelectedIndex((i) => Math.min(i + 1, items.length - 1));
+      }
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setSelectedIndex((i) => Math.max(i - 1, 0));
+      }
+      if (e.key === "Enter" && items.length > 0) {
+        e.preventDefault();
+        handleSelect(items[selectedIndex]);
+      }
+    },
+    [searchQuery, selectedSection, goBack, items, selectedIndex, handleSelect, setIsOpen]
+  );
+
+  if (entries.length === 0) return null;
 
   return (
     <>
-      {/* Floating trigger button */}
+      {/* Trigger */}
       <div className="fixed bottom-6 right-6 z-40 flex items-center gap-2">
-        <kbd className="hidden rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs text-neutral-300 shadow-sm sm:block dark:bg-neutral-200 dark:text-neutral-700">
+        <kbd className="hidden rounded bg-neutral-800 px-2 py-1 font-mono text-xs text-neutral-300 sm:block dark:bg-neutral-200 dark:text-neutral-700">
           ⌘K
         </kbd>
         <button
           onClick={() => setIsOpen(true)}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-neutral-900 text-white shadow-lg transition-all hover:scale-105 hover:bg-neutral-800 active:scale-95 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
+          className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900 text-white shadow-lg hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
           aria-label="Open table of contents"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -134,126 +280,139 @@ export function TableOfContents() {
         </button>
       </div>
 
-      {/* Modal overlay */}
+      {/* Modal */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-sm sm:items-center sm:p-6"
-          onClick={() => closeModal()}
-          onKeyDown={(e) => {
-            if (e.key === "Escape") {
-              e.preventDefault();
-              e.stopPropagation();
-              e.nativeEvent.stopImmediatePropagation();
-              closeModal();
-            }
-          }}
+          className="fixed inset-0 z-50 flex items-start justify-center bg-black/50 p-4 backdrop-blur-sm sm:items-center"
+          onClick={() => setIsOpen(false)}
         >
-          {/* Modal content */}
           <div
-            className="relative my-8 w-full max-w-2xl rounded-xl bg-white p-4 shadow-2xl dark:bg-neutral-900 sm:my-0"
+            className="relative w-full max-w-xl overflow-hidden rounded-xl bg-white shadow-2xl dark:bg-neutral-900"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Search input */}
-            <div className="relative">
-              <svg
-                className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-              <input
-                ref={searchInputRef}
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Escape") {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    e.nativeEvent.stopImmediatePropagation();
-                    closeModal();
-                  }
-                }}
-                placeholder="Search this manual..."
-                className="w-full rounded-lg border border-neutral-200 bg-neutral-50 py-2.5 pl-10 pr-4 text-sm text-neutral-900 placeholder-neutral-500 outline-none transition-colors focus:border-neutral-400 focus:bg-white dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:placeholder-neutral-400 dark:focus:border-neutral-500 dark:focus:bg-neutral-800"
-              />
-              {searchQuery && (
+            {/* Search */}
+            <div className="flex items-center gap-2 border-b border-neutral-200 px-4 dark:border-neutral-800">
+              {selectedSection && (
                 <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded p-0.5 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
-                  aria-label="Clear search"
+                  onClick={goBack}
+                  className="flex max-w-[200px] items-center gap-1 rounded-md bg-neutral-100 px-2 py-1 text-xs text-neutral-700 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
                 >
+                  <span className="truncate">{selectedSection.text}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
+                    width="12"
+                    height="12"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className="flex-shrink-0"
                   >
                     <line x1="18" y1="6" x2="6" y2="18" />
                     <line x1="6" y1="6" x2="18" y2="18" />
                   </svg>
                 </button>
               )}
+              <input
+                ref={searchInputRef}
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleInputKeyDown}
+                placeholder={selectedSection ? "Filter..." : "Jump to section..."}
+                className="min-w-0 flex-1 bg-transparent py-4 pl-[7px] text-sm text-neutral-900 outline-none placeholder:text-neutral-400 dark:text-white"
+              />
+              <kbd className="flex-shrink-0 rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs text-neutral-500 shadow-none dark:bg-neutral-800 dark:text-neutral-400">
+                esc
+              </kbd>
             </div>
 
-            {/* Navigation list with scroll masks */}
-            <div className="relative mt-4">
-              {/* Top scrim */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-6 bg-gradient-to-b from-white to-transparent dark:from-neutral-900" />
-              {/* Bottom scrim */}
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6 bg-gradient-to-t from-white to-transparent dark:from-neutral-900" />
-              
-              <nav className="max-h-[60vh] overflow-y-auto py-3">
-                {filteredHeadings.length === 0 ? (
-                  <p className="py-8 text-center text-sm text-neutral-500">
-                    No sections found matching &ldquo;{searchQuery}&rdquo;
-                  </p>
-                ) : (
-                <ul className="divide-y divide-neutral-100 dark:divide-neutral-800">
-                  {filteredHeadings.map((heading) => (
-                    <li key={heading.id}>
+            {/* List */}
+            <div className="relative">
+              <ul ref={listRef} className="max-h-[60vh] overflow-y-auto pb-[53px]">
+              {items.length === 0 ? (
+                <li className="py-8 text-center text-sm text-neutral-500">
+                  No results
+                </li>
+              ) : (
+                items.map((item, index) => {
+                  const hasChildren =
+                    !selectedSection && getChildren(item).length > 0;
+                  const isSelected = index === selectedIndex;
+
+                  return (
+                    <li key={item.id} data-index={index}>
                       <button
-                        onClick={() => closeModal(heading.id)}
-                        className="w-full px-3 py-1.5 text-left text-[13px] transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
-                        style={{
-                          paddingLeft: `${(heading.level - 1) * 16 + 12}px`,
-                        }}
+                        onClick={() => handleSelect(item)}
+                        onMouseEnter={() => setSelectedIndex(index)}
+                        className={`flex w-full items-center justify-between py-2.5 pl-[23px] pr-4 text-left text-sm transition-colors ${
+                          isSelected
+                            ? "bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-white"
+                            : "text-neutral-700 dark:text-neutral-300"
+                        }`}
                       >
-                        <span
-                          className={`${
-                            heading.level === 1
-                              ? "font-semibold text-neutral-900 dark:text-white"
-                              : heading.level === 2
-                              ? "font-medium text-neutral-700 dark:text-neutral-200"
-                              : "text-neutral-500 dark:text-neutral-400"
-                          }`}
-                        >
-                          {heading.text}
-                        </span>
+                        <span className="truncate">{item.text}</span>
+                        {hasChildren && (
+                          <svg
+                            className="ml-2 mr-1 h-[15px] w-[15px] flex-shrink-0 text-neutral-400"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <polyline points="9 18 15 12 9 6" />
+                          </svg>
+                        )}
                       </button>
                     </li>
-                  ))}
-                </ul>
-                )}
-              </nav>
+                  );
+                })
+              )}
+              </ul>
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white from-[40px] via-white/50 via-65% to-transparent dark:from-neutral-900 dark:via-neutral-900/50" />
             </div>
 
+            {/* Footer hint */}
+            <div className="absolute inset-x-0 bottom-0 z-20 flex h-[53px] items-center px-4">
+              <div className="flex w-full items-center justify-between text-xs text-neutral-500 dark:text-neutral-400">
+                <div className="flex items-center gap-3">
+                  {selectedSection && (
+                    <span className="flex items-center gap-1">
+                      <kbd className="flex h-5 w-5 items-center justify-center rounded bg-neutral-100 font-mono shadow-none dark:bg-neutral-800">
+                        ←
+                      </kbd>
+                      <span>Back</span>
+                    </span>
+                  )}
+                  {items.length > 1 && (
+                    <span className="flex items-center gap-1">
+                      <kbd className="flex h-5 w-5 items-center justify-center rounded bg-neutral-100 font-mono shadow-none dark:bg-neutral-800">
+                        ↑
+                      </kbd>
+                      <kbd className="flex h-5 w-5 items-center justify-center rounded bg-neutral-100 font-mono shadow-none dark:bg-neutral-800">
+                        ↓
+                      </kbd>
+                      <span>Navigate</span>
+                    </span>
+                  )}
+                  <span className="flex items-center gap-1">
+                    <kbd className="flex h-5 w-5 items-center justify-center rounded bg-neutral-100 font-mono shadow-none dark:bg-neutral-800">
+                      ↵
+                    </kbd>
+                    <span>Select</span>
+                  </span>
+                </div>
+                <span className="pr-1.5">{items.length} item{items.length !== 1 ? "s" : ""}</span>
+              </div>
+            </div>
           </div>
         </div>
       )}
     </>
   );
 }
-
