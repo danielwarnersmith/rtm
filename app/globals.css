@@ -249,6 +249,15 @@ tr {
   .prose details > *:not(summary) {
     @apply px-4;
   }
+
+  /* Remove gap between summary and table */
+  .prose details > div:first-of-type {
+    @apply mt-0;
+  }
+
+  .prose details table {
+    @apply my-0;
+  }
 }
 
 /* Code block styles for rehype-pretty-code */
