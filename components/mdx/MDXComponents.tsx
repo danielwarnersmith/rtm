@@ -99,7 +99,7 @@ function CustomBlockquote(props: ComponentPropsWithoutRef<"blockquote">) {
  */
 function CustomTable(props: ComponentPropsWithoutRef<"table">) {
   return (
-    <div className="-mx-4 mb-6 w-[calc(100%+2rem)] overflow-x-auto">
+    <div className="-mx-4 overflow-x-auto">
       <table
         {...props}
         className="w-full border-collapse border-t border-neutral-200 text-sm dark:border-neutral-700"
@@ -121,7 +121,6 @@ function CustomThead(props: ComponentPropsWithoutRef<"thead">) {
   return (
     <thead
       {...rest}
-      className="border-b border-neutral-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800"
     >
       {children}
     </thead>

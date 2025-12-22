@@ -170,18 +170,18 @@ tr {
 
   .prose h1,
   .prose h1 a {
-    @apply text-[24px] leading-normal;
+    @apply text-[28px] leading-normal;
     font-weight: 700 !important;
     margin-bottom: 0 !important;
-    margin-top: 4.0em !important;
+    margin-top: 3.0em !important;
   }
 
   .prose h2,
   .prose h2 a {
-    @apply text-[24px] leading-tight;
+    @apply text-[18px] leading-tight;
     font-weight: 600 !important;
-    margin-bottom: 0.5em !important;
-    margin-top: 0 !important;
+    margin-bottom: 0.1em !important;
+    margin-top: 0.5em !important;
   }
 
   .prose h3,
@@ -216,6 +216,38 @@ tr {
   /* Remove underline from table links */
   .prose td a {
     @apply no-underline;
+  }
+
+  /* Collapsible sections (details/summary) */
+  .prose details {
+    @apply my-4 rounded-lg border border-neutral-200 dark:border-neutral-800;
+  }
+
+  .prose details summary {
+    @apply cursor-pointer px-4 py-3 font-medium text-neutral-700 dark:text-neutral-300;
+    @apply hover:bg-neutral-50 dark:hover:bg-neutral-900;
+    @apply select-none list-none;
+    @apply relative;
+  }
+
+  .prose details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .prose details summary::after {
+    content: "▶";
+    @apply absolute text-xs transition-transform;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .prose details[open] summary::after {
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  .prose details > *:not(summary) {
+    @apply px-4;
   }
 }
 
