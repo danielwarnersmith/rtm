@@ -4,24 +4,34 @@ import { Children as ReactChildren, isValidElement } from "react";
 import { ClickableTableRow } from "./ClickableTableRow";
 
 /**
+ * Strip section number prefixes (e.g., "9.11.5 ") from text
+ */
+function stripSectionPrefix(text: string): string {
+  return text.replace(/^[\d.]+\s+/, "");
+}
+
+/**
  * Custom anchor component that uses Next.js Link for internal navigation.
  * External links open in a new tab with security attributes.
  */
 function CustomLink(props: ComponentPropsWithoutRef<"a">) {
   const href = props.href;
+  const { children, ...rest } = props;
 
   // Handle internal links with Next.js Link
   if (href && href.startsWith("/")) {
     return (
-      <Link href={href} {...props}>
-        {props.children}
+      <Link href={href} {...rest}>
+        {children}
       </Link>
     );
   }
 
-  // Handle anchor links
+  // Handle anchor links - strip section number prefixes from display
   if (href && href.startsWith("#")) {
-    return <a {...props} />;
+    const text = typeof children === "string" ? children : "";
+    const displayText = text ? stripSectionPrefix(text) : children;
+    return <a {...rest} href={href}>{displayText}</a>;
   }
 
   // External links open in new tab with security attributes
@@ -29,8 +39,10 @@ function CustomLink(props: ComponentPropsWithoutRef<"a">) {
     <a
       target="_blank"
       rel="noopener noreferrer"
-      {...props}
-    />
+      {...rest}
+    >
+      {children}
+    </a>
   );
 }
 
@@ -87,10 +99,11 @@ function CustomBlockquote(props: ComponentPropsWithoutRef<"blockquote">) {
  */
 function CustomTable(props: ComponentPropsWithoutRef<"table">) {
   return (
-    <div className="mb-6 w-full overflow-x-auto">
+    <div className="-mx-4 mb-6 w-[calc(100%+2rem)] overflow-x-auto">
       <table
         {...props}
-        className="min-w-full border-collapse text-sm"
+        className="w-full border-collapse border-t border-neutral-200 text-sm dark:border-neutral-700"
+        style={{ borderTopWidth: '0.5px' }}
       />
     </div>
   );
@@ -124,7 +137,7 @@ function CustomTh(props: ComponentPropsWithoutRef<"th">) {
   return (
     <th
       {...rest}
-      className={`px-4 py-2 font-semibold text-neutral-900 dark:text-neutral-100 ${
+      className={`first:pl-4 last:pr-4 py-2 font-semibold text-neutral-900 dark:text-neutral-100 ${
         isNumericColumn ? "text-right" : "text-left"
       }`}
     >
@@ -142,7 +155,7 @@ function CustomTd(props: ComponentPropsWithoutRef<"td">) {
   return (
     <td
       {...rest}
-      className={`border-b border-neutral-200 px-4 py-2 dark:border-neutral-700 ${
+      className={`border-b border-neutral-200 first:pl-4 last:pr-4 py-2 dark:border-neutral-700 ${
         isNumeric
           ? "text-right tabular-nums text-neutral-500 dark:text-neutral-400"
           : "text-neutral-700 dark:text-neutral-300"
@@ -198,8 +211,8 @@ function CustomTr(props: ComponentPropsWithoutRef<"tr">) {
 }
 
 /**
- * Custom heading components with anchor links.
- * Allows direct linking to specific sections.
+ * Custom heading components with IDs for navigation.
+ * Strips section number prefixes for cleaner display.
  */
 function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
   const Tag = `h${level}` as const;
@@ -213,16 +226,13 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
+    
+    // Strip section number prefixes (e.g., "9.11.5 ") for display
+    const displayText = text.replace(/^[\d.]+\s+/, "");
 
     return (
       <Tag id={id} {...rest}>
-        <a
-          href={`#${id}`}
-          className="no-underline hover:underline"
-          aria-label={`Link to ${text}`}
-        >
-          {children}
-        </a>
+        {displayText}
       </Tag>
     );
   };

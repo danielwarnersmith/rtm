@@ -152,7 +152,7 @@ export default function HomePage() {
     <div className="space-y-8">
       {/* Header */}
       <section>
-        <h1 className="text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-white sm:text-5xl">
+        <h1 className="text-[28px] font-semibold leading-tight text-neutral-900 dark:text-white">
           Machine Manuals
         </h1>
       </section>

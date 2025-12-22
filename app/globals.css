@@ -161,6 +161,7 @@ tr {
 @layer components {
   .prose p {
     @apply text-[18px] leading-tight;
+    margin-top: 0 !important;
   }
 
   .prose li {
@@ -169,31 +170,32 @@ tr {
 
   .prose h1,
   .prose h1 a {
-    @apply text-[28px] leading-tight;
-    font-weight: 600 !important;
+    @apply text-[24px] leading-normal;
+    font-weight: 700 !important;
     margin-bottom: 0 !important;
+    margin-top: 4.0em !important;
   }
 
   .prose h2,
   .prose h2 a {
     @apply text-[24px] leading-tight;
-    font-weight: 400 !important;
-    margin-top: 1.5em !important;
+    font-weight: 600 !important;
     margin-bottom: 0.5em !important;
+    margin-top: 0 !important;
   }
 
   .prose h3,
   .prose h3 a {
-    @apply text-[20px] leading-tight;
-    font-weight: 400 !important;
+    @apply text-[18px] leading-tight text-neutral-300 dark:text-neutral-500;
+    font-weight: 600 !important;
     margin-top: 1.25em !important;
     margin-bottom: 0.5em !important;
   }
 
   .prose h4,
   .prose h4 a {
-    @apply text-[18px] leading-tight;
-    font-weight: 400 !important;
+    @apply text-[16px] leading-tight;
+    font-weight: 200 !important;
   }
 
   /* Offset anchor links to account for sticky header (h-16 = 4rem) */
