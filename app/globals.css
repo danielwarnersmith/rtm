@@ -149,7 +149,7 @@ tr {
   }
 
   body {
-    @apply bg-white text-neutral-900 antialiased;
+    @apply bg-[#F5F1EB] text-neutral-900 antialiased;
   }
 
   .dark body {
