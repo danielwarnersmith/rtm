@@ -134,9 +134,10 @@ export default function HomePage() {
   useEffect(() => {
     async function loadPagefind() {
       try {
+        const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
         const pagefind = await import(
-          // @ts-expect-error - Pagefind is generated at build time
-          /* webpackIgnore: true */ "/pagefind/pagefind.js"
+          // Pagefind is generated at build time and served as a static asset.
+          /* webpackIgnore: true */ `${basePath}/pagefind/pagefind.js`
         );
         await pagefind.init();
         pagefindRef.current = pagefind;
