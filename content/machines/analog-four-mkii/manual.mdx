@@ -276,7 +276,7 @@ We have used the following conventions throughout the manual:
 
 Key names are written in upper case, bold style and bracketed letters. For instance, the key labeled "FUNC" is called <Key>FUNC</Key>.
 
-Menu names are written in upper case letters. The <Param>OSC1</Param> menu is an example of that.
+Menu names are written in upper case letters. The <Param>OSC (1)</Param> menu is an example of that.
 
 Parameter names and certain menu options where settings can be made or actions performed are written in bold, upper case letters. For example, VOL.
 
@@ -1027,7 +1027,7 @@ Deletes the selected Sounds.
 
 Enables or disable write protection for the selected Sounds. When a Sound is write protected, it cannot be overwritten, renamed, tagged or deleted.
 
-## 9.8.8 Send Sysex
+## 9.8.8 Send SYSEX
 
 Sends the selected Sounds as SysEx data.
 
@@ -1147,9 +1147,9 @@ Sounds are edited by adjusting the parameters found on the synth track <Param>PA
 
 Six different <Param>PARAMETER</Param> pages exist. [For more information, please see "APPENDIX A: SYNTH TRACK](#appendix-a-synth-track)
 
-OSC1 controls oscillator 1. Contains one sub page for the noise generator.
+OSC (1) controls oscillator 1. Contains one sub page for the noise generator.
 
-OSC2 controls oscillator 2. The sub page hosts parameters relevant for both oscillators.
+OSC (2) controls oscillator 2. The sub page hosts parameters relevant for both oscillators.
 
 FILTERS controls the two filters and the overdrive. One 24 dB/octave 4-pole lowpass ladder filter and one 2-pole multimode filter are available, connected in series with the overdrive between them.
 
@@ -1193,9 +1193,9 @@ CV C controls the signal sent from the CV C output.
 
 CV D controls the signal sent from the CV D output.
 
-ENV1/2 offers two freely assignable envelopes for control of the <Param>CV</Param> track parameters.
+ENV 1/2 offers two freely assignable envelopes for control of the <Param>CV</Param> track parameters.
 
-LFO1/2 offers two freely assignable LFOs which can be used to control the <Param>CV</Param> track parameters.
+LFO 1/2 offers two freely assignable LFOs which can be used to control the <Param>CV</Param> track parameters.
 
 # <span id="page-36-1"></span>9.15 Track Muting
 
@@ -1407,7 +1407,7 @@ The <Param>ARPEGGIATOR</Param> menu controls the six arpeggiators, one for each 
 
 ![](/machines/analog-four-mkii/images/_page_42_Picture_3.jpeg)
 
-## 10.6.1 Mod
+## 10.6.1 MOD
 
 Activates the arpeggiator and controls how the arpeggiated notes will be sorted.
 
@@ -1427,15 +1427,15 @@ RND will randomize the playback of the arpeggiated notes.
 
 PLY will arpeggiate a complete chord (POLYPHONY must be activated, see page 19) in the same way an individual note is arpeggiated in <Param>TRU</Param> mode.
 
-## 10.6.2 Spd
+## 10.6.2 SPD
 
 Sets the speed of the arpeggiator. It is synchronized to the BPM of the project. A setting of 6 equals 16th notes, a setting of 12 equals 8th notes and so on.
 
-# 10.6.3 Rng
+# 10.6.3 RNG
 
 Sets the octave range of the arpeggiator. After each finished arpeggiator cycle, the arpeggiated notes will be transposed one octave up. When the notes have reached the octave offset specified by the RNG setting the notes will be reset to their initial values. From there the octave transpose will be started all over again.
 
-## 10.6.4 Leg
+## 10.6.4 LEG
 
 Controls the legato of the arpeggiator. This setting will affect the note trigs of the track even if the MOD setting is set to OFF.
 
@@ -1443,11 +1443,11 @@ ON will play overlapping notes legato, releasing the old note after the new one.
 
 OFF will send out a MIDI note off message before the start of each arpeggiated note.
 
-## 10.6.5 Len
+## 10.6.5 LEN
 
 Controls the length of the arpeggiated notes.
 
-## 10.6.6 No2-No4
+## 10.6.6 NO2-NO4
 
 Selects the note offset in semi-tones for three additional arpeggio notes. The offset is made from the original note trig. The TRK KEY SCALE and TRK KEY NOTE settings found in the <Param>NOTES SETUP</Param> menu will affect the note values of the arpeggiated notes.
 
@@ -1473,23 +1473,23 @@ The <Param>NOTE</Param> menu controls general note settings for the active track
 
 The parameter settings seen in the <Param>NOTE</Param> menu settings are the default settings when placing trigs on the sequencer. Entering three note trigs, changing, for example, the note length parameter and then entering three more note trigs will thus make the last three note trigs share a different note length compared to the first three. To add individual settings per note, utilize parameter locks. [see "10.12.1 PARAMETER LOCKS" on page 48.](#10-12-1-parameter-locks) µTM, ENV, and LFO settings can only be changed when parameter locked.
 
-## 10.8.1 Not
+## 10.8.1 NOT
 
 Sets the default note value.
 
-# 10.8.2 Vel
+# 10.8.2 VEL
 
 Sets the velocity value. The higher the value, the higher the volume of the note. The default value is 100. Please note that this value will affect any <Param>VELOCITY MOD</Param> menu assignments. [please see "9.11.6 VELOCITY MOD" on page 35.](#9-11-6-velocity-mod)
 
-## <span id="page-43-3"></span>10.8.3 Len
+## <span id="page-43-3"></span>10.8.3 LEN
 
 Sets the note length.
 
-## 10.8.4 µTm
+## 10.8.4 µTM
 
 Controls the micro timing offset. A negative value will nudge the trig to a position before the quantized sequencer step, a positive after. Each micro timing value step is equal to one 1/384th of a note. When entering note trigs in the <Param>LIVE RECORDING</Param> mode, they will automatically be micro timed.[mation, please see "10.3.3 LIVE RECORDING MODE" on page 40.](#10-3-3-live-recording-mode)
 
-## 10.8.5 Prb
+## 10.8.5 PRB
 
 Trig Probability sets the probability that the trigs on the track plays or not. The probability outcome is re-evaluated every time a trig is set to play. The default setting is 100%, meaning that all the trigs on the track plays every time. (0%–100%)
 
@@ -1499,21 +1499,21 @@ Trig Probability sets the probability that the trigs on the track plays or not. 
 If you have placed a conditional lock on a trig in the sequencer, the trig condition overrides the Trig Probability setting. For example, if you set PRB to 70% and a FILL trig condition on a trig, that trig will only (and always) play when the sequencer is in <Param>FILL</Param> mode. For more information, please see ["10.12.3 CONDITIONAL LOCKS" on page 48.](#10-12-3-conditional-locks)
 </Tip>
 
-## 10.8.6 Env (F)
+## 10.8.6 ENV (F)
 
 Controls whether the ENVF should be retrigged or not when a note trig or lock trig is activated by the sequencer.
 
-# 10.8.7 Env (2)
+# 10.8.7 ENV (2)
 
-Controls whether the ENV2 should be retrigged or not when a note trig or lock trig is activated by the sequencer.
+Controls whether the ENV (2) should be retrigged or not when a note trig or lock trig is activated by the sequencer.
 
 ## 10.8.8 LFO (1)
 
-Controls whether the LFO1 should be retrigged or not when a note trig or lock trig is activated by the sequencer.
+Controls whether the LFO (1) should be retrigged or not when a note trig or lock trig is activated by the sequencer.
 
 ## 10.8.9 LFO (2)
 
-Controls whether the LFO2 should be retrigged or not when a note trig or lock trig is activated by the sequencer.
+Controls whether the LFO (2) should be retrigged or not when a note trig or lock trig is activated by the sequencer.
 
 <Tip>
 It is possible to real time record and real time erase NOT, VEL and <Param>LEN</Param> parameters. This is useful when for example inputting notes using an external MIDI keyboard sending MIDI velocity data. The same applies when entering notes using the mini-keyboard. In this case VEL changes will not be recorded though, as the mini-keyboard is not velocity sensitive. [For more information, please see "10.12.1 PARAMETER LOCKS" on page 48.](#10-12-1-parameter-locks)
@@ -1740,7 +1740,7 @@ When this menu is active, place or remove note slide trigs by pressing the <Key>
 
 ![](/machines/analog-four-mkii/images/_page_49_Picture_17.jpeg)
 
-If a note slide trig is placed on the same step as a note trig, the pitch of the previous note trig will slide. For instance, if a track contains two note trigs and a note slide trig is placed on the same step as the second note trig, the pitch of the first note trig will slide to the pitch of the second note trig. The speed of the pitch slide is determined by the <Param>SLI</Param> parameter, found in the second page of the <Param>OSC2</Param> menu. [more information, please see "APPENDIX A: SYNTH TRACK PARAMETERS" on page 86.](#appendix-a-synth-track-parameters)
+If a note slide trig is placed on the same step as a note trig, the pitch of the previous note trig will slide. For instance, if a track contains two note trigs and a note slide trig is placed on the same step as the second note trig, the pitch of the first note trig will slide to the pitch of the second note trig. The speed of the pitch slide is determined by the <Param>SLI</Param> parameter, found in the second page of the <Param>OSC (2)</Param> menu. [more information, please see "APPENDIX A: SYNTH TRACK PARAMETERS" on page 86.](#appendix-a-synth-track-parameters)
 
 <span id="page-50-0"></span><Tip>
 Note slides can be added to note trigs. Keep the note trig pressed and press <Key>BANK G</Key>. A note slide trig will automatically be placed on the same sequencer step as the note trig.
@@ -2218,7 +2218,7 @@ Each CV output has three trim settings. Begin by selecting 0 V, then press and h
 
 Note that adjusting the CV does not improve CV pitch control. If you have set up pitch control of an external synth properly then, any linear error has already been compensated for by that calibration. In fact, you will have to reconfigure the CV pitch control after changing the values in the VOLTAGE TRIM Menu, because you will have changed the point of reference.
 
-# <span id="page-63-0"></span>12.5 Sysex Dump
+# <span id="page-63-0"></span>12.5 SYSEX Dump
 
 In the <Param>SYSEX DUMP</Param> menu, kits, Sounds, patterns, songs and global slots can be sent and received. Select a menu option using <Key>UP</Key>/<Key>DOWN</Key> or the <Knob>TRACK LEVEL</Knob> knob. Press <Key>YES</Key> to open the highlighted menu selection.
 
@@ -2230,7 +2230,7 @@ If the Analog Four MKII is sending or receiving SysEx data through the MIDI port
 
 If the external device is a computer, we recommend using our free SysEx utility C6, which can be downloaded from the Elektron website.
 
-## 12.5.1 Sysex Send
+## 12.5.1 SYSEX Send
 
 Here kits, Sounds, patterns, songs and global slots can be sent to an external device via the MIDI OUT port or the USB port of the Analog Four MKII.
 
@@ -2272,7 +2272,7 @@ Backing up your data regularly is important!
 
 Before initiating a SysEx send, first, make sure the receiving device is listening for data to be sent.
 
-## 12.5.2 Sysex Receive
+## 12.5.2 SYSEX Receive
 
 Here kits, Sounds, patterns, songs and global slots can be received from an external device via the MIDI IN port or the USB port of the Analog Four MKII.
 
@@ -2539,14 +2539,14 @@ IN L Uses the audio coming from the left external input as the audio source inst
 
 IN R Equivalent to IN L, but using the right external input.
 
-FDB This setting is only available to OSCILLATOR 1. Instead of using the oscillator waveform as the audio source, the audio coming from the ladder filter output will be used. Just as with the oscillator, the <Param>LEV</Param> parameter sets the level of this signal path. Turning it up high can introduce a self-oscillating feedback useful for drums or uncontrolled screams. The filter cutoff and resonance settings also affect the feedback behavior. On more moderate levels, it will give a more overloaded sound character to whatever enters the filter from OSC2, similar to the external feedback patch known from certain 1970s synths.
+FDB This setting is only available to OSCILLATOR 1. Instead of using the oscillator waveform as the audio source, the audio coming from the ladder filter output will be used. Just as with the oscillator, the <Param>LEV</Param> parameter sets the level of this signal path. Turning it up high can introduce a self-oscillating feedback useful for drums or uncontrolled screams. The filter cutoff and resonance settings also affect the feedback behavior. On more moderate levels, it will give a more overloaded sound character to whatever enters the filter from OSC (2), similar to the external feedback patch known from certain 1970s synths.
 
 NEI This setting is only available in the <Param>OSCILLATOR 2</Param> menu. It will route the audio of the multimode filter output of the track preceding the track being edited. This audio can then be affected by the AM, the filters, the overdrive and the amplitude envelope of the track. In this way track 1 can be sent to track 2, track 2 to track 3, track 3 to track 4. For a completely serial routing, turn down the LEV setting of the routed track completely. This setting does nothing on track 1.
 
 OFF This will turn off the oscillator entirely. The sub oscillator is not affected though.
 
 <Tip>
-The AM functionality between the oscillators still exists when using filter feedback, neighbor, and external inputs as the OSC1/OSC2 waveforms. I.e., other signals than oscillator signals can be subject to amplitude modulation.
+The AM functionality between the oscillators still exists when using filter feedback, neighbor, and external inputs as the OSC 1/OSC 2 waveforms. I.e., other signals than oscillator signals can be subject to amplitude modulation.
 </Tip>
 
 ## 14.2 Filters
@@ -2607,11 +2607,11 @@ The CV/Gate track of the Analog Four MKII is made for controlling external, CV/G
 2. Connect the CV A cable to the external synth pitch CV control input. This cable will control the pitch of the external synth.
 3. Connect the CV B cable to the external synth gate input. This cable will open the envelope of the external synth.
 4. Connect the CV C cable to the external synth filter CV input. This cable will control the filter cutoff of the external synth.
-5. While on the <Param>CV</Param> track, press <Key>FUNC</Key> + <Key>OSC1</Key>. In this menu, set TYPE to PITCH V/OCT. You can read more about how to calibrate the pitch CV so that it matches the tuning of your external CV-controlled synthesizer in the <Param>CV CONFIG</Param> menu. [For more information, please see "12.4 CV CONFIG" on page 62.](#12-4-CV-config)
+5. While on the <Param>CV</Param> track, press <Key>FUNC</Key> + <Key>OSC (1)</Key>. In this menu, set TYPE to PITCH V/OCT. You can read more about how to calibrate the pitch CV so that it matches the tuning of your external CV-controlled synthesizer in the <Param>CV CONFIG</Param> menu. [For more information, please see "12.4 CV CONFIG" on page 62.](#12-4-CV-config)
 
 ![](/machines/analog-four-mkii/images/_page_74_Picture_11.jpeg)
 
-6. Press <Key>FUNC</Key> + <Key>OSC2</Key>. In this menu, set TYPE to GATE. Exit the menu.
+6. Press <Key>FUNC</Key> + <Key>OSC (2)</Key>. In this menu, set TYPE to GATE. Exit the menu.
 
 ![](/machines/analog-four-mkii/images/_page_74_Picture_13.jpeg)
 
@@ -2655,7 +2655,7 @@ Thanks to the neighbor routing, all the filters of the Analog Four MKII can be u
 In this example, the two filters of each track will be used in parallel with the filters of the other tracks.
 
 1. Connect the outputs of for example a Monomachine to the inputs of the Analog Four MKII.
-2. For all four synth tracks, set the <Param>WAV</Param> parameter in the <Param>OSC1</Param> page to IN R, and the <Param>WAV</Param> parameter of OSC2 to IN L. This will sum the left and right channels.
+2. For all four synth tracks, set the <Param>WAV</Param> parameter in the <Param>OSC (1)</Param> page to IN R, and the <Param>WAV</Param> parameter of OSC (2) to IN L. This will sum the left and right channels.
 
 ![](/machines/analog-four-mkii/images/_page_76_Picture_13.jpeg)
 
@@ -2694,7 +2694,7 @@ In this setup example, the <Param>CV</Param> track will trig the oscillator of a
 
 1. Connect a standard mono phone cable from the Analog Four MKII CV A output to the pitch CV control input of the external synth.
 2. Connect the output of the external oscillator to the left external input
-3. Select the <Param>CV</Param> track and press <Key>FUNC</Key> + <Key>OSC1</Key>. In this menu, depending on the specification of the external analog synth, set TYPE to either PITCH V/OCT or PITCH Hz/V. You can read more about how to calibrate the pitch CV so that it matches the tuning of your external CV-controlled synthesizer in the CV CONFIG section. [For more information, please see "12.4 CV CONFIG" on page 62.](#12-4-CV-config)
+3. Select the <Param>CV</Param> track and press <Key>FUNC</Key> + <Key>OSC (1)</Key>. In this menu, depending on the specification of the external analog synth, set TYPE to either PITCH V/OCT or PITCH Hz/V. You can read more about how to calibrate the pitch CV so that it matches the tuning of your external CV-controlled synthesizer in the CV CONFIG section. [For more information, please see "12.4 CV CONFIG" on page 62.](#12-4-CV-config)
 
 ![](/machines/analog-four-mkii/images/_page_78_Picture_8.jpeg)
 
@@ -2702,7 +2702,7 @@ In this setup example, the <Param>CV</Param> track will trig the oscillator of a
 
 ![](/machines/analog-four-mkii/images/_page_78_Picture_10.jpeg)
 
-5. Select track 1. Set WAV on the <Param>OSC1</Param> page to IN L. For oscillator 2, choose one of the internal Analog Four MKII waveforms.
+5. Select track 1. Set WAV on the <Param>OSC (1)</Param> page to IN L. For oscillator 2, choose one of the internal Analog Four MKII waveforms.
 
 <span id="page-79-0"></span>![](/machines/analog-four-mkii/images/_page_79_Picture_1.jpeg)
 
@@ -2727,7 +2727,7 @@ In this setup example, the Analog Four MKII is used for processing the sound out
 <span id="page-80-0"></span>![](/machines/analog-four-mkii/images/_page_80_Picture_1.jpeg)
 
 4. Second method: Select Track 1 on the Analog Four MKII by pressing <Key>TRACK 1</Key> key.
-5. On the <Param>OSC1</Param> menu page, set the <Param>WAV</Param> parameter to IN L using <Knob>DATA ENTRY</Knob> knob *F*. Set SUB, the sub oscillator, to off. Turn LEV all the way up.
+5. On the <Param>OSC (1)</Param> menu page, set the <Param>WAV</Param> parameter to IN L using <Knob>DATA ENTRY</Knob> knob *F*. Set SUB, the sub oscillator, to off. Turn LEV all the way up.
 
 ![](/machines/analog-four-mkii/images/_page_80_Picture_4.jpeg)
 
@@ -2957,31 +2957,31 @@ The parameters on the <Param>ARP</Param> page and <Param>NOTE</Param> menu can n
 
 ## Oscillator 1
 
-The <Param>OSC1</Param> pages control the first oscillator, its sub oscillator, plus the noise generator.
+The <Param>OSC (1)</Param> pages control the first oscillator, its sub oscillator, plus the noise generator.
 
-## Osc1 (Page 1)
+## OSC (1) (Page 1)
 
 ![](/machines/analog-four-mkii/images/_page_85_Picture_10.jpeg)
 
-TUN (OSC1 Coarse Tune) sets the pitch of the oscillator in semi-tones. Press and hold <Key>FUNC</Key> and then turn the knob to jump a whole octave. Press the knob while turning it to jump four semitones.
+TUN (OSC (1) Coarse Tune) sets the pitch of the oscillator in semi-tones. Press and hold <Key>FUNC</Key> and then turn the knob to jump a whole octave. Press the knob while turning it to jump four semitones.
 
-FIN (OSC1 Fine Tune) fine tunes the pitch of the oscillator. This knob can be continuously tweaked several turns. TUN is increased or decreased one semitone for every turn on FIN.
+FIN (OSC (1) Fine Tune) fine tunes the pitch of the oscillator. This knob can be continuously tweaked several turns. TUN is increased or decreased one semitone for every turn on FIN.
 
-DET (OSC1 Linear Detune) offsets the frequency of the oscillator by a certain number of hertz (unlike FIN, which adjusts the pitch in cents). This unique feature gives more detune in the bass notes and allows for a different kind of chorus-like detune that reminds of very old and big analog synthesizers.
+DET (OSC (1) Linear Detune) offsets the frequency of the oscillator by a certain number of hertz (unlike FIN, which adjusts the pitch in cents). This unique feature gives more detune in the bass notes and allows for a different kind of chorus-like detune that reminds of very old and big analog synthesizers.
 
-TRK (OSC1 Keytrack) sets the oscillator pitch to follow the notes you play or not. When off, the pitch is constant, which can be convenient for drum or effects sounds.
+TRK (OSC (1) Keytrack) sets the oscillator pitch to follow the notes you play or not. When off, the pitch is constant, which can be convenient for drum or effects sounds.
 
-LEV (OSC1 Level) sets the oscillator level. The normal level is 100. The sound can get dirtier at higher levels; lower levels gives a cleaner signal through the filters and also makes filter resonances more pronounced. Try different levels for different kinds of sounds.
+LEV (OSC (1) Level) sets the oscillator level. The normal level is 100. The sound can get dirtier at higher levels; lower levels gives a cleaner signal through the filters and also makes filter resonances more pronounced. Try different levels for different kinds of sounds.
 
-WAV (OSC1 Waveform) sets the oscillator waveform to Sawtooth, Transistor Pulse, Pulse, or Triangle. It is also possible to choose one of the two External Inputs (to send external sounds through the filters) or to activate Filter Feedback. Note that selecting a waveform does not change the <Param>PW</Param> parameter, which affects the waveshape of the chosen waveform.
+WAV (OSC (1) Waveform) sets the oscillator waveform to Sawtooth, Transistor Pulse, Pulse, or Triangle. It is also possible to choose one of the two External Inputs (to send external sounds through the filters) or to activate Filter Feedback. Note that selecting a waveform does not change the <Param>PW</Param> parameter, which affects the waveshape of the chosen waveform.
 
-SUB (OSC1 Sub Oscillator) sets the waveform of the sub oscillator or turns it off. The sub oscillator pitch is fixed at one or two octaves below the oscillator.
+SUB (OSC (1) Sub Oscillator) sets the waveform of the sub oscillator or turns it off. The sub oscillator pitch is fixed at one or two octaves below the oscillator.
 
-PW (OSC1 Pulsewidth) sets the oscillator waveshape. The mid position (64) gives the default waveshape. Unlike on most synths, all four waveforms, selected by WAV, have variable waveshapes.
+PW (OSC (1) Pulsewidth) sets the oscillator waveshape. The mid position (64) gives the default waveshape. Unlike on most synths, all four waveforms, selected by WAV, have variable waveshapes.
 
-SPD (OSC1 PWM Speed) sets the speed of the oscillator's PWM LFO, which can be used to modulate the waveshape back and forth around the set <Param>PW</Param> parameter.
+SPD (OSC (1) PWM Speed) sets the speed of the oscillator's PWM LFO, which can be used to modulate the waveshape back and forth around the set <Param>PW</Param> parameter.
 
-PWM (OSC1 PWM Depth) sets the amount of the oscillator's Pulsewidth Modulation around the set <Param>PW</Param> parameter. Use this to add subtle or drastic motion to the sound.
+PWM (OSC (1) PWM Depth) sets the amount of the oscillator's Pulsewidth Modulation around the set <Param>PW</Param> parameter. Use this to add subtle or drastic motion to the sound.
 
 ## Noise (Page 2)
 
@@ -2997,39 +2997,39 @@ LEV (Noise Level) sets the level of noise.
 
 # Oscillator 2
 
-The <Param>OSC2</Param> pages control the second oscillator and the accompanying sub oscillator. Settings that will affect both oscillators are found here as well.
+The <Param>OSC (2)</Param> pages control the second oscillator and the accompanying sub oscillator. Settings that will affect both oscillators are found here as well.
 
-## Osc2 (Page 1)
+## OSC (2) (Page 1)
 
 ![](/machines/analog-four-mkii/images/_page_86_Picture_4.jpeg)
 
-TUN (OSC2 Coarse Tune) sets the pitch of the oscillator in semitones. Press and hold <Key>FUNC</Key> and then turn the knob to jump a whole octave.
+TUN (OSC (2) Coarse Tune) sets the pitch of the oscillator in semitones. Press and hold <Key>FUNC</Key> and then turn the knob to jump a whole octave.
 
-FIN (OSC2 Fine Tune) fine tunes the pitch of the oscillator. This knob can be continuously tweaked several turns. TUN is increased or decreased one semitone for every turn on FIN.
+FIN (OSC (2) Fine Tune) fine tunes the pitch of the oscillator. This knob can be continuously tweaked several turns. TUN is increased or decreased one semitone for every turn on FIN.
 
-DET (OSC2 Linear Detune) offsets the frequency of the oscillator by a certain number of hertz (unlike FIN, which adjusts the pitch in cents). This unique feature gives more detune in the bass notes and allows for a different kind of chorus-like detune that reminds of very old and big analog synthesizers.
+DET (OSC (2) Linear Detune) offsets the frequency of the oscillator by a certain number of hertz (unlike FIN, which adjusts the pitch in cents). This unique feature gives more detune in the bass notes and allows for a different kind of chorus-like detune that reminds of very old and big analog synthesizers.
 
-TRK (OSC2 Keytrack) sets the oscillator pitch to follow the notes you play or not. When off, the pitch is constant, which can be convenient for drum or effects sounds.
+TRK (OSC (2) Keytrack) sets the oscillator pitch to follow the notes you play or not. When off, the pitch is constant, which can be convenient for drum or effects sounds.
 
-LEV (OSC2 Level) sets the oscillator level. The normal level is 100. The sound can get dirtier at higher levels; lower levels gives a cleaner signal through the filters and also makes filter resonances more pronounced.
+LEV (OSC (2) Level) sets the oscillator level. The normal level is 100. The sound can get dirtier at higher levels; lower levels gives a cleaner signal through the filters and also makes filter resonances more pronounced.
 
-WAV (OSC2 Waveform) can be set to Sawtooth, Transistor Pulse, Pulse, or Triangle. It is also possible to choose one of the two External Inputs (to send external sounds through the filters) or to activate Neighbor, which will route the audio of the previous track to the currently active track. Selecting a waveform does not change the <Param>PW</Param> parameter, which affects the waveshape of the waveform.
+WAV (OSC (2) Waveform) can be set to Sawtooth, Transistor Pulse, Pulse, or Triangle. It is also possible to choose one of the two External Inputs (to send external sounds through the filters) or to activate Neighbor, which will route the audio of the previous track to the currently active track. Selecting a waveform does not change the <Param>PW</Param> parameter, which affects the waveshape of the waveform.
 
-SUB (OSC2 Sub Oscillator) sets the waveform of the sub oscillator or turns it off. The sub oscillator pitch is fixed at one or two octaves below the oscillator.
+SUB (OSC (2) Sub Oscillator) sets the waveform of the sub oscillator or turns it off. The sub oscillator pitch is fixed at one or two octaves below the oscillator.
 
-PW (OSC2 Pulsewidth) sets the oscillator waveshape. The mid position (64) gives the default waveshape. Unlike on most synths, all four waveforms, selected by WAV, have variable waveshapes.
+PW (OSC (2) Pulsewidth) sets the oscillator waveshape. The mid position (64) gives the default waveshape. Unlike on most synths, all four waveforms, selected by WAV, have variable waveshapes.
 
-SPD (OSC2 PWM Speed) sets the speed of the oscillator's PWM LFO, which can be used to modulate the waveshape back and forth around the set <Param>PW</Param> parameter.
+SPD (OSC (2) PWM Speed) sets the speed of the oscillator's PWM LFO, which can be used to modulate the waveshape back and forth around the set <Param>PW</Param> parameter.
 
-PWM (OSC2 PWM Depth) sets the amount of the oscillator's Pulsewidth Modulation around the set <Param>PW</Param> parameter.
+PWM (OSC (2) PWM Depth) sets the amount of the oscillator's Pulsewidth Modulation around the set <Param>PW</Param> parameter.
 
-## Osc 1&2 (Page 2)
+## OSC (1&2) (Page 2)
 
 ![](/machines/analog-four-mkii/images/_page_86_Picture_16.jpeg)
 
-AM1 (Osc1 AM) engages Amplitude Modulation on Oscillator 1, which means that its signal is switched on/off (multiplied) by the pulse wave of Oscillator 2. This introduces new harmonics with frequencies being the sum and difference frequencies of the harmonics of the two oscillators. The result is related to ring modulation and can give metallic, hollow, or disharmonic sound qualities. Note that the waveform and pulse width of Oscillator 2 also affects the result, even if that oscillator is not heard.
+AM1 (OSC (1) AM) engages Amplitude Modulation on Oscillator 1, which means that its signal is switched on/off (multiplied) by the pulse wave of Oscillator 2. This introduces new harmonics with frequencies being the sum and difference frequencies of the harmonics of the two oscillators. The result is related to ring modulation and can give metallic, hollow, or disharmonic sound qualities. Note that the waveform and pulse width of Oscillator 2 also affects the result, even if that oscillator is not heard.
 
-SMD (Sync Mode) enables oscillator sync between the two oscillators, either Osc2 synchronized to Osc1, Osc1 to Osc2, or Metal Sync where both oscillators reset each other in a special manner.
+SMD (Sync Mode) enables oscillator sync between the two oscillators, either OSC (2) synchronized to OSC (1), OSC (1) to OSC (2), or Metal Sync where both oscillators reset each other in a special manner.
 
 SNC (Sync Amount) sets how hard the synced oscillator will lock to the syncing oscillator's frequency. Maximum value gives so-called "hard sync" with the strongest sync sound. Lower values give "soft sync" where the synced oscillator can also lock to subharmonics of the syncing oscillator. The value zero gives no sync at all.
 
@@ -3037,7 +3037,7 @@ BND (Bend Depth) sets the amount of auto bend. The higher the setting, the more 
 
 SLI (Note Slide time) sets the slide time of note slides, set in the <Param>NOTE SLIDE</Param> menu, and also the auto bend time (BND).
 
-AM2 (Osc2 AM) engages Amplitude Modulation on Oscillator 2, which means that its signal is switched on/off (multiplied) by the pulse wave of Oscillator 1. See AM1 above.
+AM2 (OSC (2) AM) engages Amplitude Modulation on Oscillator 2, which means that its signal is switched on/off (multiplied) by the pulse wave of Oscillator 1. See AM1 above.
 
 TRG (Oscillator Retrig) lets the two oscillators start each note in phase with each other. This can give a stronger and more consistent bass punch
 
@@ -3063,7 +3063,7 @@ OVR (Filter1 Overdrive) introduces distortion in the signal path. In mid positio
 
 TRK (Filter1 Keytrack) lets the cutoff frequency follow the pitch of the sound. A setting of 32 will make the filter track the oscillator frequency in note intervals, making it possible to play the Filter 1 resonance the same way as an oscillator is played.
 
-DEP (Filter1 EnvF Depth) sets the amount of cutoff frequency modulation from the filter envelope EnvF. The knob is bipolar (both negative and positive modulation depth is possible). Note that ENV always affects Filter1, regardless of which modulation destinations are chosen.
+DEP (Filter1 ENV (F) Depth) sets the amount of cutoff frequency modulation from the filter envelope ENV (F). The knob is bipolar (both negative and positive modulation depth is possible). Note that ENV always affects Filter1, regardless of which modulation destinations are chosen.
 
 FRQ (Filter2 Frequency) sets the cutoff frequency of Filter 2, which is the 2-pole multimode filter located after Filter 1 and Overdrive.
 
@@ -3073,7 +3073,7 @@ TYP (Filter2 Type) selects the filter type of Filter 2. Seven types are availabl
 
 TRK (Filter2 Keytrack) lets the cutoff frequency follow the pitch of the sound. A setting of 32 will make the filter track the oscillator frequency in note intervals.
 
-DEP (Filter2 EnvF Depth) sets the amount of cutoff frequency modulation from the filter envelope EnvF. The knob is bipolar (both negative and positive modulation depth is possible). Note that ENV always affects Filter2, regardless of which modulation destinations are chosen.
+DEP (Filter2 ENV (F) Depth) sets the amount of cutoff frequency modulation from the filter envelope ENV (F). The knob is bipolar (both negative and positive modulation depth is possible). Note that ENV always affects Filter2, regardless of which modulation destinations are chosen.
 
 # Amplitude
 
@@ -3083,15 +3083,15 @@ The <Param>AMP</Param> page contains settings for the amplitude envelope and the
 
 ![](/machines/analog-four-mkii/images/_page_88_Picture_4.jpeg)
 
-ATK (EnvA Attack) sets the attack time of the EnvA envelope, which controls the amplitude of the track.
+ATK (ENV (A) Attack) sets the attack time of the ENV (A) envelope, which controls the amplitude of the track.
 
-DEC (EnvA Decay) sets the decay time of the EnvA envelope.
+DEC (ENV (A) Decay) sets the decay time of the ENV (A) envelope.
 
-SUS (EnvA Sustain) sets the sustain level of the EnvA envelope.
+SUS (ENV (A) Sustain) sets the sustain level of the ENV (A) envelope.
 
-REL (EnvA Release) sets the release time of the EnvA envelope.
+REL (ENV (A) Release) sets the release time of the ENV (A) envelope.
 
-SHP (EnvA Shape) sets the general shape of the EnvA envelope. Several linear and exponential shapes are available. A dot to the left of the visual representation of the envelope indicates that the envelope will restart from level zero. In other cases, it will start from the level it had when being trigged.
+SHP (ENV (A) Shape) sets the general shape of the ENV (A) envelope. Several linear and exponential shapes are available. A dot to the left of the visual representation of the envelope indicates that the envelope will restart from level zero. In other cases, it will start from the level it had when being trigged.
 
 CHO (Chorus Send) sets the amount of synth track signal to send through to the Wideshift Chorus effect.
 
@@ -3107,117 +3107,117 @@ VOL (Volume) sets the volume of the Sound. This parameter is independent of the 
 
 Here parameters controlling the two assignable envelopes are found. The first envelope, ENVF, is hardlinked to the cutoff parameters of the two filters but can also modulate two user-selectable destinations.
 
-## Envf (Page 1)
+## ENV (F) (Page 1)
 
 ![](/machines/analog-four-mkii/images/_page_89_Figure_4.jpeg)
 
-ATK (EnvF Attack) sets the attack time of the EnvF envelope.
+ATK (ENV (F) Attack) sets the attack time of the ENV (F) envelope.
 
-DEC (EnvF Decay) sets the decay time of the EnvF envelope.
+DEC (ENV (F) Decay) sets the decay time of the ENV (F) envelope.
 
-SUS (EnvF Sustain) sets the sustain level of the EnvF envelope.
+SUS (ENV (F) Sustain) sets the sustain level of the ENV (F) envelope.
 
-REL (EnvF Release) sets the release time of the EnvF envelope.
+REL (ENV (F) Release) sets the release time of the ENV (F) envelope.
 
-SHP (EnvF Shape) sets the general shape of the EnvF envelope. Several linear and exponential shapes are available. A dot to the left of the visual representation of the envelope indicates that the envelope will restart from level zero. In other cases, it will start from the level it had when being trigged.
+SHP (ENV (F) Shape) sets the general shape of the ENV (F) envelope. Several linear and exponential shapes are available. A dot to the left of the visual representation of the envelope indicates that the envelope will restart from level zero. In other cases, it will start from the level it had when being trigged.
 
-LEN (EnvF Gate length) makes it possible to set a different gate length independent of the chosen Note length. The parameter value is directly related to the number of sequencer steps.
+LEN (ENV (F) Gate length) makes it possible to set a different gate length independent of the chosen Note length. The parameter value is directly related to the number of sequencer steps.
 
-DST (EnvF Destination A) selects the first of the two assignable destinations for the EnvF envelope. Confirm a selection by pressing <Key>YES</Key>.
+DST (ENV (F) Destination A) selects the first of the two assignable destinations for the ENV (F) envelope. Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (EnvF Depth A) sets how much the envelope will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (ENV (F) Depth A) sets how much the envelope will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-DST (EnvF Destination B) selects the second of the two assignable destinations for the EnvF envelope. Confirm a selection by pressing <Key>YES</Key>.
+DST (ENV (F) Destination B) selects the second of the two assignable destinations for the ENV (F) envelope. Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (EnvF Depth B) sets how much the envelope will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (ENV (F) Depth B) sets how much the envelope will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-## Env2 (Page 2)
+## ENV (2) (Page 2)
 
 ![](/machines/analog-four-mkii/images/_page_89_Picture_16.jpeg)
 
-ATK (Env2 Attack) sets the attack time of the Env2 envelope.
+ATK (ENV (2) Attack) sets the attack time of the ENV (2) envelope.
 
-DEC (Env2 Decay) sets the decay time of the Env2 envelope.
+DEC (ENV (2) Decay) sets the decay time of the ENV (2) envelope.
 
-SUS (Env2 Sustain) sets the sustain level of the Env2 envelope.
+SUS (ENV (2) Sustain) sets the sustain level of the ENV (2) envelope.
 
-REL (Env2 Release) sets the release time of the Env2 envelope.
+REL (ENV (2) Release) sets the release time of the ENV (2) envelope.
 
-SHP (Env2 Shape) sets the general shape of the Env2 envelope. Several linear and exponential shapes are available. A dot to the left of the visual representation of the envelope indicates that the envelope will restart from level zero. In other cases, it will start from the level it had when being trigged.
+SHP (ENV (2) Shape) sets the general shape of the ENV (2) envelope. Several linear and exponential shapes are available. A dot to the left of the visual representation of the envelope indicates that the envelope will restart from level zero. In other cases, it will start from the level it had when being trigged.
 
-LEN (Env2 Gate length) makes it possible to set a different gate length independent of the chosen Note length. The parameter value is directly related to the number of sequencer steps.
+LEN (ENV (2) Gate length) makes it possible to set a different gate length independent of the chosen Note length. The parameter value is directly related to the number of sequencer steps.
 
-DST (Env2 Destination A) selects the first of the two available destinations for the Env2 envelope. Confirm a selection by pressing <Key>YES</Key>
+DST (ENV (2) Destination A) selects the first of the two available destinations for the ENV (2) envelope. Confirm a selection by pressing <Key>YES</Key>
 
-DEP (Env2 Depth A) sets how much the envelope will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible)
+DEP (ENV (2) Depth A) sets how much the envelope will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible)
 
-DST (Env2 Destination B) selects the second of the two available destinations for the Env2 envelope. Confirm a selection by pressing <Key>YES</Key>.
+DST (ENV (2) Destination B) selects the second of the two available destinations for the ENV (2) envelope. Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (Env2 Depth B) sets how much the envelope will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (ENV (2) Depth B) sets how much the envelope will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
 # LFO
 
 The two track LFOs can be used to modulate the other synth track parameters.
 
-## LFO1 (Page 1)
+## LFO (1) (Page 1)
 
 ![](/machines/analog-four-mkii/images/_page_90_Figure_4.jpeg)
 
-SPD (LFO1 Speed) sets the speed of LFO1. It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
+SPD (LFO (1) Speed) sets the speed of LFO (1). It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
 
-MUL (LFO1 Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC1.
+MUL (LFO (1) Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC (1).
 
-FAD (LFO1 Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
+FAD (LFO (1) Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
 
-SPH (LFO1 Start Phase) sets where in the waveform the LFO1 will start when being trigged.
+SPH (LFO (1) Start Phase) sets where in the waveform the LFO (1) will start when being trigged.
 
-MOD (LFO1 Trig Mode) sets how the LFO1 will react when a note is played. There are five settings:
+MOD (LFO (1) Trig Mode) sets how the LFO (1) will react when a note is played. There are five settings:
 
 - FRE is the default free-running mode. The LFO run continuously, never restarting or stopping.
-- TRG makes LFO1 restart when a note is played.
-- HLD makes LFO1 run free in the background, but when a note is played the output LFO1 level is latched and held still until the next note is played.
-- ONE The LFO1 starts when a note is trigged, then runs to the end of the waveform and then stops. This makes the LFO function similar to an envelope.
-- HLF The LFO1 starts when a note is trigged, then runs to the middle of the waveform and then stops.
+- TRG makes LFO (1) restart when a note is played.
+- HLD makes LFO (1) run free in the background, but when a note is played the output LFO (1) level is latched and held still until the next note is played.
+- ONE The LFO (1) starts when a note is trigged, then runs to the end of the waveform and then stops. This makes the LFO function similar to an envelope.
+- HLF The LFO (1) starts when a note is trigged, then runs to the middle of the waveform and then stops.
 
-WAV (LFO1 Waveform) sets the LFO1 waveform.
+WAV (LFO (1) Waveform) sets the LFO (1) waveform.
 
-DST (LFO1 Destination A) selects the first of the two available destinations for LFO1. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (1) Destination A) selects the first of the two available destinations for LFO (1). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO1 Depth A) sets how much LFO1 will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (1) Depth A) sets how much LFO (1) will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-DST (LFO1 Destination B) selects the second of the two available destinations for LFO1. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (1) Destination B) selects the second of the two available destinations for LFO (1). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO1 Depth B) sets how much the LFO1 will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (1) Depth B) sets how much the LFO (1) will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-## LFO2 (Page 2)
+## LFO (2) (Page 2)
 
 ![](/machines/analog-four-mkii/images/_page_90_Picture_21.jpeg)
 
-SPD (LFO2 Speed) sets the speed of LFO2. It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
+SPD (LFO (2) Speed) sets the speed of LFO (2). It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
 
-MUL (LFO2 Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC2.
+MUL (LFO (2) Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC (2).
 
-FAD (LFO2 Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
+FAD (LFO (2) Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
 
-SPH (LFO2 Start Phase) sets where in the waveform the LFO2 will start when being trigged.
+SPH (LFO (2) Start Phase) sets where in the waveform the LFO (2) will start when being trigged.
 
-MOD (LFO2 Trig Mode) sets how the LFO2 will react when a note is played. There are five settings:
+MOD (LFO (2) Trig Mode) sets how the LFO (2) will react when a note is played. There are five settings:
 
 - FRE is the default free-running mode. The LFO run continuously, never restarting or stopping.
-- TRG makes LFO2 restart when a note is played.
-- HLD makes LFO2 run free in the background, but when a note is played the output LFO2 level is latched and held still until the next note is played.
-- ONE The LFO2 starts when a note is trigged, then runs to the end of the waveform and then stops. This makes the LFO function similar to an envelope.
-- HLF The LFO2 starts when a note is trigged, then runs to the middle of the waveform and then stops.
+- TRG makes LFO (2) restart when a note is played.
+- HLD makes LFO (2) run free in the background, but when a note is played the output LFO (2) level is latched and held still until the next note is played.
+- ONE The LFO (2) starts when a note is trigged, then runs to the end of the waveform and then stops. This makes the LFO function similar to an envelope.
+- HLF The LFO (2) starts when a note is trigged, then runs to the middle of the waveform and then stops.
 
-WAV (LFO2 Waveform) sets the LFO2 waveform.
+WAV (LFO (2) Waveform) sets the LFO (2) waveform.
 
-DST (LFO2 Destination A) selects the first of the two available destinations for LFO2. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (2) Destination A) selects the first of the two available destinations for LFO (2). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO2 Depth A) sets how much LFO2 will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (2) Depth A) sets how much LFO (2) will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-DST (LFO2 Destination B) selects the second of the two available destinations for LFO2. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (2) Destination B) selects the second of the two available destinations for LFO (2). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO2 Depth B) sets how much the LFO2 will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (2) Depth B) sets how much the LFO (2) will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
 # <span id="page-91-1"></span><span id="page-91-0"></span>Appendix B: FX Track Parameters
 
@@ -3289,8 +3289,8 @@ The Saturator Delay adds an echo-like effect to the audio. Thanks to the special
 
 TIM (Time) sets the delay time. It is relative to the current BPM and is measured in 128th notes.
 
-| TIME setting | Divide ratio |
-|--------------|--------------|
+| Time setting | Divide ratio |
+|:-------------|:-------------|
 | 128 | 1 |
 | 96 | 1/2 |
 | 64 | 1/2 |
@@ -3351,69 +3351,69 @@ VOL (Mix Volume) adjusts the volume of the Supervoid Reverb signal.
 
 The <Param>FX LFO</Param> menu consists of two LFOs dedicated to modulating <Param>FX</Param> track parameters.
 
-## LFO1 (Page 1)
+## LFO (1) (Page 1)
 
 ![](/machines/analog-four-mkii/images/_page_95_Figure_4.jpeg)
 
-SPD (LFO1 Speed) sets the speed of LFO1. It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
+SPD (LFO (1) Speed) sets the speed of LFO (1). It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
 
-MUL (LFO1 Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC1.
+MUL (LFO (1) Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC (1).
 
-FAD (LFO1 Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
+FAD (LFO (1) Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
 
-SPH (LFO1 Start Phase) sets where in the waveform the LFO1 will start when being trigged.
+SPH (LFO (1) Start Phase) sets where in the waveform the LFO (1) will start when being trigged.
 
-MOD (LFO1 Trig Mode) sets how the LFO1 will react when a note is played. There are five settings:
+MOD (LFO (1) Trig Mode) sets how the LFO (1) will react when a note is played. There are five settings:
 
 - FRE is the default free-running mode. The LFO run continuously, never restarting or stopping.
-- TRG makes LFO1 restart when a note is played.
-- HLD makes LFO1 run free in the background, but when a note is played the output LFO1 level is latched and held still until the next note is played.
-- ONE The LFO1 starts when a note is trigged, then runs to the end of the waveform and then stops. This makes the LFO function similar to an envelope.
-- HLF The LFO1 starts when a note is trigged, then runs to the middle of the waveform and then stops.
+- TRG makes LFO (1) restart when a note is played.
+- HLD makes LFO (1) run free in the background, but when a note is played the output LFO (1) level is latched and held still until the next note is played.
+- ONE The LFO (1) starts when a note is trigged, then runs to the end of the waveform and then stops. This makes the LFO function similar to an envelope.
+- HLF The LFO (1) starts when a note is trigged, then runs to the middle of the waveform and then stops.
 
-WAV (LFO1 Waveform) sets the LFO1 waveform.
+WAV (LFO (1) Waveform) sets the LFO (1) waveform.
 
-DST (LFO1 Destination A) selects the first of the two available destinations for LFO1. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (1) Destination A) selects the first of the two available destinations for LFO (1). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO1 Depth A) sets how much LFO1 will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (1) Depth A) sets how much LFO (1) will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-DST (LFO1 Destination B) selects the second of the two available destinations for LFO1. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (1) Destination B) selects the second of the two available destinations for LFO (1). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO1 Depth B) sets how much the LFO1 will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (1) Depth B) sets how much the LFO (1) will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-## LFO2 (Page 2)
+## LFO (2) (Page 2)
 
 ![](/machines/analog-four-mkii/images/_page_95_Picture_21.jpeg)
 
-SPD (LFO2 Speed) sets the speed of LFO2. It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
+SPD (LFO (2) Speed) sets the speed of LFO (2). It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
 
-MUL (LFO2 Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC2.
+MUL (LFO (2) Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC (2).
 
-FAD (LFO2 Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
+FAD (LFO (2) Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
 
-SPH (LFO2 Start Phase) sets where in the waveform the LFO2 will start when being trigged.
+SPH (LFO (2) Start Phase) sets where in the waveform the LFO (2) will start when being trigged.
 
-MOD (LFO2 Trig Mode) sets how the LFO2 will react when a note is played. There are five settings:
+MOD (LFO (2) Trig Mode) sets how the LFO (2) will react when a note is played. There are five settings:
 
 - FRE is the default free-running mode. The LFO run continuously, never restarting or stopping.
-- TRG makes LFO2 restart when a note is played.
-- HLD makes LFO2 run free in the background, but when a note is played the output LFO2 level is latched and held still until the next note is played.
-- ONE The LFO2 starts when a note is trigged, then runs to the end of the waveform and then stops. This makes the LFO function similar to an envelope.
-- HLF The LFO2 starts when a note is trigged, then runs to the middle of the waveform and then stops.
+- TRG makes LFO (2) restart when a note is played.
+- HLD makes LFO (2) run free in the background, but when a note is played the output LFO (2) level is latched and held still until the next note is played.
+- ONE The LFO (2) starts when a note is trigged, then runs to the end of the waveform and then stops. This makes the LFO function similar to an envelope.
+- HLF The LFO (2) starts when a note is trigged, then runs to the middle of the waveform and then stops.
 
-WAV (LFO2 Waveform) sets the LFO2 waveform.
+WAV (LFO (2) Waveform) sets the LFO (2) waveform.
 
-DST (LFO2 Destination A) selects the first of the two available destinations for LFO2. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (2) Destination A) selects the first of the two available destinations for LFO (2). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO2 Depth A) sets how much LFO2 will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (2) Depth A) sets how much LFO (2) will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-DST (LFO2 Destination B) selects the second of the two available destinations for LFO2. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (2) Destination B) selects the second of the two available destinations for LFO (2). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO2 Depth B) sets how much the LFO2 will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (2) Depth B) sets how much the LFO (2) will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
 # <span id="page-96-1"></span><span id="page-96-0"></span>Appendix C: CV Track Parameters
 
-# CV a-D
+# CV A-D
 
 The CV <Param>A-D</Param> pages control the signals sent from the four CV/Gate outputs. Depending on the CV type chosen in the <Param>CV CONFIG</Param> menu, the available parameters will change. ["12.4.1 CV A-D CONFIG" on page 62.](#12-4-1-CV-a-d-config)
 
@@ -3471,117 +3471,117 @@ CLK (Clock Division) sets the clock division. This setting relates to the BPM of
 
 Here parameters controlling the two assignable CV envelopes are found. The CV envelopes can modulate parameters found on the <Param>CV</Param> track. They can also be sent to the CV/Gate outputs, by setting up a CV channel's type as VALUE LIN.
 
-## Env1 (Page 1)
+## ENV (1) (Page 1)
 
 ![](/machines/analog-four-mkii/images/_page_97_Picture_4.jpeg)
 
-ATK (Env1 Attack) sets the attack time of the Env1 envelope.
+ATK (ENV (1) Attack) sets the attack time of the ENV (1) envelope.
 
-DEC (Env1 Decay) sets the decay time of the EnvF envelope.
+DEC (ENV (1) Decay) sets the decay time of the ENV (F) envelope.
 
-SUS (Env1 Sustain) sets the sustain level of the EnvF envelope.
+SUS (ENV (1) Sustain) sets the sustain level of the ENV (F) envelope.
 
-REL (Env1 Release) sets the release time of the EnvF envelope.
+REL (ENV (1) Release) sets the release time of the ENV (F) envelope.
 
-SHP (Env1 Shape) sets the general shape of the Env1 envelope. Several linear and exponential shapes are available. A dot to the left of the visual representation of the envelope indicates that the envelope will restart from level zero. In other cases, it will start from the level it had when being trigged.
+SHP (ENV (1) Shape) sets the general shape of the ENV (1) envelope. Several linear and exponential shapes are available. A dot to the left of the visual representation of the envelope indicates that the envelope will restart from level zero. In other cases, it will start from the level it had when being trigged.
 
-LEN (Env1 Gate length) makes it possible to choose another gate length than whatever trigged the envelope.
+LEN (ENV (1) Gate length) makes it possible to choose another gate length than whatever trigged the envelope.
 
-DST (Env1 Destination A) selects the first of the two available destinations for the EnvF envelope. Confirm a selection by pressing <Key>YES</Key>.
+DST (ENV (1) Destination A) selects the first of the two available destinations for the ENV (F) envelope. Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (Env1 Depth A) sets how much the envelope will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (ENV (1) Depth A) sets how much the envelope will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-DST (Env1 Destination B) selects the second of the two available destinations for the EnvF envelope. Confirm a selection by pressing <Key>YES</Key>.
+DST (ENV (1) Destination B) selects the second of the two available destinations for the ENV (F) envelope. Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (Env1 Depth B) sets how much the envelope will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (ENV (1) Depth B) sets how much the envelope will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-## Env2 (Page 2)
+## ENV (2) (Page 2)
 
 ![](/machines/analog-four-mkii/images/_page_97_Picture_16.jpeg)
 
-ATK (Env2 Attack) sets the attack time of the Env2 envelope.
+ATK (ENV (2) Attack) sets the attack time of the ENV (2) envelope.
 
-DEC (Env2 Decay) sets the decay time of the Env2 envelope.
+DEC (ENV (2) Decay) sets the decay time of the ENV (2) envelope.
 
-SUS (Env2 Sustain) sets the sustain level of the Env2 envelope.
+SUS (ENV (2) Sustain) sets the sustain level of the ENV (2) envelope.
 
-REL (Env2 Release) sets the release time of the Env2 envelope.
+REL (ENV (2) Release) sets the release time of the ENV (2) envelope.
 
-SHP (Env2 Shape) sets the general shape of the Env2 envelope. Several linear and exponential shapes are available. A dot to the left of the visual representation of the envelope indicates that the envelope will restart from level zero. In other cases, it will start from the level it had when being trigged.
+SHP (ENV (2) Shape) sets the general shape of the ENV (2) envelope. Several linear and exponential shapes are available. A dot to the left of the visual representation of the envelope indicates that the envelope will restart from level zero. In other cases, it will start from the level it had when being trigged.
 
-LEN (Env2 Gate length) makes it possible to choose another gate length than whatever trigged the envelope.
+LEN (ENV (2) Gate length) makes it possible to choose another gate length than whatever trigged the envelope.
 
-DST (Env2 Destination A) selects the first of the two available destinations for the Env2 envelope. Confirm a selection by pressing <Key>YES</Key>.
+DST (ENV (2) Destination A) selects the first of the two available destinations for the ENV (2) envelope. Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (Env2 Depth A) sets how much the envelope will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (ENV (2) Depth A) sets how much the envelope will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-DST (Env2 Destination B) selects the second of the two available destinations for the Env2 envelope. Confirm a selection by pressing <Key>YES</Key>.
+DST (ENV (2) Destination B) selects the second of the two available destinations for the ENV (2) envelope. Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (Env2 Depth B) sets how much the envelope will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (ENV (2) Depth B) sets how much the envelope will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
 ## CV LFO
 
 The two CV LFOs can be used to modulate other <Param>CV</Param> track parameters. They can also be sent to the CV/ Gate outputs, by setting up a CV channel's type as VALUE LIN and then letting the LFO modulate its <Param>VAL</Param> parameter.
 
-## LFO1 (Page 1)
+## LFO (1) (Page 1)
 
 ![](/machines/analog-four-mkii/images/_page_98_Picture_4.jpeg)
 
-SPD (LFO1 Speed) sets the speed of LFO1. It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
+SPD (LFO (1) Speed) sets the speed of LFO (1). It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
 
-MUL (LFO1 Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC1.
+MUL (LFO (1) Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC (1).
 
-FAD (LFO1 Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
+FAD (LFO (1) Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
 
-SPH (LFO1 Start Phase) sets where in the waveform the LFO1 will start when being trigged.
+SPH (LFO (1) Start Phase) sets where in the waveform the LFO (1) will start when being trigged.
 
-MOD (LFO1 Trig Mode) sets how the LFO1 will react when a note is played. There are five settings:
+MOD (LFO (1) Trig Mode) sets how the LFO (1) will react when a note is played. There are five settings:
 
 - FRE is the default free-running mode. The LFO run continuously, never restarting or stopping.
-- TRG makes LFO1 restart when a note is played.
-- HLD makes LFO1 run free in the background, but when a note is played the output LFO1 level is latched and held still until the next note is played.
-- ONE The LFO1 starts when a note is trigged, then runs to the end of the waveform and then stops.
-- HLF The LFO1 starts when a note is trigged, then runs to the middle of the waveform and then stops.
+- TRG makes LFO (1) restart when a note is played.
+- HLD makes LFO (1) run free in the background, but when a note is played the output LFO (1) level is latched and held still until the next note is played.
+- ONE The LFO (1) starts when a note is trigged, then runs to the end of the waveform and then stops.
+- HLF The LFO (1) starts when a note is trigged, then runs to the middle of the waveform and then stops.
 
-WAV (LFO1 Waveform) sets the LFO1 waveform.
+WAV (LFO (1) Waveform) sets the LFO (1) waveform.
 
-DST (LFO1 Destination A) selects the first of the two available destinations for LFO1. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (1) Destination A) selects the first of the two available destinations for LFO (1). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO1 Depth A) sets how much LFO1 will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (1) Depth A) sets how much LFO (1) will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-DST (LFO1 Destination B) selects the second of the two available destinations for LFO1. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (1) Destination B) selects the second of the two available destinations for LFO (1). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO1 Depth B) sets how much the LFO1 will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (1) Depth B) sets how much the LFO (1) will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-## LFO2 (Page 2)
+## LFO (2) (Page 2)
 
 ![](/machines/analog-four-mkii/images/_page_98_Picture_21.jpeg)
 
-SPD (LFO2 Speed) sets the speed of LFO2. It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
+SPD (LFO (2) Speed) sets the speed of LFO (2). It is synced to the BPM. To sync it to straight beats, try settings of 16, 32 or 64. The value is bi-polar (negative values plays the LFO shape backwards).
 
-MUL (LFO2 Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC2.
+MUL (LFO (2) Multiplier) multiplies the <Param>SPD</Param> parameter by the set factor. (x) multiplies the current tempo, (dot) syncs the LFO to 120 BPM regardless of the tempo, and (tuning fork) syncs the LFO to OSC (2).
 
-FAD (LFO2 Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
+FAD (LFO (2) Fade In/Out) offers the possibility to fade in/out the LFO modulation. Positive values give a fade-out, negative values give a fade-in. A mid position (0) will result in no fade in/out.
 
-SPH (LFO2 Start Phase) sets where in the waveform the LFO2 will start when being trigged.
+SPH (LFO (2) Start Phase) sets where in the waveform the LFO (2) will start when being trigged.
 
-MOD (LFO2 Trig Mode) sets how the LFO2 will react when a note is played. There are five settings:
+MOD (LFO (2) Trig Mode) sets how the LFO (2) will react when a note is played. There are five settings:
 
 - FRE is the default free-running mode. The LFO run continuously, never restarting or stopping.
-- TRG makes LFO2 restart when a note is played.
-- HLD makes LFO2 run free in the background, but when a note is played the output LFO2 level is latched and held still until the next note is played.
-- ONE The LFO2 starts when a note is trigged, then runs to the end of the waveform and then stops.
-- HLF The LFO2 starts when a note is trigged, then runs to the middle of the waveform and then stops.
+- TRG makes LFO (2) restart when a note is played.
+- HLD makes LFO (2) run free in the background, but when a note is played the output LFO (2) level is latched and held still until the next note is played.
+- ONE The LFO (2) starts when a note is trigged, then runs to the end of the waveform and then stops.
+- HLF The LFO (2) starts when a note is trigged, then runs to the middle of the waveform and then stops.
 
-WAV (LFO2 Waveform) sets the LFO2 waveform.
+WAV (LFO (2) Waveform) sets the LFO (2) waveform.
 
-DST (LFO2 Destination A) selects the first of the two available destinations for LFO2. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (2) Destination A) selects the first of the two available destinations for LFO (2). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO2 Depth A) sets how much LFO2 will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (2) Depth A) sets how much LFO (2) will modulate the destination chosen by the first <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-DST (LFO2 Destination B) selects the second of the two available destinations for LFO2. Confirm a selection by pressing <Key>YES</Key>.
+DST (LFO (2) Destination B) selects the second of the two available destinations for LFO (2). Confirm a selection by pressing <Key>YES</Key>.
 
-DEP (LFO2 Depth B) sets how much the LFO2 will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
+DEP (LFO (2) Depth B) sets how much the LFO (2) will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
 # <span id="page-99-1"></span><span id="page-99-0"></span>Appendix D: MIDI
 
@@ -3638,7 +3638,7 @@ The following messages affect the track level parameter.
 
 The following messages affect the synth track parameters. They are also sent when adjusting the knobs controlling the parameters.
 
-| OSC 1 | | | | |
+| OSC (1) | | | | |
 |---|---|------------|-----------|-----------|
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 | Pitch | A | 16 (0–127) | 48 (0–127) | 1 (0–127) | 0 (0–127) |
@@ -3663,7 +3663,7 @@ The following messages affect the synth track parameters. They are also sent whe
 | | H | - | - | 1 (0–127) |
 | | I | - | - | 1 (0–127) |
 | | J | - | - | 1 (0–127) |
-| OSC 2 | | | | |
+| OSC (2) | | | | |
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 | Pitch | A | 17 (0–127) | 49 (0–127) | 1 (0–127) | 20 (0–127) |
 | | B | - | - | 1 (0–127) |
@@ -3676,21 +3676,21 @@ The following messages affect the synth track parameters. They are also sent whe
 | PWM Speed | I | 82 (0–127) | - | 1 (0–127) |
 | PWM Depth | J | 83 (0–127) | - | 1 (0–127) | 29 (0–127) |
 
-## Osc Common
+## OSC Common
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
-| OSC1 AM | A | - | - | 1 $(0–127)$ | 30 |
+| OSC (1) AM | A | - | - | 1 $(0–127)$ | 30 |
 | Sync Mode | B | - | - | 1 $(0–127)$ | 31 |
 | Sync Amount | C | 84 $(0–127)$ | - | 1 $(0–127)$ | 32 |
 
-## Osc Common
+## OSC Common
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
 | Bend Amount | D | 85 (0-127) | - | 1 (0-127) | 33 |
 | Slide Time | E | 5 (0-127) | - | 1 (0-127) | 34 |
-| OSC2 AM | F | - | - | 1 (0-127) | 35 |
+| OSC (2) AM | F | - | - | 1 (0-127) | 35 |
 | Note Sync | G | - | - | 1 (0-127) | 36 |
 | Vibrato Fade | H | - | - | 1 (0-127) | 37 |
 | Vibrato Speed | I | 87 (0-127) | - | 1 (0-127) | 38 |
@@ -3714,73 +3714,73 @@ The following messages affect the synth track parameters. They are also sent whe
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
-| EnvA Attack Time | A | 104 (0-127) | - | 1 (0-127) | 50 |
-| EnvA Decay Time | B | 105 (0-127) | - | 1 (0-127) | 51 |
-| EnvA Sustain Level | C | 106 (0-127) | - | 1 (0-127) | 52 |
-| EnvA Release Time | D | 107 (0-127) | - | 1 (0-127) | 53 |
-| EnvA Env Shape | E | - | - | 1 (0-127) | 54 |
+| ENV (A) Attack Time | A | 104 (0-127) | - | 1 (0-127) | 50 |
+| ENV (A) Decay Time | B | 105 (0-127) | - | 1 (0-127) | 51 |
+| ENV (A) Sustain Level | C | 106 (0-127) | - | 1 (0-127) | 52 |
+| ENV (A) Release Time | D | 107 (0-127) | - | 1 (0-127) | 53 |
+| ENV (A) Env Shape | E | - | - | 1 (0-127) | 54 |
 | Chorus Send Level | F | 91 (0-127) | - | 1 (0-127) | 55 |
 | Delay Send Level | G | 92 (0-127) | - | 1 (0-127) | 56 |
 | Reverb Send Level | H | 93 (0-127) | - | 1 (0-127) | 57 |
 | Pan | I | 10 (0-127) | - | 1 (0-127) | 58 |
 | Volume | J | 7 (0-127) | - | 1 (0-127) | 59 |
 
-## Envf
+## ENV (F)
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
-| EnvF Attack Time | A | 108 (0-127) | - | 1 (0-127) | 60 |
-| EnvF Decay Time | B | 109 (0-127) | - | 1 (0-127) | 61 |
-| EnvF Sustain Level | C | 110 (0-127) | - | 1 (0-127) | 62 |
-| EnvF Release Time | D | 111 (0-127) | - | 1 (0-127) | 63 |
-| EnvF Env Shape | E | - | - | 1 (0-127) | 64 |
-| EnvF Gate Length | F | - | - | 1 (0-127) | 65 |
-| EnvF Destination A | G | - | - | 1 (0-127) | 66 |
-## Envf
+| ENV (F) Attack Time | A | 108 (0-127) | - | 1 (0-127) | 60 |
+| ENV (F) Decay Time | B | 109 (0-127) | - | 1 (0-127) | 61 |
+| ENV (F) Sustain Level | C | 110 (0-127) | - | 1 (0-127) | 62 |
+| ENV (F) Release Time | D | 111 (0-127) | - | 1 (0-127) | 63 |
+| ENV (F) Env Shape | E | - | - | 1 (0-127) | 64 |
+| ENV (F) Gate Length | F | - | - | 1 (0-127) | 65 |
+| ENV (F) Destination A | G | - | - | 1 (0-127) | 66 |
+## ENV (F)
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
-| EnvF Depth A | H | 20 (0–127) | 52 (0–127) | 1 (0–127) | 67 (0–127) |
-| EnvF Destination B | I | - | - | 1 (0–127) | 68 (0–127) |
-| EnvF Depth B | J | 21 (0–127) | 53 (0–127) | 1 (0–127) | 69 (0–127) |
+| ENV (F) Depth A | H | 20 (0–127) | 52 (0–127) | 1 (0–127) | 67 (0–127) |
+| ENV (F) Destination B | I | - | - | 1 (0–127) | 68 (0–127) |
+| ENV (F) Depth B | J | 21 (0–127) | 53 (0–127) | 1 (0–127) | 69 (0–127) |
 
-| ENV2 | | | | | |
+| ENV (2) | | | | | |
 |---|---|---|---|---|---|
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-| Env2 Attack Time | A | 112 (0-127) | - | 1 (0-127) | 70 |
-| Env2 Decay Time | B | 113 (0-127) | - | 1 (0-127) | 71 |
-| Env2 Sustain Level | C | 114 (0-127) | - | 1 (0-127) | 72 |
-| Env2 Release Time | D | 115 (0-127) | - | 1 (0-127) | 73 |
-| Env2 Env Shape | E | - | - | 1 (0-127) | 74 |
-| Env2 Gate Length | F | - | - | 1 (0-127) | 75 |
-| Env2 Destination A | G | - | - | 1 (0-127) | 76 |
-| Env2 Depth A | H | 22 (0-127) | 54 (0-127) | 1 (0-127) | 77 (0-127) |
-| Env2 Destination B | I | - | - | 1 (0-127) | 78 |
-| Env2 Depth B | J | 23 (0-127) | 55 (0-127) | 1 (0-127) | 79 (0-127) |
-| LFO1 | | | | | |
+| ENV (2) Attack Time | A | 112 (0-127) | - | 1 (0-127) | 70 |
+| ENV (2) Decay Time | B | 113 (0-127) | - | 1 (0-127) | 71 |
+| ENV (2) Sustain Level | C | 114 (0-127) | - | 1 (0-127) | 72 |
+| ENV (2) Release Time | D | 115 (0-127) | - | 1 (0-127) | 73 |
+| ENV (2) Env Shape | E | - | - | 1 (0-127) | 74 |
+| ENV (2) Gate Length | F | - | - | 1 (0-127) | 75 |
+| ENV (2) Destination A | G | - | - | 1 (0-127) | 76 |
+| ENV (2) Depth A | H | 22 (0-127) | 54 (0-127) | 1 (0-127) | 77 (0-127) |
+| ENV (2) Destination B | I | - | - | 1 (0-127) | 78 |
+| ENV (2) Depth B | J | 23 (0-127) | 55 (0-127) | 1 (0-127) | 79 (0-127) |
+| LFO (1) | | | | | |
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-| LFO1 Speed | A | 116 (0–127) | - | 1 (0–127) | 80 |
-| LFO1 Speed Multiplier | B | 117 (0–127) | - | 1 (0–127) | 81 |
-| LFO1 Fade | C | - | - | 1 (0–127) | 82 |
-| LFO1 Start Phase | D | - | - | 1 (0–127) | 83 |
-| LFO1 Mode | E | - | - | 1 (0–127) | 84 |
-| LFO1 Waveform | F | - | - | 1 (0–127) | 85 |
-| LFO1 Destination A | G | - | - | 1 (0–127) | 86 |
-| LFO1 Depth A | H | 24 (0–127) | 56 (0–127) | 1 (0–127) | 87 (0–127) |
-| LFO1 Destination B | I | - | - | 1 (0–127) | 88 |
-| LFO1 Depth B | J | 25 (0–127) | 57 (0–127) | 1 (0–127) | 89 (0–127) |
-| LFO2 | | | | | |
+| LFO (1) Speed | A | 116 (0–127) | - | 1 (0–127) | 80 |
+| LFO (1) Speed Multiplier | B | 117 (0–127) | - | 1 (0–127) | 81 |
+| LFO (1) Fade | C | - | - | 1 (0–127) | 82 |
+| LFO (1) Start Phase | D | - | - | 1 (0–127) | 83 |
+| LFO (1) Mode | E | - | - | 1 (0–127) | 84 |
+| LFO (1) Waveform | F | - | - | 1 (0–127) | 85 |
+| LFO (1) Destination A | G | - | - | 1 (0–127) | 86 |
+| LFO (1) Depth A | H | 24 (0–127) | 56 (0–127) | 1 (0–127) | 87 (0–127) |
+| LFO (1) Destination B | I | - | - | 1 (0–127) | 88 |
+| LFO (1) Depth B | J | 25 (0–127) | 57 (0–127) | 1 (0–127) | 89 (0–127) |
+| LFO (2) | | | | | |
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-| LFO2 Speed | A | 118 (0-127) | - | 1 (0-127) | 90 |
-| LFO2 Speed Multiplier | B | 119 (0-127) | - | 1 (0-127) | 91 |
-| LFO2 Fade | C | - | - | 1 (0-127) | 92 |
-| LFO2 Start Phase | D | - | - | 1 (0-127) | 93 |
-| LFO2 Mode | E | - | - | 1 (0-127) | 94 |
-| LFO2 Waveform | F | - | - | 1 (0-127) | 95 |
-| LFO2 Destination A | G | - | - | 1 (0-127) | 96 |
-| LFO2 Depth A | H | 26 (0-127) | 58 (0-127) | 1 (0-127) | 97 (0-127) |
-| LFO2 Destination B | I | - | - | 1 (0-127) | 98 |
-| LFO2 Depth B | J | 27 (0-127) | 59 (0-127) | 1 (0-127) | 99 (0-127) |
+| LFO (2) Speed | A | 118 (0-127) | - | 1 (0-127) | 90 |
+| LFO (2) Speed Multiplier | B | 119 (0-127) | - | 1 (0-127) | 91 |
+| LFO (2) Fade | C | - | - | 1 (0-127) | 92 |
+| LFO (2) Start Phase | D | - | - | 1 (0-127) | 93 |
+| LFO (2) Mode | E | - | - | 1 (0-127) | 94 |
+| LFO (2) Waveform | F | - | - | 1 (0-127) | 95 |
+| LFO (2) Destination A | G | - | - | 1 (0-127) | 96 |
+| LFO (2) Depth A | H | 26 (0-127) | 58 (0-127) | 1 (0-127) | 97 (0-127) |
+| LFO (2) Destination B | I | - | - | 1 (0-127) | 98 |
+| LFO (2) Depth B | J | 27 (0-127) | 59 (0-127) | 1 (0-127) | 99 (0-127) |
 # FX Track Parameters
 
 The following messages affect the <Param>FX</Param> track parameters. They are also sent when adjusting the knobs controlling the parameters.
@@ -3849,54 +3849,55 @@ The following messages affect the <Param>FX</Param> track parameters. They are a
 | Send Level | H | - | - | 2 (0–127) | 67 |
 | | I | - | - | 2 (0–127) | 68 |
 | | J | - | - | 2 (0–127) | 69 |
-| LFO1 | | | | | |
+| LFO (1) | | | | | |
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-| LFO1 Speed | A | - | - | 2 (0–127) | 80 |
-| LFO1 Speed Multiplier | B | - | - | 2 (0–127) | 81 |
-| LFO1 Fade | C | - | - | 2 (0–127) | 82 |
-| LFO1 Start Phase | D | - | - | 2 (0–127) | 83 |
-| LFO1 Mode | E | - | - | 2 (0–127) | 84 |
-| LFO1 Waveform | F | - | - | 2 (0–127) | 85 |
-| LFO1 Destination 1 | G | - | - | 2 (0–127) | 86 |
-| LFO1 Depth 1 | H | - | - | 2 (0–127) | 87 |
-| LFO1 Destination 2 | I | - | - | 2 (0–127) | 88 |
-| LFO1 Depth 2 | J | - | - | 2 (0–127) | 89 |
-| LFO2 | | | | |
+| LFO (1) Speed | A | - | - | 2 (0–127) | 80 |
+| LFO (1) Speed Multiplier | B | - | - | 2 (0–127) | 81 |
+| LFO (1) Fade | C | - | - | 2 (0–127) | 82 |
+| LFO (1) Start Phase | D | - | - | 2 (0–127) | 83 |
+| LFO (1) Mode | E | - | - | 2 (0–127) | 84 |
+| LFO (1) Waveform | F | - | - | 2 (0–127) | 85 |
+| LFO (1) Destination 1 | G | - | - | 2 (0–127) | 86 |
+| LFO (1) Depth 1 | H | - | - | 2 (0–127) | 87 |
+| LFO (1) Destination 2 | I | - | - | 2 (0–127) | 88 |
+| LFO (1) Depth 2 | J | - | - | 2 (0–127) | 89 |
+| LFO (2) | | | | |
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-| LFO2 Speed | A | - | - | 2 (0–127) | 90 |
-| LFO2 Speed Multiplier | B | - | - | 2 (0–127) | 91 |
-| LFO2 Fade | C | - | - | 2 (0–127) | 92 |
-| LFO2 Start Phase | D | - | - | 2 (0–127) | 93 |
-| LFO2 Mode | E | - | - | 2 (0–127) | 94 |
-| LFO2 Waveform | F | - | - | 2 (0–127) | 95 |
-| LFO2 Destination 1 | G | - | - | 2 (0–127) | 96 |
-| LFO2 Depth 1 | H | - | - | 2 (0–127) | 97 |
-| LFO2 Destination 2 | I | - | - | 2 (0–127) | 98 |
-| LFO2 Depth 2 | J | - | - | 2 (0–127) | 99 |
+| LFO (2) Speed | A | - | - | 2 (0–127) | 90 |
+| LFO (2) Speed Multiplier | B | - | - | 2 (0–127) | 91 |
+| LFO (2) Fade | C | - | - | 2 (0–127) | 92 |
+| LFO (2) Start Phase | D | - | - | 2 (0–127) | 93 |
+| LFO (2) Mode | E | - | - | 2 (0–127) | 94 |
+| LFO (2) Waveform | F | - | - | 2 (0–127) | 95 |
+| LFO (2) Destination 1 | G | - | - | 2 (0–127) | 96 |
+| LFO (2) Depth 1 | H | - | - | 2 (0–127) | 97 |
+| LFO (2) Destination 2 | I | - | - | 2 (0–127) | 98 |
+| LFO (2) Depth 2 | J | - | - | 2 (0–127) | 99 |
 
 # CV Track Parameters
 
 The following messages affect the <Param>CV</Param> track parameters. They are also sent when adjusting the knobs controlling the parameters.
 
-## CV a
+## CV A
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
-| CV A Coarse Tune | A | - | - | 3 (0–127) | 0 |
-| CV A Fine Tune | B | - | - | 3 (0–127) | 1 |
-| CV A Value | C | - | - | 3 (0–127) | 2 |
-| CV A Clock | D | - | - | 3 (0–127) | 3 |
-| CV A Source | E | - | - | 3 (0–127) | 4 |
+| CV A Coarse Tune | A | - | - | 3 (0-127) | 0 |
+| CV A Fine Tune | B | - | - | 3 (0-127) | 1 |
+| CV A Value | C | - | - | 3 (0-127) | 2 |
+| CV A Clock | D | - | - | 3 (0-127) | 3 |
+| CV A Source | E | - | - | 3 (0-127) | 4 |
 
-## CV a
+## CV A (continued)
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
-| CV A Bend Depth | F | - | - | 3 (0–127) | 5 |
-| CV A Note Slide time | G | - | - | 3 (0–127) | 6 |
-| CV A Slide Time | H | - | - | 3 (0–127) | - |
-| CV A Some Other Param | I | - | - | 3 (0–127) | - |
-| CV A Another Param | J | - | - | 3 (0–127) | - |
+| CV A Bend Depth | F | - | - | 3 (0-127) | 5 |
+| CV A Note Slide time | G | - | - | 3 (0-127) | 6 |
+| CV A Slide Time | H | - | - | 3 (0-127) | - |
+| | I | - | - | 3 (0-127) | - |
+| | J | - | - | 3 (0-127) | - |
+
 ## CV B
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
@@ -3941,65 +3942,65 @@ The following messages affect the <Param>CV</Param> track parameters. They are a
 | CV D Placeholder I | I | - | - | 3 (0–127) | - |
 | CV D Placeholder J | J | - | - | 3 (0–127) | - |
 
-| ENV1 | | | | |
+| ENV (1) | | | | |
 |---|---|--------|-----------|----------|
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-| Env1 Attack Time | A | - | - | 3 (0–127) | 60 |
-| Env1 Decay Time | B | - | - | 3 (0–127) | 61 |
-| Env1 Sustain Level | C | - | - | 3 (0–127) | 62 |
-| Env1 Release Time | D | - | - | 3 (0–127) | 63 |
-| Env1 Env Shape | E | - | - | 3 (0–127) | 64 |
-| Env1 Gate Length | F | - | - | 3 (0–127) | 65 |
-| Env1 Destination 1 | G | - | - | 3 (0–127) | 66 |
-| Env1 Depth 1 | H | - | - | 3 (0–127) | 67 |
-| Env1 Destination 2 | I | - | - | 3 (0–127) | 68 |
-| Env1 Depth 2 | J | - | - | 3 (0–127) | 69 |
+| ENV (1) Attack Time | A | - | - | 3 (0–127) | 60 |
+| ENV (1) Decay Time | B | - | - | 3 (0–127) | 61 |
+| ENV (1) Sustain Level | C | - | - | 3 (0–127) | 62 |
+| ENV (1) Release Time | D | - | - | 3 (0–127) | 63 |
+| ENV (1) Env Shape | E | - | - | 3 (0–127) | 64 |
+| ENV (1) Gate Length | F | - | - | 3 (0–127) | 65 |
+| ENV (1) Destination 1 | G | - | - | 3 (0–127) | 66 |
+| ENV (1) Depth 1 | H | - | - | 3 (0–127) | 67 |
+| ENV (1) Destination 2 | I | - | - | 3 (0–127) | 68 |
+| ENV (1) Depth 2 | J | - | - | 3 (0–127) | 69 |
 
-| ENV2 | | | | |
+| ENV (2) | | | | |
 |---|---|--------|-------------|----------|
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-| Env2 Attack Time | A | - | - | $3 (0-127)$ | 70 |
-| Env2 Decay Time | B | - | - | $3 (0-127)$ | 71 |
-| Env2 Sustain Level | C | - | - | $3 (0-127)$ | 72 |
-| Env2 Release Time | D | - | - | $3 (0-127)$ | 73 |
-| Env2 Env Shape | E | - | - | $3 (0-127)$ | 74 |
-| Env2 Gate Length | F | - | - | $3 (0-127)$ | 75 |
-| Env2 Destination 1 | G | - | - | $3 (0-127)$ | 76 |
-| Env2 Depth 1 | H | - | - | $3 (0-127)$ | 77 |
-| Env2 Destination 2 | I | - | - | $3 (0-127)$ | 78 |
-| Env2 Depth 2 | J | - | - | $3 (0-127)$ | 79 |
+| ENV (2) Attack Time | A | - | - | $3 (0-127)$ | 70 |
+| ENV (2) Decay Time | B | - | - | $3 (0-127)$ | 71 |
+| ENV (2) Sustain Level | C | - | - | $3 (0-127)$ | 72 |
+| ENV (2) Release Time | D | - | - | $3 (0-127)$ | 73 |
+| ENV (2) Env Shape | E | - | - | $3 (0-127)$ | 74 |
+| ENV (2) Gate Length | F | - | - | $3 (0-127)$ | 75 |
+| ENV (2) Destination 1 | G | - | - | $3 (0-127)$ | 76 |
+| ENV (2) Depth 1 | H | - | - | $3 (0-127)$ | 77 |
+| ENV (2) Destination 2 | I | - | - | $3 (0-127)$ | 78 |
+| ENV (2) Depth 2 | J | - | - | $3 (0-127)$ | 79 |
 
-| LFO1 | | | | |
+| LFO (1) | | | | |
 |---|---|--------|-----------|----------|
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-| LFO1 Speed | A | - | - | 3 (0–127) | 80 |
-| LFO1 Speed Multiplier | B | - | - | 3 (0–127) | 81 |
-| LFO1 Fade | C | - | - | 3 (0–127) | 82 |
-| LFO1 Start Phase | D | - | - | 3 (0–127) | 83 |
-| LFO1 Mode | E | - | - | 3 (0–127) | 84 |
-| LFO1 Waveform | F | - | - | 3 (0–127) | 85 |
-| LFO1 Destination 1 | G | - | - | 3 (0–127) | 86 |
-| LFO1 Depth 1 | H | - | - | 3 (0–127) | 87 |
-| LFO1 Destination 2 | I | - | - | 3 (0–127) | 88 |
-| LFO1 Depth 2 | J | - | - | 3 (0–127) | 89 |
+| LFO (1) Speed | A | - | - | 3 (0–127) | 80 |
+| LFO (1) Speed Multiplier | B | - | - | 3 (0–127) | 81 |
+| LFO (1) Fade | C | - | - | 3 (0–127) | 82 |
+| LFO (1) Start Phase | D | - | - | 3 (0–127) | 83 |
+| LFO (1) Mode | E | - | - | 3 (0–127) | 84 |
+| LFO (1) Waveform | F | - | - | 3 (0–127) | 85 |
+| LFO (1) Destination 1 | G | - | - | 3 (0–127) | 86 |
+| LFO (1) Depth 1 | H | - | - | 3 (0–127) | 87 |
+| LFO (1) Destination 2 | I | - | - | 3 (0–127) | 88 |
+| LFO (1) Depth 2 | J | - | - | 3 (0–127) | 89 |
 
-| LFO2 | | | | |
+| LFO (2) | | | | |
 |---|---|--------|-----------|----------|
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-| LFO2 Speed | A | - | - | 3 (0-127) | 90 |
-| LFO2 Speed Multiplier | B | - | - | 3 (0-127) | 91 |
-| LFO2 Fade | C | - | - | 3 (0-127) | 92 |
-| LFO2 Start Phase | D | - | - | 3 (0-127) | 93 |
-| LFO2 Mode | E | - | - | 3 (0-127) | 94 |
-| LFO2 Waveform | F | - | - | 3 (0-127) | 95 |
+| LFO (2) Speed | A | - | - | 3 (0-127) | 90 |
+| LFO (2) Speed Multiplier | B | - | - | 3 (0-127) | 91 |
+| LFO (2) Fade | C | - | - | 3 (0-127) | 92 |
+| LFO (2) Start Phase | D | - | - | 3 (0-127) | 93 |
+| LFO (2) Mode | E | - | - | 3 (0-127) | 94 |
+| LFO (2) Waveform | F | - | - | 3 (0-127) | 95 |
 
-| LFO2 | | | | |
+| LFO (2) | | | | |
 |---|---|--------|-----------|------------|
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-| LFO2 Destination 1 | G | - | - | 3 (0–127) | 96 |
-| LFO2 Depth 1 | H | - | - | 3 (0–127) | 97 (0–127) |
-| LFO2 Destination 2 | I | - | - | 3 (0–127) | 98 |
-| LFO2 Depth 2 | J | - | - | 3 (0–127) | 99 (0–127) |
+| LFO (2) Destination 1 | G | - | - | 3 (0–127) | 96 |
+| LFO (2) Depth 1 | H | - | - | 3 (0–127) | 97 (0–127) |
+| LFO (2) Destination 2 | I | - | - | 3 (0–127) | 98 |
+| LFO (2) Depth 2 | J | - | - | 3 (0–127) | 99 (0–127) |
 
 # <span id="page-108-1"></span><span id="page-108-0"></span>Appendix E: Analog Four MKII Architecture
 

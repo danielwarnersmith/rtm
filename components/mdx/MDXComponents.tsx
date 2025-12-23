@@ -173,16 +173,21 @@ function CustomThead(props: ComponentPropsWithoutRef<"thead">) {
 }
 
 function CustomTh(props: ComponentPropsWithoutRef<"th">) {
-  const { children, ...rest } = props;
-  // Right-align if content looks numeric or is "Page"
+  const { children, style, align, ...rest } = props;
+  // Check for explicit alignment from markdown (e.g., |:---|)
+  const hasExplicitAlign = style?.textAlign || align;
+  
+  // Right-align only if no explicit alignment AND content looks numeric or is "Page"
   const text = typeof children === "string" ? children.trim() : "";
   const isNumericColumn = text === "Page" || /^\d+$/.test(text);
+  const shouldRightAlign = !hasExplicitAlign && isNumericColumn;
   
   return (
     <th
       {...rest}
+      style={style}
       className={`first:pl-4 last:pr-4 py-2 font-semibold text-neutral-900 dark:text-neutral-100 ${
-        isNumericColumn ? "text-right" : "text-left"
+        shouldRightAlign ? "text-right" : "text-left"
       }`}
     >
       {children}
@@ -191,20 +196,24 @@ function CustomTh(props: ComponentPropsWithoutRef<"th">) {
 }
 
 function CustomTd(props: ComponentPropsWithoutRef<"td">) {
-  const { children, ...rest } = props;
-  // Right-align if content is purely numeric
+  const { children, style, align, ...rest } = props;
+  // Check for explicit alignment from markdown (e.g., |:---|)
+  const hasExplicitAlign = style?.textAlign || align;
+  
+  // Right-align only if no explicit alignment AND content is purely numeric
   const text = typeof children === "string" ? children.trim() : "";
   const isNumeric = /^\d+$/.test(text);
+  const shouldRightAlign = !hasExplicitAlign && isNumeric;
   
   return (
     <td
       {...rest}
+      style={{ borderBottomWidth: '0.5px', ...style }}
       className={`border-b border-neutral-200 first:pl-4 last:pr-4 py-2 dark:border-neutral-700 ${
-        isNumeric
+        shouldRightAlign
           ? "text-right tabular-nums text-neutral-500 dark:text-neutral-400"
-          : "text-neutral-700 dark:text-neutral-300"
+          : "text-left text-neutral-700 dark:text-neutral-300"
       }`}
-      style={{ borderBottomWidth: '0.5px' }}
     >
       {children}
     </td>
@@ -226,8 +235,8 @@ function CustomTr(props: ComponentPropsWithoutRef<"tr">) {
   // Determine if row should be hidden
   let shouldHide = false;
   
-  // Hide rows that contain only dashes in any cell (separator rows)
-  if (cells.length > 0 && cells.some(cell => /^-+$/.test(cell))) {
+  // Hide rows where ALL cells contain only dashes (separator rows)
+  if (cells.length > 0 && cells.every(cell => /^-+$/.test(cell))) {
     shouldHide = true;
   }
   
