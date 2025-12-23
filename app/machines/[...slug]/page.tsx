@@ -3,6 +3,7 @@ import { allMachines } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import { MDXComponents } from "@/components/mdx/MDXComponents";
 import { TableOfContents } from "@/components/TableOfContents";
+import { StickyTitle } from "@/components/StickyTitle";
 import type { Metadata } from "next";
 
 interface MachinePageProps {
@@ -69,14 +70,15 @@ export default async function MachinePage({ params }: MachinePageProps) {
   return (
     <>
       <article className="prose prose-neutral max-w-3xl px-4 dark:prose-invert">
-        {/* Document Header */}
-        <header className="pb-8">
-          <h1 className="mb-2 text-[32px] font-extrabold leading-tight tracking-tight">{machine.title}</h1>
-          {machine.description && (
-            <p className="mt-4 mb-4 text-lg text-neutral-600 dark:text-neutral-400">
-              {machine.description}
-            </p>
-          )}
+        {/* Document Header - wrapped in StickyTitle for scroll detection */}
+        <StickyTitle title={machine.title}>
+          <header className="pb-8">
+            <h1 className="mb-2 text-[32px] font-extrabold leading-tight tracking-tight">{machine.title}</h1>
+            {machine.description && (
+              <p className="mt-4 mb-4 text-lg text-neutral-600 dark:text-neutral-400">
+                {machine.description}
+              </p>
+            )}
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-neutral-500">
               {machine.date && (
                 <time>
@@ -100,7 +102,8 @@ export default async function MachinePage({ params }: MachinePageProps) {
                 </div>
               )}
             </div>
-        </header>
+          </header>
+        </StickyTitle>
 
         {/* MDX Content - wrapped in prose for typography styling */}
         <MDXContent code={machine.body.code} />
