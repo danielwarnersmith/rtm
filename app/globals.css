@@ -270,7 +270,49 @@ tr {
     @apply my-0;
   }
 
-  /* Footnotes section styling */
+  /* Footnotes section wrapper */
+  .prose .footnotes-section {
+    @apply mt-16 border-t border-neutral-300 pt-8 dark:border-neutral-700;
+  }
+
+  /* Individual footnote item (details element) */
+  .prose .footnote-item {
+    @apply my-0 rounded-none border-0 border-b border-neutral-200 dark:border-neutral-800;
+  }
+
+  .prose .footnote-item summary {
+    @apply cursor-pointer px-0 py-2 text-[14px] font-medium text-neutral-500 dark:text-neutral-400;
+    @apply hover:text-neutral-700 dark:hover:text-neutral-300;
+    @apply select-none list-none relative;
+    background: transparent !important;
+  }
+
+  .prose .footnote-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .prose .footnote-item summary::after {
+    content: "+";
+    @apply absolute text-[14px] font-light transition-transform;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .prose .footnote-item[open] summary::after {
+    content: "−";
+  }
+
+  .prose .footnote-item .footnote-content {
+    @apply px-0 pb-3 text-[14px] leading-relaxed text-neutral-500 dark:text-neutral-400;
+  }
+
+  .prose .footnote-item .footnote-content p {
+    @apply text-[14px] leading-relaxed text-neutral-500 dark:text-neutral-400;
+    font-weight: 400;
+  }
+
+  /* Legacy markdown footnotes support */
   .prose .footnotes {
     @apply mt-12 border-t border-neutral-200 pt-6 dark:border-neutral-700;
   }
