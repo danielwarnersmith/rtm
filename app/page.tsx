@@ -5,6 +5,19 @@ import Link from "next/link";
 import { allMachines } from "contentlayer/generated";
 
 /**
+ * Pagefind sub-result (individual match within a page).
+ */
+interface PagefindSubResult {
+  title: string;
+  url: string;
+  excerpt: string;
+  anchor?: {
+    id: string;
+    text: string;
+  };
+}
+
+/**
  * Pagefind search result type.
  */
 interface PagefindResult {
@@ -14,6 +27,7 @@ interface PagefindResult {
   meta: {
     title?: string;
   };
+  sub_results: PagefindSubResult[];
 }
 
 interface PagefindSearchResult {
@@ -29,10 +43,66 @@ interface Pagefind {
 }
 
 /**
+ * Grouped search result for display.
+ */
+interface GroupedResult {
+  id: string;
+  url: string;
+  title: string;
+  mentions: Array<{
+    id: string;
+    anchor?: string;
+    excerpt: string;
+    title: string;
+  }>;
+}
+
+/**
  * Normalize Pagefind URLs by removing .html extension.
  */
 function normalizeUrl(url: string): string {
   return url.replace(/\.html$/, "");
+}
+
+/**
+ * Group and consolidate search results by page.
+ * Clusters nearby mentions and limits total mentions per page.
+ */
+function groupResults(results: PagefindResult[]): GroupedResult[] {
+  const grouped: GroupedResult[] = [];
+
+  for (const result of results) {
+    const baseUrl = normalizeUrl(result.url);
+    const mentions: GroupedResult["mentions"] = [];
+
+    // Use sub_results if available, otherwise fall back to main result
+    if (result.sub_results && result.sub_results.length > 0) {
+      for (const sub of result.sub_results) {
+        mentions.push({
+          id: `${result.id}-${sub.anchor?.id || mentions.length}`,
+          anchor: sub.anchor?.id,
+          excerpt: sub.excerpt,
+          title: sub.anchor?.text || sub.title || "",
+        });
+      }
+    } else {
+      mentions.push({
+        id: result.id,
+        anchor: undefined,
+        excerpt: result.excerpt,
+        title: "",
+      });
+    }
+
+    grouped.push({
+      id: result.id,
+      url: baseUrl,
+      title: result.meta.title || "Untitled",
+      mentions: mentions.slice(0, 5), // Limit to 5 mentions per page
+    });
+  }
+
+  return grouped;
 }
 
 /**
@@ -41,7 +111,7 @@ function normalizeUrl(url: string): string {
  */
 export default function HomePage() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<PagefindResult[]>([]);
+  const [results, setResults] = useState<GroupedResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isPagefindLoaded, setIsPagefindLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -119,7 +189,7 @@ export default function HomePage() {
         })
       );
 
-      setResults(loadedResults);
+      setResults(groupResults(loadedResults));
     } catch (err) {
       console.error("Search error:", err);
       setError("An error occurred while searching.");
@@ -149,7 +219,7 @@ export default function HomePage() {
   const showSearchResults = query.trim() && isPagefindLoaded && !error;
 
   return (
-    <div className="space-y-8">
+    <div className="w-full space-y-8">
       {/* Header */}
       <section>
         <h1 className="text-[28px] font-semibold leading-tight text-neutral-900 dark:text-white">
@@ -216,31 +286,52 @@ export default function HomePage() {
       {showSearchResults && results.length > 0 && (
         <section className="space-y-4">
           <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">
-            {results.length} result{results.length === 1 ? "" : "s"} found
+            {results.length} manual{results.length === 1 ? "" : "s"} with matches
           </h2>
           <ul className="space-y-4">
-            {results.map((result) => {
-              const url = normalizeUrl(result.url);
-              return (
-                <li key={result.id}>
+            {results.map((result) => (
+              <li key={result.id}>
+                <div className="rounded-lg border border-neutral-200 p-5 dark:border-neutral-800">
+                  {/* Manual title */}
                   <Link
-                    href={url}
-                    className="group block rounded-lg border border-neutral-200 p-5 transition-all hover:bg-neutral-50/50 active:bg-neutral-50/50 dark:border-neutral-800 dark:hover:bg-neutral-800/30 dark:active:bg-neutral-800/30"
+                    href={result.url}
+                    className="font-semibold text-neutral-900 hover:underline dark:text-white"
                   >
-                    <h3 className="font-semibold text-neutral-900 dark:text-white">
-                      {result.meta.title || "Untitled"}
-                    </h3>
-                    <p
-                      className="mt-2 text-sm text-neutral-600 dark:text-neutral-400"
-                      dangerouslySetInnerHTML={{ __html: result.excerpt }}
-                    />
-                    <span className="mt-2 block text-xs text-neutral-500">
-                      {url}
-                    </span>
+                    {result.title}
                   </Link>
-                </li>
-              );
-            })}
+                  <span className="ml-2 text-xs text-neutral-500">
+                    {result.mentions.length} mention{result.mentions.length === 1 ? "" : "s"}
+                  </span>
+
+                  {/* Mentions list */}
+                  <ul className="mt-3 space-y-2">
+                    {result.mentions.map((mention) => {
+                      const mentionUrl = mention.anchor
+                        ? `${result.url}#${mention.anchor}`
+                        : result.url;
+                      return (
+                        <li key={mention.id}>
+                          <Link
+                            href={mentionUrl}
+                            className="group block rounded-md p-3 -mx-3 transition-colors hover:bg-neutral-50/50 active:bg-neutral-50/50 dark:hover:bg-neutral-800/30 dark:active:bg-neutral-800/30"
+                          >
+                            {mention.title && (
+                              <span className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                                {mention.title}
+                              </span>
+                            )}
+                            <span
+                              className="block text-sm text-neutral-600 dark:text-neutral-400 [&_mark]:bg-yellow-200 [&_mark]:dark:bg-yellow-500/40 [&_mark]:dark:text-yellow-100 [&_mark]:px-0.5 [&_mark]:rounded"
+                              dangerouslySetInnerHTML={{ __html: mention.excerpt }}
+                            />
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </li>
+            ))}
           </ul>
         </section>
       )}

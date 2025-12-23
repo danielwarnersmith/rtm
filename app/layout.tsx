@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: "RTM Documentation",
     template: "%s | RTM",
   },
-  description: "A modern, content-driven documentation site built with Next.js and MDX",
+  description: "Elektron machine manuals",
 };
 
 export const viewport: Viewport = {
@@ -60,7 +60,7 @@ export default function RootLayout({
           </header>
 
           {/* Main Content */}
-          <main className="mx-auto max-w-5xl py-8 flex flex-col items-center">
+          <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 flex flex-col items-center">
             {children}
           </main>
 

@@ -159,26 +159,35 @@ tr {
 
 /* Custom prose styles for better readability */
 @layer components {
+  /* Use semibold for bold, with small-caps for ALL CAPS text to match x-height */
+  .prose strong,
+  .prose b {
+    font-weight: 500;
+    @apply leading-tight text-neutral-700 dark:text-neutral-300;
+  }
+
   .prose p {
-    @apply text-[18px] leading-tight;
+    font-weight: 300;
+    @apply text-[24px] leading-tight text-neutral-800 dark:text-neutral-400;
     margin-top: 0 !important;
   }
 
   .prose li {
-    @apply text-[18px] leading-tight;
+    font-weight: 300;
+    @apply text-[24px] leading-tight text-neutral-800 dark:text-neutral-400;
   }
 
   .prose h1,
   .prose h1 a {
     @apply text-[28px] leading-normal;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
     margin-bottom: 0 !important;
     margin-top: 3.0em !important;
   }
 
   .prose h2,
   .prose h2 a {
-    @apply text-[18px] leading-tight;
+    @apply text-[24px] leading-tight;
     font-weight: 600 !important;
     margin-bottom: 0.1em !important;
     margin-top: 0.5em !important;
@@ -186,8 +195,10 @@ tr {
 
   .prose h3,
   .prose h3 a {
-    @apply text-[18px] leading-tight text-neutral-300 dark:text-neutral-500;
-    font-weight: 600 !important;
+    @apply text-[28px] leading-tight text-neutral-800 dark:text-neutral-300;
+    text-transform: uppercase;
+    font-variant-caps: all-small-caps;
+    font-weight: 500 !important;
     margin-top: 1.25em !important;
     margin-bottom: 0.5em !important;
   }
@@ -257,6 +268,34 @@ tr {
 
   .prose details table {
     @apply my-0;
+  }
+
+  /* Footnotes section styling */
+  .prose .footnotes {
+    @apply mt-12 border-t border-neutral-200 pt-6 dark:border-neutral-700;
+  }
+
+  .prose .footnotes ol {
+    @apply text-[14px] leading-relaxed text-neutral-500 dark:text-neutral-400;
+  }
+
+  .prose .footnotes li {
+    @apply text-[14px] leading-relaxed text-neutral-500 dark:text-neutral-400;
+  }
+
+  .prose .footnotes p {
+    @apply text-[14px] leading-relaxed text-neutral-500 dark:text-neutral-400;
+    font-weight: 400;
+  }
+
+  /* Footnote reference (superscript number in text) */
+  .prose a[data-footnote-ref] {
+    @apply text-[12px] text-neutral-400 no-underline hover:text-neutral-600 dark:hover:text-neutral-300;
+  }
+
+  /* Footnote backref (arrow back to text) */
+  .prose a[data-footnote-backref] {
+    @apply ml-1 text-neutral-400 no-underline hover:text-neutral-600 dark:hover:text-neutral-300;
   }
 }
 

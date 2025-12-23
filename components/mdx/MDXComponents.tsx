@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { Children as ReactChildren, isValidElement } from "react";
@@ -290,6 +291,100 @@ function CustomOl(props: ComponentPropsWithoutRef<"ol">) {
 }
 
 /**
+ * Callout component props
+ */
+interface CalloutProps {
+  children: ReactNode;
+}
+
+/**
+ * Tip callout component.
+ * Displays helpful tips with the Elektron tip icon.
+ */
+function Tip({ children }: CalloutProps) {
+  return (
+    <div className="my-6 flex gap-4 rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800/50">
+      <div className="flex-shrink-0">
+        <Image
+          src="/icons/tip.jpeg"
+          alt="Tip"
+          width={24}
+          height={24}
+          className="mt-0.5"
+        />
+      </div>
+      <div className="text-neutral-700 dark:text-neutral-300 [&>p]:my-0">{children}</div>
+    </div>
+  );
+}
+
+/**
+ * Warning callout component.
+ * Displays important warnings with the Elektron warning icon.
+ */
+function Warning({ children }: CalloutProps) {
+  return (
+    <div className="my-6 flex gap-4 rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-700/50 dark:bg-amber-900/20">
+      <div className="flex-shrink-0">
+        <Image
+          src="/icons/warning.jpeg"
+          alt="Warning"
+          width={24}
+          height={24}
+          className="mt-0.5"
+        />
+      </div>
+      <div className="text-amber-900 dark:text-amber-100 [&>p]:my-0">{children}</div>
+    </div>
+  );
+}
+
+/**
+ * Inline convention components for Elektron manual formatting.
+ * These match the conventions described in "Conventions in This Manual" sections.
+ */
+
+/**
+ * Key name component - for physical keys like [FUNC], [PLAY], [TRIG 1-16]
+ * Convention: "Key names are written in upper case, bold style and bracketed letters"
+ */
+function Key({ children }: { children: ReactNode }) {
+  return <strong className="text-[21px] font-semibold">[{children}]</strong>;
+}
+
+/**
+ * Knob name component - for rotary controls like TRACK LEVEL, DATA ENTRY
+ * Convention: "Knobs are written in upper case, bold, italic letters"
+ */
+function Knob({ children }: { children: ReactNode }) {
+  return <strong className="text-[21px] font-semibold italic">{children}</strong>;
+}
+
+/**
+ * LED indicator component - for LED displays like <PATTERN PAGE>, <OCTAVE>
+ * Convention: "LED indicators are written like this: <OCTAVE>"
+ */
+function LED({ children }: { children: ReactNode }) {
+  return <strong className="text-[21px] font-semibold">&lt;{children}&gt;</strong>;
+}
+
+/**
+ * Screen message component - for on-screen text like "BANK A: CHOOSE PTN"
+ * Convention: "Messages visible on the screen are written in upper case letters with quotation marks"
+ */
+function Screen({ children }: { children: ReactNode }) {
+  return <span className="text-[21px] font-medium">&ldquo;{children}&rdquo;</span>;
+}
+
+/**
+ * Parameter name component - for parameter names like VOL, FREQ, DECAY
+ * Convention: "Parameter names are written in bold, upper case letters"
+ */
+function Param({ children }: { children: ReactNode }) {
+  return <strong className="text-[21px] font-semibold">{children}</strong>;
+}
+
+/**
  * Centralized MDX component mapping.
  * Override default HTML elements with custom styled components.
  */
@@ -311,5 +406,13 @@ export const MDXComponents = {
   tr: CustomTr,
   ul: CustomUl,
   ol: CustomOl,
+  Tip,
+  Warning,
+  // Inline convention components
+  Key,
+  Knob,
+  LED,
+  Screen,
+  Param,
 };
 

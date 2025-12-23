@@ -268,11 +268,11 @@ To reduce the risk of fire, electrical shock or product damage:
 
 Thank you for purchasing Analog Rytm MKII. It is a hybrid analog/digital drum machine featuring, among many other things, the intuitive Elektron step sequencer. The innovative combination of modern technology and tried and trusted ways of sound generation lets you create any kind of drum: purely analog, sample-based or a combination of the two. To get the most out of your machine, we recommend that you read this manual in its entirety.
 
-## 1.1 CONVENTIONS IN THIS MANUAL
+## CONVENTIONS IN THIS MANUAL
 
 In this manual, we use the following conventions to describe the Analog Rytm MKII user interface:
 
-## • KEY NAMES
+• KEY NAMES
 
 Written in uppercase, bold style and within brackets. For example, the key labeled "FUNC" is called [FUNC].
 
