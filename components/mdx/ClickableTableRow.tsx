@@ -3,23 +3,6 @@
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { Children as ReactChildren, isValidElement } from "react";
 
-// Helper to recursively get text content from React children
-function getTextContent(children: ReactNode): string {
-  if (typeof children === "string") return children;
-  if (typeof children === "number") return String(children);
-  if (!children) return "";
-  
-  if (Array.isArray(children)) {
-    return children.map(getTextContent).join("");
-  }
-  
-  if (isValidElement(children) && children.props.children) {
-    return getTextContent(children.props.children);
-  }
-  
-  return "";
-}
-
 // Helper to find first link href in children
 function findFirstHref(children: ReactNode): string | null {
   let href: string | null = null;
