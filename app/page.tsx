@@ -61,7 +61,32 @@ interface GroupedResult {
  * Normalize Pagefind URLs by removing .html extension.
  */
 function normalizeUrl(url: string): string {
-  return url.replace(/\.html$/, "");
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  let pathname = url;
+  try {
+    pathname = new URL(url, "https://example.invalid").pathname;
+  } catch {
+    // If it's not a valid URL, treat it as a pathname.
+    pathname = url;
+  }
+
+  // If Pagefind returns a URL that already includes the basePath, strip it so
+  // Next.js can re-apply basePath consistently via <Link />.
+  if (basePath && pathname.startsWith(`${basePath}/`)) {
+    pathname = pathname.slice(basePath.length);
+  }
+
+  if (!pathname.startsWith("/")) pathname = `/${pathname}`;
+
+  // Next.js static export for nested routes is typically `.../index.html`.
+  // Convert those (and any `.html`) into directory-style paths.
+  pathname = pathname.replace(/\/index\.html$/, "/").replace(/\.html$/, "/");
+
+  // GitHub Pages doesn't do "pretty URL" fallbacks, so always use trailing slashes.
+  if (pathname !== "/" && !pathname.endsWith("/")) pathname += "/";
+
+  return pathname;
 }
 
 /**
