@@ -20,6 +20,7 @@ jobs:
     env:
       # Used by next.config.mjs to set basePath/assetPrefix for Pages.
       GITHUB_PAGES: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,6 +39,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Disable Jekyll processing
+        run: touch out/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
