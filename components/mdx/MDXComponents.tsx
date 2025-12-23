@@ -32,10 +32,10 @@ function withBasePath(src: string | undefined): string | undefined {
 }
 
 /**
- * Strip section number prefixes (e.g., "9.11.5 ") from text
+ * Strip section number prefixes (e.g., "9.11.5 ", "D.1 ", "C.4 ") from text
  */
 function stripSectionPrefix(text: string): string {
-  return text.replace(/^[\d.]+\s+/, "");
+  return text.replace(/^[A-Za-z]?[\d.]+\s+/, "");
 }
 
 /**
@@ -280,8 +280,8 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
     
-    // Strip section number prefixes (e.g., "9.11.5 ") for display
-    const displayText = text.replace(/^[\d.]+\s+/, "");
+    // Strip section number prefixes (e.g., "9.11.5 ", "D.1 ") for display
+    const displayText = text.replace(/^[A-Za-z]?[\d.]+\s+/, "");
 
     return (
       <Tag id={id} {...rest}>

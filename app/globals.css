@@ -171,10 +171,19 @@ tr {
     @apply text-[24px] leading-tight text-neutral-800 dark:text-neutral-400;
     margin-top: 0 !important;
   }
+  .prose a {
+    @apply text-[21px] leading-tight;
+    text-decoration-thickness: 2px;
+  }
 
   .prose li {
     font-weight: 300;
     @apply text-[24px] leading-tight text-neutral-800 dark:text-neutral-400;
+  }
+
+  .prose ol li::marker {
+    @apply text-[16px] text-neutral-500 dark:text-neutral-500;
+    font-weight: 400;
   }
 
   .prose h1,

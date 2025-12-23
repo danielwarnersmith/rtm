@@ -63,7 +63,6 @@ date: "2025-12-20"
 | [7.1.7 CREATING A PATTERN](#7-1-7-creating-a-pattern) | 20 |
 | [8. ANALOG RYTM MKII CONTROLS](#8-analog-rytm-mkii-controls) | 21 |
 | [8.1 PADS](#8-1-pads) | 21 |
-|---|---|
 | [8.2 MACHINES](#8-2-machines) | 22 |
 | [8.3 ROTARY ENCODERS](#8-3-rotary-encoders) | 22 |
 | [8.4 PRAGMATIC OPERATION](#8-4-pragmatic-operation) | 22 |
@@ -360,7 +359,7 @@ There are eight analog voice circuits. All voices have an identical sample playb
 
 ## **4.2 About Machines**
 
-There are several MACHINES available for each voice circuit. A MACHINE is a set of synthesis parameters that control a percussion sound generator to act like a certain drum model. Different MACHINES are software tailored to generate different kinds of bass drums, hi-hats, et cetera - and to provide the parameters most apt for each particular MACHINE. For more information, please see "8.2 MACHINES" on page 22.
+There are several MACHINES available for each voice circuit. A MACHINE is a set of synthesis parameters that control a percussion sound generator to act like a certain drum model. Different MACHINES are software tailored to generate different kinds of bass drums, hi-hats, et cetera - and to provide the parameters most apt for each particular MACHINE. For more information, please see "MACHINES" on page 22.
 
 # <span id="page-13-0"></span>5. Overview of the Analog Rytm MKII Data Structure
 
@@ -376,39 +375,39 @@ The +Drive is a non-volatile storage. It keeps up to 128 projects (thousands of 
 
 ## 5.2.1 Project
 
-A project contains 128 patterns, 128 kits, 16 songs, 4 global slots, 127 sample slots and a project Sound pool consisting of up to 128 Sounds. General settings and states are stored in the project. When a project is loaded it becomes the active working state of the Analog Rytm MKII. From here it is possible to edit the patterns, kits, songs, and globals of the project. Every time the Analog Rytm MKII is switched on, it boots to the active working state, the active project. Projects are saved, loaded and managed in the <Param>GLOBAL SETTINGS</Param> menu. Read more about projects in the section ["9. PROJECTS" on page 24](#9-projects).
+A project contains 128 patterns, 128 kits, 16 songs, 4 global slots, 127 sample slots and a project Sound pool consisting of up to 128 Sounds. General settings and states are stored in the project. When a project is loaded it becomes the active working state of the Analog Rytm MKII. From here it is possible to edit the patterns, kits, songs, and globals of the project. Every time the Analog Rytm MKII is switched on, it boots to the active working state, the active project. Projects are saved, loaded and managed in the <Param>GLOBAL SETTINGS</Param> menu. Read more about projects in the section ["PROJECTS" on page 24](#9-projects).
 
 # 5.2.2 Kits
 
-A kit is a collection of twelve drum track Sounds and the <Param>FX</Param> track parameter settings. When editing a track, changes made to the parameter settings is stored in the active kit. Each project of the Analog Rytm MKII contains 128 individual kits. A pattern always links to one of the kits. Read more in the section ["10. KITS AND SOUNDS" on page 26.](#10-kits-and-sounds)
+A kit is a collection of twelve drum track Sounds and the <Param>FX</Param> track parameter settings. When editing a track, changes made to the parameter settings is stored in the active kit. Each project of the Analog Rytm MKII contains 128 individual kits. A pattern always links to one of the kits. Read more in the section ["KITS AND SOUNDS" on page 26.](#10-kits-and-sounds)
 
 ## 5.2.3 Sounds
 
-A Sound is a sample plus the parameter settings found in the <Param>PARAMETER</Param> pages SRC, SMPL, FLTR, AMP, and LFO. Sounds are stored in the Sound pool of the active project or the +Drive Sound library. The Sound pool has 128 Sound slots and the +Drive Sound library holds up to 4096 sounds. Read more in the section ["10. KITS AND SOUNDS" on page 26.](#10-kits-and-sounds)
+A Sound is a sample plus the parameter settings found in the <Param>PARAMETER</Param> pages SRC, SMPL, FLTR, AMP, and LFO. Sounds are stored in the Sound pool of the active project or the +Drive Sound library. The Sound pool has 128 Sound slots and the +Drive Sound library holds up to 4096 sounds. Read more in the section ["KITS AND SOUNDS" on page 26.](#10-kits-and-sounds)
 
 ## 5.2.4 Samples
 
-You can load up to 64 MB (about 11 minutes) of samples in a project, using a maximum of 127 sample slots. There are many preset samples to choose from in the +Drive Sample bank. Additional samples can be transferred to the Analog Rytm MKII from a computer with the Elektron Transfer software. You can also sample straight into the Analog Rytm MKII. See section ["14. GLOBAL SETTINGS MENU" on page](#14-global-settings-menu), and ["13. SAMPLING" on page 54.](#13-sampling)
+You can load up to 64 MB (about 11 minutes) of samples in a project, using a maximum of 127 sample slots. There are many preset samples to choose from in the +Drive Sample bank. Additional samples can be transferred to the Analog Rytm MKII from a computer with the Elektron Transfer software. You can also sample straight into the Analog Rytm MKII. See section ["GLOBAL SETTINGS MENU" on page](#14-global-settings-menu), and ["SAMPLING" on page 54.](#13-sampling)
 
 ## 5.2.5 Patterns
 
-For each of the 8 banks, 16 patterns are available, which means 128 patterns are always readily available for each project. A pattern contains sequencer data like drum trigs, trig mutes and parameter locks for the drum tracks and the <Param>FX</Param> track, as well as default settings on the <Param>TRIG</Param> page and length, swing, and time signature settings. Read more in the section ["11. THE SEQUENCER" on page 37](#11-the-sequencer).
+For each of the 8 banks, 16 patterns are available, which means 128 patterns are always readily available for each project. A pattern contains sequencer data like drum trigs, trig mutes and parameter locks for the drum tracks and the <Param>FX</Param> track, as well as default settings on the <Param>TRIG</Param> page and length, swing, and time signature settings. Read more in the section ["THE SEQUENCER" on page 37](#11-the-sequencer).
 
 ## <span id="page-14-0"></span>5.2.6 Songs
 
-16 songs are available for each project. They are used to sequence the playback of patterns. Songs are built of patterns and chains. Read more about songs in the section ["12.2 SONGS" on page 51.](#12-2-songs)
+16 songs are available for each project. They are used to sequence the playback of patterns. Songs are built of patterns and chains. Read more about songs in the section ["SONGS" on page 51.](#12-2-songs)
 
 ## 5.2.7 Globals
 
-The GLOBAL settings contain overarching settings for the sequencer, MIDI, and global track routing. Four global slots are available for each project, each with its specific settings. Read more about the global settings in the section ["14. GLOBAL SETTINGS MENU" on page 56](#14-global-settings-menu).
+The GLOBAL settings contain overarching settings for the sequencer, MIDI, and global track routing. Four global slots are available for each project, each with its specific settings. Read more about the global settings in the section ["GLOBAL SETTINGS MENU" on page 56](#14-global-settings-menu).
 
 ## 5.3 About the Tracks
 
-## 5.3.1 the Drum Tracks
+## 5.3.1 The Drum Tracks
 
 There are 12 drum tracks. To select a track for editing, press and hold <Key>TRK</Key> key and then press one of the <Key>PADS</Key>. Each drum track uses a specific drum voice controlled by one of the MACHINES available for the voice. All drum tracks can layer analog percussion sounds and sampled sounds, to distort and filter them, and apply a dedicated LFO each.
 
-## 5.3.2 the FX Track
+## 5.3.2 The FX Track
 
 The <Param>FX</Param> track controls the Analog Rytm MKII send effects DELAY and REVERB, as well as the DISTOR-TION and COMPRESSOR master effects. One LFO is also available for this track. To select the <Param>FX</Param> track for editing, press the <Key>FX</Key> key.
 
@@ -418,7 +417,7 @@ The five <Key>PARAMETER</Key> keys open parameter pages that are used for editin
 
 # <span id="page-15-0"></span>6. Interacting with the Analog Rytm MKII
 
-## 6.1 the Screen
+## 6.1 The Screen
 
 The screen is the center of Analog Rytm MKII editing.
 
@@ -468,7 +467,7 @@ Scroll through menus using the <Knob>TRACK LEVEL</Knob> knob. Quick scrolling is
 
 Copy, clear and paste commands are available in many contexts. Press <Key>FUNC</Key> + <Key>RECORD</Key> to perform a copy operation. Press <Key>FUNC</Key> + <Key>STOP</Key> to perform a paste operation. Press <Key>FUNC</Key> + <Key>PLAY</Key> to perform a clear operation. Paste and clear operations are undone by repeating the key press combination. Please see the different sections in the manual for more information on when these commands are applicable.
 
-## <span id="page-16-1"></span>6.5 the Naming Screen
+## <span id="page-16-1"></span>6.5 The Naming Screen
 
 The naming method is identical for the various naming situations that appear when kits, Sounds, songs, projects et cetera are saved or renamed. This screen is also used for text searches.
 
@@ -502,7 +501,7 @@ Read more about Overbridge use and availability on the Elektron website.
 
 The Analog Rytm MKII is a class compliant device (also known as plug-and-play). It means it does not require any extra drivers to connect to your computer or other USB class compliant hosts.
 
-The Analog Rytm MKII can, therefore, stream audio and MIDI directly over USB to and from supported computers/phones/tablets. It opens up several exciting possibilities of what you can do with your device, for example, record audio from your device directly over USB in your DAW. For more information, please see ["14.8.1 USB CONFIG" on page 65](#14-8-1-USB-config) and ["14.6 AUDIO ROUTING" on page 63.](#14-6-audio-routing)
+The Analog Rytm MKII can, therefore, stream audio and MIDI directly over USB to and from supported computers/phones/tablets. It opens up several exciting possibilities of what you can do with your device, for example, record audio from your device directly over USB in your DAW. For more information, please see ["USB CONFIG" on page 65](#14-8-1-USB-config) and ["AUDIO ROUTING" on page 63.](#14-6-audio-routing)
 
 ## 6.8. Backing up the Analog Rytm MKII
 
@@ -535,7 +534,7 @@ Use the <Param>EXPLORE</Param> page in Transfer to transfer previously backed up
 
 # <span id="page-18-0"></span>7. Quick Start
 
-This quick start guides you through some of the basic operations to start using the Analog Rytm MKII right away. First, connect it as described in section ["3.3 SETTING UP AND STARTING THE ANALOG RYTM](#3-3-setting-up-and-starting-the-analog-rytm).
+This quick start guides you through some of the basic operations to start using the Analog Rytm MKII right away. First, connect it as described in section ["SETTING UP AND STARTING THE ANALOG RYTM](#3-3-setting-up-and-starting-the-analog-rytm).
 
 # 7.1 Playing the Factory Presets
 
@@ -593,7 +592,7 @@ Use the <Knob>TRACK LEVEL</Knob> knob to change tempo in steps of one BPM. Press
 Note that you can choose between a project tempo (same tempo for all the patterns in a project) or use a separate tempo for every pattern. Press <Key>FUNC</Key> + <Key>YES</Key> to switch between PROJECT and PATTERN tempo mode.
 </Warning>
 
-To tap a tempo setting, press and hold the <Key>FUNCTION</Key> key and tap the <Key>TEMPO</Key> key in a steady rhythm. The average tempo of the taps calculates after four consecutive taps. For more information, please see ["11.1.3 TEMPO" on page 38](#11-1-3-tempo).
+To tap a tempo setting, press and hold the <Key>FUNCTION</Key> key and tap the <Key>TEMPO</Key> key in a steady rhythm. The average tempo of the taps calculates after four consecutive taps. For more information, please see ["TEMPO" on page 38](#11-1-3-tempo).
 
 ## 7.1.6 Editing Parameters
 
@@ -617,7 +616,7 @@ To save kit changes, press <Key>YES</Key> + <Key>PLAY MODE</Key>.
 
 ## 7.1.7 Creating a Pattern
 
-In this example, we will use the <Param>GRID RECORDING</Param> mode to create a pattern. For more information, please see ["11.3.2 GRID RECORDING MODE" on page 39](#11-3-2-grid-recording-mode).
+In this example, we will use the <Param>GRID RECORDING</Param> mode to create a pattern. For more information, please see ["GRID RECORDING MODE" on page 39](#11-3-2-grid-recording-mode).
 
 1. Press <Key>BANK A–H</Key> and then <Key>TRIG 1–16</Key> to select an empty pattern. Pattern A01 to B16 are by default used by factory preset content.
 2. Press <Key>RECORD</Key> to enter <Param>GRID RECORDING</Param> mode. The <Key>RECORD</Key> key lights up red to indicate that <Param>GRID RECORDING</Param> mode is active.
@@ -691,7 +690,7 @@ Some functions can be triggered by sending MIDI note values from an external MID
 
 Of the 128 notes in the standard MIDI range, 0–11 corresponds to notes C0 through to B0, the leftmost octave (which is sometimes called C-2–B-2 in certain applications) will trigger the Sound of track 1 through to track 12, respectively (provided they are set to their default channels 1–12). These note values map to each of the twelve tracks, regardless of which track is active. For more information, please see
 
-MIDI note values 12–59 (corresponding to notes C1–B4, the second through to the fifth octave in the MIDI range) will trigger the Sound of the active track in any of its 48 chromatic variations (as if played by the pads in <Param>CHROMATIC</Param> mode, see section below), from lowest to highest pitch. The track Sound must be enabled for chromatic play if any variation is to be heard. Activate via the SOUND SETTINGS. For more information, please see ["10.5.2 SOUND MANAGER" on page 32](#10-5-2-sound-manager).
+MIDI note values 12–59 (corresponding to notes C1–B4, the second through to the fifth octave in the MIDI range) will trigger the Sound of the active track in any of its 48 chromatic variations (as if played by the pads in <Param>CHROMATIC</Param> mode, see section below), from lowest to highest pitch. The track Sound must be enabled for chromatic play if any variation is to be heard. Activate via the SOUND SETTINGS. For more information, please see ["SOUND MANAGER" on page 32](#10-5-2-sound-manager).
 
 MIDI program change messages 0–127 selects pattern 1–128 (A01–H16) on the Analog Rytm MKII. Additionally, MIDI CC and NRPN messages can be sent to control various aspects of the Analog Rytm MKII. See ["APPENDIX C: MIDI" on page 82](#appendix-c-midi) for a complete specification.
 
@@ -719,9 +718,9 @@ Pressing the <Key>CHRO</Key> key turns the <Key>PADS</Key> of the Analog Rytm MK
 
 Any track Sound may be played in this mode using the 12 pads. The chromatic note pitch is linearly increased for each successive pad pressed: left to right, bottom to top. Twelve pads in succession make up one octave. The range spans four octaves, middle, 1 up and 2 down. The middle octave has blue color <LED>PADS</LED>, the two below are of violet and dark blue color, in that order, and the one above is yellow. Reach higher or lower octaves, one row at a time, by pressing the <Key>ARROW</Key> keys <Key>UP</Key> or <Key>DOWN</Key>, respectively.
 
-The Synth part, the Sample part or both at once of any Sound may be chromatic enabled. This is done in the SOUND SETTINGS. For more information, please see ["10.5.2 SOUND MANAGER" on page 32](#10-5-2-sound-manager).
+The Synth part, the Sample part or both at once of any Sound may be chromatic enabled. This is done in the SOUND SETTINGS. For more information, please see ["SOUND MANAGER" on page 32](#10-5-2-sound-manager).
 
-Notes trigged chromatically can be recorded on the sequencer. Find out how this is done in sections ["11.3.2 GRID RECORDING MODE" on page 39](#11-3-2-grid-recording-mode) and ["11.3.3 LIVE RECORDING MODE" on page 39](#11-3-3-live-recording-mode).
+Notes trigged chromatically can be recorded on the sequencer. Find out how this is done in sections ["GRID RECORDING MODE" on page 39](#11-3-2-grid-recording-mode) and ["LIVE RECORDING MODE" on page 39](#11-3-3-live-recording-mode).
 
 Like the <Param>MUTE</Param> mode, the active state of the <Param>CHROMATIC</Param> mode (the portion of the chromatic keyboard currently visible on the pads) is not stored per kit or pattern but stays in its set state until it is changed.
 
@@ -729,13 +728,13 @@ Like the <Param>MUTE</Param> mode, the active state of the <Param>CHROMATIC</Par
 
 The <Param>SCENE</Param> mode turns the twelve pads into instant sound shifters. Press a single pad to change several parameters from any track. A scene is a fixed set of parameter values, ready to be activated or deactivated. To activate the <Param>SCENE</Param> mode, press the <Key>SCNE</Key> key.
 
-By carefully assigning a set of parameter values, you can prepare a scene that makes the same kit sound drastically (or subtly) different whenever activated. After exiting <Param>SCENE</Param> mode, the <Key>SCNE</Key> key stays lit, half-bright white (red on grey devices) if any of the scenes are active. Unlike the MUTE or <Param>CHROMATIC</Param> mode, <Param>SCENE</Param> mode settings are stored in the active kit. See ["10.3 SCENE MODE" on page 28](#10-3-scene-mode).
+By carefully assigning a set of parameter values, you can prepare a scene that makes the same kit sound drastically (or subtly) different whenever activated. After exiting <Param>SCENE</Param> mode, the <Key>SCNE</Key> key stays lit, half-bright white (red on grey devices) if any of the scenes are active. Unlike the MUTE or <Param>CHROMATIC</Param> mode, <Param>SCENE</Param> mode settings are stored in the active kit. See ["SCENE MODE" on page 28](#10-3-scene-mode).
 
 ## 8.7.5 Performance Mode
 
 Press the <Key>PERF</Key> key to enter <Param>PERFORMANCE</Param> mode. This mode enables the <Key>PADS</Key> to control several <Param>PARAMETER</Param> page parameters at once. Change many dimensions of one or more drum track Sounds at the touch of a single pad. A pad in this mode, prepared with one or many additive layers of parameter modulation, is called a performance macro. While setting up a performance macro is done in a similar way as setting up a scene, there is a major difference in the way these two modes operate. A scene is a static, ON/OFF command of an array of parameters set to specific values. A performance macro engages the assigned parameters dynamically. When using a performance macro, the parameters are modulated relative to the pressure applied to the pad. Green color <LED>PADS</LED> contains a performance macro.
 
-<Param>PERFORMANCE</Param> mode settings are stored as part of a kit. For more information, please see ["10.4 PER-](#10-4-per)
+<Param>PERFORMANCE</Param> mode settings are stored as part of a kit. For more information, please see ["PER-](#10-4-per)
 
 # <span id="page-23-1"></span><span id="page-23-0"></span>9. Projects
 
@@ -745,7 +744,7 @@ A project is the top level of the Analog Rytm MKII workflow. A project contains 
 
 When a project is loaded it becomes the active working state of Analog Rytm MKII, independent of the +Drive. Analog Rytm MKII keeps track of what project slot the active project was loaded from. It is possible to edit the patterns, kits, songs, and globals of a loaded project.
 
-Within an active project, all changes made are automatically remembered by the Analog Rytm MKII, letting you switch back and forth between patterns and kits and edit the patterns, kits, and parameters in any order you like without the need to save each adjustment manually. Patterns, the active kit Sounds, and settings, songs and globals are remembered even after the power is turned off. However, regarding kits (the main entity for editing and collectively storing a complete set of Sounds and effects), when the Analog Rytm MKII is switched off, only the settings of the active kit are preserved. If for example, the kit linked to pattern 1 is edited (kit A), another pattern is selected and its kit edited (kit B) and then the power is turned off, only the changes to kit B (the most recent active kit) will be remembered. We highly recommend that you specifically save the kits you have been working on manually using the quick command <Key>YES</Key> + <Key>PLAY MODE</Key>. Find out more about kits in the section ["10. KITS AND SOUNDS" on page 26](#10-kits-and-sounds).
+Within an active project, all changes made are automatically remembered by the Analog Rytm MKII, letting you switch back and forth between patterns and kits and edit the patterns, kits, and parameters in any order you like without the need to save each adjustment manually. Patterns, the active kit Sounds, and settings, songs and globals are remembered even after the power is turned off. However, regarding kits (the main entity for editing and collectively storing a complete set of Sounds and effects), when the Analog Rytm MKII is switched off, only the settings of the active kit are preserved. If for example, the kit linked to pattern 1 is edited (kit A), another pattern is selected and its kit edited (kit B) and then the power is turned off, only the changes to kit B (the most recent active kit) will be remembered. We highly recommend that you specifically save the kits you have been working on manually using the quick command <Key>YES</Key> + <Key>PLAY MODE</Key>. Find out more about kits in the section ["KITS AND SOUNDS" on page 26](#10-kits-and-sounds).
 
 Project changes are not automatically written to the +Drive. To store the active working state of the project to a +Drive slot, the project needs to be saved manually. See below on how to load and save projects.
 
@@ -820,9 +819,9 @@ The graphics in the top left part of the screen shows the name of the active kit
 When you create a brand new pattern, using an existing kit that is already linked to another pattern, we recommend that you save and rename the kit, the first thing you do (see below). Unless, of course, you intend kit changes to affect multiple patterns.
 </Tip>
 
-## 10.1 the +Drive Sound Library and the Sound Pool
+## 10.1 The +Drive Sound Library and the Sound Pool
 
-Sounds can be loaded to a kit from either the +Drive Sound library or the Sound pool of the active project. The +Drive Sound library has the capacity of 4096 Sounds, available to all projects. The Sound pool is a part of a project and can contain up to 128 Sounds. The major benefit of Sounds loaded to the Sound pool is the possibility for them to be Sound locked. This feature is not available for the Sounds in the +Drive Sound library. Read more about Sound locking in the section ["11.11.2 SOUND LOCKS" on page 46](#11-11-2-sound-locks).
+Sounds can be loaded to a kit from either the +Drive Sound library or the Sound pool of the active project. The +Drive Sound library has the capacity of 4096 Sounds, available to all projects. The Sound pool is a part of a project and can contain up to 128 Sounds. The major benefit of Sounds loaded to the Sound pool is the possibility for them to be Sound locked. This feature is not available for the Sounds in the +Drive Sound library. Read more about Sound locking in the section ["SOUND LOCKS" on page 46](#11-11-2-sound-locks).
 
 ## <span id="page-25-2"></span>10.2 Kit Menu
 
@@ -852,7 +851,7 @@ Clears the content of the currently loaded kit, basically initializing it. When 
 
 ## 10.2.5 Track Routing Kit
 
-Customizes track routing. The default setting is to use the TRACK ROUTING global settings found in the <Param>GLOBAL SETTINGS</Param> menu. See section ["14.6 AUDIO ROUTING" on page 63.](#14-6-audio-routing)
+Customizes track routing. The default setting is to use the TRACK ROUTING global settings found in the <Param>GLOBAL SETTINGS</Param> menu. See section ["AUDIO ROUTING" on page 63.](#14-6-audio-routing)
 
 If you want custom settings for the currently active kit, press <Key>YES</Key> to untick the USE GLOBAL SETTING box and use the <Key>ARROW</Key> keys <Key>UP</Key> and <Key>DOWN</Key> to navigate the menu.
 
@@ -866,7 +865,7 @@ SEND TO FX highlight this option to customize the send FX routing of the 12 trac
 
 # <span id="page-26-1"></span>10.2.6 Control in 1 Mod
 
-Opens the CONTROL IN 1 MOD setup for Control In 1. Basically this is like a performance macro that you can control with CV or an expression pedal connected to the Control In 1 input (labeled EXP/CV IN 1 on the Analog Rytm MKII back panel). The setup for the Control In 1 input can be found in the <Param>GLOBAL SET-TINGS</Param> menu. For more information, please see ["14.7 CONTROL" on page 64](#14-7-control). This modulation macro is configured the same way as a performance macro.
+Opens the CONTROL IN 1 MOD setup for Control In 1. Basically this is like a performance macro that you can control with CV or an expression pedal connected to the Control In 1 input (labeled EXP/CV IN 1 on the Analog Rytm MKII back panel). The setup for the Control In 1 input can be found in the <Param>GLOBAL SET-TINGS</Param> menu. For more information, please see ["CONTROL" on page 64](#14-7-control). This modulation macro is configured the same way as a performance macro.
 
 ![](/machines/analog-rytm-mkii/images/_page_27_Picture_1.jpeg)
 
@@ -975,7 +974,7 @@ Quick performance gives you the possibility to control one or several of your pe
 
 Every time you perform this procedure you remove any earlier assignments.
 
-For more information, please see ["10.4.1 PERFORMANCE EDIT" on page 29](#10-4-1-performance-edit). Once you have selected which performance macro to control, use the <Knob>QUICK PERF AMOUNT</Knob> knob to control how much the performance macro will affect the tracks.
+For more information, please see ["PERFORMANCE EDIT" on page 29](#10-4-1-performance-edit). Once you have selected which performance macro to control, use the <Knob>QUICK PERF AMOUNT</Knob> knob to control how much the performance macro will affect the tracks.
 
 ## <span id="page-30-2"></span>10.5 Sound Menu
 
@@ -1007,7 +1006,7 @@ SORT 123 sorts the Sounds by slot number (or +Drive position). The command is on
 
 <Param>FILTER</Param> opens a list where Sounds can be arranged according to tags. Select and deselect tags by pressing <Key>YES</Key>. Multiple tags can be selected. Exit the tag list by pressing <Key>NO</Key>.
 
-SEARCH performs a text search and list all Sounds with names matching or including the text input. See ["6.5 THE NAMING SCREEN" on page 17](#6-5-the-naming-screen) on how to enter text.
+SEARCH performs a text search and list all Sounds with names matching or including the text input. See ["THE NAMING SCREEN" on page 17](#6-5-the-naming-screen) on how to enter text.
 
 ## <span id="page-31-1"></span>10.5.2 Sound Manager
 
@@ -1015,7 +1014,7 @@ The SOUND MANAGER is a more comprehensive version of the SOUND BROWSER. Sounds c
 
 ![](/machines/analog-rytm-mkii/images/_page_31_Picture_9.jpeg)
 
-Pressing <Key>LEFT</Key> accesses the <Param>SORTING</Param> menu. The available commands are the same as those found in the <Param>SORTING</Param> menu of the SOUND BROWSER. Read more in the section ["10.5.1 SOUND BROWSER" on](#10-5-1-sound-browser)
+Pressing <Key>LEFT</Key> accesses the <Param>SORTING</Param> menu. The available commands are the same as those found in the <Param>SORTING</Param> menu of the SOUND BROWSER. Read more in the section ["SOUND BROWSER" on](#10-5-1-sound-browser)
 
 ![](/machines/analog-rytm-mkii/images/_page_31_Picture_11.jpeg)
 
@@ -1104,17 +1103,17 @@ Use the <Knob>TRACK LEVEL</Knob> knob for faster scrolling in the SOUND BROWSER 
 
 Press <Key>PLAY MODE</Key> to use the <Key>PADS</Key> to trigger the drum track Sounds, and then tap any of the <Key>PADS</Key> to play the Sounds of the active kit. The <LED>PADS</LED> will briefly flash when pressed. Each pad is velocity sensitive, so a gentle tap and a decisive stab on the pad will produce drum sounds of different intensities.
 
-Use <Key>FUNC</Key> + <Key>PADS</Key> to trig the Sound at the velocity set on the trig page for each track (the <Param>VEL</Param> parameter). You can also set the pads to trigger with a fixed velocity. For more information, please see ["11.8 FIXED](#11-8-fixed)
+Use <Key>FUNC</Key> + <Key>PADS</Key> to trig the Sound at the velocity set on the trig page for each track (the <Param>VEL</Param> parameter). You can also set the pads to trigger with a fixed velocity. For more information, please see ["FIXED](#11-8-fixed)
 
 The <Key>TRIG</Key> keys 1-12 can also be used to play the Sounds of the twelve tracks, also at the velocity set on the trig page for each track.
 
 Press and hold <Key>RTRG</Key>, then press and hold any of the <Key>PADS</Key> to continuously retrig the track Sound for as long as the pad is held. Play drum rolls in this manner on one or several of the pads, each with its own assignable retrig settings. Pressure controls retrig velocity. Aftertouch is disabled during retrig. See
 
-Sounds that are designed for aftertouch play may be played by tapping and then pressing a pad without lifting your finger in between. Settings controlling this can be found in the <Param>SOUND</Param> menu. For more information, please see ["10.5 SOUND MENU" on page 31](#10-5-sound-menu).
+Sounds that are designed for aftertouch play may be played by tapping and then pressing a pad without lifting your finger in between. Settings controlling this can be found in the <Param>SOUND</Param> menu. For more information, please see ["SOUND MENU" on page 31](#10-5-sound-menu).
 
 ## Playing a Sound with an External MIDI Unit
 
-Besides using the <Key>PADS</Key>, the Sounds can also be played using an external MIDI controller or keyboard connected to Analog Rytm MKII. Which MIDI tracks the voices respond to are set up in the <Param>MIDI CHAN-NELS</Param> menu, covered in the section ["14.4.3 CHANNELS" on page 61](#14-4-3-channels).
+Besides using the <Key>PADS</Key>, the Sounds can also be played using an external MIDI controller or keyboard connected to Analog Rytm MKII. Which MIDI tracks the voices respond to are set up in the <Param>MIDI CHAN-NELS</Param> menu, covered in the section ["CHANNELS" on page 61](#14-4-3-channels).
 
 # <span id="page-34-0"></span>10.7 Editing a Sound
 
@@ -1146,7 +1145,7 @@ The complete Sound, comprised of all its parameter settings, may be copied to an
 
 ## 10.8 Selecting a Sample
 
-Any of the 127 samples in the (RAM) memory may be assigned to a Sound on any of the drum tracks. The samples can be replaced, relocated and otherwise managed in the SAMPLES manager found in the GLOB-AL MENU. See section ["14.2 SAMPLES" on page 56.](#14-2-samples) Select the active drum track by pressing <Key>TRK</Key> + one of the <Key>PADS</Key>. Open the <Param>SAMPLE</Param> parameter page by pressing the <Key>SMPL</Key> key.
+Any of the 127 samples in the (RAM) memory may be assigned to a Sound on any of the drum tracks. The samples can be replaced, relocated and otherwise managed in the SAMPLES manager found in the GLOB-AL MENU. See section ["SAMPLES" on page 56.](#14-2-samples) Select the active drum track by pressing <Key>TRK</Key> + one of the <Key>PADS</Key>. Open the <Param>SAMPLE</Param> parameter page by pressing the <Key>SMPL</Key> key.
 
 ![](/machines/analog-rytm-mkii/images/_page_34_Picture_17.jpeg)
 
@@ -1186,12 +1185,12 @@ COMP controls the behavior, volume and dry/wet mix of sound compression.
 
 Set the master return level of the Delay and Reverb outputs on the <Param>FX</Param> track with the <Knob>TRACK LEVEL</Knob> knob. These send effects also have individual volume parameters.
 
-# <span id="page-36-1"></span><span id="page-36-0"></span>11. the Sequencer
+# <span id="page-36-1"></span><span id="page-36-0"></span>11. The Sequencer
 
 The sequencer of the Analog Rytm MKII stores beat information in patterns. A pattern controls the playback of the drum tracks, the <Param>FX</Param> track and various pattern-specific aspects of these. Each of the 8 banks, ranging from A to H, contains 16 patterns, which means 128 patterns are instantly available for each project. All changes made to the patterns are stored automatically. Changes made to the active pattern can be reverted, as long as it is active. Read more in the "PATTERN MENU" on page 38.
 
 <Tip>
-All sequencer tracks on the Analog Rytm MKII can also be set to send sequencer data through the MIDI OUT or USB ports to control external, MIDI equipped, gear. Each track sends note on/off and velocity data over MIDI. For more information, please see ["11.7.1 TRIGS](#11-7-1-trigs).
+All sequencer tracks on the Analog Rytm MKII can also be set to send sequencer data through the MIDI OUT or USB ports to control external, MIDI equipped, gear. Each track sends note on/off and velocity data over MIDI. For more information, please see ["TRIGS](#11-7-1-trigs).
 </Tip>
 
 ## A Pattern Contains:
@@ -1282,7 +1281,7 @@ Analog Rytm MKII offers three modes of input when editing or creating a pattern,
 
 ## 11.3.1 Trig Types
 
-There are two types of trigs, note trigs and lock trigs. Note trigs trig notes while lock trigs are used to apply parameter locks without trigging notes. Note trigs are shown with red <Key>TRIG</Key> keys and lock trigs are shown with yellow <Key>TRIG</Key> keys. Steps not containing any trigs have unlit <Key>TRIG</Key> keys. Read more about parameter locks in section ["11.11.1 PARAMETER LOCKS" on page 46.](#11-11-1-parameter-locks) The two types of trigs are entered in different ways on the sequencer depending on whether GRID or LIVE recording mode is active.
+There are two types of trigs, note trigs and lock trigs. Note trigs trig notes while lock trigs are used to apply parameter locks without trigging notes. Note trigs are shown with red <Key>TRIG</Key> keys and lock trigs are shown with yellow <Key>TRIG</Key> keys. Steps not containing any trigs have unlit <Key>TRIG</Key> keys. Read more about parameter locks in section ["PARAMETER LOCKS" on page 46.](#11-11-1-parameter-locks) The two types of trigs are entered in different ways on the sequencer depending on whether GRID or LIVE recording mode is active.
 
 ## <span id="page-38-1"></span>11.3.2 Grid Recording Mode
 
@@ -1292,7 +1291,7 @@ Enter <Param>GRID RECORDING</Param> mode by pressing the <Key>RECORD</Key> key. 
 
 ![](/machines/analog-rytm-mkii/images/_page_38_Picture_8.jpeg)
 
-Set the retrig speed by pressing and holding the <Key>TRIG</Key> key while pressing <Key>ARROW</Key> keys <Key>UP</Key> or <Key>DOWN</Key>. Similarly, a pop-up menu will appear on the screen, where various retrig settings can be made. For more information, please see ["11.4 RETRIG MENU" on page 41](#11-4-retrig-menu).
+Set the retrig speed by pressing and holding the <Key>TRIG</Key> key while pressing <Key>ARROW</Key> keys <Key>UP</Key> or <Key>DOWN</Key>. Similarly, a pop-up menu will appear on the screen, where various retrig settings can be made. For more information, please see ["RETRIG MENU" on page 41](#11-4-retrig-menu).
 
 If the pattern contains more than 16 steps, select the pattern page you want to edit by pressing the <Key>PAGE</Key> key. The active pattern page is shown with a fully lit <LED>PATTERN PAGE</LED> LED.
 
@@ -1305,7 +1304,7 @@ All trigs of a track can be shifted forwards or backward on the sequencer. While
 
 ## <span id="page-38-2"></span>11.3.3 Live Recording Mode
 
-<Param>LIVE RECORDING</Param> mode is the second method of adding trigs to the tracks. In this recording mode, the <Key>PADS</Key> are played in real time to input trigs to the tracks. It is also possible to enter parameter locks in real time. Trigs input in <Param>LIVE RECORDING</Param> mode will be placed on the sequencer in a micro-timed fashion, which means trigs will be placed to more accurately reflect the input timing of the trigs. This makes <Param>LIVE RECORDING</Param> mode record note inputs in a more real time and non-quantized way. However if you wish, micro timed trigs can be quantized, which is done in the <Param>TRIGS SETUP</Param> menu accessed by pressing <Key>FUNC</Key> + <Key>TRIG</Key>. For more information, please see ["11.7.1 TRIGS SETUP MENU" on page 43.](#11-7-1-trigs-setup-menu)
+<Param>LIVE RECORDING</Param> mode is the second method of adding trigs to the tracks. In this recording mode, the <Key>PADS</Key> are played in real time to input trigs to the tracks. It is also possible to enter parameter locks in real time. Trigs input in <Param>LIVE RECORDING</Param> mode will be placed on the sequencer in a micro-timed fashion, which means trigs will be placed to more accurately reflect the input timing of the trigs. This makes <Param>LIVE RECORDING</Param> mode record note inputs in a more real time and non-quantized way. However if you wish, micro timed trigs can be quantized, which is done in the <Param>TRIGS SETUP</Param> menu accessed by pressing <Key>FUNC</Key> + <Key>TRIG</Key>. For more information, please see ["TRIGS SETUP MENU" on page 43.](#11-7-1-trigs-setup-menu)
 
 Hold <Key>RECORD</Key> and press <Key>PLAY</Key> to enter <Param>LIVE RECORDING</Param> mode. The sequencer will start to play, and the <Key>RECORD</Key> key will start to flash. You can now enter trigs to the active track in real time by playing the <Key>PADS</Key>. Key presses on the <Key>PADS</Key> will be recorded as note trigs, and the velocity and duration of the key presses will affect the values of the note trigs. Also, the pitch value of the note trig, if <Param>CHRO-MATIC</Param> mode is active, will be recorded. Any changes to the <Param>PARAMETER</Param> page settings, using the <Knob>DATA ENTRY</Knob> knobs, will be recorded on the sequencer as parameter locks.
 
@@ -1337,7 +1336,7 @@ The <Key>TRIG</Key> keys display the trigs placed on the active track.
 - Press <Key>TRIG</Key> + <Key>YES</Key> to preview a specific trig on the active track. The preview includes any parameter locks you have placed on that trig.
 - If you press and hold a <Key>PAD</Key>, and then press one or several other <Key>PADS</Key> it will add trigs on multiple tracks on the same sequencer step.
 - You can press <Key>PLAY</Key> to listen to the sequence while you are programming it. Press <Key>STOP</Key> to stop the sequencer and stay in <Param>STEP RECORDING</Param> mode.
-- If you use an external MIDI controller, you must set it to send MIDI data on the defined AUTO CHANNEL. For more information, please see ["14.4.3 CHANNELS" on page 61](#14-4-3-channels).
+- If you use an external MIDI controller, you must set it to send MIDI data on the defined AUTO CHANNEL. For more information, please see ["CHANNELS" on page 61](#14-4-3-channels).
 - If you use an external MIDI controller, the trig's VEL (velocity) value is determined by the velocity sent from these and is parameter locked (Only on trigs that already contains locked velocity data). But, if you press and hold <Key>FUNC</Key> while inputting notes from an external MIDI controller, the velocity is fixed and determined by the <Param>VEL</Param> parameter setting.
 </Tip>
 
@@ -1376,7 +1375,7 @@ Settings and options for the active track are found in this menu. Open the menu 
 
 ![](/machines/analog-rytm-mkii/images/_page_41_Picture_3.jpeg)
 
-TRIGS SETUP will take you to the <Param>TRIGS SETUP</Param> menu for the active track. See section ["11.7.1 TRIGS](#11-7-1-trigs)
+TRIGS SETUP will take you to the <Param>TRIGS SETUP</Param> menu for the active track. See section ["TRIGS](#11-7-1-trigs)
 
 RELOAD TRACK will reload the active track. Since tracks are a part of patterns which are automatically saved, it will either be reloaded to its original auto-saved state or to a specifically saved state which can be determined by utilizing the SAVE TRACK command. Press <Key>NO</Key> + <Key>CHRO</Key> for a shortcut to the RELOAD TRACK command.
 
@@ -1410,10 +1409,10 @@ LEN sets the length of the note trig. Again, in <Param>LIVE RECORDING</Param> mo
 
 PRB Trig Probability sets the probability that the trigs on the track plays or not. The probability outcome is re-evaluated every time a trig is set to play. The default setting is 100%, meaning that all the trigs on the track plays every time. (0%–100%)
 
-This parameter changes temporarily to display and control TRC (Trig Condition) when you add a conditional lock. TRC sets the Trig Condition with which a set of conditional rules can be applied to any trig, using a parameter lock. For more information, please see ["11.11.3 CONDITIONAL LOCKS" on page 46](#11-11-3-conditional-locks).
+This parameter changes temporarily to display and control TRC (Trig Condition) when you add a conditional lock. TRC sets the Trig Condition with which a set of conditional rules can be applied to any trig, using a parameter lock. For more information, please see ["CONDITIONAL LOCKS" on page 46](#11-11-3-conditional-locks).
 
 <Tip>
-If you have placed a conditional lock on a trig in the sequencer, the trig condition overrides the Trig Probability setting. For example, if you set PRB to 70% and a FILL trig condition on a trig, that trig will only (and always) play when the sequencer is in <Param>FILL</Param> mode. For more information, please see ["11.11.3 CONDITIONAL LOCKS" on page 46](#11-11-3-conditional-locks)
+If you have placed a conditional lock on a trig in the sequencer, the trig condition overrides the Trig Probability setting. For example, if you set PRB to 70% and a FILL trig condition on a trig, that trig will only (and always) play when the sequencer is in <Param>FILL</Param> mode. For more information, please see ["CONDITIONAL LOCKS" on page 46](#11-11-3-conditional-locks)
 </Tip>
 
 SYN controls if the synth part of the Sound will be trigged.
@@ -1434,7 +1433,7 @@ Access the menu by pressing <Key>FUNC</Key> + <Key>TRIG</Key>. Navigate the menu
 
 TRK QUANTIZE will affect all micro-timed trigs of the active track. The higher the quantize value, the more all micro-timed trigs will be quantized. Range 0-127.
 
-<span id="page-43-0"></span>TRK SEND MIDI will, when checked, send the tracks note on/off (NOT, LEN) and VEL, sequencer data to the Analog Rytm MKII's MIDI OUT for control of external MIDI devices. The MIDI data is sent on the track's MIDI channel that is set in the <Param>CHANNELS</Param> menu. For more information, please see ["14.4.3 CHAN-](#14-4-3-chan).
+<span id="page-43-0"></span>TRK SEND MIDI will, when checked, send the tracks note on/off (NOT, LEN) and VEL, sequencer data to the Analog Rytm MKII's MIDI OUT for control of external MIDI devices. The MIDI data is sent on the track's MIDI channel that is set in the <Param>CHANNELS</Param> menu. For more information, please see ["CHAN-](#14-4-3-chan).
 
 <Tip>
 If TRK SEND MIDI is checked, the track sends the sequencer data both externally over MIDI and internally to the tracks sound.
@@ -1447,7 +1446,7 @@ Press <Key>FIX</Key> to enable the <Param>FIXED VELOCITY</Param> mode for the pa
 
 ![](/machines/analog-rytm-mkii/images/_page_43_Picture_7.jpeg)
 
-Set the fixed velocity amount, by turning the <Knob>TRACK LEVEL</Knob> knob or by pressing <Key>ARROW</Key> keys <Key>UP</Key> or <Key>DOWN</Key>. The default setting is 100. The AUTO setting sets the fixed velocity to the default velocity as specified by the <Param>VEL</Param> parameter in the <Param>TRIG</Param> menu. For more information, please see ["11.7 TRIG MENU" on](#11-7-trig-menu).
+Set the fixed velocity amount, by turning the <Knob>TRACK LEVEL</Knob> knob or by pressing <Key>ARROW</Key> keys <Key>UP</Key> or <Key>DOWN</Key>. The default setting is 100. The AUTO setting sets the fixed velocity to the default velocity as specified by the <Param>VEL</Param> parameter in the <Param>TRIG</Param> menu. For more information, please see ["TRIG MENU" on](#11-7-trig-menu).
 
 ## 11.9 Click Track
 
@@ -1549,7 +1548,7 @@ The first position in the Sound pool list, titled TRACK SOUND, is the default se
 
 On the TRIG <Param>PARAMETERS</Param> page, there is a parameter called TRC (Trig Condition) with which a set of conditional rules can be applied to any trig, using a parameter lock. You access this parameter by press<span id="page-46-0"></span>ing and holding a trig. The <Param>TRC</Param> parameter temporarily replaces the <Param>PROB</Param> parameter while you keep the trig key pressed. Each setting is a logical condition that determines whether a trig set on a track in the sequencer is triggered or not. If the condition is true, then the trig becomes active and affect the track. If the condition is false, the trig is ignored. You must first place a note trig or lock trig on the sequencer step to where you want to apply a conditional lock.
 
-The sequencer needs to be in <Param>FILL</Param> mode to activate the conditional lock called FILL. For more information, please see ["11.11.4 FILL MODE" on page 47.](#11-11-4-fill-mode)
+The sequencer needs to be in <Param>FILL</Param> mode to activate the conditional lock called FILL. For more information, please see ["FILL MODE" on page 47.](#11-11-4-fill-mode)
 
 You can set the following trig conditions:
 
@@ -1680,16 +1679,16 @@ Trigs, complete with all parameter lock settings, can be copied, pasted and clea
 
 Kits, Sounds, tracks, patterns, and songs can instantly be saved and reloaded. When reloading, settings will revert to their saved state.
 
-- To quick save a kit, press <Key>YES</Key> + <Key>PLAY MODE</Key>. This command is the same as the SAVE KIT command found in the <Param>KIT</Param> menu, see ["10.2 KIT MENU" on page 26](#10-2-kit-menu).
+- To quick save a kit, press <Key>YES</Key> + <Key>PLAY MODE</Key>. This command is the same as the SAVE KIT command found in the <Param>KIT</Param> menu, see ["KIT MENU" on page 26](#10-2-kit-menu).
 - To quick save the track Sound of the active track, press <Key>YES</Key> + <Key>MUTE</Key>. This command is the same as the STORE TRACK SOUND command found in the <Param>SOUND MANAGER</Param> menu, see
-- To quick save a track, press <Key>YES</Key> + <Key>CHRO</Key>. The operation is the same as the SAVE TRACK command, see ["11.5 TRACK MENU" on page 42.](#11-5-track-menu)
-- To quick save the active pattern, press <Key>YES</Key> + <Key>SCNE</Key>. The operation is the same as the SAVE PATTERN command, see ["11.6 PATTERN MENU" on page 42](#11-6-pattern-menu). This is useful to create a restore point before you start a session of live tweaking that might not turn out the way you want.
-- To quick save a song, press <Key>YES</Key> + <Key>PERF</Key>. The command is the same as the SAVE command found in the <Param>SONG</Param> menu, see ["12.2.4 SONG MENU" on page 53.](#12-2-4-song-menu)
-- To quick reload a kit, press <Key>NO</Key> + <Key>PLAY MODE</Key>. This command is the same as the RELOAD KIT command found in the <Param>KIT</Param> menu, see ["10.2 KIT MENU" on page 26](#10-2-kit-menu). This is useful in a live situation after a kit has been subject to improvised changes.
+- To quick save a track, press <Key>YES</Key> + <Key>CHRO</Key>. The operation is the same as the SAVE TRACK command, see ["TRACK MENU" on page 42.](#11-5-track-menu)
+- To quick save the active pattern, press <Key>YES</Key> + <Key>SCNE</Key>. The operation is the same as the SAVE PATTERN command, see ["PATTERN MENU" on page 42](#11-6-pattern-menu). This is useful to create a restore point before you start a session of live tweaking that might not turn out the way you want.
+- To quick save a song, press <Key>YES</Key> + <Key>PERF</Key>. The command is the same as the SAVE command found in the <Param>SONG</Param> menu, see ["SONG MENU" on page 53.](#12-2-4-song-menu)
+- To quick reload a kit, press <Key>NO</Key> + <Key>PLAY MODE</Key>. This command is the same as the RELOAD KIT command found in the <Param>KIT</Param> menu, see ["KIT MENU" on page 26](#10-2-kit-menu). This is useful in a live situation after a kit has been subject to improvised changes.
 - To quick reload the track Sound of the active track, press <Key>NO</Key> + <Key>MUTE</Key>. This is the same as kit reload, but only on the active track (not all tracks).
-- To quick reload a track, press <Key>NO</Key> + <Key>CHRO</Key>. The operation is the same as the RELOAD TRACK command, see ["11.5 TRACK MENU" on page 42.](#11-5-track-menu)
-- To quick reload the active pattern, press <Key>NO</Key> + <Key>SCNE</Key>. The operation is the same as the RELOAD PATTERN command, see ["11.6 PATTERN MENU" on page 42](#11-6-pattern-menu). Only useful until another pattern is selected, as an undo operation after live changes.
-To quick reload a song, press <Key>NO</Key> + <Key>PERF</Key>. The command is the same as the RELOAD command found in the <Param>SONG</Param> menu, see ["12.2.4 SONG MENU" on page 53.](#12-2-4-song-menu)
+- To quick reload a track, press <Key>NO</Key> + <Key>CHRO</Key>. The operation is the same as the RELOAD TRACK command, see ["TRACK MENU" on page 42.](#11-5-track-menu)
+- To quick reload the active pattern, press <Key>NO</Key> + <Key>SCNE</Key>. The operation is the same as the RELOAD PATTERN command, see ["PATTERN MENU" on page 42](#11-6-pattern-menu). Only useful until another pattern is selected, as an undo operation after live changes.
+To quick reload a song, press <Key>NO</Key> + <Key>PERF</Key>. The command is the same as the RELOAD command found in the <Param>SONG</Param> menu, see ["SONG MENU" on page 53.](#12-2-4-song-menu)
 
 # <span id="page-50-0"></span>12. Chains and Songs
 
@@ -1745,7 +1744,7 @@ Copy, paste, and clear commands can be executed on the song rows.
 
 ## 12.2.2 Adding Song Rows and Assigning Patterns and Chains
 
-Press <Key>FUNC</Key> + <Key>YES</Key> to add a song row. The new song row will be inserted below the row on which the cursor is, and the pattern A01 will automatically be assigned to the new row. To assign another pattern to the song row, use the <Key>ARROW</Key> keys to move the song cursor so the pattern assigned to the row becomes highlighted and then press a <Key>BANK</Key> key + a <Key>TRIG</Key> key. In general, the pattern assigning procedure is the same as when selecting a pattern, covered in the section ["11.1.1 SELECTING A PATTERN"](#11-1-1-selecting-a-pattern).
+Press <Key>FUNC</Key> + <Key>YES</Key> to add a song row. The new song row will be inserted below the row on which the cursor is, and the pattern A01 will automatically be assigned to the new row. To assign another pattern to the song row, use the <Key>ARROW</Key> keys to move the song cursor so the pattern assigned to the row becomes highlighted and then press a <Key>BANK</Key> key + a <Key>TRIG</Key> key. In general, the pattern assigning procedure is the same as when selecting a pattern, covered in the section ["SELECTING A PATTERN"](#11-1-1-selecting-a-pattern).
 
 To add a chain to a song row, select a song row and press the <Key>RIGHT</Key> arrow key. The song cursor will move from the pattern position and form a thin, standing line. Press a <Key>BANK</Key> key + a <Key>TRIG</Key> key to select the pattern that will be added to the chain.
 
@@ -1882,7 +1881,7 @@ Access the menu by pressing <Key>GLOBAL SETTINGS</Key>. Scroll the list by using
 
 ## 14.1 Project
 
-This is where you manage the projects. This menu is described in the section ["9. PROJECTS" on page 24.](#9-projects)
+This is where you manage the projects. This menu is described in the section ["PROJECTS" on page 24.](#9-projects)
 
 ## <span id="page-55-2"></span>14.2 Samples
 
@@ -1949,7 +1948,7 @@ Analog Rytm MKII still supports transfer of samples via MIDI Sample Dump Standar
 
 This procedure is only for when you use the Elektron C6 software transfer tool. If you use Elektron Transfer you create a new destination directory in the Analog Rytm MKII directly from Elektron Transfer.
 
-On the main screen when you view the samples in the +Drive, press <Key>ARROW</Key> key <Key>RIGHT</Key> to access the right side menu. Select CREATE DIR to create a new directory by pressing <Key>YES</Key>. A naming screen will appear. See section ["6.5 THE NAMING SCREEN" on page 17](#6-5-the-naming-screen). Give your new destination directory an appropriate name. Once the new directory has appeared on the main screen, open it by pressing <Key>YES</Key>. In the initially empty directory, press <Key>ARROW</Key> key <Key>LEFT</Key> to open the left side menu. Highlight UPLOAD HERE and press <Key>YES</Key>.
+On the main screen when you view the samples in the +Drive, press <Key>ARROW</Key> key <Key>RIGHT</Key> to access the right side menu. Select CREATE DIR to create a new directory by pressing <Key>YES</Key>. A naming screen will appear. See section ["THE NAMING SCREEN" on page 17](#6-5-the-naming-screen). Give your new destination directory an appropriate name. Once the new directory has appeared on the main screen, open it by pressing <Key>YES</Key>. In the initially empty directory, press <Key>ARROW</Key> key <Key>LEFT</Key> to open the left side menu. Highlight UPLOAD HERE and press <Key>YES</Key>.
 
 ![](/machines/analog-rytm-mkii/images/_page_57_Picture_16.jpeg)
 
@@ -1993,7 +1992,7 @@ TRANSPORT RECEIVE will when active make Analog Rytm MKII respond to system real-
 
 TRANSPORT SEND will when active make Analog Rytm MKII send out system real-time messages like play, stop, continue and song position pointer.
 
-PRG CH RECEIVE will when active make Analog Rytm MKII respond to incoming program change messages, which is useful when wanting to select patterns externally. The MIDI channel that will listen to incoming program change messages is set in the <Param>MIDI CHANNELS</Param> menu. For more information, please see ["14.4.3 CHANNELS" on page 61](#14-4-3-channels).
+PRG CH RECEIVE will when active make Analog Rytm MKII respond to incoming program change messages, which is useful when wanting to select patterns externally. The MIDI channel that will listen to incoming program change messages is set in the <Param>MIDI CHANNELS</Param> menu. For more information, please see ["CHANNELS" on page 61](#14-4-3-channels).
 
 PRG CH SEND will when active send program change messages when patterns are changed. The MIDI channel that will send program change messages is set in the <Param>MIDI CHANNELS</Param> menu, covered on page 56.
 
@@ -2066,9 +2065,9 @@ PERF CHANNEL selects the MIDI channel the knobs will send MIDI data on when <Par
 
 AUTO CHANNEL selects the MIDI channel that will give access to the currently active track. If an external MIDI keyboard connected to Analog Rytm MKII sends MIDI data on this channel, the keyboard will control the active track. This is useful when for example quickly changing between the active drum tracks to play different Sounds.
 
-PROGRAM CH IN CH selects the MIDI channel that will listen for incoming program change messages. An AUTO setting will use the AUTO channel. Enable Analog Rytm MKII to respond to program change messages in the <Param>MIDI SYNC</Param> menu. For more information, please see ["14.4.1 SYNC" on page](#14-4-1-sync)
+PROGRAM CH IN CH selects the MIDI channel that will listen for incoming program change messages. An AUTO setting will use the AUTO channel. Enable Analog Rytm MKII to respond to program change messages in the <Param>MIDI SYNC</Param> menu. For more information, please see ["SYNC" on page](#14-4-1-sync)
 
-PROGRAM CH OUT CH selects the MIDI channel that will send program change messages when changing patterns. An AUTO setting will use the AUTO channel. Enable Analog Rytm MKII to send program change messages in the <Param>MIDI SYNC</Param> menu. For more information, please see ["14.4.1 SYNC"](#14-4-1-sync).
+PROGRAM CH OUT CH selects the MIDI channel that will send program change messages when changing patterns. An AUTO setting will use the AUTO channel. Enable Analog Rytm MKII to send program change messages in the <Param>MIDI SYNC</Param> menu. For more information, please see ["SYNC"](#14-4-1-sync).
 
 ## 14.5 Sysex Dump
 
@@ -2158,7 +2157,7 @@ ROUTE TO MAIN highlight this option to customize which of the 12 tracks will sen
 
 SEND TO FX highlight this option to customize the FX routing of the 12 tracks. Use the <Key>PADS</Key> to activate/deactivate each corresponding track for routing through the FX. <LED>PADS</LED> of a yellow color route to FX. Unlit <LED>PADS</LED> do not.
 
-USB IN sets where the incoming audio from the class compliant device is routed to in the Analog Rytm MKII's signal path. This parameter is only available when USB CONFIG is set to USB AUDIO/MIDI. For more information, please see ["14.8.1 USB CONFIG" on page 65.](#14-8-1-USB-config)
+USB IN sets where the incoming audio from the class compliant device is routed to in the Analog Rytm MKII's signal path. This parameter is only available when USB CONFIG is set to USB AUDIO/MIDI. For more information, please see ["USB CONFIG" on page 65.](#14-8-1-USB-config)
 
 PRE-FX the incoming audio is routed in before the Analog Rytm MKII's effects and will be affected by those and then be sent at the main outputs. The audio is also routed to the sampler.
 
@@ -2176,7 +2175,7 @@ SAMPLER ONLY the incoming audio is only routed to the Analog Rytm MKII's sampler
 To be able to hear and process the incoming audio sent to one (or two) of the Analog Rytm MKII's tracks, you must place a note trig on the selected track(s) and start the sequencer. This is needed to trigger and open the track's envelope and let the audio through. For continuous processing, set the trig's <Param>LEN</Param> parameter to INF.
 </Tip>
 
-USB OUT sets from where in the Analog Rytm MKII's signal path, the outgoing audio is routed to the class compliant device. This parameter is only available when USB CONFIG is set to USB AUDIO/MIDI. For more information, please see ["14.8.1 USB CONFIG" on page 65](#14-8-1-USB-config).
+USB OUT sets from where in the Analog Rytm MKII's signal path, the outgoing audio is routed to the class compliant device. This parameter is only available when USB CONFIG is set to USB AUDIO/MIDI. For more information, please see ["USB CONFIG" on page 65](#14-8-1-USB-config).
 
 MAIN OUT the outgoing audio is routed from the Analog Rytm MKII's main out at the end of the signal path.
 
@@ -2245,7 +2244,7 @@ Here settings relating to the sequencer can be found. Change settings by using t
 
 ![](/machines/analog-rytm-mkii/images/_page_64_Picture_15.jpeg)
 
-QUANTIZE LIVE REC will when checked, quantize notes entered in <Param>LIVE RECORDING</Param> mode to complete sequencer steps. When the setting is deactivated, live recorded notes will, where applicable, be affected by micro timing. Read more about micro timing and quantization in section ["11.7.1 TRIGS](#11-7-1-trigs)
+QUANTIZE LIVE REC will when checked, quantize notes entered in <Param>LIVE RECORDING</Param> mode to complete sequencer steps. When the setting is deactivated, live recorded notes will, where applicable, be affected by micro timing. Read more about micro timing and quantization in section ["TRIGS](#11-7-1-trigs)
 
 <Param>KIT</Param> RELOAD ON CHG will when checked cause kits to reload to their saved state automatically as soon as a new kit becomes active. This is useful if you, for example, play live, have tweaked a kit extensively and want it to return to its saved state automatically next time it becomes active again.
 
@@ -2261,11 +2260,11 @@ Here you find several settings related to Overbridge and USB audio. Selecting on
 
 ![](/machines/analog-rytm-mkii/images/_page_64_Picture_23.jpeg)
 
-OVERBRIDGE enables Overbridge functionality. For more information, please see ["6.6 OVERBRIDGE"](#6-6-overbridge).
+OVERBRIDGE enables Overbridge functionality. For more information, please see ["OVERBRIDGE"](#6-6-overbridge).
 
 USB MIDI select this option If you wish to send and receive MIDI over USB.
 
-<span id="page-65-0"></span>USB AUDIO/MIDI sets the Analog Rytm MKII to send and receive audio and MIDI over USB. Select this option if you want to use the Analog Rytm MKII together with a class compliant USB audio host. For more information, please ["6.7 CLASS COMPLIANT DEVICE" on page 18](#6-7-class-compliant-device) and ["14.6 AUDIO ROUTING" on](#14-6-audio-routing)
+<span id="page-65-0"></span>USB AUDIO/MIDI sets the Analog Rytm MKII to send and receive audio and MIDI over USB. Select this option if you want to use the Analog Rytm MKII together with a class compliant USB audio host. For more information, please ["CLASS COMPLIANT DEVICE" on page 18](#6-7-class-compliant-device) and ["AUDIO ROUTING" on](#14-6-audio-routing)
 
 ## 14.8.2 Os Upgrade
 
@@ -2689,7 +2688,7 @@ The parameters on the <Param>TRIG</Param> page can not be randomized.
 
 Controls the (analog and digital) sound synthesis. The default parameters for the <Param>BD</Param> track with the BDHD machine are shown here. For the <Param>SRC</Param> pages of other machines, see ["APPENDIX D: MACHINES" on page](#appendix-d-machines)
 
-## Synth (Bdhd)
+## Synth (BDhd)
 
 ![](/machines/analog-rytm-mkii/images/_page_73_Picture_10.jpeg)
 
@@ -2985,7 +2984,6 @@ This appendix lists the CC and NRPN specification for the Analog Rytm MKII.
 | Track Mute (seq. mute) | 94 | 1 | 1 | 101 |
 | Track Solo (seq. mute) | 93 | 1 | 1 | 102 |
 | Track Machine Type | 15 | 1 | 1 | 103 |
-|---|---|---|---|---|
 | Active Scene | 92 | 1 | 1 | 104 |
 
 ## C.3 Performance Parameters
@@ -2995,27 +2993,16 @@ This appendix lists the CC and NRPN specification for the Analog Rytm MKII.
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
 | Performance Parameter 1 | 35 | | 0 | 0 |
-|---|---|---|---|---|
 | Performance Parameter 2 | 36 | | 0 | 1 |
-|---|---|---|---|---|
 | Performance Parameter 3 | 37 | | 0 | 2 |
-|---|---|---|---|---|
 | Performance Parameter 4 | 39 | | 0 | 3 |
-|---|---|---|---|---|
 | Performance Parameter 5 | 40 | | 0 | 4 |
-|---|---|---|---|---|
 | Performance Parameter 6 | 41 | | 0 | 5 |
-|---|---|---|---|---|
 | Performance Parameter 7 | 42 | | 0 | 6 |
-|---|---|---|---|---|
 | Performance Parameter 8 | 43 | | 0 | 7 |
-|---|---|---|---|---|
 | Performance Parameter 9 | 44 | | 0 | 8 |
-|---|---|---|---|---|
 | Performance Parameter 10 | 45 | | 0 | 9 |
-|---|---|---|---|---|
 | Performance Parameter 11 | 46 | | 0 | 10 |
-|---|---|---|---|---|
 | Performance Parameter 12 | 47 | | 0 | 11 |
 
 ## C.4 General Synth Parameters
@@ -3027,23 +3014,12 @@ Note that the order of the <Param>SYNTH</Param> parameters below will sometimes 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
 | Synth Parameter 1 | 16 | 1 | 1 | 0 |
-|---|---|---|---|---|
 | Synth Parameter 2 | 17 | 1 | 1 | 1 |
-|---|---|---|---|---|
 | Synth Parameter 3 | 18 | 1 | 1 | 2 |
-
-## Synth
-
-| Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-|---|---|---|---|---|
 | Synth Parameter 4 | 19 | 1 | 1 | 3 |
-|---|---|---|---|---|
 | Synth Parameter 5 | 20 | 1 | 1 | 4 |
-|---|---|---|---|---|
 | Synth Parameter 6 | 21 | 1 | 1 | 5 |
-|---|---|---|---|---|
 | Synth Parameter 7 | 22 | 1 | 1 | 6 |
-|---|---|---|---|---|
 | Synth Parameter 8 | 23 | 1 | 1 | 7 |
 
 ## Sample
@@ -3152,7 +3128,7 @@ Note that the LFO depth is a high-resolution parameter, with CC LSB value.
 
 The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 
-## Bd Plastic
+## BD Plastic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3165,7 +3141,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | VCO Click | 22 | 1 | 1 | 6 |
 | Dust Level | 23 | 1 | 1 | 7 |
 
-## Bd Sharp
+## BD Sharp
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3178,7 +3154,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Tick Level | 22 | 1 | 1 | 6 |
 | Waveform | 23 | 1 | 1 | 7 |
 
-## Bd Hard
+## BD Hard
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3191,7 +3167,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Waveform | 22 | 1 | 1 | 6 |
 | Transient Tick | 23 | 1 | 1 | 7 |
 
-## Bd Classic
+## BD Classic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3203,7 +3179,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Sweep Depth | 21 | 1 | 1 | 5 |
 | Waveform | 22 | 1 | 1 | 6 |
 | Transient Tick | 23 | 1 | 1 | 7 |
-## Bd Fm
+## BD FM
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3216,7 +3192,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | FM Decay Time | 22 | | 1 | 6 |
 | FM Tune | 23 | | 1 | 7 |
 
-## Bd Silky
+## BD Silky
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3229,7 +3205,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | VCO Click | 22 | 1 | 1 | 6 |
 | Dust Level | 23 | 1 | 1 | 7 |
 
-## Sd Natural
+## SD Natural
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3241,7 +3217,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Noise Balance | 21 | 1 | 1 | 5 |
 | Noise Resonance | 22 | 1 | 1 | 6 |
 | Noise HPF | 23 | 1 | 1 | 7 |
-## Sd Hard
+## SD Hard
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3254,7 +3230,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Noise Level | 22 | 1 | 1 | 6 |
 | Sweep Time | 23 | 1 | 1 | 7 |
 
-## Sd Classic
+## SD Classic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3267,7 +3243,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Noise Level | 22 | 1 | 1 | 6 |
 | Osc Balance | 23 | 1 | 1 | 7 |
 
-## Sd Fm
+## SD FM
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3280,7 +3256,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Noise Level | 22 | 1 | 1 | 6 |
 | FM Amount | 23 | 1 | 1 | 7 |
 
-## Rs Hard
+## RS Hard
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3292,7 +3268,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Noise Level | 21 | 1 | 1 | 5 |
 | Symmetry | 22 | 1 | 1 | 6 |
 | Sweep Time | 23 | 1 | 1 | 7 |
-## Rs Classic
+## RS Classic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3305,7 +3281,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Noise Level | 22 | 1 | 1 | 6 |
 | Tick Level | 23 | 1 | 1 | 7 |
 
-## Cp Classic
+## CP Classic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3318,7 +3294,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Random Claps | 22 | 1 | 1 | 6 |
 | Clap Decay | 23 | 1 | 1 | 7 |
 
-## Dual Vco
+## Dual VCO
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3330,7 +3306,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Osc Config | 21 | | | |
 | Osc 2 Decay | 22 | | | |
 | Bend | 23 | | | |
-## Bt Classic
+## BT Classic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3340,23 +3316,20 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Noise Level | 20 | 4 | 1 | 4 |
 | Snap Type | 21 | 5 | 1 | 5 |
 
-| LT, MT, HT CLASSIC | | | | |
-|--------------------|--------|--------|----------|----------|--|
+## LT, MT, HT CLASSIC
+
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
 | Level | 16 | | 1 | 0 |
 | Tune | 17 | | 1 | 1 |
-| LT, MT, HT CLASSIC | | | | |
-|--------------------|--------|--------|----------|----------|--|
-| Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
-|---|---|---|---|---|
 | Decay | 18 | | 1 | 2 |
 | Sweep Depth | 19 | | 1 | 3 |
 | Sweep Time | 20 | | 1 | 4 |
 | Noise Decay | 21 | | 1 | 5 |
 | Noise Level | 22 | | 1 | 6 |
 | Noise Tone | 23 | | 1 | 7 |
-## Ch Classic
+
+## CH Classic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3364,14 +3337,14 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Tune | 17 | | 1 | 1 |
 | Decay | 18 | | 1 | 2 |
 | Color | 19 | | 1 | 3 |
-## Ch Metallic
+## CH Metallic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
 | Level | 16 | | 1 | 0 |
 | Tune | 17 | | 1 | 1 |
 | Decay Time | 18 | | 1 | 2 |
-## Oh Classic
+## OH Classic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3379,7 +3352,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Tune | 17 | 1 | 1 | 1 |
 | Decay | 18 | 1 | 1 | 2 |
 | Color | 19 | 1 | 1 | 3 |
-## Oh Metallic
+## OH Metallic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3387,7 +3360,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Tune | 17 | 1 | 1 | 1 |
 | Decay Time | 18 | 1 | 1 | 2 |
 
-## Hh Basic
+## HH Basic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3397,7 +3370,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Tone | 19 | 1 | 1 | 3 |
 | Transient Decay | 20 | 1 | 1 | 4 |
 | Osc Reset | 21 | 1 | 1 | 5 |
-## Cy Metallic
+## CY Metallic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3407,7 +3380,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Tone | 19 | 1 | 1 | 3 |
 | Transient Decay | 20 | 1 | 1 | 4 |
 
-## Cy Classic
+## CY Classic
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3417,7 +3390,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Color | 19 | 1 | 1 | 3 |
 | Tone | 20 | 1 | 1 | 4 |
 
-## Cy Ride
+## CY Ride
 
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
@@ -3426,13 +3399,12 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 | Tail Decay | 18 | | 1 | 2 |
 | Hit Decay | 19 | | 1 | 3 |
 | Cymbal Type | 20 | | 1 | 4 |
-|---|---|---|---|---|
 | Component 1 | 21 | | 1 | 5 |
 | Component 2 | 22 | | 1 | 6 |
 | Component 3 | 23 | | 1 | 7 |
 
-| CB CLASSIC & METALLIC | | | |
-|-----------------------|--------|--------|----------|----------|
+## CB CLASSIC & METALLIC
+
 | Parameter | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|
 | Level | 16 | | 1 | 0 |
@@ -3465,7 +3437,7 @@ The following shows the <Param>SYNTH</Param> parameters per MACHINE type.
 
 Some functions of the Analog Rytm MKII can be triggered by sending MIDI note values from an external MIDI device.
 
-Note that the tracks needs to be set to their default channels 1–12 to be triggered by C0–B0. For more information, please see ["8.6 MIDI NOTES" on page 22](#8-6-midi-notes).
+Note that the tracks needs to be set to their default channels 1–12 to be triggered by C0–B0. For more information, please see ["MIDI NOTES" on page 22](#8-6-midi-notes).
 
 | NOTE | FUNCTION |
 |-------------------|-----------------------------------------|
@@ -3485,7 +3457,7 @@ Note that the tracks needs to be set to their default channels 1–12 to be trig
 
 # <span id="page-91-1"></span><span id="page-91-0"></span>Appendix D: Machines
 
-This appendix lists the parameters on the <Param>SRC</Param> page of the drum tracks. The parameters available are determined by the MACHINE that are selected. There are several MACHINES to choose from. For more information, please see ["8.2 MACHINES" on page 22](#8-2-machines).
+This appendix lists the parameters on the <Param>SRC</Param> page of the drum tracks. The parameters available are determined by the MACHINE that are selected. There are several MACHINES to choose from. For more information, please see ["MACHINES" on page 22](#8-2-machines).
 
 The MACHINES below can be used on all tracks: BD, SD, RS, CP, BT, LT, MT, HT, CH, OH, CY and CB.
 
@@ -3533,7 +3505,7 @@ The MACHINES below can be used on the BD, SD, RS and CP tracks.
 
 ## D.2 Bass Drum
 
-## Bd Hard
+## BD Hard
 
 ![](/machines/analog-rytm-mkii/images/_page_92_Picture_6.jpeg)
 
@@ -3553,7 +3525,7 @@ TIC (Tick Level) sets the level of the transient tick. (0–127)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Bd Classic
+## BD Classic
 
 ![](/machines/analog-rytm-mkii/images/_page_92_Picture_16.jpeg)
 
@@ -3573,7 +3545,7 @@ TRA (Transient) sets the tick or noise transient sound and its level. (0–127)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Bd Fm
+## BD FM
 
 ![](/machines/analog-rytm-mkii/images/_page_92_Picture_26.jpeg)
 
@@ -3593,7 +3565,7 @@ FMA (FM Amount) sets the amount of frequency modulation the second oscillator su
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Bd Plastic
+## BD Plastic
 
 ![](/machines/analog-rytm-mkii/images/_page_93_Picture_10.jpeg)
 
@@ -3613,7 +3585,7 @@ TIC (Tick Level) sets the level of the transient tick. (0–127)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Bd Silky
+## BD Silky
 
 ![](/machines/analog-rytm-mkii/images/_page_93_Picture_20.jpeg)
 
@@ -3633,7 +3605,7 @@ CLK (VCO Click) sets the soft, oscillator-generated click level. (0–127)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Bd Sharp
+## BD Sharp
 
 ![](/machines/analog-rytm-mkii/images/_page_94_Figure_2.jpeg)
 
@@ -3655,7 +3627,7 @@ LEV (Level) sets the overall sound volume of the machine. (0–127)
 
 ## D.3 Snare Drum
 
-## Sd Hard
+## SD Hard
 
 ![](/machines/analog-rytm-mkii/images/_page_94_Picture_13.jpeg)
 
@@ -3675,7 +3647,7 @@ NOL (Noise Level) sets the noise level. (0–127)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Sd Classic
+## SD Classic
 
 ![](/machines/analog-rytm-mkii/images/_page_94_Picture_23.jpeg)
 
@@ -3695,7 +3667,7 @@ NOL (Noise Level) sets the noise level. (0–127)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Sd Fm
+## SD FM
 
 ![](/machines/analog-rytm-mkii/images/_page_95_Picture_8.jpeg)
 
@@ -3715,7 +3687,7 @@ NOL (Noise Level) sets the noise level. (0–127)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Sd Natural
+## SD Natural
 
 ![](/machines/analog-rytm-mkii/images/_page_95_Picture_18.jpeg)
 
@@ -3739,7 +3711,7 @@ The MACHINES below can only be used on the RS and CP tracks.
 
 ## D.4 Rimshot
 
-## Rs Hard
+## RS Hard
 
 ![](/machines/analog-rytm-mkii/images/_page_96_Picture_4.jpeg)
 
@@ -3759,7 +3731,7 @@ NOL (Noise Level) sets the noise level. (0–127)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Rs Classic
+## RS Classic
 
 ![](/machines/analog-rytm-mkii/images/_page_96_Picture_14.jpeg)
 
@@ -3781,7 +3753,7 @@ LEV (Level) sets the overall sound volume of the machine. (0–127)
 
 # D.5 Hand Clap
 
-## Cp Classic
+## CP Classic
 
 ![](/machines/analog-rytm-mkii/images/_page_96_Picture_25.jpeg)
 
@@ -3801,9 +3773,9 @@ NOL (Noise Level) sets the noise level. (0–127)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## D.6 Dual Vco
+## D.6 Dual VCO
 
-## Dual Vco
+## Dual VCO
 
 ![](/machines/analog-rytm-mkii/images/_page_97_Picture_11.jpeg)
 
@@ -3837,7 +3809,7 @@ The MACHINE below can be used on the <Param>BT</Param> track.
 
 ## D.7 Bass Tom
 
-## Bt Classic
+## BT Classic
 
 ![](/machines/analog-rytm-mkii/images/_page_97_Picture_28.jpeg)
 
@@ -3879,7 +3851,7 @@ The MACHINES below can be used on the CH and OH tracks.
 
 # D.9 Closed Hihat
 
-# Hh Basic
+# HH Basic
 
 ![](/machines/analog-rytm-mkii/images/_page_98_Picture_21.jpeg)
 
@@ -3895,7 +3867,7 @@ RST (Osc Reset) activate to reset the oscillators for each triggering of the sou
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Ch Classic
+## CH Classic
 
 ![](/machines/analog-rytm-mkii/images/_page_99_Figure_2.jpeg)
 
@@ -3907,7 +3879,7 @@ COL (Noise Color) sets the timbral color, the virtual hardness of the imaginary 
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Ch Metallic
+## CH Metallic
 
 ![](/machines/analog-rytm-mkii/images/_page_99_Picture_8.jpeg)
 
@@ -3919,7 +3891,7 @@ LEV (Level) sets the overall sound volume of the machine. (0–127)
 
 ## D.10 Open Hihat
 
-## Oh Classic
+## OH Classic
 
 ![](/machines/analog-rytm-mkii/images/_page_99_Picture_14.jpeg)
 
@@ -3931,7 +3903,7 @@ COL (Noise Color) sets the timbral color. (-64–+63)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Oh Metallic
+## OH Metallic
 
 ![](/machines/analog-rytm-mkii/images/_page_99_Picture_20.jpeg)
 
@@ -3945,7 +3917,7 @@ The MACHINES below can be used on the CY and CB tracks.
 
 ## D.11 Cymbal
 
-## Cy Classic
+## CY Classic
 
 ![](/machines/analog-rytm-mkii/images/_page_100_Picture_7.jpeg)
 
@@ -3959,7 +3931,7 @@ COL (Noise Color) sets the timbral color of the cymbal. (-64–+63)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Cy Metallic
+## CY Metallic
 
 ![](/machines/analog-rytm-mkii/images/_page_100_Picture_14.jpeg)
 
@@ -3973,7 +3945,7 @@ DEC (Decay) sets the length of the decay phase of the oscillators. (0–127)
 
 LEV (Level) sets the overall sound volume of the machine. (0–127)
 
-## Cy Ride
+## CY Ride
 
 ![](/machines/analog-rytm-mkii/images/_page_100_Picture_21.jpeg)
 
@@ -4037,12 +4009,10 @@ LEV (Level) sets the overall sound volume of the machine. (0–127)
 | USB config 65 | M |
 | COMPRESSOR 79 | MACHINES 22 |
 | CONDITIONAL LOCKS 46, 47 | Parameters 92 |
-|---|---|
 | CONNECTORS 12 | MICRO TIMING 39 |
 | COPY, PASTE AND CLEAR 49 | MIDI 59 |
 | | MIDI config 59 |
 | D | MIDI CC & NRPN 82 |
-|---|---|
 | DATA STRUCTURE 14 | MUTE MODE 23 |
 | Kits 14 |
 | Project 14 | N |
@@ -4066,12 +4036,10 @@ LEV (Level) sets the overall sound volume of the machine. (0–127)
 | FILTER 75 | Grid recording mode 39, 40 |
 | FIXED VELOCITY 44 | Live recording mode 39 |
 | FX TRACK PARAMETERS 78 | Parameter locks 46 |
-|---|---|
 | Compressor 79 | Pattern mode 38 |
 | Delay 78 | Selecting a pattern 37 |
 | Distortion 79 | Tempo 38 |
 | FX LFO 80 | Trig Types 39 |
-|---|---|
 | Reverb 78 | PERFORMANCE MODE 29 |
 | | Quick performance 30 |
 | G | PLAY MODE 23 |
@@ -4088,7 +4056,6 @@ Step recording mode
 | Label 1 | Value 1 |
 |---------|---------|
 | Label 2 | Value 2 |
-|---|---|
 | Label 3 | Value 3 |
 
 ![](/machines/analog-rytm-mkii/images/_page_105_Picture_0.jpeg)
