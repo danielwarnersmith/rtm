@@ -34,6 +34,7 @@ ABBREVIATIONS: dict[str, str] = {
     "usb": "USB",
     "cv": "CV",
     "fx": "FX",
+    "lfo": "LFO",
 }
 
 
@@ -44,7 +45,12 @@ def normalize_abbreviations(content: str) -> tuple[str, int]:
     This is applied outside fenced code blocks and outside inline code spans.
     Example: "Usb", "usb" -> "USB"; "Fx" -> "FX"; "Cv" -> "CV".
     """
+    # Word-boundary matches (USB/CV/FX/LFO when standalone words)
     pattern = re.compile(r"\b(" + "|".join(map(re.escape, ABBREVIATIONS.keys())) + r")\b", re.IGNORECASE)
+    # Special handling for LFO when directly followed by digits (e.g. "Lfo1/2", "lfo2")
+    lfo_digit = re.compile(r"\b(lfo)(?=\d)", re.IGNORECASE)
+    # Special handling for plural "LFOs"
+    lfo_plural = re.compile(r"\b(lfo)s\b", re.IGNORECASE)
 
     def normalize_line(line: str) -> tuple[str, int]:
         # Don't touch fenced code blocks markers or their contents.
@@ -53,6 +59,12 @@ def normalize_abbreviations(content: str) -> tuple[str, int]:
         for i, part in enumerate(parts):
             if part.startswith("`") and part.endswith("`"):
                 continue
+
+            # LFO edge-cases first
+            part, n = lfo_digit.subn("LFO", part)
+            c += n
+            part, n = lfo_plural.subn("LFOs", part)
+            c += n
 
             def repl(m: re.Match) -> str:
                 nonlocal c

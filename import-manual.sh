@@ -137,8 +137,10 @@ content = re.sub(r'<img\\b([^>]*?)(?<!/)>', r'<img\\1 />', content)
 content = re.sub(r'<([A-Z][A-Z0-9 ]*[A-Z0-9])>', r'\\\\<\\1\\\\>', content)
 
 # Normalize common abbreviations outside fenced code blocks
-ABBR = {'usb': 'USB', 'cv': 'CV', 'fx': 'FX'}
+ABBR = {'usb': 'USB', 'cv': 'CV', 'fx': 'FX', 'lfo': 'LFO'}
 abbr_re = re.compile(r'\\b(' + '|'.join(map(re.escape, ABBR.keys())) + r')\\b', re.IGNORECASE)
+lfo_digit = re.compile(r'\\b(lfo)(?=\\d)', re.IGNORECASE)
+lfo_plural = re.compile(r'\\b(lfo)s\\b', re.IGNORECASE)
 
 out_lines = []
 in_fence = False
@@ -154,6 +156,8 @@ for line in content.splitlines(keepends=True):
     for i, part in enumerate(parts):
         if part.startswith('`') and part.endswith('`'):
             continue
+        part = lfo_digit.sub('LFO', part)
+        part = lfo_plural.sub('LFOs', part)
         parts[i] = abbr_re.sub(lambda m: ABBR[m.group(1).lower()], part)
     out_lines.append(''.join(parts))
 
