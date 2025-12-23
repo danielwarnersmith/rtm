@@ -34,8 +34,8 @@ date: "2025-12-21"
 | [5.2.8 GLOBAL](#5-2-8-global) | 17 |
 | [5.3 ABOUT THE TRACK TYPES](#5-3-about-the-track-types) | 17 |
 | [5.3.1 THE SYNTH TRACKS](#5-3-1-the-synth-tracks) | 17 |
-| [5.3.2 THE FX TRACK](#5-3-2-the-fx-track) | 17 |
-| [5.3.3 THE CV TRACK](#5-3-3-the-cv-track) | 17 |
+| [5.3.2 THE FX TRACK](#5-3-2-the-FX-track) | 17 |
+| [5.3.3 THE CV TRACK](#5-3-3-the-CV-track) | 17 |
 | [5.3.4 EDITING THE TRACKS](#5-3-4-editing-the-tracks) | 17 |
 | [6. INTERACTING WITH THE ANALOG FOUR MKII](#6-interacting-with-the-analog-four-mkii) | 18 |
 | [6.1 PARAMETER EDITING](#6-1-parameter-editing) | 18 |
@@ -119,9 +119,9 @@ date: "2025-12-21"
 | [9.12 PLAYING A SOUND](#9-12-playing-a-sound) | 3 |
 | [9.12.1 PLAYING A SOUND WITH A MIDI KEYBOARD](#9-12-1-playing-a-sound-with-a-midi-keyboard) | 3 |
 | [9.13 EDITING A SOUND](#9-13-editing-a-sound) | 3 |
-| [9.14 EDITING THE FX AND CV TRACKS](#9-14-editing-the-fx-and-cv-tracks) | 3 |
-| [9.14.1 THE FX TRACK](#9-14-1-the-fx-track) | 3 |
-| [9.14.2 THE CV TRACK](#9-14-2-the-cv-track) | 3 |
+| [9.14 EDITING THE FX AND CV TRACKS](#9-14-editing-the-FX-and-CV-tracks) | 3 |
+| [9.14.1 THE FX TRACK](#9-14-1-the-FX-track) | 3 |
+| [9.14.2 THE CV TRACK](#9-14-2-the-CV-track) | 3 |
 | [9.15 TRACK MUTING](#9-15-track-muting) | 3 |
 | [10. THE SEQUENCER](#10-the-sequencer) | 3 |
 | [10.1 BASIC PATTERN OPERATIONS](#10-1-basic-pattern-operations) | 3 |
@@ -204,7 +204,7 @@ date: "2025-12-21"
 | [12.3.1 SYNC](#12-3-1-sync) | |
 | [12.3.2 PORT CONFIG](#12-3-2-port-config) | |
 | [12.3.3 CHANNELS](#12-3-3-channels) | |
-| [12.4 CV CONFIG](#12-4-cv-config) | |
+| [12.4 CV CONFIG](#12-4-CV-config) | |
 | | 12.4.1 CV A-D CONFIG |
 | [12.4.2 VOLTAGE TRIM](#12-4-2-voltage-trim) |
 | [12.5 SYSEX DUMP](#12-5-sysex-dump) |
@@ -217,7 +217,7 @@ date: "2025-12-21"
 | [12.7.2 CONTROL INPUT 2](#12-7-2-control-input-2) | 66 |
 | [12.7.3 SEQUENCER CONFIG](#12-7-3-sequencer-config) | 66 |
 | [12.8 SYSTEM](#12-8-system) | 66 |
-| [12.8.1 USB CONFIG](#12-8-1-usb-config) | 66 |
+| [12.8.1 USB CONFIG](#12-8-1-USB-config) | 66 |
 | [12.8.2 OS UPGRADE](#12-8-2-os-upgrade) | 66 |
 | [12.8.3 FORMAT +DRIVE](#12-8-3-format-drive) | 66 |
 | [12.8.4 CALIBRATION](#12-8-4-calibration) | 66 |
@@ -258,8 +258,8 @@ date: "2025-12-21"
 | [17. TECHNICAL INFORMATION](#17-technical-information) | 84 |
 | [18. CREDITS AND CONTACT INFORMATION](#18-credits-and-contact-information) | 85 |
 | [Appendix](#appendix) | Page |
-| [APPENDIX B: FX TRACK PARAMETERS](#appendix-b-fx-track-parameters) | 9 |
-| [APPENDIX C: CV TRACK PARAMETERS](#appendix-c-cv-track-parameters) | 9 |
+| [APPENDIX B: FX TRACK PARAMETERS](#appendix-b-FX-track-parameters) | 9 |
+| [APPENDIX C: CV TRACK PARAMETERS](#appendix-c-CV-track-parameters) | 9 |
 | [APPENDIX D: MIDI](#appendix-d-midi) | 10 |
 | [APPENDIX E: ANALOG FOUR MKII ARCHITECTURE](#appendix-e-analog-four-mkii-architecture) | 10 |
 | **[INDEX]**(#index) | 110 |
@@ -457,11 +457,11 @@ The Global settings are general settings for the synth and sequencer as well as 
 
 The synth tracks consist of tracks 1–4. To edit a synth track, press the <Key>TRACK 1–4</Key> key. Sounds are loaded to the synth tracks. Sounds can be played polyphonically.
 
-## 5.3.2 the Fx Track
+## 5.3.2 the FX Track
 
 The <Param>FX</Param> track controls the Analog Four MKII internal send effects. To edit the <Param>FX</Param> track, press the <Key>FX</Key> track key.
 
-## 5.3.3 the Cv Track
+## 5.3.3 the CV Track
 
 The <Param>CV</Param> track is used for controlling external equipment capable of receiving analog CV and Gate signals. To edit the <Param>CV</Param> track, press the <Key>CV</Key> track key.
 
@@ -1161,15 +1161,15 @@ ENV offers two freely assignable envelopes. The first one also controls the filt
 
 <Param>LFO</Param> is where parameters for the two freely assignable LFOs are found. Contains one subpage.
 
-# <span id="page-36-0"></span>9.14 Editing the Fx and Cv Tracks
+# <span id="page-36-0"></span>9.14 Editing the FX and CV Tracks
 
-Editing the FX and CV tracks is very similar to editing the Sounds of the synth tracks. The <Param>PARAMETER</Param> pages contain parameters relevant for the two types of tracks. [For more information, please see "APPENDIX C: CV](#appendix-c-cv)
+Editing the FX and CV tracks is very similar to editing the Sounds of the synth tracks. The <Param>PARAMETER</Param> pages contain parameters relevant for the two types of tracks. [For more information, please see "APPENDIX C: CV](#appendix-c-CV)
 
 <Tip>
 FX and <Param>CV</Param> track parameter settings are only saved as part of a kit.
 </Tip>
 
-## 9.14.1 the Fx Track
+## 9.14.1 the FX Track
 
 The <Param>FX</Param> track controls the Analog Four MKII internal send effects. To edit the <Param>FX</Param> track, press the <Key>FX</Key> track key. Five <Param>PARAMETER</Param> pages exist for the <Param>FX</Param> track:
 
@@ -1183,7 +1183,7 @@ CHORUS controls the Wideshift Chorus effect.
 
 <Param>LFO</Param> contains parameters for the two LFOs that can modulate the <Param>FX</Param> track parameters.
 
-## 9.14.2 the Cv Track
+## 9.14.2 the CV Track
 
 The <Param>CV</Param> track is used for controlling external equipment capable of receiving CV/Gate signals. To edit the <Param>CV</Param> track, press <Key>CV</Key> track key. Depending on the CV type chosen in the <Param>CV CONFIG</Param> menu, the available parameters will change. A <Param>CV</Param> track contains eight <Param>PARAMETER</Param> pages:
 
@@ -2154,13 +2154,13 @@ INSERT BEFORE will create a new entry with a range ending on the note preceding 
 
 INSERT AFTER will create a new entry with a range beginning on the note succeeding the current entry. Select by pressing <Key>YES</Key>.
 
-## <span id="page-61-1"></span>12.4 Cv Config
+## <span id="page-61-1"></span>12.4 CV Config
 
 CV/Gate output signals are calibrated and set up in this menu.
 
 ![](/machines/analog-four-mkii/images/_page_61_Picture_7.jpeg)
 
-## <span id="page-61-2"></span>12.4.1 Cv a-D Config
+## <span id="page-61-2"></span>12.4.1 CV a-D Config
 
 Each of the subpages is identical and one for each CV/Gate output exists. The list of available parameters in this menu will depend on the menu settings. When the <Param>CV</Param> track is active, pressing <Key>FUNC</Key> + <Key>CV A-D</Key> is an alternate way of opening this menu for each corresponding CV/Gate output.
 
@@ -2324,9 +2324,9 @@ TO FX highlight this option to customize the FX routing of the four tracks. Acti
 Note that voice routing can be set and stored for each kit and that these settings override the GLOBAL voice routing unless they are set not to. ["9.2 KIT MENU" on page 24.](#9-2-kit-menu)
 </Warning>
 
-USB TO MAIN [db] sets the amount of amplification of the sound that is streamed over USB to the Analog Four MKII main out when used with Overbridge or as a class compliant audio device. (0 dB–+18 dB) This parameter is only available when USB CONFIG is set to USB AUDIO/MIDI or OVERBRIDGE. [more information, please see "12.8.1 USB CONFIG" on page 68.](#12-8-1-usb-config) (0 dB–+18 dB)
+USB TO MAIN [db] sets the amount of amplification of the sound that is streamed over USB to the Analog Four MKII main out when used with Overbridge or as a class compliant audio device. (0 dB–+18 dB) This parameter is only available when USB CONFIG is set to USB AUDIO/MIDI or OVERBRIDGE. [more information, please see "12.8.1 USB CONFIG" on page 68.](#12-8-1-USB-config) (0 dB–+18 dB)
 
-USB IN sets where the incoming audio from the class compliant device is routed to in the Analog Four's signal path. This parameter is only available when USB CONFIG is set to USB AUDIO/MIDI. [information, please see "12.8.1 USB CONFIG" on page 68.](#12-8-1-usb-config)
+USB IN sets where the incoming audio from the class compliant device is routed to in the Analog Four's signal path. This parameter is only available when USB CONFIG is set to USB AUDIO/MIDI. [information, please see "12.8.1 USB CONFIG" on page 68.](#12-8-1-USB-config)
 
 MAIN OUT the incoming audio is routed to the Analog Four MKII's main out at the end of the signal path.
 
@@ -2340,7 +2340,7 @@ OFF no audio is sent from the class compliant device to the Analog Four MKII.
 To be able to hear and process the incoming audio sent to one (or two) of the Analog Four MKII's voices, you must place a note trig on the selected voices track(s) and start the sequencer. This is needed to trigger and open its envelope and let the audio through. For continuous processing, set the trig's <Param>LEN</Param> parameter to INF.
 </Tip>
 
-USB OUT sets from where in the Analog Four MKII's signal path, the outgoing audio is routed to the class compliant device. This parameter is only available when USB CONFIG is set to USB AUDIO/MIDI. [more information, please see "12.8.1 USB CONFIG" on page 68.](#12-8-1-usb-config)
+USB OUT sets from where in the Analog Four MKII's signal path, the outgoing audio is routed to the class compliant device. This parameter is only available when USB CONFIG is set to USB AUDIO/MIDI. [more information, please see "12.8.1 USB CONFIG" on page 68.](#12-8-1-USB-config)
 
 MAIN OUT the outgoing audio is routed from the main out (containing the audio from all voices, including the <Param>FX</Param> track).
 
@@ -2410,7 +2410,7 @@ QUANTIZE LIVE REC Will when active quantize notes entered in <Param>LIVE RECORDI
 
 Accesses the menus USB CONFIG, OS UPGRADE, FORMAT +DRIVE and CALIBRATION described below.
 
-## <span id="page-67-1"></span>12.8.1 Usb Config
+## <span id="page-67-1"></span>12.8.1 USB Config
 
 Here you find several settings related to Overbridge and USB audio. Selecting one mode disables the other two modes.
 
@@ -2609,7 +2609,7 @@ The CV/Gate track of the Analog Four MKII is made for controlling external, CV/G
 2. Connect the CV A cable to the external synth pitch CV control input. This cable will control the pitch of the external synth.
 3. Connect the CV B cable to the external synth gate input. This cable will open the envelope of the external synth.
 4. Connect the CV C cable to the external synth filter CV input. This cable will control the filter cutoff of the external synth.
-5. While on the <Param>CV</Param> track, press <Key>FUNC</Key> + <Key>OSC1</Key>. In this menu, set TYPE to PITCH V/OCT. You can read more about how to calibrate the pitch CV so that it matches the tuning of your external CV-controlled synthesizer in the <Param>CV CONFIG</Param> menu. [For more information, please see "12.4 CV CONFIG" on page 62.](#12-4-cv-config)
+5. While on the <Param>CV</Param> track, press <Key>FUNC</Key> + <Key>OSC1</Key>. In this menu, set TYPE to PITCH V/OCT. You can read more about how to calibrate the pitch CV so that it matches the tuning of your external CV-controlled synthesizer in the <Param>CV CONFIG</Param> menu. [For more information, please see "12.4 CV CONFIG" on page 62.](#12-4-CV-config)
 
 ![](/machines/analog-four-mkii/images/_page_74_Picture_11.jpeg)
 
@@ -2696,7 +2696,7 @@ In this setup example, the <Param>CV</Param> track will trig the oscillator of a
 
 1. Connect a standard mono phone cable from the Analog Four MKII CV A output to the pitch CV control input of the external synth.
 2. Connect the output of the external oscillator to the left external input
-3. Select the <Param>CV</Param> track and press <Key>FUNC</Key> + <Key>OSC1</Key>. In this menu, depending on the specification of the external analog synth, set TYPE to either PITCH V/OCT or PITCH Hz/V. You can read more about how to calibrate the pitch CV so that it matches the tuning of your external CV-controlled synthesizer in the CV CONFIG section. [For more information, please see "12.4 CV CONFIG" on page 62.](#12-4-cv-config)
+3. Select the <Param>CV</Param> track and press <Key>FUNC</Key> + <Key>OSC1</Key>. In this menu, depending on the specification of the external analog synth, set TYPE to either PITCH V/OCT or PITCH Hz/V. You can read more about how to calibrate the pitch CV so that it matches the tuning of your external CV-controlled synthesizer in the CV CONFIG section. [For more information, please see "12.4 CV CONFIG" on page 62.](#12-4-CV-config)
 
 ![](/machines/analog-four-mkii/images/_page_78_Picture_8.jpeg)
 
@@ -3221,7 +3221,7 @@ DST (LFO2 Destination B) selects the second of the two available destinations fo
 
 DEP (LFO2 Depth B) sets how much the LFO2 will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-# <span id="page-91-1"></span><span id="page-91-0"></span>Appendix B: Fx Track Parameters
+# <span id="page-91-1"></span><span id="page-91-0"></span>Appendix B: FX Track Parameters
 
 In this appendix, the parameters of the external input page and the three send effects are explained.
 
@@ -3349,7 +3349,7 @@ LPF (LP Filter) sets the lowpass filtering of the input to the reverb.
 
 VOL (Mix Volume) adjusts the volume of the Supervoid Reverb signal.
 
-# Fx Lfo
+# FX Lfo
 
 The <Param>FX LFO</Param> menu consists of two LFOs dedicated to modulating <Param>FX</Param> track parameters.
 
@@ -3413,19 +3413,19 @@ DST (LFO2 Destination B) selects the second of the two available destinations fo
 
 DEP (LFO2 Depth B) sets how much the LFO2 will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-# <span id="page-96-1"></span><span id="page-96-0"></span>Appendix C: Cv Track Parameters
+# <span id="page-96-1"></span><span id="page-96-0"></span>Appendix C: CV Track Parameters
 
-# Cv a-D
+# CV a-D
 
-The CV <Param>A-D</Param> pages control the signals sent from the four CV/Gate outputs. Depending on the CV type chosen in the <Param>CV CONFIG</Param> menu, the available parameters will change. ["12.4.1 CV A-D CONFIG" on page 62.](#12-4-1-cv-a-d-config)
+The CV <Param>A-D</Param> pages control the signals sent from the four CV/Gate outputs. Depending on the CV type chosen in the <Param>CV CONFIG</Param> menu, the available parameters will change. ["12.4.1 CV A-D CONFIG" on page 62.](#12-4-1-CV-a-d-config)
 
-## Cv (Grounded)
+## CV (Grounded)
 
 No parameters available. The CV output will not send any signal.
 
 ![](/machines/analog-four-mkii/images/_page_96_Picture_6.jpeg)
 
-## Cv (Pitch V/Oct)
+## CV (Pitch V/Oct)
 
 ![](/machines/analog-four-mkii/images/_page_96_Figure_8.jpeg)
 
@@ -3439,37 +3439,37 @@ SLI (Note Slide time) sets the CV control of the slide time of note slides.
 
 <Param>SRC</Param> (Source Track) sets the track to use for sending CV signals. The <Param>CV</Param> track, <Param>FX</Param> track and synth tracks 1-4 can be used as a source.
 
-# Cv (Pitch Hz/V)
+# CV (Pitch Hz/V)
 
 ![](/machines/analog-four-mkii/images/_page_96_Figure_15.jpeg)
 
 Parameters are the same as for the Pitch V/OCT.
 
-## Cv (Value Lin)
+## CV (Value Lin)
 
 ![](/machines/analog-four-mkii/images/_page_96_Picture_18.jpeg)
 
 VAL (Value) sets the voltage level of the CV. Applicable when the chosen CV type is VALUE LIN.
 
-## Cv (Trig)
+## CV (Trig)
 
 ![](/machines/analog-four-mkii/images/_page_96_Picture_21.jpeg)
 
 <Param>SRC</Param> (Source Track) sets the track to use for sending trig signals. The <Param>CV</Param> track, <Param>FX</Param> track and synth tracks 1-4 can be used as a source.
 
-## Cv (Gate)
+## CV (Gate)
 
 ![](/machines/analog-four-mkii/images/_page_96_Picture_24.jpeg)
 
 <Param>SRC</Param> (Source Track) sets the track to use for sending gate signals. The <Param>CV</Param> track, <Param>FX</Param> track and synth tracks 1-4 can be used as a source.
 
-## Cv (Clock)
+## CV (Clock)
 
 ![](/machines/analog-four-mkii/images/_page_96_Picture_27.jpeg)
 
 CLK (Clock Division) sets the clock division. This setting relates to the BPM of the sequencer.
 
-# Cv Envelopes
+# CV Envelopes
 
 Here parameters controlling the two assignable CV envelopes are found. The CV envelopes can modulate parameters found on the <Param>CV</Param> track. They can also be sent to the CV/Gate outputs, by setting up a CV channel's type as VALUE LIN.
 
@@ -3521,7 +3521,7 @@ DST (Env2 Destination B) selects the second of the two available destinations fo
 
 DEP (Env2 Depth B) sets how much the envelope will modulate the destination chosen by the second <Param>DST</Param> parameter. The knob is bipolar (both negative and positive modulation depth is possible).
 
-## Cv Lfo
+## CV Lfo
 
 The two CV LFOs can be used to modulate other <Param>CV</Param> track parameters. They can also be sent to the CV/ Gate outputs, by setting up a CV channel's type as VALUE LIN and then letting the LFO modulate its <Param>VAL</Param> parameter.
 
@@ -3783,7 +3783,7 @@ The following messages affect the synth track parameters. They are also sent whe
 | LFO2 Depth A | H | 26 (0-127) | 58 (0-127) | 1 (0-127) | 97 (0-127) |
 | LFO2 Destination B | I | - | - | 1 (0-127) | 98 |
 | LFO2 Depth B | J | 27 (0-127) | 59 (0-127) | 1 (0-127) | 99 (0-127) |
-# Fx Track Parameters
+# FX Track Parameters
 
 The following messages affect the <Param>FX</Param> track parameters. They are also sent when adjusting the knobs controlling the parameters.
 
@@ -3876,11 +3876,11 @@ The following messages affect the <Param>FX</Param> track parameters. They are a
 | LFO2 Destination 2 | I | - | - | 2 (0–127) | 98 |
 | LFO2 Depth 2 | J | - | - | 2 (0–127) | 99 |
 
-# Cv Track Parameters
+# CV Track Parameters
 
 The following messages affect the <Param>CV</Param> track parameters. They are also sent when adjusting the knobs controlling the parameters.
 
-## Cv a
+## CV a
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
@@ -3890,7 +3890,7 @@ The following messages affect the <Param>CV</Param> track parameters. They are a
 | CV A Clock | D | - | - | 3 (0–127) | 3 |
 | CV A Source | E | - | - | 3 (0–127) | 4 |
 
-## Cv a
+## CV a
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
@@ -3899,7 +3899,7 @@ The following messages affect the <Param>CV</Param> track parameters. They are a
 | CV A Slide Time | H | - | - | 3 (0–127) | - |
 | CV A Some Other Param | I | - | - | 3 (0–127) | - |
 | CV A Another Param | J | - | - | 3 (0–127) | - |
-## Cv B
+## CV B
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
@@ -3914,7 +3914,7 @@ The following messages affect the <Param>CV</Param> track parameters. They are a
 | | I | - | - | $3 (0–127)$ | - |
 | | J | - | - | $3 (0–127)$ | - |
 
-## Cv C
+## CV C
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|
@@ -3928,7 +3928,7 @@ The following messages affect the <Param>CV</Param> track parameters. They are a
 | | H | - | - | 3 (0–127) | - |
 | | I | - | - | 3 (0–127) | - |
 | | J | - | - | 3 (0–127) | - |
-## Cv D
+## CV D
 
 | Parameter | Encoder | CC MSB | CC LSB | NRPN MSB | NRPN LSB |
 |---|---|---|---|---|---|

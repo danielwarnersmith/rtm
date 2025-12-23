@@ -30,6 +30,60 @@ import sys
 import os
 
 
+ABBREVIATIONS: dict[str, str] = {
+    "usb": "USB",
+    "cv": "CV",
+    "fx": "FX",
+}
+
+
+def normalize_abbreviations(content: str) -> tuple[str, int]:
+    """
+    Normalize common synth/manual abbreviations to uppercase.
+
+    This is applied outside fenced code blocks and outside inline code spans.
+    Example: "Usb", "usb" -> "USB"; "Fx" -> "FX"; "Cv" -> "CV".
+    """
+    pattern = re.compile(r"\b(" + "|".join(map(re.escape, ABBREVIATIONS.keys())) + r")\b", re.IGNORECASE)
+
+    def normalize_line(line: str) -> tuple[str, int]:
+        # Don't touch fenced code blocks markers or their contents.
+        parts = re.split(r"(`[^`]*`)", line)
+        c = 0
+        for i, part in enumerate(parts):
+            if part.startswith("`") and part.endswith("`"):
+                continue
+
+            def repl(m: re.Match) -> str:
+                nonlocal c
+                c += 1
+                return ABBREVIATIONS[m.group(1).lower()]
+
+            parts[i] = pattern.sub(repl, part)
+        return "".join(parts), c
+
+    out_lines: list[str] = []
+    count = 0
+    in_fence = False
+
+    for line in content.splitlines(keepends=True):
+        stripped = line.lstrip()
+        if stripped.startswith("```"):
+            in_fence = not in_fence
+            out_lines.append(line)
+            continue
+
+        if in_fence:
+            out_lines.append(line)
+            continue
+
+        new_line, c = normalize_line(line)
+        count += c
+        out_lines.append(new_line)
+
+    return "".join(out_lines), count
+
+
 def convert_keys(content: str) -> tuple[str, int]:
     """
     Convert **[KEY_NAME]** to <Key>KEY_NAME</Key>
@@ -149,11 +203,13 @@ def convert_file(filepath: str, dry_run: bool = False) -> dict:
     stats = {}
     
     # Convert in order: 
+    # 0. Normalize abbreviations (USB/CV/FX)
     # 1. LEDs first (most specific markdown pattern)
     # 2. Knobs (bold+italic markdown)
     # 3. Keys (bold markdown with brackets)
     # 4. Plain keys (raw "XXX key" text)
     # 5. Contextual params (last, catches remaining ALL CAPS in context)
+    content, stats["abbreviations"] = normalize_abbreviations(content)
     content, stats['leds'] = convert_leds(content)
     content, stats['knobs'] = convert_knobs(content)
     content, stats['keys'] = convert_keys(content)
@@ -188,7 +244,15 @@ def main():
     
     args = parser.parse_args()
     
-    total_stats = {'keys': 0, 'plain_keys': 0, 'knobs': 0, 'leds': 0, 'params': 0, 'total': 0}
+    total_stats = {
+        "abbreviations": 0,
+        "keys": 0,
+        "plain_keys": 0,
+        "knobs": 0,
+        "leds": 0,
+        "params": 0,
+        "total": 0,
+    }
     
     for filepath in args.files:
         if not os.path.exists(filepath):
@@ -198,6 +262,7 @@ def main():
         stats = convert_file(filepath, dry_run=args.dry_run)
         
         print(f"{filepath}:")
+        print(f"  Abbreviations: {stats.get('abbreviations', 0)}")
         print(f"  Keys (bold):  {stats['keys']}")
         print(f"  Keys (plain): {stats['plain_keys']}")
         print(f"  Knobs:        {stats['knobs']}")
@@ -212,6 +277,7 @@ def main():
     if len(args.files) > 1:
         print("=" * 40)
         print("Total conversions:")
+        print(f"  Abbreviations: {total_stats.get('abbreviations', 0)}")
         print(f"  Keys (bold):  {total_stats['keys']}")
         print(f"  Keys (plain): {total_stats['plain_keys']}")
         print(f"  Knobs:        {total_stats['knobs']}")

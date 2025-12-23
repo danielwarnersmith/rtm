@@ -119,14 +119,46 @@ print(content, end='')
 
 # Fix HTML self-closing tags for MDX compatibility
 echo -e "${YELLOW}Fixing MDX compatibility issues...${NC}"
-sed -i '' 's/<br>/<br \/>/g' "$MDX_FILE"
-sed -i '' 's/<hr>/<hr \/>/g' "$MDX_FILE"
-sed -i '' 's/<img \([^>]*[^/]\)>/<img \1 \/>/g' "$MDX_FILE"
+python3 -c "
+import re
 
-# Escape angle bracket patterns used in manuals (not HTML tags)
-echo -e "${YELLOW}Escaping angle bracket labels...${NC}"
-# Generic pattern: escape <ALLCAPS> or <ALLCAPS ALLCAPS> that aren't HTML
-sed -i '' -E 's/<([A-Z][A-Z0-9 ]+[A-Z0-9])>/\\<\1\\>/g' "$MDX_FILE"
+path = '$MDX_FILE'
+content = open(path, 'r', encoding='utf-8').read()
+
+# Normalize self-closing tags
+content = re.sub(r'<br\\s*/?>', r'<br />', content)
+content = re.sub(r'<hr\\s*/?>', r'<hr />', content)
+
+# Ensure <img ...> is self-closing (keep already self-closed)
+content = re.sub(r'<img\\b([^>]*?)(?<!/)>', r'<img\\1 />', content)
+
+# Escape angle bracket labels used in manuals (not HTML tags).
+# Generic pattern: escape <ALLCAPS> or <ALLCAPS ALLCAPS> that aren't HTML.
+content = re.sub(r'<([A-Z][A-Z0-9 ]*[A-Z0-9])>', r'\\\\<\\1\\\\>', content)
+
+# Normalize common abbreviations outside fenced code blocks
+ABBR = {'usb': 'USB', 'cv': 'CV', 'fx': 'FX'}
+abbr_re = re.compile(r'\\b(' + '|'.join(map(re.escape, ABBR.keys())) + r')\\b', re.IGNORECASE)
+
+out_lines = []
+in_fence = False
+for line in content.splitlines(keepends=True):
+    if line.lstrip().startswith('```'):
+        in_fence = not in_fence
+        out_lines.append(line)
+        continue
+    if in_fence:
+        out_lines.append(line)
+        continue
+    parts = re.split(r'(`[^`]*`)', line)
+    for i, part in enumerate(parts):
+        if part.startswith('`') and part.endswith('`'):
+            continue
+        parts[i] = abbr_re.sub(lambda m: ABBR[m.group(1).lower()], part)
+    out_lines.append(''.join(parts))
+
+open(path, 'w', encoding='utf-8').write(''.join(out_lines))
+"
 
 # Fix table formatting issues from PDF conversion
 echo -e "${YELLOW}Fixing table formatting...${NC}"
@@ -397,6 +429,7 @@ echo "Fixes applied:"
 echo "  - Image paths converted to /machines/$MACHINE_NAME/images/"
 echo "  - Self-closing HTML tags fixed (<br>, <hr>, <img>)"
 echo "  - Angle bracket labels escaped (<ALLCAPS>)"
+echo "  - Abbreviations normalized (USB/CV/FX)"
 echo "  - Malformed TOC separator rows normalized"
 echo "  - Table section headers converted to headings"
 echo "  - Missing table separator rows added"
