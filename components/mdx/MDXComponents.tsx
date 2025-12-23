@@ -4,6 +4,33 @@ import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { Children as ReactChildren, isValidElement } from "react";
 import { ClickableTableRow } from "./ClickableTableRow";
 
+function getBasePath(): string {
+  // Prefer explicit public base path when present (available in browser bundles).
+  const explicit = process.env.NEXT_PUBLIC_BASE_PATH;
+  if (explicit) return explicit;
+
+  // Fall back to the same GitHub Pages detection as `next.config.mjs`.
+  const isGithubPages =
+    process.env.GITHUB_PAGES === "true" || process.env.GITHUB_ACTIONS === "true";
+  const repo = process.env.GITHUB_REPOSITORY?.split("/")?.[1];
+  return isGithubPages && repo ? `/${repo}` : "";
+}
+
+const BASE_PATH = getBasePath();
+
+function withBasePath(src: string | undefined): string | undefined {
+  if (!src) return src;
+  // External/data URLs should remain untouched.
+  if (/^(https?:)?\/\//.test(src) || src.startsWith("data:") || src.startsWith("mailto:")) {
+    return src;
+  }
+  // Only prefix absolute root paths.
+  if (!src.startsWith("/")) return src;
+  if (!BASE_PATH) return src;
+  if (src.startsWith(`${BASE_PATH}/`)) return src;
+  return `${BASE_PATH}${src}`;
+}
+
 /**
  * Strip section number prefixes (e.g., "9.11.5 ") from text
  */
@@ -56,6 +83,23 @@ function CustomPre(props: ComponentPropsWithoutRef<"pre">) {
     <pre
       {...props}
       className="overflow-x-auto rounded-lg bg-neutral-900 p-4 text-sm"
+    />
+  );
+}
+
+function CustomImg(props: ComponentPropsWithoutRef<"img">) {
+  const { src, alt, ...rest } = props;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      {...rest}
+      src={withBasePath(src)}
+      alt={alt ?? ""}
+      loading="lazy"
+      className={[
+        "my-6 h-auto max-w-full rounded-md",
+        typeof props.className === "string" ? props.className : "",
+      ].join(" ").trim()}
     />
   );
 }
@@ -306,7 +350,7 @@ function Tip({ children }: CalloutProps) {
     <div className="my-6 flex gap-4 rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800/50">
       <div className="flex-shrink-0">
         <Image
-          src="/icons/tip.jpeg"
+          src={withBasePath("/icons/tip.jpeg") ?? "/icons/tip.jpeg"}
           alt="Tip"
           width={24}
           height={24}
@@ -327,7 +371,7 @@ function Warning({ children }: CalloutProps) {
     <div className="my-6 flex gap-4 rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-700/50 dark:bg-amber-900/20">
       <div className="flex-shrink-0">
         <Image
-          src="/icons/warning.jpeg"
+          src={withBasePath("/icons/warning.jpeg") ?? "/icons/warning.jpeg"}
           alt="Warning"
           width={24}
           height={24}
@@ -392,6 +436,7 @@ export const MDXComponents = {
   a: CustomLink,
   pre: CustomPre,
   code: CustomCode,
+  img: CustomImg,
   blockquote: CustomBlockquote,
   h1: createHeading(1),
   h2: createHeading(2),
