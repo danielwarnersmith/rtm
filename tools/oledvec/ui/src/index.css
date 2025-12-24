@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  body {
+    @apply bg-[#F5F1EB] text-neutral-900 antialiased;
+  }
+
+  .dark body {
+    @apply bg-neutral-950 text-neutral-50;
+  }
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a,
+[role="button"] {
+  transition: background-color 150ms ease-out, opacity 150ms ease-out;
+}

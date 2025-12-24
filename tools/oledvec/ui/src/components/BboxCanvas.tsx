@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import './BboxCanvas.css'
 
 interface BboxCanvasProps {
   sourceUrl: string
@@ -89,18 +88,37 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange }: BboxCanvas
   }
 
   return (
-    <div className="bbox-canvas-container">
-      {!image && <div className="bbox-canvas-loading">Loading image...</div>}
-      <canvas ref={canvasRef} className="bbox-canvas" />
+    <div className="flex flex-col items-center gap-3">
+      {!image && <div className="py-10 text-center text-neutral-500 dark:text-neutral-400">Loading image...</div>}
+      <canvas ref={canvasRef} className="border border-neutral-200 dark:border-neutral-800 rounded max-w-full h-auto" />
       {bbox && (
-        <div className="bbox-controls">
-          <button onClick={() => nudgeBbox(-1, 0)}>←</button>
-          <button onClick={() => nudgeBbox(0, -1)}>↑</button>
-          <button onClick={() => nudgeBbox(0, 1)}>↓</button>
-          <button onClick={() => nudgeBbox(1, 0)}>→</button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => nudgeBbox(-1, 0)}
+            className="w-8 h-8 border border-neutral-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
+          >
+            ←
+          </button>
+          <button
+            onClick={() => nudgeBbox(0, -1)}
+            className="w-8 h-8 border border-neutral-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
+          >
+            ↑
+          </button>
+          <button
+            onClick={() => nudgeBbox(0, 1)}
+            className="w-8 h-8 border border-neutral-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
+          >
+            ↓
+          </button>
+          <button
+            onClick={() => nudgeBbox(1, 0)}
+            className="w-8 h-8 border border-neutral-300 dark:border-neutral-700 rounded bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
+          >
+            →
+          </button>
         </div>
       )}
     </div>
   )
 }
-
