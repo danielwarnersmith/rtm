@@ -76,10 +76,16 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
     @app.get("/api/public/{path:path}")
     async def serve_public(path: str):
         """Serve files from public/oled directory."""
+        # Remove the /oled/{device}/ prefix from path if present, since public_oled_dir already includes it
+        path_parts = path.split("/")
+        if len(path_parts) >= 2 and path_parts[0] == "oled" and path_parts[1] == device:
+            # Path starts with oled/{device}/, remove those parts
+            path = "/".join(path_parts[2:])
+        
         file_path = public_oled_dir / path
         if file_path.exists() and file_path.is_file():
             return FileResponse(str(file_path))
-        raise HTTPException(status_code=404, detail="File not found")
+        raise HTTPException(status_code=404, detail=f"File not found: {file_path}")
     
     # API endpoints
     @app.get("/api/items")

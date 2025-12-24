@@ -10,8 +10,9 @@
     "start": "next start",
     "lint": "next lint",
     "oled:venv": "cd tools/oledvec/engine-python && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
-    "oled:process": "cd tools/oledvec/engine-python && source venv/bin/activate && python -m oledvec process ${DEVICE:-analog-rytm-mkii}",
-    "oled:review": "cd tools/oledvec/engine-python && source venv/bin/activate && python -m oledvec server --device ${DEVICE:-analog-rytm-mkii}"
+    "oled:process": "sh -c 'if [ -z \"$DEVICE\" ]; then echo \"Error: DEVICE environment variable is required. Example: DEVICE=analog-rytm-mkii npm run oled:process\"; exit 1; fi' && cd tools/oledvec/engine-python && source venv/bin/activate && python -m oledvec process \"$DEVICE\"",
+    "oled:review": "sh -c 'if [ -z \"$DEVICE\" ]; then echo \"Error: DEVICE environment variable is required. Example: DEVICE=analog-rytm-mkii npm run oled:review\"; exit 1; fi' && cd tools/oledvec/engine-python && source venv/bin/activate && python -m oledvec server --device \"$DEVICE\"",
+    "oled:dev": "sh -c 'if [ -z \"$DEVICE\" ]; then echo \"Error: DEVICE environment variable is required. Example: DEVICE=analog-rytm-mkii npm run oled:dev\"; exit 1; fi' && concurrently --names \"SERVER,UI\" --prefix-colors \"blue,green\" \"DEVICE=$DEVICE npm run oled:review\" \"cd tools/oledvec/ui && npm run dev\""
   },
   "keywords": [
     "documentation",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "concurrently": "^9.2.1",
     "pagefind": "^1.4.0"
   }
 }

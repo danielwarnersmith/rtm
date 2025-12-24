@@ -26,10 +26,8 @@ This creates a virtual environment and installs dependencies (OpenCV, NumPy, Fas
 Place images in `public/oled/<device>/incoming/`, then run:
 
 ```bash
-# Default device (analog-rytm-mkii)
-npm run oled:process
-
-# Or specify a device
+# DEVICE is required (no default)
+DEVICE=analog-rytm-mkii npm run oled:process
 DEVICE=analog-four-mkii npm run oled:process
 ```
 
@@ -41,23 +39,45 @@ This will:
 
 ### 3. Review and Edit
 
-Start the review server:
+**Option A: Start server with built UI (production mode)**
 
 ```bash
-# Default device (analog-rytm-mkii)
-npm run oled:review
-
-# Or specify a device
+# DEVICE is required (no default)
+DEVICE=analog-rytm-mkii npm run oled:review
 DEVICE=analog-four-mkii npm run oled:review
 ```
 
-Then in a separate terminal, start the UI dev server:
+Open http://localhost:8000 to review and edit screens.
+
+**Option B: Start both server and UI dev server together (development mode)**
 
 ```bash
-cd tools/oledvec/ui && npm install && npm run dev
+# DEVICE is required (no default)
+# Starts both the FastAPI server (port 8000) and Vite dev server (port 5173)
+DEVICE=analog-rytm-mkii npm run oled:dev
+DEVICE=analog-four-mkii npm run oled:dev
 ```
 
-Open http://localhost:5173 to review and edit screens.
+Open http://localhost:5173 to review and edit screens (UI dev server proxies API requests to the FastAPI server).
+
+### Which Option Should I Use?
+
+**Use `oled:review` (Option A) when:**
+- Just reviewing/editing OLED items (no UI code changes)
+- Using the built, optimized UI
+- Simpler setup (one process)
+
+**Use `oled:dev` (Option B) when:**
+- Actively developing or modifying the UI code
+- Need hot-reload and faster iteration on UI changes
+- Debugging UI issues
+
+**Note:** Before using `oled:review`, you need to build the UI once:
+```bash
+cd tools/oledvec/ui && npm run build
+```
+
+Then `oled:review` will serve the built UI from the `dist/` folder.
 
 ## File Structure
 
@@ -97,13 +117,13 @@ tools/oledvec/state/<device>/
 # Batch process images
 python -m oledvec process <device> [--no-move-rejected]
 
-# Start review server
+# Start review server (--device is required)
 python -m oledvec server --device <device> [--host 127.0.0.1] [--port 8000]
 
 # Examples:
 python -m oledvec process analog-rytm-mkii
 python -m oledvec process analog-four-mkii
-python -m oledvec server --device analog-rytm-mkii
+python -m oledvec server --device analog-rytm-mkii  # --device is required
 ```
 
 ### API Endpoints

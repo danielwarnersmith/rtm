@@ -341,8 +341,8 @@ def main():
     server_parser = subparsers.add_parser("server", help="Start review server")
     server_parser.add_argument(
         "--device",
-        default="analog-rytm-mkii",
-        help="Device identifier (default: analog-rytm-mkii)",
+        required=True,
+        help="Device identifier (e.g., analog-rytm-mkii, analog-four-mkii)",
     )
     server_parser.add_argument(
         "--host",
