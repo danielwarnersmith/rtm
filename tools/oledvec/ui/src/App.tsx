@@ -30,6 +30,45 @@ function App() {
     loadItems()
   }, [])
 
+  // Handle keyboard shortcuts for navigation (j/k)
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      // Only handle shortcuts when not typing in inputs
+      const target = e.target as HTMLElement
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+        return
+      }
+
+      // j/k for navigation
+      if (e.key === 'j' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        e.preventDefault()
+        if (items.length === 0) return
+        
+        const currentIndex = items.findIndex(item => item.id === selectedItemId)
+        if (currentIndex < items.length - 1) {
+          setSelectedItemId(items[currentIndex + 1].id)
+        } else {
+          // Wrap to first item
+          setSelectedItemId(items[0].id)
+        }
+      } else if (e.key === 'k' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        e.preventDefault()
+        if (items.length === 0) return
+        
+        const currentIndex = items.findIndex(item => item.id === selectedItemId)
+        if (currentIndex > 0) {
+          setSelectedItemId(items[currentIndex - 1].id)
+        } else {
+          // Wrap to last item
+          setSelectedItemId(items[items.length - 1].id)
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [items, selectedItemId])
+
   // Load device after items are loaded (can use items as fallback)
   useEffect(() => {
     async function loadDeviceWithFallback() {

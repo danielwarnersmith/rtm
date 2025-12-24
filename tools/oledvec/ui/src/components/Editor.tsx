@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getItem, updateItemState, rerunItem, type ItemResponse, type ItemStateUpdate } from '../api'
 import BboxCanvas from './BboxCanvas'
 import PixelGrid from './PixelGrid'
@@ -40,57 +40,6 @@ export default function Editor({ itemId, onRerun }: EditorProps) {
     }
   }, [item?.id])
 
-  // Handle keyboard shortcuts (Cmd+Z for undo, Cmd+Shift+Z for redo)
-  useEffect(() => {
-    function handleKeyDown(e: KeyboardEvent) {
-      // Only handle shortcuts when the editor is active (prevent interfering with other inputs)
-      const target = e.target as HTMLElement
-      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
-        return // Don't handle shortcuts when typing in inputs
-      }
-
-      // Check for Cmd+Z (Mac) or Ctrl+Z (Windows/Linux)
-      const isUndo = (e.metaKey || e.ctrlKey) && e.key === 'z' && !e.shiftKey
-      const isRedo = (e.metaKey || e.ctrlKey) && (e.key === 'z' && e.shiftKey || e.key === 'y')
-
-      if (isUndo && historyIndex > 0 && item) {
-        e.preventDefault()
-        const previousOverrides = overrideHistory[historyIndex - 1]
-        if (previousOverrides) {
-          setItem({
-            ...item,
-            state: {
-              ...item.state,
-              overrides: {
-                force_on: [...previousOverrides.force_on],
-                force_off: [...previousOverrides.force_off],
-              },
-            },
-          })
-          setHistoryIndex(historyIndex - 1)
-        }
-      } else if (isRedo && historyIndex < overrideHistory.length - 1 && item) {
-        e.preventDefault()
-        const nextOverrides = overrideHistory[historyIndex + 1]
-        if (nextOverrides) {
-          setItem({
-            ...item,
-            state: {
-              ...item.state,
-              overrides: {
-                force_on: [...nextOverrides.force_on],
-                force_off: [...nextOverrides.force_off],
-              },
-            },
-          })
-          setHistoryIndex(historyIndex + 1)
-        }
-      }
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [historyIndex, overrideHistory, item])
 
   async function loadItem() {
     try {
@@ -112,7 +61,7 @@ export default function Editor({ itemId, onRerun }: EditorProps) {
     }
   }
 
-  async function saveCurrentState() {
+  const saveCurrentState = useCallback(async () => {
     if (!item) return
 
     const update: ItemStateUpdate = {
@@ -129,9 +78,9 @@ export default function Editor({ itemId, onRerun }: EditorProps) {
     }
 
     await updateItemState(itemId, update)
-  }
+  }, [item, itemId, useAutoThreshold, threshold])
 
-  async function handleSave() {
+  const handleSave = useCallback(async () => {
     if (!item) return
 
     setSaving(true)
@@ -149,9 +98,9 @@ export default function Editor({ itemId, onRerun }: EditorProps) {
     } finally {
       setSaving(false)
     }
-  }
+  }, [item, useAutoThreshold, saveCurrentState, loadItem])
 
-  async function handleRerun() {
+  const handleRerun = useCallback(async () => {
     if (!item) return
 
     setSaving(true)
@@ -214,9 +163,9 @@ export default function Editor({ itemId, onRerun }: EditorProps) {
     } finally {
       setSaving(false)
     }
-  }
+  }, [item, itemId, useAutoThreshold, saveCurrentState, onRerun])
 
-  function handleBboxChange(bbox: number[]) {
+  const handleBboxChange = useCallback((bbox: number[]) => {
     if (!item) return
     setItem({
       ...item,
@@ -225,7 +174,135 @@ export default function Editor({ itemId, onRerun }: EditorProps) {
         oled_bbox: bbox,
       },
     })
-  }
+  }, [item])
+
+  // Handle keyboard shortcuts (must be after function definitions)
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      // Only handle shortcuts when the editor is active (prevent interfering with other inputs)
+      const target = e.target as HTMLElement
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+        return // Don't handle shortcuts when typing in inputs
+      }
+
+      const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
+      const modKey = isMac ? e.metaKey : e.ctrlKey
+
+      // Arrow keys for bbox movement (without modifier)
+      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key) && !modKey && !e.altKey) {
+        if (item && item.state.oled_bbox && item.state.oled_bbox.length === 4) {
+          e.preventDefault()
+          const step = e.shiftKey ? 10 : 1
+          const [x, y, w, h] = item.state.oled_bbox
+          let newBbox: number[]
+          
+          switch (e.key) {
+            case 'ArrowUp':
+              newBbox = [x, y - step, w, h]
+              break
+            case 'ArrowDown':
+              newBbox = [x, y + step, w, h]
+              break
+            case 'ArrowLeft':
+              newBbox = [x - step, y, w, h]
+              break
+            case 'ArrowRight':
+              newBbox = [x + step, y, w, h]
+              break
+            default:
+              return
+          }
+          handleBboxChange(newBbox)
+        }
+        return
+      }
+
+      // Cmd+Arrow keys for bbox resizing (width/height)
+      if (modKey && ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key) && !e.altKey) {
+        if (item && item.state.oled_bbox && item.state.oled_bbox.length === 4) {
+          e.preventDefault()
+          const step = e.shiftKey ? 10 : 1
+          const [x, y, w, h] = item.state.oled_bbox
+          let newBbox: number[]
+          
+          switch (e.key) {
+            case 'ArrowUp':
+              // Decrease height
+              newBbox = [x, y, w, Math.max(1, h - step)]
+              break
+            case 'ArrowDown':
+              // Increase height
+              newBbox = [x, y, w, h + step]
+              break
+            case 'ArrowLeft':
+              // Decrease width
+              newBbox = [x, y, Math.max(1, w - step), h]
+              break
+            case 'ArrowRight':
+              // Increase width
+              newBbox = [x, y, w + step, h]
+              break
+            default:
+              return
+          }
+          handleBboxChange(newBbox)
+        }
+        return
+      }
+
+      // Cmd+Enter for re-run, Shift+Cmd+Enter for save
+      if (modKey && e.key === 'Enter') {
+        e.preventDefault()
+        if (e.shiftKey) {
+          handleSave()
+        } else {
+          handleRerun()
+        }
+        return
+      }
+
+      // Check for Cmd+Z (Mac) or Ctrl+Z (Windows/Linux)
+      const isUndo = modKey && e.key === 'z' && !e.shiftKey
+      const isRedo = modKey && (e.key === 'z' && e.shiftKey || e.key === 'y')
+
+      if (isUndo && historyIndex > 0 && item) {
+        e.preventDefault()
+        const previousOverrides = overrideHistory[historyIndex - 1]
+        if (previousOverrides) {
+          setItem({
+            ...item,
+            state: {
+              ...item.state,
+              overrides: {
+                force_on: [...previousOverrides.force_on],
+                force_off: [...previousOverrides.force_off],
+              },
+            },
+          })
+          setHistoryIndex(historyIndex - 1)
+        }
+      } else if (isRedo && historyIndex < overrideHistory.length - 1 && item) {
+        e.preventDefault()
+        const nextOverrides = overrideHistory[historyIndex + 1]
+        if (nextOverrides) {
+          setItem({
+            ...item,
+            state: {
+              ...item.state,
+              overrides: {
+                force_on: [...nextOverrides.force_on],
+                force_off: [...nextOverrides.force_off],
+              },
+            },
+          })
+          setHistoryIndex(historyIndex + 1)
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [historyIndex, overrideHistory, item, handleBboxChange, handleSave, handleRerun])
 
   function handlePixelToggle(x: number, y: number, isOn: boolean) {
     if (!item) return
