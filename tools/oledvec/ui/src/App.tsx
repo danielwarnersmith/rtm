@@ -1,19 +1,60 @@
 import { useState, useEffect } from 'react'
-import { listItems, type Item } from './api'
+import { listItems, getDevice, type Item } from './api'
 import { ThemeProvider } from './components/ThemeProvider'
 import { ThemeToggle } from './components/ThemeToggle'
 import Sidebar from './components/Sidebar'
 import Editor from './components/Editor'
+
+function formatDeviceName(device: string): string {
+  // Convert "analog-rytm-mkii" to "Analog Rytm MKII"
+  return device
+    .split('-')
+    .map((word) => {
+      // Capitalize first letter, handle acronyms like "mkii" -> "MKII"
+      if (word.toLowerCase().startsWith('mk')) {
+        return word.toUpperCase()
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1)
+    })
+    .join(' ')
+}
 
 function App() {
   const [items, setItems] = useState<Item[]>([])
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [device, setDevice] = useState<string>('')
 
   useEffect(() => {
     loadItems()
   }, [])
+
+  // Load device after items are loaded (can use items as fallback)
+  useEffect(() => {
+    async function loadDeviceWithFallback() {
+      try {
+        const data = await getDevice()
+        setDevice(data.device)
+      } catch (err) {
+        console.error('Failed to load device:', err)
+        // Try to extract device from items if API fails (fallback)
+        if (items.length > 0 && items[0].source_url) {
+          // Extract device from URL like "/api/public/oled/analog-four-mkii/..."
+          const match = items[0].source_url.match(/\/oled\/([^/]+)\//)
+          if (match && match[1]) {
+            setDevice(match[1])
+            return
+          }
+        }
+        setDevice('')
+      }
+    }
+    
+    if (items.length > 0) {
+      loadDeviceWithFallback()
+    }
+  }, [items])
 
   async function loadItems() {
     try {
@@ -40,7 +81,12 @@ function App() {
         onSelect={setSelectedItemId}
       />
         <div className="flex-1 flex flex-col overflow-hidden bg-[#F5F1EB] dark:bg-neutral-950">
-          <div className="flex-shrink-0 flex items-center justify-end p-4 bg-white/80 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-950/80 dark:border-neutral-800">
+          <div className="flex-shrink-0 flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-950/80 dark:border-neutral-800">
+            {device && (
+              <div className="text-base font-semibold text-neutral-900 dark:text-white">
+                {formatDeviceName(device)} OLED Screens
+              </div>
+            )}
             <ThemeToggle />
           </div>
           <div className="flex-1 overflow-auto">

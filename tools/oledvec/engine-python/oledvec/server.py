@@ -88,6 +88,11 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
         raise HTTPException(status_code=404, detail=f"File not found: {file_path}")
     
     # API endpoints
+    @app.get("/api/device")
+    async def get_device():
+        """Get current device name."""
+        return {"device": device}
+    
     @app.get("/api/items")
     async def list_items():
         """List all items from state."""
@@ -104,15 +109,16 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
             preview_url = None
             svg_url = None
             
-            if is_qualifying:
-                screens_dir = public_oled_dir / "screens"
-                preview_path = screens_dir / f"{item_id}_preview_128x64.png"
-                svg_path = screens_dir / f"{item_id}.svg"
-                
-                if preview_path.exists():
-                    preview_url = f"/api/public/screens/{item_id}_preview_128x64.png"
-                if svg_path.exists():
-                    svg_url = f"/api/public/screens/{item_id}.svg"
+            # Check if preview/SVG files exist (regardless of qualification status)
+            # Files are generated on rerun even if not qualifying
+            screens_dir = public_oled_dir / "screens"
+            preview_path = screens_dir / f"{item_id}_preview_128x64.png"
+            svg_path = screens_dir / f"{item_id}.svg"
+            
+            if preview_path.exists():
+                preview_url = f"/api/public/screens/{item_id}_preview_128x64.png"
+            if svg_path.exists():
+                svg_url = f"/api/public/screens/{item_id}.svg"
             
             items.append({
                 "id": item_id,
@@ -143,15 +149,16 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
         preview_url = None
         svg_url = None
         
-        if is_qualifying:
-            screens_dir = public_oled_dir / "screens"
-            preview_path = screens_dir / f"{item_id}_preview_128x64.png"
-            svg_path = screens_dir / f"{item_id}.svg"
-            
-            if preview_path.exists():
-                preview_url = f"/api/public/screens/{item_id}_preview_128x64.png"
-            if svg_path.exists():
-                svg_url = f"/api/public/screens/{item_id}.svg"
+        # Check if preview/SVG files exist (regardless of qualification status)
+        # Files are generated on rerun even if not qualifying
+        screens_dir = public_oled_dir / "screens"
+        preview_path = screens_dir / f"{item_id}_preview_128x64.png"
+        svg_path = screens_dir / f"{item_id}.svg"
+        
+        if preview_path.exists():
+            preview_url = f"/api/public/screens/{item_id}_preview_128x64.png"
+        if svg_path.exists():
+            svg_url = f"/api/public/screens/{item_id}.svg"
         
         return ItemResponse(
             id=item_id,
@@ -175,11 +182,17 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
         if update.oled_bbox is not None:
             updates["oled_bbox"] = update.oled_bbox
         
+        # Handle threshold update
+        # If threshold is explicitly set (not None), update it
+        # If threshold is None and normalize_params exists, we don't change it (preserve existing)
+        # This allows the UI to not send threshold when Auto is selected
         if update.threshold is not None:
             if "normalize_params" not in item_state:
                 item_state["normalize_params"] = {}
             item_state["normalize_params"]["otsu_threshold"] = update.threshold
             updates["normalize_params"] = item_state["normalize_params"]
+        # Note: We don't clear threshold when update.threshold is None
+        # This preserves the existing threshold when Auto is selected
         
         if update.overrides is not None:
             # Convert list of [x, y] to list of (x, y) tuples
@@ -232,12 +245,50 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
         
         # Get bbox from state or detect
         bbox_list = item_state.get("oled_bbox")
-        if bbox_list:
+        if bbox_list and len(bbox_list) == 4:
+            # Use state bbox (user may have manually adjusted it)
             bbox = tuple(bbox_list)
+            # Compute metrics for the state bbox
+            h, w = image.shape[:2]
+            total_area = h * w
+            x, y, w_rect, h_rect = bbox
+            
+            # Validate bbox
+            if w_rect <= 0 or h_rect <= 0:
+                raise HTTPException(status_code=400, detail="Invalid bbox dimensions in state")
+            if x < 0 or y < 0 or x + w_rect > w or y + h_rect > h:
+                raise HTTPException(status_code=400, detail="Bbox out of image bounds")
+            
+            area = w_rect * h_rect
+            
+            # Calculate metrics for this bbox
+            aspect_ratio = w_rect / h_rect if h_rect > 0 else 0
+            target_aspect = 128 / 64  # 2:1
+            aspect_score = 1.0 - min(abs(aspect_ratio - target_aspect) / target_aspect, 1.0)
+            area_fraction = area / total_area if total_area > 0 else 0
+            
+            # Compute confidence score (similar to detection)
+            confidence = (
+                aspect_score * 0.4 +
+                min(area_fraction, 0.5) * 2.0 * 0.3 +
+                0.8 * 0.3  # Assume good rectangularity for manually set bbox
+            )
+            
+            metrics = {
+                "aspect_ratio": aspect_ratio,
+                "aspect_score": aspect_score,
+                "area_fraction": area_fraction,
+                "rectangularity": 0.8,  # Assume good rectangularity
+            }
         else:
-            bbox, confidence, metrics = detect_oled_bbox(image)
-            if bbox is None:
+            # Detect bbox
+            detected_bbox, confidence, metrics = detect_oled_bbox(image)
+            if detected_bbox is None:
                 raise HTTPException(status_code=400, detail="Could not detect OLED bbox")
+            bbox = detected_bbox
+        
+        # Re-run qualification check
+        is_qualifying, reason_codes = qualify_oled(bbox, confidence, metrics)
         
         # Normalize
         normalized = normalize_image(image, bbox)
@@ -247,34 +298,108 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
         if threshold is None:
             threshold = compute_otsu_threshold(normalized)
         
-        overrides = item_state.get("overrides", {})
+        # Get overrides and convert to proper format (tuples)
+        overrides_raw = item_state.get("overrides", {})
+        overrides = {}
+        if "force_on" in overrides_raw:
+            overrides["force_on"] = [
+                tuple(coord) if isinstance(coord, list) else coord
+                for coord in overrides_raw["force_on"]
+            ]
+        if "force_off" in overrides_raw:
+            overrides["force_off"] = [
+                tuple(coord) if isinstance(coord, list) else coord
+                for coord in overrides_raw["force_off"]
+            ]
         
         # Binarize
-        bitmap = binarize(normalized, threshold=threshold, overrides=overrides)
+        bitmap = binarize(normalized, threshold=threshold, overrides=overrides if overrides else None)
         
         # Update pixel density
         pixel_density = compute_pixel_density(normalized)
         
-        # Export SVG
+        # Always export SVG and preview when re-running (so user can see their work)
+        # Qualification status is tracked separately
         svg_content = export_svg(bitmap)
         screens_dir = public_oled_dir / "screens"
         screens_dir.mkdir(parents=True, exist_ok=True)
         svg_path = screens_dir / f"{item_id}.svg"
         svg_path.write_text(svg_content, encoding="utf-8")
+        svg_url = f"/api/public/screens/{item_id}.svg"
         
         # Export preview PNG
         preview_path = screens_dir / f"{item_id}_preview_128x64.png"
         preview_image = (bitmap.astype(np.uint8) * 255)
-        cv2.imwrite(str(preview_path), preview_image)
+        success = cv2.imwrite(str(preview_path), preview_image)
+        if not success:
+            raise HTTPException(status_code=500, detail=f"Failed to write preview image to {preview_path}")
+        if not preview_path.exists():
+            raise HTTPException(status_code=500, detail=f"Preview image was not created at {preview_path}")
+        preview_url = f"/api/public/screens/{item_id}_preview_128x64.png"
         
-        # Update shapes
-        update_shapes_from_bitmap(device, bitmap, repo_root)
+        print(f"Created preview: {preview_path} (exists: {preview_path.exists()})")
+        print(f"Preview URL: {preview_url}")
         
-        # Update state
+        # Update shapes only if qualifying
+        if is_qualifying:
+            update_shapes_from_bitmap(device, bitmap, repo_root)
+        
+        # Handle file movement if status changed
+        incoming_dir = public_oled_dir / "incoming"
+        rejected_dir = public_oled_dir / "rejected"
+        new_source_path = source_path
+        updates = {}
+        
+        was_qualifying = item_state.get("validation", {}).get("is_qualifying", False)
+        
+        # Check if file is in rejected/ or incoming/ directory based on source_path
+        is_in_rejected = "/rejected/" in source_path
+        is_in_incoming = "/incoming/" in source_path
+        
+        if is_qualifying and not was_qualifying:
+            # Now qualifying - move from rejected/ to incoming/ if it's in rejected/
+            if is_in_rejected:
+                try:
+                    incoming_path = incoming_dir / source_file.name
+                    incoming_dir.mkdir(parents=True, exist_ok=True)
+                    if source_file.exists():
+                        source_file.rename(incoming_path)
+                    new_source_path = f"/oled/{device}/incoming/{source_file.name}"
+                    updates["source_path"] = new_source_path
+                except Exception as e:
+                    # Log but don't fail - file movement is optional
+                    import traceback
+                    print(f"Warning: Failed to move file from rejected/ to incoming/: {e}")
+                    print(traceback.format_exc())
+        elif not is_qualifying and was_qualifying:
+            # No longer qualifying - move from incoming/ to rejected/
+            if is_in_incoming:
+                try:
+                    rejected_path = rejected_dir / source_file.name
+                    rejected_dir.mkdir(parents=True, exist_ok=True)
+                    if source_file.exists():
+                        source_file.rename(rejected_path)
+                    new_source_path = f"/oled/{device}/rejected/{source_file.name}"
+                    updates["source_path"] = new_source_path
+                except Exception as e:
+                    # Log but don't fail - file movement is optional
+                    import traceback
+                    print(f"Warning: Failed to move file from incoming/ to rejected/: {e}")
+                    print(traceback.format_exc())
+        
+        # Update bbox if it changed
+        current_bbox = item_state.get("oled_bbox")
+        if current_bbox != list(bbox):
+            updates["oled_bbox"] = list(bbox) if bbox else None
+        
+        # Update state with new qualification status
         updated_state = update_item_state(
             item_state,
+            **updates,
             validation={
-                **item_state.get("validation", {}),
+                "is_qualifying": is_qualifying,
+                "confidence": confidence,
+                "reason_codes": reason_codes,
                 "pixel_density": pixel_density,
             },
         )
@@ -282,8 +407,8 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
         
         return {
             "status": "ok",
-            "svg_url": f"/api/public/screens/{item_id}.svg",
-            "preview_url": f"/api/public/screens/{item_id}_preview_128x64.png",
+            "svg_url": svg_url,
+            "preview_url": preview_url,
             "state": updated_state,
         }
     

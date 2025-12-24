@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Item } from '../api'
 
 interface SidebarProps {
@@ -6,7 +7,16 @@ interface SidebarProps {
   onSelect: (id: string) => void
 }
 
+type FilterStatus = 'all' | 'ok' | 'rejected'
+
 export default function Sidebar({ items, selectedId, onSelect }: SidebarProps) {
+  const [filter, setFilter] = useState<FilterStatus>('all')
+  
+  const filteredItems = filter === 'all' 
+    ? items 
+    : items.filter(item => item.status === filter)
+  
+  const filteredCount = filteredItems.length
   function getStatusBadge(status: Item['status']) {
     const badgeClasses = {
       ok: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400',
@@ -28,11 +38,42 @@ export default function Sidebar({ items, selectedId, onSelect }: SidebarProps) {
   return (
     <div className="w-[280px] bg-white dark:bg-neutral-950 border-r border-neutral-200 dark:border-neutral-800 flex flex-col overflow-hidden">
       <div className="p-4 border-b border-neutral-200 dark:border-neutral-800">
-        <h2 className="text-lg font-semibold mb-1">OLED Screens</h2>
-        <div className="text-xs text-neutral-500 dark:text-neutral-400">{items.length} items</div>
+        <div className="flex gap-1 mb-2">
+          <button
+            onClick={() => setFilter('all')}
+            className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
+              filter === 'all'
+                ? 'bg-blue-600 text-white'
+                : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700'
+            }`}
+          >
+            All
+          </button>
+          <button
+            onClick={() => setFilter('ok')}
+            className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
+              filter === 'ok'
+                ? 'bg-green-600 text-white'
+                : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700'
+            }`}
+          >
+            Ok
+          </button>
+          <button
+            onClick={() => setFilter('rejected')}
+            className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
+              filter === 'rejected'
+                ? 'bg-red-600 text-white'
+                : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700'
+            }`}
+          >
+            Rejected
+          </button>
+        </div>
+        <div className="text-xs text-neutral-500 dark:text-neutral-400">{filteredCount} items</div>
       </div>
       <div className="flex-1 overflow-y-auto">
-        {items.map((item) => (
+        {filteredItems.map((item) => (
           <div
             key={item.id}
             className={`px-4 py-3 border-b border-neutral-100 dark:border-neutral-900 cursor-pointer transition-colors ${

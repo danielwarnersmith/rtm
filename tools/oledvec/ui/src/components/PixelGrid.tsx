@@ -121,11 +121,22 @@ export default function PixelGrid({ previewUrl, overrides, onPixelToggle }: Pixe
   }
 
   useEffect(() => {
-    if (!previewUrl || !canvasRef.current) return
+    console.log('PixelGrid: previewUrl changed:', previewUrl, 'type:', typeof previewUrl, 'is null:', previewUrl === null, 'is undefined:', previewUrl === undefined, 'is empty string:', previewUrl === '')
+    if (!previewUrl || !canvasRef.current) {
+      if (!previewUrl) {
+        console.log('PixelGrid: No previewUrl provided (value:', previewUrl, ')')
+      }
+      return
+    }
 
+    console.log('PixelGrid: Loading preview from', previewUrl)
     const img = new Image()
     img.crossOrigin = 'anonymous'
+    img.onerror = (err) => {
+      console.error('PixelGrid: Failed to load preview image:', previewUrl, err)
+    }
     img.onload = () => {
+      console.log('PixelGrid: Preview image loaded successfully')
       const canvas = canvasRef.current!
       canvas.width = 128
       canvas.height = 64
@@ -239,15 +250,17 @@ export default function PixelGrid({ previewUrl, overrides, onPixelToggle }: Pixe
     <div className="flex flex-col items-center gap-3">
       <canvas
         ref={canvasRef}
-        className="border border-neutral-200 dark:border-neutral-800 rounded w-full max-w-[512px] h-auto bg-neutral-50 dark:bg-neutral-900"
+        className="border border-neutral-200 dark:border-neutral-700 rounded w-full max-w-[512px] h-auto bg-white dark:bg-neutral-950"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
         style={{ imageRendering: 'pixelated', cursor: 'none' }}
       />
-      <div className="text-xs text-neutral-500 dark:text-neutral-400">
-        Click and drag to toggle pixels. Grid: 128×64
+      <div className="w-full max-w-[512px]">
+        <div className="text-xs text-neutral-500 dark:text-neutral-500 font-mono">
+          Click and drag to toggle pixels. Grid: 128×64
+        </div>
       </div>
     </div>
   )
