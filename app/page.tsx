@@ -3,66 +3,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { allMachines } from "contentlayer/generated";
-
-/**
- * Pagefind sub-result (individual match within a page).
- */
-interface PagefindSubResult {
-  title: string;
-  url: string;
-  excerpt: string;
-  anchor?: {
-    id: string;
-    text: string;
-  };
-}
-
-/**
- * Pagefind search result type.
- */
-interface PagefindResult {
-  id: string;
-  url: string;
-  excerpt: string;
-  meta: {
-    title?: string;
-  };
-  sub_results: PagefindSubResult[];
-}
-
-interface PagefindSearchResult {
-  results: Array<{
-    id: string;
-    data: () => Promise<PagefindResult>;
-  }>;
-}
-
-interface Pagefind {
-  init: () => Promise<void>;
-  search: (query: string) => Promise<PagefindSearchResult>;
-}
-
-/**
- * Grouped search result for display.
- */
-interface GroupedResult {
-  id: string;
-  url: string;
-  title: string;
-  mentions: Array<{
-    id: string;
-    anchor?: string;
-    excerpt: string;
-    title: string;
-  }>;
-}
+import { BASE_PATH } from "@/lib/basePath";
+import type { Pagefind, PagefindResult, GroupedResult } from "@/types/pagefind";
 
 /**
  * Normalize Pagefind URLs by removing .html extension.
  */
 function normalizeUrl(url: string): string {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
   let pathname = url;
   try {
     pathname = new URL(url, "https://example.invalid").pathname;
@@ -73,8 +20,8 @@ function normalizeUrl(url: string): string {
 
   // If Pagefind returns a URL that already includes the basePath, strip it so
   // Next.js can re-apply basePath consistently via <Link />.
-  if (basePath && pathname.startsWith(`${basePath}/`)) {
-    pathname = pathname.slice(basePath.length);
+  if (BASE_PATH && pathname.startsWith(`${BASE_PATH}/`)) {
+    pathname = pathname.slice(BASE_PATH.length);
   }
 
   if (!pathname.startsWith("/")) pathname = `/${pathname}`;
@@ -159,10 +106,9 @@ export default function HomePage() {
   useEffect(() => {
     async function loadPagefind() {
       try {
-        const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
         const pagefind = await import(
           // Pagefind is generated at build time and served as a static asset.
-          /* webpackIgnore: true */ `${basePath}/pagefind/pagefind.js`
+          /* webpackIgnore: true */ `${BASE_PATH}/pagefind/pagefind.js`
         );
         await pagefind.init();
         pagefindRef.current = pagefind;

@@ -49,6 +49,9 @@ Desktop.ini
 *.swo
 *~
 
+# PDF conversion artifacts
+.converted/
+
 # Misc
 *.pem
 *.local

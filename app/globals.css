@@ -141,11 +141,17 @@ tr {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
+    --svg-text: 0 0% 0%;
+    --svg-module-fill: 0 0% 100%;
+    --svg-stroke: 0 0% 0%;
   }
 
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
+    --svg-text: 0 0% 98%;
+    --svg-module-fill: 0 0% 3.9%;
+    --svg-stroke: 0 0% 98%;
   }
 
   body {
@@ -182,8 +188,8 @@ tr {
   }
 
   .prose ol li::marker {
-    @apply text-[16px] text-neutral-500 dark:text-neutral-500;
-    font-weight: 400;
+    @apply text-[18px] text-neutral-500 dark:text-neutral-500;
+    font-weight: 500;
   }
 
   .prose h1,
@@ -321,63 +327,6 @@ tr {
     font-weight: 400;
   }
 
-  /* Legacy markdown footnotes support */
-  .prose .footnotes {
-    @apply mt-12 border-t border-neutral-200 pt-6 dark:border-neutral-700;
-  }
-
-  .prose .footnotes ol {
-    @apply text-[14px] leading-relaxed text-neutral-500 dark:text-neutral-400;
-  }
-
-  .prose .footnotes li {
-    @apply text-[14px] leading-relaxed text-neutral-500 dark:text-neutral-400;
-  }
-
-  .prose .footnotes p {
-    @apply text-[14px] leading-relaxed text-neutral-500 dark:text-neutral-400;
-    font-weight: 400;
-  }
-
-  /* Footnote reference (superscript number in text) */
-  .prose a[data-footnote-ref] {
-    @apply text-[12px] text-neutral-400 no-underline hover:text-neutral-600 dark:hover:text-neutral-300;
-  }
-
-  /* Footnote backref (arrow back to text) */
-  .prose a[data-footnote-backref] {
-    @apply ml-1 text-neutral-400 no-underline hover:text-neutral-600 dark:hover:text-neutral-300;
-  }
 }
 
-/* Code block styles for rehype-pretty-code */
-@layer components {
-  /* Code block container from rehype-pretty-code */
-  [data-rehype-pretty-code-figure] {
-    @apply my-6 overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800;
-  }
-
-  [data-rehype-pretty-code-figure] pre {
-    @apply overflow-x-auto p-4;
-  }
-
-  [data-rehype-pretty-code-figure] code {
-    @apply grid text-sm;
-  }
-
-  /* Line highlighting */
-  [data-rehype-pretty-code-figure] .line--highlighted {
-    @apply -mx-4 border-l-2 border-indigo-500 bg-indigo-500/10 px-4;
-  }
-
-  /* Word highlighting */
-  [data-rehype-pretty-code-figure] .word--highlighted {
-    @apply rounded bg-indigo-500/20 p-1;
-  }
-
-  /* Code block title (filename) */
-  [data-rehype-pretty-code-title] {
-    @apply border-b border-neutral-200 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-700 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300;
-  }
-}
 

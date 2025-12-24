@@ -75,7 +75,6 @@ echo "  Copied $IMAGE_COUNT images"
 # Create MDX file with frontmatter
 echo -e "${YELLOW}Creating MDX file...${NC}"
 
-# Add frontmatter
 cat > "$MDX_FILE" << EOF
 ---
 title: "$TITLE"
@@ -89,338 +88,27 @@ EOF
 # Append the markdown content
 cat "$SOURCE_MD" >> "$MDX_FILE"
 
-# Fix image paths - handle various Marker output formats
+# Fix image paths
 echo -e "${YELLOW}Fixing image paths...${NC}"
+python3 "$SCRIPT_DIR/scripts/fix-image-paths.py" "$MDX_FILE" "$MACHINE_NAME" > /tmp/img_fixed.mdx
+cat /tmp/img_fixed.mdx > "$MDX_FILE"
 
-# Replace relative image paths with absolute paths to public directory
-# Use Python for complex regex to avoid macOS sed issues
-python3 -c "
-import re
-import sys
-
-content = open('$MDX_FILE').read()
-
-# Handle paths with subdirectories: ![](images/...), ![](filename/...)
-content = re.sub(
-    r'!\[([^\]]*)\]\(([^)]*)/([^/)]+\.(jpeg|jpg|png|gif|webp))\)',
-    r'![\1](/machines/$MACHINE_NAME/images/\3)',
-    content
-)
-
-# Handle direct image references: ![](filename.jpeg)
-content = re.sub(
-    r'!\[([^\]]*)\]\(([^/)]+\.(jpeg|jpg|png|gif|webp))\)',
-    r'![\1](/machines/$MACHINE_NAME/images/\2)',
-    content
-)
-
-print(content, end='')
-" > /tmp/img_fixed.mdx && cat /tmp/img_fixed.mdx > "$MDX_FILE"
-
-# Fix HTML self-closing tags for MDX compatibility
+# Fix MDX compatibility issues
 echo -e "${YELLOW}Fixing MDX compatibility issues...${NC}"
-python3 -c "
-import re
+python3 "$SCRIPT_DIR/scripts/fix-mdx-compatibility.py" "$MDX_FILE"
 
-path = '$MDX_FILE'
-content = open(path, 'r', encoding='utf-8').read()
-
-# Normalize self-closing tags
-content = re.sub(r'<br\\s*/?>', r'<br />', content)
-content = re.sub(r'<hr\\s*/?>', r'<hr />', content)
-
-# Ensure <img ...> is self-closing (keep already self-closed)
-content = re.sub(r'<img\\b([^>]*?)(?<!/)>', r'<img\\1 />', content)
-
-# Escape angle bracket labels used in manuals (not HTML tags).
-# Generic pattern: escape <ALLCAPS> or <ALLCAPS ALLCAPS> that aren't HTML.
-content = re.sub(r'<([A-Z][A-Z0-9 ]*[A-Z0-9])>', r'\\\\<\\1\\\\>', content)
-
-# Normalize common abbreviations outside fenced code blocks
-ABBR = {'usb': 'USB', 'cv': 'CV', 'fx': 'FX', 'lfo': 'LFO'}
-abbr_re = re.compile(r'\\b(' + '|'.join(map(re.escape, ABBR.keys())) + r')\\b', re.IGNORECASE)
-lfo_digit = re.compile(r'\\b(lfo)(?=\\d)', re.IGNORECASE)
-lfo_plural = re.compile(r'\\b(lfo)s\\b', re.IGNORECASE)
-
-out_lines = []
-in_fence = False
-for line in content.splitlines(keepends=True):
-    if line.lstrip().startswith('```'):
-        in_fence = not in_fence
-        out_lines.append(line)
-        continue
-    if in_fence:
-        out_lines.append(line)
-        continue
-    parts = re.split(r'(`[^`]*`)', line)
-    for i, part in enumerate(parts):
-        if part.startswith('`') and part.endswith('`'):
-            continue
-        part = lfo_digit.sub('LFO', part)
-        part = lfo_plural.sub('LFOs', part)
-        parts[i] = abbr_re.sub(lambda m: ABBR[m.group(1).lower()], part)
-    out_lines.append(''.join(parts))
-
-open(path, 'w', encoding='utf-8').write(''.join(out_lines))
-"
-
-# Fix table formatting issues from PDF conversion
+# Fix table formatting
 echo -e "${YELLOW}Fixing table formatting...${NC}"
-
-# Create temporary Python script for complex table fixes
-cat > /tmp/fix_tables.py << 'PYTHON_SCRIPT'
-import re
-import sys
-
-content = open(sys.argv[1]).read()
-
-# 0. Fix malformed TOC separator rows (extremely long dashes from PDF conversion)
-def fix_malformed_toc_separator(content):
-    # Match separator rows with excessive dashes (>100 chars of dashes)
-    # and normalize to proper 2-column separator
-    content = re.sub(
-        r'\|[-]{50,}\|[-]+\|[-]*\|',  # Match malformed multi-column separators
-        '|---|---|',                    # Replace with proper 2-column separator
-        content
-    )
-    return content
-
-# 1. Convert table section headers to actual headings
-# Pattern: | SECTION_NAME | | | | | followed by separator
-def fix_section_headers(content):
-    pattern = r'\n\| ([A-Z][A-Z ]+?) +\|(?:\s*\|)+\s*\n(\|[-|: ]+\|)\n(\| [A-Za-z])'
-    
-    def replace_header(match):
-        section_name = match.group(1).strip()
-        rest = match.group(3)
-        return f"\n#### {section_name}\n\n{rest}"
-    
-    return re.sub(pattern, replace_header, content)
-
-# 2. Add missing table separator rows after header rows
-def fix_table_separators(content):
-    lines = content.split('\n')
-    result = []
-    i = 0
-    
-    while i < len(lines):
-        line = lines[i]
-        
-        # Check if this looks like a table header
-        if (line.strip().startswith('|') and 
-            line.strip().endswith('|') and 
-            '---' not in line and
-            i + 1 < len(lines)):
-            
-            next_line = lines[i + 1]
-            
-            # If next line is a table row but NOT a separator
-            if (next_line.strip().startswith('|') and 
-                next_line.strip().endswith('|') and 
-                '---' not in next_line):
-                
-                # Check if this might be a header row
-                header_words = ['Parameter', 'Name', 'CC MSB', 'CC LSB', 'NRPN', 'Description', 
-                               'Type', 'PAD', 'Machine', 'Value', 'Section', 'Page']
-                is_likely_header = any(word in line for word in header_words)
-                
-                if is_likely_header:
-                    cols = line.count('|') - 1
-                    if cols > 0:
-                        separator = '|' + '|'.join(['---'] * cols) + '|'
-                        result.append(line)
-                        result.append(separator)
-                        i += 1
-                        continue
-        
-        result.append(line)
-        i += 1
-    
-    return '\n'.join(result)
-
-# 3. Remove trailing empty cells from table rows
-def clean_table_rows(content):
-    return re.sub(r'\|\s*\|\s*$', '|', content, flags=re.MULTILINE)
-
-# 4. Remove spurious mid-document "TABLE OF CONTENTS" headings
-def remove_spurious_toc_headers(content):
-    # Remove #### TABLE OF CONTENTS that appear after the main TOC
-    return re.sub(r'\n#### TABLE OF CONTENTS\n', '\n', content)
-
-# 5. Split merged TOC entries (multiple entries in one cell with <br />)
-def split_merged_toc_entries(content):
-    lines = content.split('\n')
-    result = []
-    in_toc = False
-    
-    for line in lines:
-        if '# TABLE OF CONTENTS' in line:
-            in_toc = True
-            result.append(line)
-            continue
-        
-        if in_toc and line.startswith('# ') and 'TABLE OF CONTENTS' not in line:
-            in_toc = False
-        
-        if in_toc and line.strip().startswith('|') and '<br />' in line and '---' not in line:
-            # This row has merged entries - split them
-            match = re.match(r'\|\s*(.+?)\s*\|([^|]*)\|?', line)
-            if match:
-                cell_content = match.group(1)
-                entries = cell_content.split('<br />')
-                for entry in entries:
-                    entry = entry.strip()
-                    if entry:
-                        result.append(f'| {entry} |  |')
-            else:
-                result.append(line)
-        else:
-            result.append(line)
-    
-    return '\n'.join(result)
-
-# 6. Remove empty table rows
-def remove_empty_table_rows(content):
-    return re.sub(r'\n\|\s*\|\s*\|?\s*(?=\n)', '', content)
-
-# 7. Remove duplicate separator rows (keep only one after header)
-def remove_duplicate_separators(content):
-    lines = content.split('\n')
-    result = []
-    in_table = False
-    had_separator = False
-    
-    for line in lines:
-        stripped = line.strip()
-        is_table_row = stripped.startswith('|') and stripped.endswith('|')
-        is_separator = is_table_row and re.match(r'^\|[\s\-:|]+\|$', stripped)
-        
-        if is_table_row:
-            if not in_table:
-                in_table = True
-                had_separator = False
-            
-            if is_separator:
-                if not had_separator:
-                    result.append(line)
-                    had_separator = True
-                # Skip duplicate separators
-            else:
-                result.append(line)
-        else:
-            if in_table:
-                in_table = False
-                had_separator = False
-            result.append(line)
-    
-    return '\n'.join(result)
-
-# 8. Fix separator rows with wrong column count
-def fix_separator_column_count(content):
-    lines = content.split('\n')
-    result = []
-    
-    for i, line in enumerate(lines):
-        stripped = line.strip()
-        
-        if re.match(r'^\|[\s\-:|]+\|$', stripped):
-            if i > 0:
-                prev_line = lines[i-1].strip()
-                if prev_line.startswith('|') and prev_line.endswith('|'):
-                    header_cols = prev_line.count('|') - 1
-                    sep_cols = stripped.count('|') - 1
-                    
-                    if header_cols != sep_cols and header_cols > 0:
-                        new_sep = '|' + '|'.join(['---'] * header_cols) + '|'
-                        result.append(new_sep)
-                        continue
-        
-        result.append(line)
-    
-    return '\n'.join(result)
-
-# Apply fixes
-content = fix_malformed_toc_separator(content)
-content = fix_section_headers(content)
-content = fix_table_separators(content)
-content = clean_table_rows(content)
-content = remove_spurious_toc_headers(content)
-content = split_merged_toc_entries(content)
-content = remove_empty_table_rows(content)
-content = remove_duplicate_separators(content)
-content = fix_separator_column_count(content)
-
-print(content)
-PYTHON_SCRIPT
-
-python3 /tmp/fix_tables.py "$MDX_FILE" > /tmp/fixed_manual.mdx
-cat /tmp/fixed_manual.mdx > "$MDX_FILE"
+python3 "$SCRIPT_DIR/scripts/fix-tables.py" "$MDX_FILE" > /tmp/fixed_tables.mdx
+cat /tmp/fixed_tables.mdx > "$MDX_FILE"
 
 # Add TOC links
 echo -e "${YELLOW}Adding Table of Contents links...${NC}"
-
-cat > /tmp/add_toc_links.py << 'PYTHON_SCRIPT'
-import re
-import sys
-
-def to_anchor(text):
-    """Convert section title to anchor ID"""
-    text = text.strip().lower()
-    text = re.sub(r'[^a-z0-9]+', '-', text)
-    text = re.sub(r'^-|-$', '', text)
-    return text
-
-def process_toc_entry(entry_text):
-    """Convert TOC entry text to markdown links"""
-    parts = re.split(r'<br\s*/>', entry_text)
-    
-    linked_parts = []
-    for part in parts:
-        part = part.strip()
-        if not part or part in ['Section', 'Page', '']:
-            linked_parts.append(part)
-            continue
-        
-        anchor = to_anchor(part)
-        if anchor:
-            linked_parts.append(f'[{part}](#{anchor})')
-        else:
-            linked_parts.append(part)
-    
-    return '<br />'.join(linked_parts)
-
-content = open(sys.argv[1]).read()
-lines = content.split('\n')
-in_toc = False
-result = []
-
-for line in lines:
-    if line.strip() == '# TABLE OF CONTENTS':
-        in_toc = True
-        result.append(line)
-        continue
-    
-    if in_toc and line.startswith('# ') and 'TABLE OF CONTENTS' not in line:
-        in_toc = False
-    
-    if in_toc and line.strip().startswith('|') and '---' not in line:
-        match = re.match(r'\|(.+?)\|(.+?)\|', line)
-        if match:
-            entry = match.group(1)
-            page = match.group(2)
-            linked_entry = process_toc_entry(entry)
-            line = f'| {linked_entry} | {page.strip()} |'
-    
-    result.append(line)
-
-print('\n'.join(result))
-PYTHON_SCRIPT
-
-python3 /tmp/add_toc_links.py "$MDX_FILE" > /tmp/toc_manual.mdx
-cat /tmp/toc_manual.mdx > "$MDX_FILE"
+python3 "$SCRIPT_DIR/scripts/add-toc-links.py" "$MDX_FILE" > /tmp/toc_linked.mdx
+cat /tmp/toc_linked.mdx > "$MDX_FILE"
 
 # Cleanup temp files
-rm -f /tmp/fix_tables.py /tmp/add_toc_links.py /tmp/fixed_manual.mdx /tmp/toc_manual.mdx
+rm -f /tmp/img_fixed.mdx /tmp/fixed_tables.mdx /tmp/toc_linked.mdx
 
 echo ""
 echo -e "${GREEN}✓ Import complete!${NC}"
@@ -433,7 +121,7 @@ echo "Fixes applied:"
 echo "  - Image paths converted to /machines/$MACHINE_NAME/images/"
 echo "  - Self-closing HTML tags fixed (<br>, <hr>, <img>)"
 echo "  - Angle bracket labels escaped (<ALLCAPS>)"
-echo "  - Abbreviations normalized (USB/CV/FX)"
+echo "  - Abbreviations normalized (USB/CV/FX/LFO)"
 echo "  - Malformed TOC separator rows normalized"
 echo "  - Table section headers converted to headings"
 echo "  - Missing table separator rows added"
@@ -445,9 +133,10 @@ echo "  - Table of Contents entries linked to sections"
 echo "  - Spurious mid-document TOC headers removed"
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"
-echo "  1. Edit $MDX_FILE to add tags and verify frontmatter"
-echo "  2. Run 'npm run build' to check for MDX errors"
-echo "  3. If build fails, check for unescaped angle brackets or malformed tables"
+echo "  1. Run: python3 scripts/convert-manual-conventions.py $MDX_FILE"
+echo "  2. Classify Tip/Warning icons (see docs/import-checklist.md)"
+echo "  3. Edit $MDX_FILE to add tags and verify frontmatter"
+echo "  4. Run 'npm run build' to check for MDX errors"
 echo ""
 echo "To test locally:"
 echo "  npm run dev"

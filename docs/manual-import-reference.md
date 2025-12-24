@@ -2,6 +2,40 @@
 
 This document contains reference data for formatting Elektron manuals imported via PDF extraction.
 
+## PDF Conversion Patterns
+
+The import pipeline (`import-manual.sh`) handles these common PDF conversion issues automatically:
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| Self-closing tags `<br>` | MDX requires JSX syntax | Regex converts to `<br />` |
+| Angle bracket labels `<ALLCAPS>` | Marker extracts LED indicators as-is | Escape to `\<ALLCAPS\>` |
+| Malformed TOC separators | PDF table extraction errors | Normalize to `\|---\|---\|` |
+| Missing table separators | Header row not detected | Auto-insert after header rows |
+| Merged TOC entries | Multi-line cells become `<br />` | Split into separate rows |
+| Duplicate separator rows | PDF extraction artifacts | Remove all but first separator |
+| Wrong separator column count | Mismatch with header | Regenerate based on header |
+| Empty table rows | PDF artifacts | Remove completely |
+| Spurious "TABLE OF CONTENTS" headers | Repeated headers in PDF | Remove duplicates |
+
+### Common MDX Build Errors
+
+| Error | Cause | Fix |
+|-------|-------|-----|
+| `Unexpected token` | Unescaped `<` or `>` | Escape with `\<` or use component |
+| `Expected closing tag` | Self-closing tag missing `/` | Add space and slash: `<br />` |
+| `Unknown element type` | Component not registered | Add to MDXComponents export |
+| `Adjacent JSX elements` | Multiple root elements | Wrap in fragment or div |
+
+### Abbreviation Normalization
+
+The import script normalizes these common abbreviations to uppercase:
+
+- `usb`, `Usb` → `USB`
+- `cv`, `Cv` → `CV`
+- `fx`, `Fx` → `FX`
+- `lfo`, `Lfo` → `LFO` (also handles `LFO1`, `LFO2`, `LFOs`)
+
 ## Icon Classification
 
 When importing manuals, small images (under 3KB with "Picture" in the filename) are typically callout icons. Classify them based on the text that follows:
@@ -192,11 +226,29 @@ Turn the <Knob>TRACK LEVEL</Knob> knob to adjust volume.
 <!-- LED indicators: <PATTERN PAGE>, <OCTAVE> -->
 The <LED>PATTERN PAGE</LED> LEDs show the current page.
 
-<!-- Screen messages: "BANK A: CHOOSE PTN" -->
-The screen displays <Screen>BANK A: CHOOSE PTN</Screen>.
-
 <!-- Parameter names: VOL, FREQ, DECAY -->
 Adjust the <Param>DECAY</Param> parameter.
+```
+
+These convention components map to Elektron's manual formatting:
+- `<Key>` - Physical keys in brackets: **[FUNC]**, **[PLAY]**
+- `<Knob>` - Rotary encoders in bold italic: ***TRACK LEVEL***
+- `<LED>` - LED indicators in angle brackets: **<PATTERN PAGE>**
+- `<Param>` - Parameter names in bold: **VOL**, **FREQ**
+
+### Legal Disclaimers (Footnotes)
+
+Use the collapsible footnotes component for legal text at the end of manuals:
+
+```mdx
+<Footnotes>
+<Footnote title="Copyright">
+© 2024 Elektron Music Machines. All rights reserved.
+</Footnote>
+<Footnote title="FCC Compliance">
+This device complies with Part 15 of the FCC Rules.
+</Footnote>
+</Footnotes>
 ```
 
 ## Conversion Scripts
@@ -234,4 +286,29 @@ sed -i '' 's/Mkii/MKII/g' content/machines/*/manual.mdx
 # Remove bullet characters
 sed -i '' 's/^• /- /g' content/machines/*/manual.mdx
 ```
+
+## Machine-Specific Notes
+
+### Analog Four MKII
+- 15 warning icons, 45 tip icons
+- CV/gate section has complex tables
+- Sound architecture diagrams need manual alt text
+
+### Analog Rytm MKII  
+- 16 warning icons, 41 tip icons
+- Sampling section has recording workflow diagrams
+- Pad sensitivity tables render well
+
+## Component Usage Statistics
+
+Based on current imports:
+
+| Component | A4 MKII | AR MKII | Notes |
+|-----------|---------|---------|-------|
+| `<Key>` | 365 | 438 | Most common - button presses |
+| `<Param>` | 318 | 301 | Parameter names |
+| `<Knob>` | 64 | 70 | Rotary encoders |
+| `<Tip>` | 45 | 41 | Helpful hints |
+| `<LED>` | 13 | 35 | Indicator lights |
+| `<Warning>` | 14 | 15 | Important notices |
 

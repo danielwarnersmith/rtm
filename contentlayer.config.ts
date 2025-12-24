@@ -1,5 +1,4 @@
 import { defineDocumentType, makeSource } from "contentlayer2/source-files";
-import rehypePrettyCode from "rehype-pretty-code";
 import remarkGfm from "remark-gfm";
 
 /**
@@ -53,32 +52,6 @@ export default makeSource({
   mdx: {
     // Enable GitHub Flavored Markdown (tables, strikethrough, etc.)
     remarkPlugins: [remarkGfm],
-    // Configure rehype-pretty-code for Shiki-based syntax highlighting
-    rehypePlugins: [
-      [
-        rehypePrettyCode,
-        {
-          // Use a clean, readable theme
-          theme: "github-dark",
-          // Keep background from theme
-          keepBackground: true,
-          // Add line numbers to code blocks
-          onVisitLine(node: { children: unknown[] }) {
-            // Prevent lines from collapsing in display: grid
-            if (node.children.length === 0) {
-              node.children = [{ type: "text", value: " " }];
-            }
-          },
-          onVisitHighlightedLine(node: { properties: { className?: string[] } }) {
-            node.properties.className = node.properties.className || [];
-            node.properties.className.push("line--highlighted");
-          },
-          onVisitHighlightedChars(node: { properties: { className?: string[] } }) {
-            node.properties.className = ["word--highlighted"];
-          },
-        },
-      ],
-    ],
   },
 });
 
