@@ -8,7 +8,10 @@
     "build": "next build",
     "postbuild": "npx pagefind --site out --output-path out/pagefind && rm -rf public/pagefind && cp -r out/pagefind public/pagefind",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "oled:venv": "cd tools/oledvec/engine-python && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
+    "oled:process": "cd tools/oledvec/engine-python && source venv/bin/activate && python -m oledvec process ${DEVICE:-analog-rytm-mkii}",
+    "oled:review": "cd tools/oledvec/engine-python && source venv/bin/activate && python -m oledvec server --device ${DEVICE:-analog-rytm-mkii}"
   },
   "keywords": [
     "documentation",
