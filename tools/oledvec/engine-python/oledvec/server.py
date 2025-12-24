@@ -329,16 +329,43 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
         
         # Export preview PNG
         preview_path = screens_dir / f"{item_id}_preview_128x64.png"
+        
+        # Validate bitmap dimensions
+        if bitmap.shape != (64, 128):
+            raise HTTPException(
+                status_code=500, 
+                detail=f"Bitmap has wrong dimensions: {bitmap.shape}, expected (64, 128)"
+            )
+        
         preview_image = (bitmap.astype(np.uint8) * 255)
+        
+        # Ensure the image is in the correct format for cv2.imwrite
+        # cv2.imwrite expects (height, width) for grayscale images
+        if preview_image.shape != (64, 128):
+            raise HTTPException(
+                status_code=500,
+                detail=f"Preview image has wrong dimensions after conversion: {preview_image.shape}, expected (64, 128)"
+            )
+        
         success = cv2.imwrite(str(preview_path), preview_image)
         if not success:
             raise HTTPException(status_code=500, detail=f"Failed to write preview image to {preview_path}")
+        
+        # Wait a moment and verify file exists and has correct size
+        import time
+        time.sleep(0.1)
         if not preview_path.exists():
             raise HTTPException(status_code=500, detail=f"Preview image was not created at {preview_path}")
+        
+        file_size = preview_path.stat().st_size
+        if file_size == 0:
+            raise HTTPException(status_code=500, detail=f"Preview image file is empty at {preview_path}")
+        
         preview_url = f"/api/public/screens/{item_id}_preview_128x64.png"
         
-        print(f"Created preview: {preview_path} (exists: {preview_path.exists()})")
+        print(f"Created preview: {preview_path} (exists: {preview_path.exists()}, size: {file_size} bytes)")
         print(f"Preview URL: {preview_url}")
+        print(f"Bitmap shape: {bitmap.shape}, Preview image shape: {preview_image.shape}")
         
         # Update shapes only if qualifying
         if is_qualifying:

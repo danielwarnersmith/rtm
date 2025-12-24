@@ -141,25 +141,41 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange }: BboxCanvas
     const scaledW = w * scale
     const scaledH = h * scale
     
-    const handleSize = 12 // Larger hit area for easier clicking
-    const threshold = handleSize / 2
+    const cornerThreshold = 8 // Hit area for corners
+    const edgeThreshold = 10 // Larger hit area for edges to make them easier to grab
     
-    // Check corners
-    if (Math.abs(canvasX - scaledX) < threshold && Math.abs(canvasY - scaledY) < threshold) return 'nw'
-    if (Math.abs(canvasX - (scaledX + scaledW)) < threshold && Math.abs(canvasY - scaledY) < threshold) return 'ne'
-    if (Math.abs(canvasX - scaledX) < threshold && Math.abs(canvasY - (scaledY + scaledH)) < threshold) return 'sw'
-    if (Math.abs(canvasX - (scaledX + scaledW)) < threshold && Math.abs(canvasY - (scaledY + scaledH)) < threshold) return 'se'
+    // Check corners first (they have priority)
+    if (Math.abs(canvasX - scaledX) < cornerThreshold && Math.abs(canvasY - scaledY) < cornerThreshold) return 'nw'
+    if (Math.abs(canvasX - (scaledX + scaledW)) < cornerThreshold && Math.abs(canvasY - scaledY) < cornerThreshold) return 'ne'
+    if (Math.abs(canvasX - scaledX) < cornerThreshold && Math.abs(canvasY - (scaledY + scaledH)) < cornerThreshold) return 'sw'
+    if (Math.abs(canvasX - (scaledX + scaledW)) < cornerThreshold && Math.abs(canvasY - (scaledY + scaledH)) < cornerThreshold) return 'se'
     
-    // Check edges
-    if (Math.abs(canvasX - (scaledX + scaledW / 2)) < threshold && Math.abs(canvasY - scaledY) < threshold) return 'n'
-    if (Math.abs(canvasX - (scaledX + scaledW / 2)) < threshold && Math.abs(canvasY - (scaledY + scaledH)) < threshold) return 's'
-    if (Math.abs(canvasX - scaledX) < threshold && Math.abs(canvasY - (scaledY + scaledH / 2)) < threshold) return 'w'
-    if (Math.abs(canvasX - (scaledX + scaledW)) < threshold && Math.abs(canvasY - (scaledY + scaledH / 2)) < threshold) return 'e'
+    // Check edges - use distance from edge line, not just center point
+    // North edge
+    if (Math.abs(canvasY - scaledY) < edgeThreshold && 
+        canvasX >= scaledX + cornerThreshold && canvasX <= scaledX + scaledW - cornerThreshold) {
+      return 'n'
+    }
+    // South edge
+    if (Math.abs(canvasY - (scaledY + scaledH)) < edgeThreshold && 
+        canvasX >= scaledX + cornerThreshold && canvasX <= scaledX + scaledW - cornerThreshold) {
+      return 's'
+    }
+    // West edge
+    if (Math.abs(canvasX - scaledX) < edgeThreshold && 
+        canvasY >= scaledY + cornerThreshold && canvasY <= scaledY + scaledH - cornerThreshold) {
+      return 'w'
+    }
+    // East edge
+    if (Math.abs(canvasX - (scaledX + scaledW)) < edgeThreshold && 
+        canvasY >= scaledY + cornerThreshold && canvasY <= scaledY + scaledH - cornerThreshold) {
+      return 'e'
+    }
     
     // Check center (for moving)
     const centerX = scaledX + scaledW / 2
     const centerY = scaledY + scaledH / 2
-    if (Math.abs(canvasX - centerX) < threshold && Math.abs(canvasY - centerY) < threshold) return 'move'
+    if (Math.abs(canvasX - centerX) < 8 && Math.abs(canvasY - centerY) < 8) return 'move'
     
     // Check if inside bbox (for moving)
     if (canvasX >= scaledX && canvasX <= scaledX + scaledW && 

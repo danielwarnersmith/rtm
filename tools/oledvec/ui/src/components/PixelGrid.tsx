@@ -134,18 +134,53 @@ export default function PixelGrid({ previewUrl, overrides, onPixelToggle }: Pixe
     img.crossOrigin = 'anonymous'
     img.onerror = (err) => {
       console.error('PixelGrid: Failed to load preview image:', previewUrl, err)
+      console.error('PixelGrid: Image error details:', {
+        src: img.src,
+        naturalWidth: img.naturalWidth,
+        naturalHeight: img.naturalHeight,
+        width: img.width,
+        height: img.height,
+      })
+      // Set empty bitmap on error so UI doesn't show stale data
+      setBitmap([])
     }
     img.onload = () => {
-      console.log('PixelGrid: Preview image loaded successfully')
-      const canvas = canvasRef.current!
+      console.log('PixelGrid: Preview image loaded successfully', {
+        naturalWidth: img.naturalWidth,
+        naturalHeight: img.naturalHeight,
+        width: img.width,
+        height: img.height,
+      })
+      
+      const canvas = canvasRef.current
+      if (!canvas) {
+        console.error('PixelGrid: Canvas ref is null')
+        return
+      }
+      
       canvas.width = 128
       canvas.height = 64
       
       const ctx = canvas.getContext('2d')
-      if (!ctx) return
+      if (!ctx) {
+        console.error('PixelGrid: Failed to get 2d context')
+        return
+      }
+
+      // Validate image dimensions
+      if (img.naturalWidth !== 128 || img.naturalHeight !== 64) {
+        console.warn(`PixelGrid: Preview image has unexpected dimensions: ${img.naturalWidth}x${img.naturalHeight}, expected 128x64`)
+      }
 
       ctx.drawImage(img, 0, 0, 128, 64)
       const imageData = ctx.getImageData(0, 0, 128, 64)
+      
+      // Validate imageData
+      if (imageData.data.length !== 128 * 64 * 4) {
+        console.error(`PixelGrid: ImageData has wrong size: ${imageData.data.length}, expected ${128 * 64 * 4}`)
+        setBitmap([])
+        return
+      }
       
       // Convert to boolean bitmap
       const newBitmap: boolean[][] = []
