@@ -94,13 +94,7 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
       )
       await Promise.all(updatePromises)
       
-      // Refresh the items list
-      if (onStatusChange) {
-        const result = onStatusChange()
-        if (result instanceof Promise) {
-          await result
-        }
-      }
+      // Note: Items list will be refreshed by parent component's data fetching
     } catch (err) {
       console.error('Failed to bulk update items:', err)
       alert(`Failed to update items: ${err instanceof Error ? err.message : 'Unknown error'}`)

@@ -79,7 +79,7 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
     if (!item) return
 
     const update: ItemStateUpdate = {
-      oled_bbox: item.state.oled_bbox,
+      oled_bbox: item.state.oled_bbox ?? undefined,
       // If Auto is selected, don't send threshold (server will preserve existing or use auto)
       // If Manual is selected, send the threshold value
       threshold: useAutoThreshold ? undefined : threshold ?? undefined,
@@ -147,7 +147,7 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
     try {
       // If forcing re-detection, clear bbox first and reload to ensure state is updated
       if (forceRedetect) {
-        await updateItemState(itemId, { oled_bbox: null })
+        await updateItemState(itemId, { oled_bbox: undefined })
         // Reload item to get updated state with cleared bbox
         await loadItem()
       } else {
@@ -710,7 +710,7 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
             {saving ? 'Saving...' : 'Save'}
           </button>
           <button
-            onClick={handleRerun}
+            onClick={() => handleRerun()}
             disabled={saving}
             className="px-3 py-1.5 border border-neutral-300 dark:border-neutral-700 rounded-md text-xs font-medium bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
