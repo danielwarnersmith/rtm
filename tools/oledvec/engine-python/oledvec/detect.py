@@ -406,8 +406,7 @@ def snap_to_edges(
             if (has_edge_line or has_gradient) and score > best_left_score and score > 5:
                 best_left_score = score
                 best_left_offset = offset
-        if best_left_offset > 0:
-            print(f"[snap_to_edges] Found left edge at offset {best_left_offset}, score={best_left_score:.2f}")
+        # best_left_offset is set above
         
         # Right edge: scan from right to left, find position with STRONGEST activity
         # Skip the very right edge to avoid image container
@@ -432,8 +431,7 @@ def snap_to_edges(
             if (has_edge_line or has_gradient) and score > best_right_score and score > 5:
                 best_right_score = score
                 best_right_offset = offset + 1  # +1 because offset is inclusive
-        if best_right_offset < w_rect:
-            print(f"[snap_to_edges] Found right edge at offset {best_right_offset-1}, score={best_right_score:.2f}")
+        # best_right_offset is set above
         
         # Top edge: scan from top to bottom, find position with STRONGEST activity
         # Skip the very top edge to avoid image container
@@ -458,8 +456,7 @@ def snap_to_edges(
             if (has_edge_line or has_gradient) and score > best_top_score and score > 5:
                 best_top_score = score
                 best_top_offset = offset
-        if best_top_offset > 0:
-            print(f"[snap_to_edges] Found top edge at offset {best_top_offset}, score={best_top_score:.2f}")
+        # best_top_offset is set above
         
         # Bottom edge: scan from bottom to top, find position with STRONGEST activity
         # Skip the very bottom edge to avoid image container
@@ -484,8 +481,7 @@ def snap_to_edges(
             if (has_edge_line or has_gradient) and score > best_bottom_score and score > 5:
                 best_bottom_score = score
                 best_bottom_offset = offset + 1  # +1 because offset is inclusive
-        if best_bottom_offset < h_rect:
-            print(f"[snap_to_edges] Found bottom edge at offset {best_bottom_offset-1}, score={best_bottom_score:.2f}")
+        # best_bottom_offset is set above
         
         # Calculate new bbox in image coordinates
         new_x = x + best_left_offset
@@ -510,7 +506,6 @@ def snap_to_edges(
         new_w = max(1, min(new_w, w - new_x))
         new_h = max(1, min(new_h, h - new_y))
         
-        print(f"[snap_to_edges] Final snapped bbox: ({new_x}, {new_y}, {new_w}, {new_h}) from original ({x}, {y}, {w_rect}, {h_rect})")
         return (new_x, new_y, new_w, new_h)
     
     else:
@@ -620,9 +615,7 @@ def refine_bbox(
     
     # Always try aggressive snapping to crop whitespace
     # Use aggressive mode to scan inward and find content boundaries
-    print(f"[refine_bbox] Starting refinement for bbox: {bbox}, area_fraction: {area_fraction}")
     snapped_bbox = snap_to_edges(gray, bbox, aggressive=True)
-    print(f"[refine_bbox] Snapped bbox: {snapped_bbox}")
     
     # Check if snapping made any change
     original_area = w_rect * h_rect
@@ -633,8 +626,6 @@ def refine_bbox(
     bbox_changed = (snapped_bbox[0] != x or snapped_bbox[1] != y or 
                     snapped_bbox[2] != w_rect or snapped_bbox[3] != h_rect)
     
-    print(f"[refine_bbox] bbox_changed: {bbox_changed}, area_reduction: {area_reduction}")
-    
     # Always apply if bbox changed, even slightly (for whitespace cropping)
     if bbox_changed:
         metrics["refined"] = True
@@ -642,12 +633,10 @@ def refine_bbox(
         metrics["area_reduction"] = area_reduction
         metrics["original_bbox"] = bbox
         metrics["snapped_bbox"] = snapped_bbox
-        print(f"[refine_bbox] Returning refined bbox: {snapped_bbox}")
         return snapped_bbox, metrics
     
     metrics["refined"] = False
     metrics["reason"] = "no_change_detected"
-    print(f"[refine_bbox] No change detected, returning original bbox")
     return bbox, metrics
     
     # For oversized bboxes, try to find screen region

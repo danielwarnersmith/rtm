@@ -66,10 +66,7 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange, onSelectionC
         
         // Draw bbox if available (but hide it if Shift is held for new selection)
         if (bbox && bbox.length === 4 && !selectionState?.active) {
-          console.log('[BboxCanvas] Drawing bbox:', bbox)
           drawBbox(ctx, bbox, scaleFactor)
-        } else {
-          console.log('[BboxCanvas] No bbox to draw:', bbox)
         }
         
         // Draw selection box if active

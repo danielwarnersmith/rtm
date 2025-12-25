@@ -115,17 +115,15 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
   }, [item, useAutoThreshold, saveCurrentState, loadItem])
 
   const handleSelectionComplete = useCallback(async (selectedBbox: number[]) => {
-    // When user finishes selecting an area, trigger aggressive snapping
+    // When user finishes selecting an area, trigger snapping to crop whitespace
     if (!item) return
     
-    console.log('Selection complete, triggering snap for bbox:', selectedBbox)
     setSaving(true)
     try {
       // Update bbox first
       await updateItemState(itemId, { oled_bbox: selectedBbox })
       // Then rerun to apply snapping (refine_bbox=true)
       const result = await rerunItem(itemId, true)
-      console.log('Snap complete, result bbox:', result.state.oled_bbox)
       
       // Update item with the new bbox
       setItem((prevItem) => {
@@ -136,7 +134,6 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
         }
       })
     } catch (err) {
-      console.error('Failed to snap bbox:', err)
       setError(err instanceof Error ? err.message : 'Failed to snap bbox')
     } finally {
       setSaving(false)
@@ -144,55 +141,35 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
   }, [item, itemId])
 
   const handleRerun = useCallback(async (forceRedetect: boolean = false) => {
-    if (!item) {
-      console.log('handleRerun: no item')
-      return
-    }
+    if (!item) return
 
-    console.log('handleRerun called, forceRedetect:', forceRedetect)
     setSaving(true)
     try {
       // If forcing re-detection, clear bbox first and reload to ensure state is updated
       if (forceRedetect) {
-        console.log('Clearing bbox for re-detection')
         await updateItemState(itemId, { oled_bbox: null })
-        console.log('Bbox cleared, reloading item')
         // Reload item to get updated state with cleared bbox
         await loadItem()
-        console.log('Item reloaded')
       } else {
         // Auto-save current edits before reprocessing
         await saveCurrentState()
       }
       // Reprocess with the saved state (or with cleared bbox for re-detection)
-      console.log('Calling rerunItem')
       const result = await rerunItem(itemId)
-      console.log('Rerun complete, result:', result)
-      console.log('Rerun result:', { 
-        preview_url: result.preview_url, 
-        svg_url: result.svg_url,
-        is_qualifying: result.state.validation?.is_qualifying,
-        oled_bbox: result.state.oled_bbox,
-        metrics: result.state.metrics
-      })
+      
       // Update item with the new preview_url, svg_url, and state from rerun
       // This ensures the pixel grid gets the preview_url immediately
       const wasAuto = useAutoThreshold
-      console.log('Rerun result preview_url:', result.preview_url, 'type:', typeof result.preview_url)
       setItem((prevItem) => {
         if (!prevItem) {
-          console.error('Cannot update item: prevItem is null')
           return prevItem
         }
-        const updated = {
+        return {
           ...prevItem,
           preview_url: result.preview_url,
           svg_url: result.svg_url,
           state: result.state,
         }
-        console.log('Updated item - old bbox:', prevItem.state.oled_bbox, 'new bbox:', result.state.oled_bbox)
-        console.log('Updated item preview_url:', updated.preview_url, 'full item:', updated)
-        return updated
       })
       // Update threshold state, but preserve Auto selection if it was selected
       const otsuThreshold = result.state.normalize_params?.otsu_threshold
@@ -213,10 +190,6 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
         }
       }
       
-      // Debug: Check if preview_url is set
-      if (!result.preview_url) {
-        console.warn('Rerun did not return preview_url. Check server logs for errors.')
-      }
       // Reload sidebar to reflect status changes
       onRerun()
     } catch (err) {
@@ -676,21 +649,18 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
               <h3 className="text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300 flex justify-center">
                 <span className="w-full" style={{ maxWidth: '512px' }}>Pixel Grid (128×64)</span>
               </h3>
-              {(() => {
-                console.log('Editor render: item.preview_url =', item.preview_url)
-                return item.preview_url ? (
-                  <PixelGrid
-                    key={item.preview_url}
-                    previewUrl={item.preview_url}
-                    overrides={item.state.overrides}
-                    onPixelToggle={handlePixelToggle}
-                  />
-                ) : (
-                  <div className="py-10 text-center text-neutral-500 dark:text-neutral-400">
-                    No preview available. Click "Re-run" to generate preview.
-                  </div>
-                )
-              })()}
+              {item.preview_url ? (
+                <PixelGrid
+                  key={item.preview_url}
+                  previewUrl={item.preview_url}
+                  overrides={item.state.overrides}
+                  onPixelToggle={handlePixelToggle}
+                />
+              ) : (
+                <div className="py-10 text-center text-neutral-500 dark:text-neutral-400">
+                  No preview available. Click "Re-run" to generate preview.
+                </div>
+              )}
             </div>
           </div>
         </div>
