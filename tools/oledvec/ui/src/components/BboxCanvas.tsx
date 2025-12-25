@@ -4,11 +4,12 @@ interface BboxCanvasProps {
   sourceUrl: string
   bbox: number[] | null
   onBboxChange: (bbox: number[]) => void
+  onSelectionComplete?: (bbox: number[]) => void
 }
 
 type HandleType = 'nw' | 'ne' | 'sw' | 'se' | 'n' | 's' | 'e' | 'w' | 'move' | null
 
-export default function BboxCanvas({ sourceUrl, bbox, onBboxChange }: BboxCanvasProps) {
+export default function BboxCanvas({ sourceUrl, bbox, onBboxChange, onSelectionComplete }: BboxCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [image, setImage] = useState<HTMLImageElement | null>(null)
   const scaleRef = useRef(1)
@@ -18,6 +19,13 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange }: BboxCanvas
     startX: number
     startY: number
     startBbox: number[]
+  } | null>(null)
+  const [selectionState, setSelectionState] = useState<{
+    active: boolean
+    startX: number
+    startY: number
+    currentX: number
+    currentY: number
   } | null>(null)
 
   // Load image
@@ -56,13 +64,30 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange }: BboxCanvas
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
         
-        // Draw bbox if available
-        if (bbox && bbox.length === 4) {
+        // Draw bbox if available (but hide it if Shift is held for new selection)
+        if (bbox && bbox.length === 4 && !selectionState?.active) {
+          console.log('[BboxCanvas] Drawing bbox:', bbox)
           drawBbox(ctx, bbox, scaleFactor)
+        } else {
+          console.log('[BboxCanvas] No bbox to draw:', bbox)
+        }
+        
+        // Draw selection box if active
+        if (selectionState?.active) {
+          const selX = Math.min(selectionState.startX, selectionState.currentX)
+          const selY = Math.min(selectionState.startY, selectionState.currentY)
+          const selW = Math.abs(selectionState.currentX - selectionState.startX)
+          const selH = Math.abs(selectionState.currentY - selectionState.startY)
+          
+          ctx.strokeStyle = '#10b981'
+          ctx.lineWidth = 2
+          ctx.setLineDash([5, 5])
+          ctx.strokeRect(selX, selY, selW, selH)
+          ctx.setLineDash([])
         }
       }
     }
-  }, [image, bbox])
+  }, [image, bbox, selectionState])
 
   function drawBbox(ctx: CanvasRenderingContext2D, bbox: number[] | null, scale: number) {
     if (!bbox || bbox.length !== 4) return
@@ -191,7 +216,7 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange }: BboxCanvas
   }
   
   function handleMouseDown(e: React.MouseEvent<HTMLCanvasElement>) {
-    if (!bbox || bbox.length !== 4 || !canvasRef.current) return
+    if (!canvasRef.current || !image) return
     
     const canvas = canvasRef.current
     const rect = canvas.getBoundingClientRect()
@@ -199,27 +224,67 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange }: BboxCanvas
     const canvasY = e.clientY - rect.top
     const scale = scaleRef.current
     
-    const handle = getHandleAtPoint(canvasX, canvasY, bbox, scale)
-    if (handle) {
-      setDragState({
+    // If Shift is held, always start a new selection (hide current bbox)
+    if (e.shiftKey) {
+      setSelectionState({
         active: true,
-        handle,
         startX: canvasX,
         startY: canvasY,
-        startBbox: [...bbox],
+        currentX: canvasX,
+        currentY: canvasY,
       })
-      canvas.style.cursor = getCursorForHandle(handle)
+      canvas.style.cursor = 'crosshair'
+      return
     }
+    
+    // If there's a bbox, check if clicking on a handle
+    if (bbox && bbox.length === 4) {
+      const handle = getHandleAtPoint(canvasX, canvasY, bbox, scale)
+      if (handle) {
+        setDragState({
+          active: true,
+          handle,
+          startX: canvasX,
+          startY: canvasY,
+          startBbox: [...bbox],
+        })
+        canvas.style.cursor = getCursorForHandle(handle)
+        return
+      }
+    }
+    
+    // Otherwise, start a new selection (when no bbox exists)
+    setSelectionState({
+      active: true,
+      startX: canvasX,
+      startY: canvasY,
+      currentX: canvasX,
+      currentY: canvasY,
+    })
+    canvas.style.cursor = 'crosshair'
   }
   
   function handleMouseMove(e: React.MouseEvent<HTMLCanvasElement>) {
-    if (!bbox || bbox.length !== 4 || !canvasRef.current) return
+    if (!canvasRef.current || !image) return
     
     const canvas = canvasRef.current
     const rect = canvas.getBoundingClientRect()
     const canvasX = e.clientX - rect.left
     const canvasY = e.clientY - rect.top
     const scale = scaleRef.current
+    
+    // Handle selection drag
+    if (selectionState?.active) {
+      setSelectionState({
+        ...selectionState,
+        currentX: canvasX,
+        currentY: canvasY,
+      })
+      return
+    }
+    
+    // Handle bbox drag/resize
+    if (!bbox || bbox.length !== 4) return
     
     if (dragState?.active) {
       // Calculate delta in image coordinates
@@ -316,8 +381,50 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange }: BboxCanvas
   }
   
   function handleMouseUp() {
-    if (dragState?.active && canvasRef.current) {
-      canvasRef.current.style.cursor = 'default'
+    const canvas = canvasRef.current
+    if (!canvas) return
+    
+    // Handle selection completion
+    if (selectionState?.active) {
+      const scale = scaleRef.current
+      const [startX, startY] = canvasToImageCoords(selectionState.startX, selectionState.startY, scale)
+      const [endX, endY] = canvasToImageCoords(selectionState.currentX, selectionState.currentY, scale)
+      
+      const x = Math.min(startX, endX)
+      const y = Math.min(startY, endY)
+      const w = Math.abs(endX - startX)
+      const h = Math.abs(endY - startY)
+      
+      // Only create selection if it has meaningful size (at least 10x10 pixels)
+      if (w >= 10 && h >= 10) {
+        const imageWidth = image?.naturalWidth || 0
+        const imageHeight = image?.naturalHeight || 0
+        
+        // Ensure within bounds
+        const finalX = Math.max(0, Math.min(x, imageWidth - 1))
+        const finalY = Math.max(0, Math.min(y, imageHeight - 1))
+        const finalW = Math.max(1, Math.min(w, imageWidth - finalX))
+        const finalH = Math.max(1, Math.min(h, imageHeight - finalY))
+        
+        const newBbox = [Math.round(finalX), Math.round(finalY), Math.round(finalW), Math.round(finalH)]
+        
+        // Update bbox immediately
+        onBboxChange(newBbox)
+        
+        // Trigger snapping/refinement
+        if (onSelectionComplete) {
+          onSelectionComplete(newBbox)
+        }
+      }
+      
+      canvas.style.cursor = 'default'
+      setSelectionState(null)
+      return
+    }
+    
+    // Handle bbox drag completion
+    if (dragState?.active) {
+      canvas.style.cursor = 'default'
     }
     setDragState(null)
   }
@@ -368,6 +475,7 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange }: BboxCanvas
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
+        title="Click and drag to select area. Hold Shift to create new selection."
       />
       {bbox && (
         <div className="flex flex-col gap-2">

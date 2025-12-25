@@ -96,14 +96,15 @@ export async function updateItemState(
 }
 
 export async function rerunItem(
-  itemId: string
+  itemId: string,
+  refineBbox: boolean = false
 ): Promise<{
   status: string;
   svg_url: string | null;
   preview_url: string | null;
   state: ItemState;
 }> {
-  const response = await fetch(`/api/item/${itemId}/rerun`, {
+  const response = await fetch(`/api/item/${itemId}/rerun?refine_bbox=${refineBbox}`, {
     method: "POST",
   });
   if (!response.ok) {

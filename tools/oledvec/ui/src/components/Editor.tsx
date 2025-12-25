@@ -114,19 +114,66 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
     }
   }, [item, useAutoThreshold, saveCurrentState, loadItem])
 
-  const handleRerun = useCallback(async () => {
+  const handleSelectionComplete = useCallback(async (selectedBbox: number[]) => {
+    // When user finishes selecting an area, trigger aggressive snapping
     if (!item) return
-
+    
+    console.log('Selection complete, triggering snap for bbox:', selectedBbox)
     setSaving(true)
     try {
-      // Auto-save current edits before reprocessing
-      await saveCurrentState()
-      // Reprocess with the saved state
+      // Update bbox first
+      await updateItemState(itemId, { oled_bbox: selectedBbox })
+      // Then rerun to apply snapping (refine_bbox=true)
+      const result = await rerunItem(itemId, true)
+      console.log('Snap complete, result bbox:', result.state.oled_bbox)
+      
+      // Update item with the new bbox
+      setItem((prevItem) => {
+        if (!prevItem) return prevItem
+        return {
+          ...prevItem,
+          state: result.state,
+        }
+      })
+    } catch (err) {
+      console.error('Failed to snap bbox:', err)
+      setError(err instanceof Error ? err.message : 'Failed to snap bbox')
+    } finally {
+      setSaving(false)
+    }
+  }, [item, itemId])
+
+  const handleRerun = useCallback(async (forceRedetect: boolean = false) => {
+    if (!item) {
+      console.log('handleRerun: no item')
+      return
+    }
+
+    console.log('handleRerun called, forceRedetect:', forceRedetect)
+    setSaving(true)
+    try {
+      // If forcing re-detection, clear bbox first and reload to ensure state is updated
+      if (forceRedetect) {
+        console.log('Clearing bbox for re-detection')
+        await updateItemState(itemId, { oled_bbox: null })
+        console.log('Bbox cleared, reloading item')
+        // Reload item to get updated state with cleared bbox
+        await loadItem()
+        console.log('Item reloaded')
+      } else {
+        // Auto-save current edits before reprocessing
+        await saveCurrentState()
+      }
+      // Reprocess with the saved state (or with cleared bbox for re-detection)
+      console.log('Calling rerunItem')
       const result = await rerunItem(itemId)
+      console.log('Rerun complete, result:', result)
       console.log('Rerun result:', { 
         preview_url: result.preview_url, 
         svg_url: result.svg_url,
-        is_qualifying: result.state.validation?.is_qualifying 
+        is_qualifying: result.state.validation?.is_qualifying,
+        oled_bbox: result.state.oled_bbox,
+        metrics: result.state.metrics
       })
       // Update item with the new preview_url, svg_url, and state from rerun
       // This ensures the pixel grid gets the preview_url immediately
@@ -143,6 +190,7 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
           svg_url: result.svg_url,
           state: result.state,
         }
+        console.log('Updated item - old bbox:', prevItem.state.oled_bbox, 'new bbox:', result.state.oled_bbox)
         console.log('Updated item preview_url:', updated.preview_url, 'full item:', updated)
         return updated
       })
@@ -620,6 +668,7 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
                 sourceUrl={item.source_url}
                 bbox={item.state.oled_bbox}
                 onBboxChange={handleBboxChange}
+                onSelectionComplete={handleSelectionComplete}
               />
             </div>
 

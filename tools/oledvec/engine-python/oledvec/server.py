@@ -8,7 +8,7 @@ from datetime import datetime
 import cv2
 import numpy as np
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -258,7 +258,7 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
         return {"status": "ok", "state": updated_state}
     
     @app.post("/api/item/{item_id}/rerun")
-    async def rerun_item(item_id: str):
+    async def rerun_item(item_id: str, refine_bbox: bool = Query(False)):
         """Reprocess item and return updated artifacts."""
         item_state = get_item_state(device, item_id, repo_root)
         
@@ -283,10 +283,25 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
         
         # Get bbox from state or detect
         bbox_list = item_state.get("oled_bbox")
+        print(f"[rerun_item] Current oled_bbox in state: {bbox_list}")
         if bbox_list and len(bbox_list) == 4:
-            # Use state bbox (user may have manually adjusted it)
+            # Use state bbox - only refine if explicitly requested (e.g., from click-and-drag selection)
             bbox = tuple(bbox_list)
-            # Compute metrics for the state bbox
+            print(f"[rerun_item] Using bbox from state, refine_bbox={refine_bbox}: {bbox}")
+            
+            # Only apply snapping if explicitly requested (e.g., after click-and-drag selection)
+            if refine_bbox:
+                from .detect import refine_bbox as refine_bbox_func
+                refined_bbox, refinement_metrics = refine_bbox_func(image, bbox)
+                if refinement_metrics.get("refined", False):
+                    bbox = refined_bbox
+                    print(f"[rerun_item] Refined bbox to: {bbox}")
+                else:
+                    print(f"[rerun_item] Refinement did not change bbox")
+            else:
+                print(f"[rerun_item] Skipping refinement (not requested)")
+            
+            # Compute metrics for the (possibly refined) bbox
             h, w = image.shape[:2]
             total_area = h * w
             x, y, w_rect, h_rect = bbox
@@ -320,10 +335,12 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
             }
         else:
             # Detect bbox
+            print(f"[rerun_item] Detecting bbox (oled_bbox was None or invalid)")
             detected_bbox, confidence, metrics = detect_oled_bbox(image)
             if detected_bbox is None:
                 raise HTTPException(status_code=400, detail="Could not detect OLED bbox")
             bbox = detected_bbox
+            print(f"[rerun_item] Detected bbox: {bbox}, metrics: {metrics.get('refined', False)}")
         
         # Re-run qualification check (pass image for diagram detection)
         is_qualifying, reason_codes = qualify_oled(bbox, confidence, metrics, image=image)
@@ -454,8 +471,13 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
         
         # Update bbox if it changed
         current_bbox = item_state.get("oled_bbox")
-        if current_bbox != list(bbox):
-            updates["oled_bbox"] = list(bbox) if bbox else None
+        bbox_list = list(bbox) if bbox else None
+        print(f"[rerun_item] Comparing bboxes - current: {current_bbox}, new: {bbox_list}")
+        if current_bbox != bbox_list:
+            updates["oled_bbox"] = bbox_list
+            print(f"[rerun_item] Updating oled_bbox to: {bbox_list}")
+        else:
+            print(f"[rerun_item] Bbox unchanged, not updating")
         
         # Update state with new qualification status
         updated_state = update_item_state(
