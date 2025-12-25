@@ -1,16 +1,32 @@
 import { useState, useEffect, useRef } from 'react'
 import { Item, updateItemState } from '../api'
+import { ThemeToggle } from './ThemeToggle'
 
 interface SidebarProps {
   items: Item[]
   selectedId: string | null
   onSelect: (id: string) => void
   onStatusChange?: () => void | Promise<void>
+  device?: string
 }
 
 type FilterStatus = 'all' | 'ok' | 'needs_review' | 'rejected'
 
-export default function Sidebar({ items, selectedId, onSelect, onStatusChange }: SidebarProps) {
+function formatDeviceName(device: string): string {
+  // Convert "analog-rytm-mkii" to "Analog Rytm MKII"
+  return device
+    .split('-')
+    .map((word) => {
+      // Capitalize first letter, handle acronyms like "mkii" -> "MKII"
+      if (word.toLowerCase().startsWith('mk')) {
+        return word.toUpperCase()
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1)
+    })
+    .join(' ')
+}
+
+export default function Sidebar({ items, selectedId, onSelect, onStatusChange, device }: SidebarProps) {
   const [filter, setFilter] = useState<FilterStatus>('all')
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [contextMenu, setContextMenu] = useState<{ itemId: string; x: number; y: number } | null>(null)
@@ -104,7 +120,12 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange }:
   return (
     <div className="w-[280px] bg-white dark:bg-neutral-950 border-r border-neutral-200 dark:border-neutral-800 flex flex-col overflow-hidden">
       <div className="p-4 border-b border-neutral-200 dark:border-neutral-800">
-        <div className="flex gap-1 mb-2">
+        {device && (
+          <div className="text-base font-semibold text-neutral-900 dark:text-white mb-3">
+            {formatDeviceName(device)} Screens
+          </div>
+        )}
+        <div className="flex items-center gap-1 mb-2">
           <button
             onClick={() => setFilter('all')}
             className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
@@ -146,7 +167,10 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange }:
             Rejected
           </button>
         </div>
-        <div className="text-xs text-neutral-500 dark:text-neutral-400">{filteredCount} items</div>
+        <div className="flex items-center justify-between">
+          <div className="text-xs text-neutral-500 dark:text-neutral-400">{filteredCount} items</div>
+          <ThemeToggle />
+        </div>
       </div>
       <div ref={scrollContainerRef} className="flex-1 overflow-y-auto">
         {filteredItems.map((item) => (

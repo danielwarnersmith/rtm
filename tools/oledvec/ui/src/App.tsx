@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { listItems, getDevice, type Item } from './api'
 import { ThemeProvider } from './components/ThemeProvider'
-import { ThemeToggle } from './components/ThemeToggle'
 import Sidebar from './components/Sidebar'
 import Editor from './components/Editor'
 
@@ -119,16 +118,9 @@ function App() {
         selectedId={selectedItemId}
         onSelect={setSelectedItemId}
         onStatusChange={loadItems}
+        device={device}
       />
         <div className="flex-1 flex flex-col overflow-hidden bg-[#F5F1EB] dark:bg-neutral-950">
-          <div className="flex-shrink-0 flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-950/80 dark:border-neutral-800">
-            {device && (
-              <div className="text-base font-semibold text-neutral-900 dark:text-white">
-                {formatDeviceName(device)} OLED Screens
-              </div>
-            )}
-            <ThemeToggle />
-          </div>
           <div className="flex-1 overflow-auto">
             {loading && (
               <div className="flex items-center justify-center w-full h-full text-lg">

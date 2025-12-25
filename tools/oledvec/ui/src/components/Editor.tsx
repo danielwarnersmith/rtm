@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { getItem, updateItemState, rerunItem, type ItemResponse, type ItemStateUpdate } from '../api'
+import { getItem, updateItemState, rerunItem, type ItemResponse, type ItemStateUpdate, type Item } from '../api'
 import BboxCanvas from './BboxCanvas'
 import PixelGrid from './PixelGrid'
 import SVGPreview from './SVGPreview'
@@ -7,9 +7,10 @@ import SVGPreview from './SVGPreview'
 interface EditorProps {
   itemId: string
   onRerun: () => void
+  items?: Item[]
 }
 
-export default function Editor({ itemId, onRerun }: EditorProps) {
+export default function Editor({ itemId, onRerun, items }: EditorProps) {
   const [item, setItem] = useState<ItemResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -380,9 +381,93 @@ export default function Editor({ itemId, onRerun }: EditorProps) {
 
   return (
     <div className="flex flex-col h-full overflow-auto relative">
+      <style>{`
+        input[type="range"].slider {
+          -webkit-appearance: none !important;
+          appearance: none !important;
+          background: transparent !important;
+          cursor: pointer;
+          width: 100%;
+          height: 8px;
+        }
+        input[type="range"].slider::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 8px !important;
+          background: #e5e7eb !important;
+          border-radius: 4px;
+        }
+        .dark input[type="range"].slider::-webkit-slider-runnable-track {
+          background: #374151 !important;
+        }
+        input[type="range"].slider::-webkit-slider-thumb {
+          -webkit-appearance: none !important;
+          appearance: none !important;
+          background: #2563eb !important;
+          height: 20px !important;
+          width: 20px !important;
+          border-radius: 50%;
+          margin-top: -6px;
+          border: 2px solid #ffffff !important;
+          cursor: pointer;
+        }
+        .dark input[type="range"].slider::-webkit-slider-thumb {
+          background: #3b82f6 !important;
+          border-color: #1f2937 !important;
+        }
+        input[type="range"].slider::-moz-range-track {
+          width: 100%;
+          height: 8px !important;
+          background: #e5e7eb !important;
+          border-radius: 4px;
+          border: none;
+        }
+        .dark input[type="range"].slider::-moz-range-track {
+          background: #374151 !important;
+        }
+        input[type="range"].slider::-moz-range-thumb {
+          background: #2563eb !important;
+          height: 20px !important;
+          width: 20px !important;
+          border: 2px solid #ffffff !important;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        .dark input[type="range"].slider::-moz-range-thumb {
+          background: #3b82f6 !important;
+          border-color: #1f2937 !important;
+        }
+        input[type="range"].slider:focus {
+          outline: none;
+        }
+      `}</style>
+      {item && (
+        <div className="absolute top-4 right-4 z-10">
+          {(() => {
+            const currentItem = items?.find(i => i.id === itemId)
+            if (!currentItem) return null
+            
+            const status = currentItem.status
+            const badgeClasses = {
+              ok: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400',
+              needs_review: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400',
+              rejected: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400',
+            }
+            const labels = {
+              ok: 'OK',
+              needs_review: 'Review',
+              rejected: 'Rejected',
+            }
+            return (
+              <span className={`text-[10px] px-1.5 py-0.5 rounded font-semibold uppercase ${badgeClasses[status]}`}>
+                {labels[status]}
+              </span>
+            )
+          })()}
+        </div>
+      )}
       <div className="flex-1 p-6 flex flex-col overflow-y-auto pb-20">
         <div className="pb-2">
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3">
             <h3 className="text-sm font-semibold text-neutral-700 dark:text-neutral-300">Threshold</h3>
             <label className="flex items-center gap-1.5 text-sm">
               <input
@@ -393,8 +478,6 @@ export default function Editor({ itemId, onRerun }: EditorProps) {
               />
               Auto (Otsu)
             </label>
-          </div>
-          <div className="flex items-center gap-3">
             {!useAutoThreshold && (
               <>
                 <input
@@ -403,7 +486,8 @@ export default function Editor({ itemId, onRerun }: EditorProps) {
                   max="255"
                   value={threshold ?? 127}
                   onChange={(e) => setThreshold(parseInt(e.target.value))}
-                  className="w-[200px]"
+                  className="slider"
+                  style={{ width: '200px' }}
                 />
                 {threshold !== null && (
                   <span className="font-mono text-sm text-neutral-500 dark:text-neutral-400">{threshold}</span>
@@ -447,37 +531,54 @@ export default function Editor({ itemId, onRerun }: EditorProps) {
           </div>
         </div>
 
-        <div className="pt-4 pb-4">
-          <h3 className="text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">SVG Preview</h3>
-          <SVGPreview svgUrl={item.svg_url} />
-        </div>
+        <div className="pt-4 pb-4 flex gap-4">
+          <div className="flex-1 flex flex-col">
+            <h3 className="text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">SVG Preview</h3>
+            <div className="flex-1">
+              <SVGPreview svgUrl={item.svg_url} />
+            </div>
+          </div>
 
-        <div className="pt-4">
-          <h3 className="text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">Notes</h3>
-          <textarea
-            value={item.state.notes}
-            onChange={(e) => handleNotesChange(e.target.value)}
-            className="w-full p-2 border border-neutral-300 dark:border-neutral-700 rounded text-sm bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 resize-y"
-            rows={3}
-          />
+          <div className="flex-1 flex flex-col">
+            <h3 className="text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">Notes</h3>
+            <textarea
+              value={item.state.notes}
+              onChange={(e) => handleNotesChange(e.target.value)}
+              className="w-full h-full p-2 border border-neutral-300 dark:border-neutral-700 rounded text-sm bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 resize-none"
+            />
+          </div>
         </div>
       </div>
 
       {/* Floating toolbar at bottom */}
       <div className="absolute bottom-0 left-0 right-0 px-6 py-3 border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shadow-lg flex justify-between items-center z-10">
-        <h2 className="text-sm font-semibold font-mono text-neutral-700 dark:text-neutral-300">{item.id}</h2>
+        <div className="flex items-center gap-3">
+          <h2 className="text-sm font-semibold font-mono text-neutral-700 dark:text-neutral-300">{item.id}</h2>
+          {items && (() => {
+            const currentIndex = items.findIndex(i => i.id === itemId)
+            const totalCount = items.length
+            if (currentIndex >= 0 && totalCount > 0) {
+              return (
+                <span className="text-sm text-neutral-500 dark:text-neutral-400">
+                  {currentIndex + 1}/{totalCount}
+                </span>
+              )
+            }
+            return null
+          })()}
+        </div>
         <div className="flex gap-2">
           <button
             onClick={handleSave}
             disabled={saving}
-            className="px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md text-sm font-medium bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-3 py-1.5 border border-neutral-300 dark:border-neutral-700 rounded-md text-xs font-medium bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {saving ? 'Saving...' : 'Save'}
           </button>
           <button
             onClick={handleRerun}
             disabled={saving}
-            className="px-4 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md text-sm font-medium bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-3 py-1.5 border border-neutral-300 dark:border-neutral-700 rounded-md text-xs font-medium bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             Re-run
           </button>
