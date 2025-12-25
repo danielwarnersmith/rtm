@@ -2,7 +2,7 @@
 name = "oledvec"
 version = "1.0.0"
 description = "OLED to SVG conversion tool for Elektron device screenshots"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = [
     "opencv-python>=4.8.0",
     "numpy>=1.24.0",

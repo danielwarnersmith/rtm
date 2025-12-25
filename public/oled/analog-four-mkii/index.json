@@ -1,0 +1,1145 @@
+{
+  "screens": [
+    {
+      "id": "_page_76_Picture_6",
+      "svg": "/oled/analog-four-mkii/screens/_page_76_Picture_6.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_76_Picture_6.jpeg",
+      "confidence": 0.9908491107286288,
+      "updatedAt": "2025-12-24T18:40:32.029883Z"
+    },
+    {
+      "id": "_page_64_Picture_6",
+      "svg": "/oled/analog-four-mkii/screens/_page_64_Picture_6.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_64_Picture_6.jpeg",
+      "confidence": 0.9957987927565393,
+      "updatedAt": "2025-12-24T18:40:31.976850Z"
+    },
+    {
+      "id": "_page_74_Picture_13",
+      "svg": "/oled/analog-four-mkii/screens/_page_74_Picture_13.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_74_Picture_13.jpeg",
+      "confidence": 0.9957987927565393,
+      "updatedAt": "2025-12-24T18:40:31.855211Z"
+    },
+    {
+      "id": "_page_66_Picture_21",
+      "svg": "/oled/analog-four-mkii/screens/_page_66_Picture_21.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_66_Picture_21.jpeg",
+      "confidence": 0.9957987927565393,
+      "updatedAt": "2025-12-24T18:40:31.835198Z"
+    },
+    {
+      "id": "_page_67_Picture_21",
+      "svg": "/oled/analog-four-mkii/screens/_page_67_Picture_21.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_67_Picture_21.jpeg",
+      "confidence": 0.9949975806451614,
+      "updatedAt": "2025-12-24T18:40:31.726008Z"
+    },
+    {
+      "id": "_page_59_Picture_3",
+      "svg": "/oled/analog-four-mkii/screens/_page_59_Picture_3.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_59_Picture_3.jpeg",
+      "confidence": 0.9949975806451614,
+      "updatedAt": "2025-12-24T18:40:31.654625Z"
+    },
+    {
+      "id": "_page_61_Picture_10",
+      "svg": "/oled/analog-four-mkii/screens/_page_61_Picture_10.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_61_Picture_10.jpeg",
+      "confidence": 0.996586345381526,
+      "updatedAt": "2025-12-24T18:40:31.645272Z"
+    },
+    {
+      "id": "_page_28_Picture_14",
+      "svg": "/oled/analog-four-mkii/screens/_page_28_Picture_14.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_28_Picture_14.jpeg",
+      "confidence": 0.9973907703247599,
+      "updatedAt": "2025-12-24T18:40:31.564984Z"
+    },
+    {
+      "id": "_page_18_Picture_9",
+      "svg": "/oled/analog-four-mkii/screens/_page_18_Picture_9.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_18_Picture_9.jpeg",
+      "confidence": 0.9957987927565393,
+      "updatedAt": "2025-12-24T18:40:31.524160Z"
+    },
+    {
+      "id": "_page_25_Picture_17",
+      "svg": "/oled/analog-four-mkii/screens/_page_25_Picture_17.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_25_Picture_17.jpeg",
+      "confidence": 0.996586345381526,
+      "updatedAt": "2025-12-24T18:40:31.497210Z"
+    },
+    {
+      "id": "_page_74_Picture_11",
+      "svg": "/oled/analog-four-mkii/screens/_page_74_Picture_11.svg",
+      "source": "/oled/analog-four-mkii/incoming/_page_74_Picture_11.jpeg",
+      "confidence": 0.9973907703247599,
+      "updatedAt": "2025-12-24T18:40:31.383348Z"
+    }
+  ],
+  "rejected": [
+    {
+      "file": "_page_78_Picture_8.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9853628967077968,
+      "notes": ""
+    },
+    {
+      "file": "_page_47_Picture_1.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7943663225347098,
+      "notes": ""
+    },
+    {
+      "file": "_page_80_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9976393334433262,
+      "notes": ""
+    },
+    {
+      "file": "_page_17_Picture_11.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8001078360891445,
+      "notes": ""
+    },
+    {
+      "file": "_page_76_Picture_13.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9947623838551223,
+      "notes": ""
+    },
+    {
+      "file": "_page_88_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9896262250760393,
+      "notes": ""
+    },
+    {
+      "file": "_page_77_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9868090131923288,
+      "notes": ""
+    },
+    {
+      "file": "_page_49_Picture_11.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7852152434721242,
+      "notes": ""
+    },
+    {
+      "file": "_page_23_Picture_21.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.997593623307909,
+      "notes": ""
+    },
+    {
+      "file": "_page_85_Picture_3.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7923076923076923,
+      "notes": ""
+    },
+    {
+      "file": "_page_11_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9051872864114583,
+      "notes": ""
+    },
+    {
+      "file": "_page_29_Picture_6.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9617321857549676,
+      "notes": ""
+    },
+    {
+      "file": "_page_64_Picture_17.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7831971677559912,
+      "notes": ""
+    },
+    {
+      "file": "_page_59_Picture_7.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8063284929356358,
+      "notes": ""
+    },
+    {
+      "file": "_page_75_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9889781591784168,
+      "notes": ""
+    },
+    {
+      "file": "_page_60_Picture_3.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7961355415952789,
+      "notes": ""
+    },
+    {
+      "file": "_page_80_Picture_8.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7941464821222606,
+      "notes": ""
+    },
+    {
+      "file": "_page_96_Picture_18.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9773411306042885,
+      "notes": ""
+    },
+    {
+      "file": "_page_92_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9696103206977746,
+      "notes": ""
+    },
+    {
+      "file": "_page_87_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9839746859229035,
+      "notes": ""
+    },
+    {
+      "file": "_page_63_Picture_9.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.979940810461652,
+      "notes": ""
+    },
+    {
+      "file": "_page_12_Picture_24.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.5986163347717646,
+      "notes": ""
+    },
+    {
+      "file": "_page_21_Picture_6.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9854156080340188,
+      "notes": ""
+    },
+    {
+      "file": "_page_69_Picture_19.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7803539823008849,
+      "notes": ""
+    },
+    {
+      "file": "_page_90_Figure_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9830094599648194,
+      "notes": ""
+    },
+    {
+      "file": "_page_37_Picture_23.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7942585059171597,
+      "notes": ""
+    },
+    {
+      "file": "_page_65_Picture_4.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7981240573152337,
+      "notes": ""
+    },
+    {
+      "file": "_page_1_Picture_12.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7902439024390244,
+      "notes": ""
+    },
+    {
+      "file": "_page_76_Picture_8.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8041773062398849,
+      "notes": ""
+    },
+    {
+      "file": "_page_50_Picture_7.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9890178464962837,
+      "notes": ""
+    },
+    {
+      "file": "_page_45_Picture_7.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.821948951994591,
+      "notes": ""
+    },
+    {
+      "file": "_page_46_Picture_10.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9969353037425654,
+      "notes": ""
+    },
+    {
+      "file": "_page_54_Picture_1.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9863812778775416,
+      "notes": ""
+    },
+    {
+      "file": "_page_41_Picture_1.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9850188563072424,
+      "notes": ""
+    },
+    {
+      "file": "_page_24_Picture_17.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.983665995590068,
+      "notes": ""
+    },
+    {
+      "file": "_page_79_Picture_4.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7981063154859176,
+      "notes": ""
+    },
+    {
+      "file": "_page_86_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9774089736977825,
+      "notes": ""
+    },
+    {
+      "file": "_page_93_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9810927949369828,
+      "notes": ""
+    },
+    {
+      "file": "_page_75_Figure_7.jpeg",
+      "reason": "aspect_ratio",
+      "confidence": 0.8750473484848484,
+      "notes": ""
+    },
+    {
+      "file": "_page_29_Picture_7.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9015824072943379,
+      "notes": ""
+    },
+    {
+      "file": "_page_44_Picture_12.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7922330097087379,
+      "notes": ""
+    },
+    {
+      "file": "_page_26_Picture_7.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7960978450786255,
+      "notes": ""
+    },
+    {
+      "file": "_page_53_Picture_15.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8020566239316239,
+      "notes": ""
+    },
+    {
+      "file": "_page_57_Picture_7.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9778100351295818,
+      "notes": ""
+    },
+    {
+      "file": "_page_76_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.987532065665124,
+      "notes": ""
+    },
+    {
+      "file": "_page_9_Picture_13.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.6817485196795542,
+      "notes": ""
+    },
+    {
+      "file": "_page_17_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.8969028601856078,
+      "notes": ""
+    },
+    {
+      "file": "_page_46_Picture_1.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9962220458714404,
+      "notes": ""
+    },
+    {
+      "file": "_page_22_Picture_1.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9933404096395015,
+      "notes": ""
+    },
+    {
+      "file": "_page_94_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9810244533751107,
+      "notes": ""
+    },
+    {
+      "file": "_page_74_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9212522386003581,
+      "notes": ""
+    },
+    {
+      "file": "_page_78_Picture_2.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9175611134661579,
+      "notes": ""
+    },
+    {
+      "file": "_page_95_Picture_21.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9800117785630154,
+      "notes": ""
+    },
+    {
+      "file": "_page_62_Picture_17.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9867129724208377,
+      "notes": ""
+    },
+    {
+      "file": "_page_14_Figure_2.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9361787269510784,
+      "notes": ""
+    },
+    {
+      "file": "_page_68_Picture_5.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9918703010631604,
+      "notes": ""
+    },
+    {
+      "file": "_page_45_Picture_12.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9925933272503671,
+      "notes": ""
+    },
+    {
+      "file": "_page_22_Picture_16.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7962087912087912,
+      "notes": ""
+    },
+    {
+      "file": "_page_96_Picture_24.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9918703010631604,
+      "notes": ""
+    },
+    {
+      "file": "_page_35_Picture_11.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.5498660070088642,
+      "notes": ""
+    },
+    {
+      "file": "_page_67_Picture_5.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.981557740505109,
+      "notes": ""
+    },
+    {
+      "file": "_page_63_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9717187706107373,
+      "notes": ""
+    },
+    {
+      "file": "_page_56_Picture_11.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.972226415598469,
+      "notes": ""
+    },
+    {
+      "file": "_page_30_Figure_5.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9510352174651453,
+      "notes": ""
+    },
+    {
+      "file": "_page_49_Picture_17.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.996909090909091,
+      "notes": ""
+    },
+    {
+      "file": "_page_26_Picture_1.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9877533620121692,
+      "notes": ""
+    },
+    {
+      "file": "_page_32_Figure_13.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9889781591784168,
+      "notes": ""
+    },
+    {
+      "file": "_page_9_Picture_15.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7785568413886998,
+      "notes": ""
+    },
+    {
+      "file": "_page_32_Picture_11.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9918878365640491,
+      "notes": ""
+    },
+    {
+      "file": "_page_89_Figure_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9807474786872459,
+      "notes": ""
+    },
+    {
+      "file": "_page_111_Picture_0.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.5954727800444564,
+      "notes": ""
+    },
+    {
+      "file": "_page_98_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9888979177247335,
+      "notes": ""
+    },
+    {
+      "file": "_page_38_Picture_7.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7962087912087912,
+      "notes": ""
+    },
+    {
+      "file": "_page_97_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.983916764693952,
+      "notes": ""
+    },
+    {
+      "file": "_page_18_Picture_5.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9778100351295818,
+      "notes": ""
+    },
+    {
+      "file": "_page_50_Picture_1.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.5803174603174602,
+      "notes": ""
+    },
+    {
+      "file": "_page_85_Picture_10.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9796518257092439,
+      "notes": ""
+    },
+    {
+      "file": "_page_31_Picture_6.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7068390677025527,
+      "notes": ""
+    },
+    {
+      "file": "_page_58_Picture_1.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8141557398983141,
+      "notes": ""
+    },
+    {
+      "file": "_page_46_Picture_16.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8331719367588932,
+      "notes": ""
+    },
+    {
+      "file": "_page_41_Picture_17.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7943663225347098,
+      "notes": ""
+    },
+    {
+      "file": "_page_36_Picture_23.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.5886849261849263,
+      "notes": ""
+    },
+    {
+      "file": "_page_79_Picture_2.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9969130434782609,
+      "notes": ""
+    },
+    {
+      "file": "_page_75_Picture_4.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8083095101963026,
+      "notes": ""
+    },
+    {
+      "file": "_page_79_Figure_7.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9039991204598385,
+      "notes": ""
+    },
+    {
+      "file": "_page_48_Picture_24.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9827817905838634,
+      "notes": ""
+    },
+    {
+      "file": "_page_51_Picture_3.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7961355415952789,
+      "notes": ""
+    },
+    {
+      "file": "_page_64_Picture_1.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8083095101963026,
+      "notes": ""
+    },
+    {
+      "file": "_page_71_Picture_1.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.5775674068199841,
+      "notes": ""
+    },
+    {
+      "file": "_page_78_Picture_10.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.980301365562706,
+      "notes": ""
+    },
+    {
+      "file": "_page_86_Picture_16.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9897382829030894,
+      "notes": ""
+    },
+    {
+      "file": "_page_62_Picture_15.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9810244533751107,
+      "notes": ""
+    },
+    {
+      "file": "_page_96_Figure_15.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9806489748731246,
+      "notes": ""
+    },
+    {
+      "file": "_page_108_Figure_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9309866905814972,
+      "notes": ""
+    },
+    {
+      "file": "_page_96_Picture_6.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9738271847843909,
+      "notes": ""
+    },
+    {
+      "file": "_page_23_Picture_13.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7981240573152337,
+      "notes": ""
+    },
+    {
+      "file": "_page_79_Picture_1.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9818760853386257,
+      "notes": ""
+    },
+    {
+      "file": "_page_47_Picture_9.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7903563348416289,
+      "notes": ""
+    },
+    {
+      "file": "_page_21_Picture_11.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9955016421645293,
+      "notes": ""
+    },
+    {
+      "file": "_page_44_Picture_17.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9889781591784168,
+      "notes": ""
+    },
+    {
+      "file": "_page_26_Picture_10.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8084853291038857,
+      "notes": ""
+    },
+    {
+      "file": "_page_22_Picture_8.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9925394163032539,
+      "notes": ""
+    },
+    {
+      "file": "_page_98_Picture_21.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9904242375890062,
+      "notes": ""
+    },
+    {
+      "file": "_page_43_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9969130434782609,
+      "notes": ""
+    },
+    {
+      "file": "_page_91_Picture_6.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9909380471380471,
+      "notes": ""
+    },
+    {
+      "file": "_page_27_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9925933272503671,
+      "notes": ""
+    },
+    {
+      "file": "_page_46_Picture_4.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8164921946740129,
+      "notes": ""
+    },
+    {
+      "file": "_page_15_Figure_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9036068396145766,
+      "notes": ""
+    },
+    {
+      "file": "_page_66_Picture_6.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9947623838551223,
+      "notes": ""
+    },
+    {
+      "file": "_page_40_Picture_9.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.820580808080808,
+      "notes": ""
+    },
+    {
+      "file": "_page_89_Picture_16.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9846398326529235,
+      "notes": ""
+    },
+    {
+      "file": "_page_77_Picture_10.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8042152292152293,
+      "notes": ""
+    },
+    {
+      "file": "_page_42_Picture_26.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.780698902885006,
+      "notes": ""
+    },
+    {
+      "file": "_page_50_Picture_14.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9713156393469343,
+      "notes": ""
+    },
+    {
+      "file": "_page_80_Picture_1.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9962220458714404,
+      "notes": ""
+    },
+    {
+      "file": "_page_31_Picture_8.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.973887786322666,
+      "notes": ""
+    },
+    {
+      "file": "_page_65_Picture_19.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.5740289413556741,
+      "notes": ""
+    },
+    {
+      "file": "_page_49_Picture_9.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9983656198347106,
+      "notes": ""
+    },
+    {
+      "file": "_page_30_Figure_6.jpeg",
+      "reason": "aspect_ratio",
+      "confidence": 0.8680329792111123,
+      "notes": ""
+    },
+    {
+      "file": "_page_13_Picture_10.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8224218089602705,
+      "notes": ""
+    },
+    {
+      "file": "_page_57_Picture_3.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8327807250221044,
+      "notes": ""
+    },
+    {
+      "file": "_page_42_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9778100351295818,
+      "notes": ""
+    },
+    {
+      "file": "_page_22_Picture_19.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.6982232441471572,
+      "notes": ""
+    },
+    {
+      "file": "_page_77_Picture_1.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9843687400318979,
+      "notes": ""
+    },
+    {
+      "file": "_page_25_Picture_18.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7767591717501503,
+      "notes": ""
+    },
+    {
+      "file": "_page_26_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.973124383993692,
+      "notes": ""
+    },
+    {
+      "file": "_page_97_Picture_16.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9756112355356477,
+      "notes": ""
+    },
+    {
+      "file": "_page_61_Picture_7.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9882551143200964,
+      "notes": ""
+    },
+    {
+      "file": "_page_25_Picture_5.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.79006900690069,
+      "notes": ""
+    },
+    {
+      "file": "_page_55_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9756792246573882,
+      "notes": ""
+    },
+    {
+      "file": "_page_29_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9809562841530055,
+      "notes": ""
+    },
+    {
+      "file": "_page_90_Picture_21.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9761963273021874,
+      "notes": ""
+    },
+    {
+      "file": "_page_54_Picture_5.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7857423795476893,
+      "notes": ""
+    },
+    {
+      "file": "_page_58_Picture_15.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9807195156202034,
+      "notes": ""
+    },
+    {
+      "file": "_page_34_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9749589293584966,
+      "notes": ""
+    },
+    {
+      "file": "_page_38_Picture_5.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9810244533751107,
+      "notes": ""
+    },
+    {
+      "file": "_page_44_Picture_2.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8436054421768708,
+      "notes": ""
+    },
+    {
+      "file": "_page_96_Picture_27.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9939959893048128,
+      "notes": ""
+    },
+    {
+      "file": "_page_77_Picture_6.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9897012002611001,
+      "notes": ""
+    },
+    {
+      "file": "_page_21_Picture_8.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9721277941512911,
+      "notes": ""
+    },
+    {
+      "file": "_page_16_Picture_14.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8040864944108483,
+      "notes": ""
+    },
+    {
+      "file": "_page_32_Picture_5.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7907145352900069,
+      "notes": ""
+    },
+    {
+      "file": "_page_27_Figure_16.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9752396364994398,
+      "notes": ""
+    },
+    {
+      "file": "_page_71_Picture_10.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7863195057369814,
+      "notes": ""
+    },
+    {
+      "file": "_page_64_Picture_23.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9853628967077968,
+      "notes": ""
+    },
+    {
+      "file": "_page_36_Picture_3.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7814894765245548,
+      "notes": ""
+    },
+    {
+      "file": "_page_59_Picture_9.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9850188563072424,
+      "notes": ""
+    },
+    {
+      "file": "_page_22_Picture_2.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8022149637644176,
+      "notes": ""
+    },
+    {
+      "file": "_page_25_Picture_13.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9939959893048128,
+      "notes": ""
+    },
+    {
+      "file": "_page_32_Picture_9.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9842022580308718,
+      "notes": ""
+    },
+    {
+      "file": "_page_68_Picture_1.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9927247563651206,
+      "notes": ""
+    },
+    {
+      "file": "_page_65_Picture_12.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8155690537084399,
+      "notes": ""
+    },
+    {
+      "file": "_page_49_Picture_2.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.5563513927150291,
+      "notes": ""
+    },
+    {
+      "file": "_page_41_Picture_12.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9926199915979625,
+      "notes": ""
+    },
+    {
+      "file": "_page_31_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9868090131923288,
+      "notes": ""
+    },
+    {
+      "file": "_page_24_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9955016421645293,
+      "notes": ""
+    },
+    {
+      "file": "_page_96_Figure_8.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9792305558857325,
+      "notes": ""
+    },
+    {
+      "file": "_page_23_Picture_15.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.6923017020803204,
+      "notes": ""
+    },
+    {
+      "file": "_page_39_Picture_10.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8185367185367185,
+      "notes": ""
+    },
+    {
+      "file": "_page_75_Picture_1.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9884635718891038,
+      "notes": ""
+    },
+    {
+      "file": "_page_30_Picture_2.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9602046468687491,
+      "notes": ""
+    },
+    {
+      "file": "_page_29_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9159123852472217,
+      "notes": ""
+    },
+    {
+      "file": "_page_30_Picture_3.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9232324627490374,
+      "notes": ""
+    },
+    {
+      "file": "_page_33_Picture_24.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7920792079207921,
+      "notes": ""
+    },
+    {
+      "file": "_page_108_Figure_4.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.8093527212244715,
+      "notes": ""
+    },
+    {
+      "file": "_page_18_Picture_12.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.6870862912637992,
+      "notes": ""
+    },
+    {
+      "file": "_page_47_Picture_15.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.983916764693952,
+      "notes": ""
+    },
+    {
+      "file": "_page_43_Picture_8.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.996909090909091,
+      "notes": ""
+    },
+    {
+      "file": "_page_96_Picture_21.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9933163497647161,
+      "notes": ""
+    },
+    {
+      "file": "_page_37_Picture_3.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.7924528301886793,
+      "notes": ""
+    },
+    {
+      "file": "_page_66_Picture_1.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.6839105339105339,
+      "notes": ""
+    },
+    {
+      "file": "_page_57_Picture_13.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.5889665184647491,
+      "notes": ""
+    },
+    {
+      "file": "_page_56_Picture_14.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9954525474525475,
+      "notes": ""
+    },
+    {
+      "file": "_page_50_Picture_9.jpeg",
+      "reason": "low_confidence",
+      "confidence": 0.5944114037571981,
+      "notes": ""
+    },
+    {
+      "file": "_page_95_Figure_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9808164317156072,
+      "notes": ""
+    },
+    {
+      "file": "_page_85_Picture_22.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9868090131923288,
+      "notes": ""
+    },
+    {
+      "file": "_page_56_Picture_4.jpeg",
+      "reason": "area_too_large",
+      "confidence": 0.9717187706107373,
+      "notes": ""
+    }
+  ]
+}

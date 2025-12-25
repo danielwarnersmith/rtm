@@ -1,0 +1,6313 @@
+{
+  "version": "1.0",
+  "items": {
+    "_page_78_Picture_8": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_78_Picture_8.jpeg",
+      "updated_at": "2025-12-25T20:46:15.085710Z",
+      "oled_bbox": [
+        22,
+        22,
+        497,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 150.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9376,
+        "reason_codes": [],
+        "pixel_density": 0.1683349609375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_47_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_47_Picture_1.jpeg",
+      "updated_at": "2025-12-25T02:33:12.626882Z",
+      "oled_bbox": [
+        0,
+        0,
+        106,
+        106
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7943663225347098,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_80_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_80_Picture_4.jpeg",
+      "updated_at": "2025-12-24T20:45:06.746862Z",
+      "oled_bbox": [
+        30,
+        17,
+        497,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391967871485944,
+        "reason_codes": [],
+        "pixel_density": 0.31982421875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_17_Picture_11": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_17_Picture_11.jpeg",
+      "updated_at": "2025-12-25T01:49:22.847930Z",
+      "oled_bbox": [
+        0,
+        0,
+        107,
+        104
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8001078360891445,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_76_Picture_13": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_76_Picture_13.jpeg",
+      "updated_at": "2025-12-24T20:48:15.932549Z",
+      "oled_bbox": [
+        30,
+        11,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3265380859375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_88_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_88_Picture_4.jpeg",
+      "updated_at": "2025-12-25T02:29:03.870650Z",
+      "oled_bbox": [
+        24,
+        16,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 106.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.334228515625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_74_Picture_11": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_74_Picture_11.jpeg",
+      "updated_at": "2025-12-24T18:40:31.383348Z",
+      "oled_bbox": [
+        23,
+        17,
+        497,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 105.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9973907703247599,
+        "reason_codes": [],
+        "pixel_density": 0.1683349609375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_77_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_77_Picture_4.jpeg",
+      "updated_at": "2025-12-24T21:01:59.856436Z",
+      "oled_bbox": [
+        28,
+        17,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.323486328125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_49_Picture_11": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_49_Picture_11.jpeg",
+      "updated_at": "2025-12-25T01:49:30.248651Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        109
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7852152434721242,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_23_Picture_21": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_23_Picture_21.jpeg",
+      "updated_at": "2025-12-24T21:16:20.397512Z",
+      "oled_bbox": [
+        22,
+        17,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.19140625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_85_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_85_Picture_3.jpeg",
+      "updated_at": "2025-12-25T01:49:26.523214Z",
+      "oled_bbox": [
+        0,
+        0,
+        103,
+        104
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7923076923076923,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_11_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_11_Picture_3.jpeg",
+      "updated_at": "2025-12-25T01:49:34.696326Z",
+      "oled_bbox": [
+        0,
+        0,
+        1298,
+        849
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9051872864114583,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_29_Picture_6": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_29_Picture_6.jpeg",
+      "updated_at": "2025-12-25T01:49:40.732490Z",
+      "oled_bbox": [
+        0,
+        0,
+        478,
+        263
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9617321857549676,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_64_Picture_17": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_64_Picture_17.jpeg",
+      "updated_at": "2025-12-25T01:49:43.882440Z",
+      "oled_bbox": [
+        0,
+        0,
+        102,
+        108
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7831971677559912,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_59_Picture_7": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_59_Picture_7.jpeg",
+      "updated_at": "2025-12-25T01:49:47.497451Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        98
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8063284929356358,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_75_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_75_Picture_3.jpeg",
+      "updated_at": "2025-12-25T02:19:31.708120Z",
+      "oled_bbox": [
+        23,
+        16,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 185.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.2874755859375
+      },
+      "overrides": {
+        "force_on": [
+          [
+            0,
+            0
+          ],
+          [
+            127,
+            0
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            120,
+            25
+          ],
+          [
+            120,
+            23
+          ],
+          [
+            120,
+            19
+          ],
+          [
+            120,
+            17
+          ],
+          [
+            120,
+            15
+          ],
+          [
+            119,
+            14
+          ],
+          [
+            117,
+            14
+          ],
+          [
+            113,
+            14
+          ],
+          [
+            9,
+            14
+          ],
+          [
+            13,
+            14
+          ],
+          [
+            15,
+            14
+          ],
+          [
+            6,
+            25
+          ],
+          [
+            6,
+            23
+          ],
+          [
+            6,
+            21
+          ],
+          [
+            6,
+            19
+          ],
+          [
+            6,
+            17
+          ],
+          [
+            6,
+            15
+          ],
+          [
+            7,
+            14
+          ]
+        ],
+        "force_off": [
+          [
+            10,
+            13
+          ],
+          [
+            11,
+            12
+          ]
+        ]
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_60_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_60_Picture_3.jpeg",
+      "updated_at": "2025-12-25T01:49:57.353252Z",
+      "oled_bbox": [
+        0,
+        0,
+        103,
+        102
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7961355415952789,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_80_Picture_8": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_80_Picture_8.jpeg",
+      "updated_at": "2025-12-25T01:50:00.614509Z",
+      "oled_bbox": [
+        0,
+        0,
+        102,
+        102
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7941464821222606,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_96_Picture_18": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_96_Picture_18.jpeg",
+      "updated_at": "2025-12-24T22:02:03.987306Z",
+      "oled_bbox": [
+        25,
+        21,
+        495,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.2979736328125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_92_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_92_Picture_4.jpeg",
+      "updated_at": "2025-12-24T22:13:27.251423Z",
+      "oled_bbox": [
+        22,
+        20,
+        497,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391967871485944,
+        "reason_codes": [],
+        "pixel_density": 0.3350830078125
+      },
+      "overrides": {
+        "force_on": [
+          [
+            3,
+            58
+          ],
+          [
+            11,
+            60
+          ]
+        ],
+        "force_off": [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            12,
+            3
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            2,
+            61
+          ],
+          [
+            7,
+            57
+          ],
+          [
+            8,
+            58
+          ],
+          [
+            10,
+            60
+          ],
+          [
+            11,
+            61
+          ],
+          [
+            7,
+            61
+          ],
+          [
+            5,
+            49
+          ],
+          [
+            121,
+            18
+          ]
+        ]
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_87_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_87_Picture_4.jpeg",
+      "updated_at": "2025-12-24T22:14:03.779496Z",
+      "oled_bbox": [
+        26,
+        15,
+        494,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9367871485943775,
+        "reason_codes": [],
+        "pixel_density": 0.335693359375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_63_Picture_9": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_63_Picture_9.jpeg",
+      "updated_at": "2025-12-24T22:15:19.128408Z",
+      "oled_bbox": [
+        22,
+        20,
+        496,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9368000000000001,
+        "reason_codes": [],
+        "pixel_density": 0.17626953125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_12_Picture_24": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_12_Picture_24.jpeg",
+      "updated_at": "2025-12-25T01:50:09.162434Z",
+      "oled_bbox": [
+        0,
+        0,
+        1131,
+        268
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.5986163347717646,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_21_Picture_6": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_21_Picture_6.jpeg",
+      "updated_at": "2025-12-24T22:24:01.917130Z",
+      "oled_bbox": [
+        22,
+        17,
+        496,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9368000000000001,
+        "reason_codes": [],
+        "pixel_density": 0.21142578125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_69_Picture_19": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_69_Picture_19.jpeg",
+      "updated_at": "2025-12-25T01:50:25.342530Z",
+      "oled_bbox": [
+        0,
+        0,
+        105,
+        113
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7803539823008849,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_90_Figure_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_90_Figure_4.jpeg",
+      "updated_at": "2025-12-24T22:25:40.866417Z",
+      "oled_bbox": [
+        24,
+        16,
+        496,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.310302734375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_37_Picture_23": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_37_Picture_23.jpeg",
+      "updated_at": "2025-12-25T01:58:48.263322Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        104
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7942585059171597,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_65_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_65_Picture_4.jpeg",
+      "updated_at": "2025-12-25T01:58:55.335150Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        102
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7981240573152337,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_1_Picture_12": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_1_Picture_12.jpeg",
+      "updated_at": "2025-12-25T01:59:00.025485Z",
+      "oled_bbox": [
+        0,
+        0,
+        81,
+        82
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7902439024390244,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_76_Picture_8": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_76_Picture_8.jpeg",
+      "updated_at": "2025-12-25T01:59:04.124859Z",
+      "oled_bbox": [
+        0,
+        0,
+        996,
+        335
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8041773062398849,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_50_Picture_7": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_50_Picture_7.jpeg",
+      "updated_at": "2025-12-24T22:29:34.206713Z",
+      "oled_bbox": [
+        26,
+        18,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.3087158203125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_45_Picture_7": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_45_Picture_7.jpeg",
+      "updated_at": "2025-12-25T01:59:06.754866Z",
+      "oled_bbox": [
+        0,
+        0,
+        116,
+        102
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.821948951994591,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_46_Picture_10": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_46_Picture_10.jpeg",
+      "updated_at": "2025-12-24T22:30:31.054500Z",
+      "oled_bbox": [
+        32,
+        17,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.379150390625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_54_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_54_Picture_1.jpeg",
+      "updated_at": "2025-12-24T22:30:47.384449Z",
+      "oled_bbox": [
+        30,
+        23,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.1387939453125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_41_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_41_Picture_1.jpeg",
+      "updated_at": "2025-12-24T22:31:18.051199Z",
+      "oled_bbox": [
+        27,
+        22,
+        497,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391967871485944,
+        "reason_codes": [],
+        "pixel_density": 0.1785888671875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_24_Picture_17": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_24_Picture_17.jpeg",
+      "updated_at": "2025-12-24T22:37:37.619228Z",
+      "oled_bbox": [
+        29,
+        21,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 185.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.148193359375
+      },
+      "overrides": {
+        "force_on": [
+          [
+            120,
+            17
+          ],
+          [
+            118,
+            32
+          ],
+          [
+            120,
+            32
+          ],
+          [
+            119,
+            33
+          ],
+          [
+            7,
+            63
+          ],
+          [
+            6,
+            62
+          ],
+          [
+            7,
+            59
+          ],
+          [
+            121,
+            61
+          ],
+          [
+            122,
+            60
+          ],
+          [
+            47,
+            63
+          ],
+          [
+            47,
+            62
+          ],
+          [
+            120,
+            62
+          ],
+          [
+            120,
+            63
+          ]
+        ],
+        "force_off": [
+          [
+            120,
+            16
+          ],
+          [
+            119,
+            32
+          ],
+          [
+            118,
+            33
+          ],
+          [
+            119,
+            63
+          ],
+          [
+            119,
+            61
+          ],
+          [
+            119,
+            62
+          ]
+        ]
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_79_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_79_Picture_4.jpeg",
+      "updated_at": "2025-12-25T01:59:08.628867Z",
+      "oled_bbox": [
+        0,
+        0,
+        103,
+        101
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7981063154859176,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_86_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_86_Picture_4.jpeg",
+      "updated_at": "2025-12-24T22:37:56.693779Z",
+      "oled_bbox": [
+        20,
+        18,
+        496,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.3232421875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_93_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_93_Picture_4.jpeg",
+      "updated_at": "2025-12-24T22:38:21.771640Z",
+      "oled_bbox": [
+        22,
+        18,
+        496,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.32861328125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_75_Figure_7": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_75_Figure_7.jpeg",
+      "updated_at": "2025-12-25T01:59:13.225643Z",
+      "oled_bbox": [
+        0,
+        0,
+        972,
+        704
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8750473484848484,
+        "reason_codes": [
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_29_Picture_7": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_29_Picture_7.jpeg",
+      "updated_at": "2025-12-25T01:59:15.773786Z",
+      "oled_bbox": [
+        0,
+        0,
+        862,
+        570
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9015824072943379,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_44_Picture_12": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_44_Picture_12.jpeg",
+      "updated_at": "2025-12-25T01:59:32.079062Z",
+      "oled_bbox": [
+        0,
+        0,
+        102,
+        103
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7922330097087379,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_26_Picture_7": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_26_Picture_7.jpeg",
+      "updated_at": "2025-12-25T01:59:35.998607Z",
+      "oled_bbox": [
+        0,
+        0,
+        102,
+        101
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7960978450786255,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_53_Picture_15": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_53_Picture_15.jpeg",
+      "updated_at": "2025-12-25T01:59:38.364233Z",
+      "oled_bbox": [
+        0,
+        0,
+        108,
+        104
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8020566239316239,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_57_Picture_7": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_57_Picture_7.jpeg",
+      "updated_at": "2025-12-24T22:38:54.572009Z",
+      "oled_bbox": [
+        20,
+        18,
+        495,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.21435546875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_76_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_76_Picture_4.jpeg",
+      "updated_at": "2025-12-25T02:20:34.359651Z",
+      "oled_bbox": [
+        22,
+        17,
+        495,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.3372802734375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_9_Picture_13": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_9_Picture_13.jpeg",
+      "updated_at": "2025-12-25T01:59:22.219777Z",
+      "oled_bbox": [
+        0,
+        0,
+        99,
+        87
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.6817485196795542,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_17_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_17_Picture_3.jpeg",
+      "updated_at": "2025-12-25T02:11:07.493077Z",
+      "oled_bbox": [
+        0,
+        0,
+        626,
+        420
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8969028601856078,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_46_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_46_Picture_1.jpeg",
+      "updated_at": "2025-12-25T02:24:54.020422Z",
+      "oled_bbox": [
+        32,
+        19,
+        496,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.3485107421875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_22_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_22_Picture_1.jpeg",
+      "updated_at": "2025-12-25T01:11:43.213517Z",
+      "oled_bbox": [
+        29,
+        18,
+        497,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9376,
+        "reason_codes": [],
+        "pixel_density": 0.1973876953125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_94_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_94_Picture_4.jpeg",
+      "updated_at": "2025-12-25T02:50:19.298997Z",
+      "oled_bbox": [
+        19,
+        20,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.340087890625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_74_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_74_Picture_4.jpeg",
+      "updated_at": "2025-12-25T01:59:45.767855Z",
+      "oled_bbox": [
+        0,
+        0,
+        1020,
+        427
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9212522386003581,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_78_Picture_2": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_78_Picture_2.jpeg",
+      "updated_at": "2025-12-25T01:59:53.223349Z",
+      "oled_bbox": [
+        0,
+        0,
+        1011,
+        420
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9175611134661579,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_95_Picture_21": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_95_Picture_21.jpeg",
+      "updated_at": "2025-12-25T02:50:58.979235Z",
+      "oled_bbox": [
+        31,
+        15,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.31103515625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_62_Picture_17": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_62_Picture_17.jpeg",
+      "updated_at": "2025-12-25T02:58:38.820120Z",
+      "oled_bbox": [
+        18,
+        17,
+        496,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9368000000000001,
+        "reason_codes": [],
+        "pixel_density": 0.2130126953125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_14_Figure_2": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_14_Figure_2.jpeg",
+      "updated_at": "2025-12-25T01:59:58.362133Z",
+      "oled_bbox": [
+        0,
+        0,
+        1278,
+        552
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9361787269510784,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_68_Picture_5": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_68_Picture_5.jpeg",
+      "updated_at": "2025-12-25T02:59:16.259097Z",
+      "oled_bbox": [
+        27,
+        19,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.1834716796875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_45_Picture_12": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_45_Picture_12.jpeg",
+      "updated_at": "2025-12-25T03:06:05.861533Z",
+      "oled_bbox": [
+        32,
+        18,
+        496,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9368000000000001,
+        "reason_codes": [],
+        "pixel_density": 0.1875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_25_Picture_17": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_25_Picture_17.jpeg",
+      "updated_at": "2025-12-24T18:40:31.497210Z",
+      "oled_bbox": [
+        27,
+        10,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 107.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.996586345381526,
+        "reason_codes": [],
+        "pixel_density": 0.14501953125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_22_Picture_16": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_22_Picture_16.jpeg",
+      "updated_at": "2025-12-25T02:00:04.709167Z",
+      "oled_bbox": [
+        0,
+        0,
+        105,
+        104
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7962087912087912,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_96_Picture_24": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_96_Picture_24.jpeg",
+      "updated_at": "2025-12-25T03:39:10.727271Z",
+      "oled_bbox": [
+        32,
+        15,
+        499,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9375806451612902,
+        "reason_codes": [],
+        "pixel_density": 0.2965087890625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_35_Picture_11": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_35_Picture_11.jpeg",
+      "updated_at": "2025-12-25T02:00:11.103957Z",
+      "oled_bbox": [
+        0,
+        0,
+        98,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.5498660070088642,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_67_Picture_5": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_67_Picture_5.jpeg",
+      "updated_at": "2025-12-25T03:21:25.713149Z",
+      "oled_bbox": [
+        32,
+        18,
+        496,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9368000000000001,
+        "reason_codes": [],
+        "pixel_density": 0.155517578125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_63_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_63_Picture_3.jpeg",
+      "updated_at": "2025-12-25T03:40:29.962346Z",
+      "oled_bbox": [
+        25,
+        22,
+        495,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9359999999999999,
+        "reason_codes": [],
+        "pixel_density": 0.1480712890625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_56_Picture_11": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_56_Picture_11.jpeg",
+      "updated_at": "2025-12-25T20:43:58.325888Z",
+      "oled_bbox": [
+        17,
+        24,
+        495,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 111.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.197509765625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": [
+          [
+            22,
+            19
+          ],
+          [
+            22,
+            17
+          ],
+          [
+            21,
+            17
+          ],
+          [
+            20,
+            17
+          ],
+          [
+            19,
+            17
+          ],
+          [
+            18,
+            17
+          ],
+          [
+            17,
+            17
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            27,
+            17
+          ],
+          [
+            25,
+            18
+          ],
+          [
+            24,
+            18
+          ],
+          [
+            23,
+            18
+          ]
+        ]
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_30_Figure_5": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_30_Figure_5.jpeg",
+      "updated_at": "2025-12-25T02:00:18.833613Z",
+      "oled_bbox": [
+        0,
+        0,
+        478,
+        271
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9510352174651453,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_49_Picture_17": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_49_Picture_17.jpeg",
+      "updated_at": "2025-12-25T03:37:57.024613Z",
+      "oled_bbox": [
+        33,
+        16,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.306884765625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_26_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_26_Picture_1.jpeg",
+      "updated_at": "2025-12-25T03:41:50.509241Z",
+      "oled_bbox": [
+        29,
+        20,
+        497,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9375708502024291,
+        "reason_codes": [],
+        "pixel_density": 0.1949462890625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_18_Picture_9": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_18_Picture_9.jpeg",
+      "updated_at": "2025-12-24T18:40:31.524160Z",
+      "oled_bbox": [
+        17,
+        22,
+        497,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 99.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9957987927565393,
+        "reason_codes": [],
+        "pixel_density": 0.1500244140625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_32_Figure_13": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_32_Figure_13.jpeg",
+      "updated_at": "2025-12-25T04:39:26.912793Z",
+      "oled_bbox": [
+        26,
+        22,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.2720947265625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_9_Picture_15": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_9_Picture_15.jpeg",
+      "updated_at": "2025-12-25T02:00:27.597107Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        113
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7785568413886998,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_32_Picture_11": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_32_Picture_11.jpeg",
+      "updated_at": "2025-12-25T04:40:03.896474Z",
+      "oled_bbox": [
+        33,
+        23,
+        497,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9376,
+        "reason_codes": [],
+        "pixel_density": 0.26953125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_89_Figure_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_89_Figure_4.jpeg",
+      "updated_at": "2025-12-25T04:40:38.665154Z",
+      "oled_bbox": [
+        21,
+        20,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3079833984375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_111_Picture_0": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_111_Picture_0.jpeg",
+      "updated_at": "2025-12-25T02:00:37.212822Z",
+      "oled_bbox": [
+        0,
+        0,
+        1588,
+        2246
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.5954727800444564,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_98_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_98_Picture_4.jpeg",
+      "updated_at": "2025-12-25T04:40:55.997757Z",
+      "oled_bbox": [
+        28,
+        15,
+        499,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9359514170040486,
+        "reason_codes": [],
+        "pixel_density": 0.322509765625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_28_Picture_14": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_28_Picture_14.jpeg",
+      "updated_at": "2025-12-24T18:40:31.564984Z",
+      "oled_bbox": [
+        27,
+        20,
+        497,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 108.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9973907703247599,
+        "reason_codes": [],
+        "pixel_density": 0.1429443359375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_38_Picture_7": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_38_Picture_7.jpeg",
+      "updated_at": "2025-12-25T02:00:45.978312Z",
+      "oled_bbox": [
+        0,
+        0,
+        105,
+        104
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7962087912087912,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_97_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_97_Picture_4.jpeg",
+      "updated_at": "2025-12-25T04:41:14.725530Z",
+      "oled_bbox": [
+        23,
+        15,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3194580078125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_18_Picture_5": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_18_Picture_5.jpeg",
+      "updated_at": "2025-12-25T04:41:39.194877Z",
+      "oled_bbox": [
+        22,
+        20,
+        497,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9376,
+        "reason_codes": [],
+        "pixel_density": 0.168212890625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_50_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_50_Picture_1.jpeg",
+      "updated_at": "2025-12-25T02:01:04.501229Z",
+      "oled_bbox": [
+        0,
+        0,
+        105,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.5803174603174602,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_85_Picture_10": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_85_Picture_10.jpeg",
+      "updated_at": "2025-12-25T04:42:29.207291Z",
+      "oled_bbox": [
+        25,
+        16,
+        495,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.3284912109375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_31_Picture_6": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/rejected/_page_31_Picture_6.jpeg",
+      "updated_at": "2025-12-25T04:43:36.399065Z",
+      "oled_bbox": [
+        15,
+        10,
+        495,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [
+          "bbox_too_large"
+        ],
+        "pixel_density": 0.3270263671875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_58_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_58_Picture_1.jpeg",
+      "updated_at": "2025-12-25T02:01:18.137963Z",
+      "oled_bbox": [
+        0,
+        0,
+        111,
+        101
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8141557398983141,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_46_Picture_16": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_46_Picture_16.jpeg",
+      "updated_at": "2025-12-25T02:01:38.699476Z",
+      "oled_bbox": [
+        0,
+        0,
+        110,
+        92
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8331719367588932,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_41_Picture_17": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_41_Picture_17.jpeg",
+      "updated_at": "2025-12-25T02:03:16.009604Z",
+      "oled_bbox": [
+        0,
+        0,
+        106,
+        106
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7943663225347098,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_36_Picture_23": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_36_Picture_23.jpeg",
+      "updated_at": "2025-12-25T02:03:35.342957Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.5886849261849263,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_79_Picture_2": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_79_Picture_2.jpeg",
+      "updated_at": "2025-12-25T04:44:01.057578Z",
+      "oled_bbox": [
+        35,
+        16,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.31884765625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_75_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_75_Picture_4.jpeg",
+      "updated_at": "2025-12-25T02:05:23.912716Z",
+      "oled_bbox": [
+        0,
+        0,
+        106,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8083095101963026,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_79_Figure_7": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_79_Figure_7.jpeg",
+      "updated_at": "2025-12-25T02:05:27.238439Z",
+      "oled_bbox": [
+        0,
+        0,
+        992,
+        651
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9039991204598385,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_48_Picture_24": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_48_Picture_24.jpeg",
+      "updated_at": "2025-12-25T04:44:34.911654Z",
+      "oled_bbox": [
+        28,
+        18,
+        496,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383805668016194,
+        "reason_codes": [],
+        "pixel_density": 0.29931640625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_51_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_51_Picture_3.jpeg",
+      "updated_at": "2025-12-25T02:05:30.309889Z",
+      "oled_bbox": [
+        0,
+        0,
+        103,
+        102
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7961355415952789,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_64_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_64_Picture_1.jpeg",
+      "updated_at": "2025-12-25T02:05:32.608774Z",
+      "oled_bbox": [
+        0,
+        0,
+        106,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8083095101963026,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_71_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_71_Picture_1.jpeg",
+      "updated_at": "2025-12-25T02:05:34.393970Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        97
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.5775674068199841,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_78_Picture_10": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_78_Picture_10.jpeg",
+      "updated_at": "2025-12-25T04:44:59.908522Z",
+      "oled_bbox": [
+        19,
+        19,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.2900390625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_86_Picture_16": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_86_Picture_16.jpeg",
+      "updated_at": "2025-12-25T04:45:54.242966Z",
+      "oled_bbox": [
+        27,
+        15,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3192138671875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_62_Picture_15": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_62_Picture_15.jpeg",
+      "updated_at": "2025-12-25T19:08:08.013691Z",
+      "oled_bbox": [
+        19,
+        19,
+        497,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9376,
+        "reason_codes": [],
+        "pixel_density": 0.1802978515625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_96_Figure_15": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_96_Figure_15.jpeg",
+      "updated_at": "2025-12-25T19:08:24.051776Z",
+      "oled_bbox": [
+        29,
+        22,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.2952880859375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_108_Figure_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_108_Figure_3.jpeg",
+      "updated_at": "2025-12-25T02:05:38.206467Z",
+      "oled_bbox": [
+        0,
+        0,
+        1141,
+        688
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9309866905814972,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_96_Picture_6": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_96_Picture_6.jpeg",
+      "updated_at": "2025-12-25T19:08:44.381966Z",
+      "oled_bbox": [
+        25,
+        20,
+        496,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.300537109375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_23_Picture_13": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_23_Picture_13.jpeg",
+      "updated_at": "2025-12-25T02:05:41.393959Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        102
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7981240573152337,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_61_Picture_10": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_61_Picture_10.jpeg",
+      "updated_at": "2025-12-24T18:40:31.645272Z",
+      "oled_bbox": [
+        17,
+        21,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 105.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.996586345381526,
+        "reason_codes": [],
+        "pixel_density": 0.168701171875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_79_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_79_Picture_1.jpeg",
+      "updated_at": "2025-12-25T19:08:58.584647Z",
+      "oled_bbox": [
+        37,
+        23,
+        496,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.31982421875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_59_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_59_Picture_3.jpeg",
+      "updated_at": "2025-12-24T18:40:31.654625Z",
+      "oled_bbox": [
+        29,
+        23,
+        496,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 108.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9949975806451614,
+        "reason_codes": [],
+        "pixel_density": 0.059326171875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_47_Picture_9": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_47_Picture_9.jpeg",
+      "updated_at": "2025-12-25T02:05:44.038779Z",
+      "oled_bbox": [
+        0,
+        0,
+        102,
+        104
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7903563348416289,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_21_Picture_11": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_21_Picture_11.jpeg",
+      "updated_at": "2025-12-25T19:09:29.152509Z",
+      "oled_bbox": [
+        35,
+        13,
+        497,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391967871485944,
+        "reason_codes": [],
+        "pixel_density": 0.1591796875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_44_Picture_17": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_44_Picture_17.jpeg",
+      "updated_at": "2025-12-25T19:09:44.711266Z",
+      "oled_bbox": [
+        26,
+        18,
+        495,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9359999999999999,
+        "reason_codes": [],
+        "pixel_density": 0.211669921875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_26_Picture_10": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_26_Picture_10.jpeg",
+      "updated_at": "2025-12-25T02:05:50.813771Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        97
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8084853291038857,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_22_Picture_8": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_22_Picture_8.jpeg",
+      "updated_at": "2025-12-25T19:10:09.167016Z",
+      "oled_bbox": [
+        24,
+        17,
+        499,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9375806451612902,
+        "reason_codes": [],
+        "pixel_density": 0.195556640625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_98_Picture_21": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_98_Picture_21.jpeg",
+      "updated_at": "2025-12-25T19:10:26.333601Z",
+      "oled_bbox": [
+        32,
+        16,
+        496,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383805668016194,
+        "reason_codes": [],
+        "pixel_density": 0.321533203125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_43_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_43_Picture_3.jpeg",
+      "updated_at": "2025-12-25T19:10:52.111688Z",
+      "oled_bbox": [
+        35,
+        16,
+        495,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.35302734375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_91_Picture_6": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_91_Picture_6.jpeg",
+      "updated_at": "2025-12-25T19:11:07.198194Z",
+      "oled_bbox": [
+        32,
+        12,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.33349609375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_27_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_27_Picture_3.jpeg",
+      "updated_at": "2025-12-25T19:11:32.741952Z",
+      "oled_bbox": [
+        32,
+        17,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3138427734375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_46_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_46_Picture_4.jpeg",
+      "updated_at": "2025-12-25T20:46:07.509422Z",
+      "oled_bbox": [
+        0,
+        0,
+        110,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8164921946740129,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_15_Figure_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_15_Figure_3.jpeg",
+      "updated_at": "2025-12-25T02:05:57.216728Z",
+      "oled_bbox": [
+        0,
+        0,
+        1291,
+        521
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9036068396145766,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_66_Picture_6": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_66_Picture_6.jpeg",
+      "updated_at": "2025-12-25T19:11:53.761642Z",
+      "oled_bbox": [
+        28,
+        14,
+        497,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391967871485944,
+        "reason_codes": [],
+        "pixel_density": 0.180419921875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_40_Picture_9": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_40_Picture_9.jpeg",
+      "updated_at": "2025-12-25T02:06:02.970954Z",
+      "oled_bbox": [
+        0,
+        0,
+        112,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.820580808080808,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_89_Picture_16": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_89_Picture_16.jpeg",
+      "updated_at": "2025-12-25T19:12:18.507893Z",
+      "oled_bbox": [
+        23,
+        17,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.30908203125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_77_Picture_10": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_77_Picture_10.jpeg",
+      "updated_at": "2025-12-25T02:06:06.047961Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8042152292152293,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_42_Picture_26": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_42_Picture_26.jpeg",
+      "updated_at": "2025-12-25T02:06:07.532171Z",
+      "oled_bbox": [
+        0,
+        0,
+        107,
+        115
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.780698902885006,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_50_Picture_14": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_50_Picture_14.jpeg",
+      "updated_at": "2025-12-25T19:13:03.622513Z",
+      "oled_bbox": [
+        13,
+        24,
+        496,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383805668016194,
+        "reason_codes": [],
+        "pixel_density": 0.320556640625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_67_Picture_21": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_67_Picture_21.jpeg",
+      "updated_at": "2025-12-24T18:40:31.726008Z",
+      "oled_bbox": [
+        27,
+        11,
+        496,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 104.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9949975806451614,
+        "reason_codes": [],
+        "pixel_density": 0.120361328125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_80_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_80_Picture_1.jpeg",
+      "updated_at": "2025-12-25T19:13:24.688379Z",
+      "oled_bbox": [
+        32,
+        17,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.317138671875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_31_Picture_8": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_31_Picture_8.jpeg",
+      "updated_at": "2025-12-25T19:13:51.454461Z",
+      "oled_bbox": [
+        21,
+        19,
+        495,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.24560546875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_65_Picture_19": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_65_Picture_19.jpeg",
+      "updated_at": "2025-12-25T02:06:10.870840Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        101
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.5740289413556741,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_49_Picture_9": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_49_Picture_9.jpeg",
+      "updated_at": "2025-12-25T19:14:23.072124Z",
+      "oled_bbox": [
+        34,
+        15,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3096923828125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_30_Figure_6": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_30_Figure_6.jpeg",
+      "updated_at": "2025-12-25T02:06:12.967712Z",
+      "oled_bbox": [
+        0,
+        0,
+        863,
+        642
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8680329792111123,
+        "reason_codes": [
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_13_Picture_10": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_13_Picture_10.jpeg",
+      "updated_at": "2025-12-25T02:06:15.151557Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        91
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8224218089602705,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_57_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_57_Picture_3.jpeg",
+      "updated_at": "2025-12-25T02:06:16.708311Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        87
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8327807250221044,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_42_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_42_Picture_3.jpeg",
+      "updated_at": "2025-12-25T19:14:39.515800Z",
+      "oled_bbox": [
+        26,
+        22,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.312255859375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_22_Picture_19": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_22_Picture_19.jpeg",
+      "updated_at": "2025-12-25T02:06:18.862572Z",
+      "oled_bbox": [
+        0,
+        0,
+        104,
+        92
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.6982232441471572,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_77_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_77_Picture_1.jpeg",
+      "updated_at": "2025-12-25T19:14:57.465151Z",
+      "oled_bbox": [
+        35,
+        21,
+        494,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3260498046875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_25_Picture_18": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_25_Picture_18.jpeg",
+      "updated_at": "2025-12-25T02:06:20.740257Z",
+      "oled_bbox": [
+        0,
+        0,
+        103,
+        113
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7767591717501503,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_26_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_26_Picture_3.jpeg",
+      "updated_at": "2025-12-25T19:15:23.943315Z",
+      "oled_bbox": [
+        21,
+        19,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.1507568359375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_97_Picture_16": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_97_Picture_16.jpeg",
+      "updated_at": "2025-12-25T19:15:40.531240Z",
+      "oled_bbox": [
+        22,
+        20,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3187255859375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_61_Picture_7": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_61_Picture_7.jpeg",
+      "updated_at": "2025-12-25T19:16:04.952864Z",
+      "oled_bbox": [
+        23,
+        13,
+        496,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.1834716796875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_25_Picture_5": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_25_Picture_5.jpeg",
+      "updated_at": "2025-12-25T02:06:23.683121Z",
+      "oled_bbox": [
+        0,
+        0,
+        99,
+        101
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.79006900690069,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_55_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_55_Picture_4.jpeg",
+      "updated_at": "2025-12-25T19:16:47.565023Z",
+      "oled_bbox": [
+        25,
+        23,
+        496,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.204345703125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_29_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_29_Picture_3.jpeg",
+      "updated_at": "2025-12-25T02:06:26.310999Z",
+      "oled_bbox": [
+        0,
+        0,
+        488,
+        255
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9809562841530055,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_90_Picture_21": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_90_Picture_21.jpeg",
+      "updated_at": "2025-12-25T19:17:04.528035Z",
+      "oled_bbox": [
+        25,
+        19,
+        496,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.31103515625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_54_Picture_5": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_54_Picture_5.jpeg",
+      "updated_at": "2025-12-25T02:06:28.086293Z",
+      "oled_bbox": [
+        0,
+        0,
+        108,
+        113
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7857423795476893,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_58_Picture_15": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_58_Picture_15.jpeg",
+      "updated_at": "2025-12-25T19:17:25.694098Z",
+      "oled_bbox": [
+        22,
+        22,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.2242431640625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_34_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_34_Picture_3.jpeg",
+      "updated_at": "2025-12-25T19:17:47.237770Z",
+      "oled_bbox": [
+        17,
+        23,
+        496,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383805668016194,
+        "reason_codes": [],
+        "pixel_density": 0.223388671875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_38_Picture_5": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_38_Picture_5.jpeg",
+      "updated_at": "2025-12-25T19:18:15.447351Z",
+      "oled_bbox": [
+        20,
+        17,
+        494,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.4075927734375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_44_Picture_2": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_44_Picture_2.jpeg",
+      "updated_at": "2025-12-25T02:06:31.899774Z",
+      "oled_bbox": [
+        0,
+        0,
+        105,
+        84
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8436054421768708,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_96_Picture_27": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_96_Picture_27.jpeg",
+      "updated_at": "2025-12-25T19:18:35.126924Z",
+      "oled_bbox": [
+        27,
+        10,
+        495,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.29345703125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_66_Picture_21": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_66_Picture_21.jpeg",
+      "updated_at": "2025-12-24T18:40:31.835198Z",
+      "oled_bbox": [
+        31,
+        14,
+        497,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 106.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9957987927565393,
+        "reason_codes": [],
+        "pixel_density": 0.141357421875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_77_Picture_6": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_77_Picture_6.jpeg",
+      "updated_at": "2025-12-25T19:18:53.727080Z",
+      "oled_bbox": [
+        31,
+        14,
+        494,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3143310546875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_21_Picture_8": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_21_Picture_8.jpeg",
+      "updated_at": "2025-12-25T19:23:58.395823Z",
+      "oled_bbox": [
+        17,
+        20,
+        494,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.1654052734375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_16_Picture_14": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_16_Picture_14.jpeg",
+      "updated_at": "2025-12-25T02:06:34.797267Z",
+      "oled_bbox": [
+        0,
+        0,
+        107,
+        102
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8040864944108483,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_74_Picture_13": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_74_Picture_13.jpeg",
+      "updated_at": "2025-12-24T18:40:31.855211Z",
+      "oled_bbox": [
+        27,
+        18,
+        497,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 105.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9957987927565393,
+        "reason_codes": [],
+        "pixel_density": 0.1475830078125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_32_Picture_5": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_32_Picture_5.jpeg",
+      "updated_at": "2025-12-25T02:06:37.235207Z",
+      "oled_bbox": [
+        0,
+        0,
+        106,
+        108
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7907145352900069,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_27_Figure_16": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_27_Figure_16.jpeg",
+      "updated_at": "2025-12-25T19:24:24.951066Z",
+      "oled_bbox": [
+        14,
+        18,
+        495,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.228759765625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_71_Picture_10": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_71_Picture_10.jpeg",
+      "updated_at": "2025-12-25T02:06:39.923530Z",
+      "oled_bbox": [
+        0,
+        0,
+        99,
+        103
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7863195057369814,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_64_Picture_23": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_64_Picture_23.jpeg",
+      "updated_at": "2025-12-25T19:24:46.007444Z",
+      "oled_bbox": [
+        22,
+        16,
+        497,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391967871485944,
+        "reason_codes": [],
+        "pixel_density": 0.2076416015625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_36_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_36_Picture_3.jpeg",
+      "updated_at": "2025-12-25T02:06:42.306938Z",
+      "oled_bbox": [
+        0,
+        0,
+        102,
+        109
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7814894765245548,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_59_Picture_9": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_59_Picture_9.jpeg",
+      "updated_at": "2025-12-25T19:25:03.631316Z",
+      "oled_bbox": [
+        27,
+        19,
+        496,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.2042236328125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_22_Picture_2": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_22_Picture_2.jpeg",
+      "updated_at": "2025-12-25T02:07:00.038787Z",
+      "oled_bbox": [
+        0,
+        0,
+        101,
+        97
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8022149637644176,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_25_Picture_13": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_25_Picture_13.jpeg",
+      "updated_at": "2025-12-25T19:25:22.320394Z",
+      "oled_bbox": [
+        26,
+        17,
+        494,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3040771484375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_32_Picture_9": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_32_Picture_9.jpeg",
+      "updated_at": "2025-12-25T19:25:39.924878Z",
+      "oled_bbox": [
+        26,
+        24,
+        496,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.3284912109375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_68_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_68_Picture_1.jpeg",
+      "updated_at": "2025-12-25T19:26:04.042232Z",
+      "oled_bbox": [
+        32,
+        22,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.1827392578125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_65_Picture_12": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_65_Picture_12.jpeg",
+      "updated_at": "2025-12-25T02:10:02.474394Z",
+      "oled_bbox": [
+        0,
+        0,
+        102,
+        92
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8155690537084399,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_49_Picture_2": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_49_Picture_2.jpeg",
+      "updated_at": "2025-12-25T02:10:05.540465Z",
+      "oled_bbox": [
+        0,
+        0,
+        99,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.5563513927150291,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_41_Picture_12": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_41_Picture_12.jpeg",
+      "updated_at": "2025-12-25T19:26:34.549581Z",
+      "oled_bbox": [
+        28,
+        18,
+        494,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.144287109375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_31_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_31_Picture_3.jpeg",
+      "updated_at": "2025-12-25T19:27:43.250264Z",
+      "oled_bbox": [
+        29,
+        18,
+        494,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.1976318359375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_24_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_24_Picture_3.jpeg",
+      "updated_at": "2025-12-25T19:28:03.358409Z",
+      "oled_bbox": [
+        27,
+        16,
+        497,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.1470947265625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_96_Figure_8": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_96_Figure_8.jpeg",
+      "updated_at": "2025-12-25T19:28:21.172465Z",
+      "oled_bbox": [
+        27,
+        17,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.29541015625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_23_Picture_15": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_23_Picture_15.jpeg",
+      "updated_at": "2025-12-25T02:10:18.440708Z",
+      "oled_bbox": [
+        0,
+        0,
+        101,
+        89
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.6923017020803204,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_39_Picture_10": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_39_Picture_10.jpeg",
+      "updated_at": "2025-12-25T02:10:20.736916Z",
+      "oled_bbox": [
+        0,
+        0,
+        111,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8185367185367185,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_75_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_75_Picture_1.jpeg",
+      "updated_at": "2025-12-25T19:28:49.051741Z",
+      "oled_bbox": [
+        34,
+        18,
+        495,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.13671875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_30_Picture_2": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_30_Picture_2.jpeg",
+      "updated_at": "2025-12-25T02:10:23.410071Z",
+      "oled_bbox": [
+        0,
+        0,
+        485,
+        268
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9602046468687491,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_29_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_29_Picture_4.jpeg",
+      "updated_at": "2025-12-25T02:10:25.008012Z",
+      "oled_bbox": [
+        0,
+        0,
+        887,
+        560
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9159123852472217,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_30_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_30_Picture_3.jpeg",
+      "updated_at": "2025-12-25T02:10:26.466936Z",
+      "oled_bbox": [
+        0,
+        0,
+        880,
+        543
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.9232324627490374,
+        "reason_codes": [
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_33_Picture_24": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_33_Picture_24.jpeg",
+      "updated_at": "2025-12-25T02:10:28.269097Z",
+      "oled_bbox": [
+        0,
+        0,
+        100,
+        101
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7920792079207921,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_108_Figure_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_108_Figure_4.jpeg",
+      "updated_at": "2025-12-25T02:10:30.133981Z",
+      "oled_bbox": [
+        0,
+        0,
+        1154,
+        1092
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.8093527212244715,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_64_Picture_6": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_64_Picture_6.jpeg",
+      "updated_at": "2025-12-24T18:40:31.976850Z",
+      "oled_bbox": [
+        15,
+        22,
+        497,
+        250
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 108.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9957987927565393,
+        "reason_codes": [],
+        "pixel_density": 0.109375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_18_Picture_12": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_18_Picture_12.jpeg",
+      "updated_at": "2025-12-25T02:10:31.887911Z",
+      "oled_bbox": [
+        0,
+        0,
+        1153,
+        324
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.6870862912637992,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_47_Picture_15": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_47_Picture_15.jpeg",
+      "updated_at": "2025-12-25T19:29:13.145996Z",
+      "oled_bbox": [
+        27,
+        19,
+        494,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.4669189453125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_43_Picture_8": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_43_Picture_8.jpeg",
+      "updated_at": "2025-12-25T19:29:31.929329Z",
+      "oled_bbox": [
+        34,
+        14,
+        494,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.2984619140625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_96_Picture_21": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_96_Picture_21.jpeg",
+      "updated_at": "2025-12-25T19:29:53.888440Z",
+      "oled_bbox": [
+        29,
+        15,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.2926025390625
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_37_Picture_3": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_37_Picture_3.jpeg",
+      "updated_at": "2025-12-25T02:10:35.359950Z",
+      "oled_bbox": [
+        0,
+        0,
+        105,
+        106
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.7924528301886793,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_66_Picture_1": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_66_Picture_1.jpeg",
+      "updated_at": "2025-12-25T02:10:36.938722Z",
+      "oled_bbox": [
+        0,
+        0,
+        99,
+        84
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.6839105339105339,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_57_Picture_13": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_57_Picture_13.jpeg",
+      "updated_at": "2025-12-25T02:10:39.239688Z",
+      "oled_bbox": [
+        0,
+        0,
+        107,
+        103
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.5889665184647491,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_56_Picture_14": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_56_Picture_14.jpeg",
+      "updated_at": "2025-12-25T19:30:24.961136Z",
+      "oled_bbox": [
+        27,
+        9,
+        496,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9383805668016194,
+        "reason_codes": [],
+        "pixel_density": 0.2322998046875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_50_Picture_9": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_50_Picture_9.jpeg",
+      "updated_at": "2025-12-25T02:10:41.926983Z",
+      "oled_bbox": [
+        0,
+        0,
+        107,
+        99
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": false,
+        "confidence": 0.5944114037571981,
+        "reason_codes": [
+          "low_confidence",
+          "aspect_ratio",
+          "area_too_large",
+          "low_rectangularity"
+        ]
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "rejected"
+      },
+      "notes": ""
+    },
+    "_page_76_Picture_6": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_76_Picture_6.jpeg",
+      "updated_at": "2025-12-24T18:40:32.029883Z",
+      "oled_bbox": [
+        31,
+        15,
+        497,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ],
+        "otsu_threshold": 71.0
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9908491107286288,
+        "reason_codes": [],
+        "pixel_density": 0.1357421875
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {},
+      "notes": ""
+    },
+    "_page_95_Figure_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_95_Figure_4.jpeg",
+      "updated_at": "2025-12-25T19:30:49.264562Z",
+      "oled_bbox": [
+        25,
+        18,
+        495,
+        247
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.3115234375
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_85_Picture_22": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_85_Picture_22.jpeg",
+      "updated_at": "2025-12-25T19:31:11.284599Z",
+      "oled_bbox": [
+        31,
+        17,
+        495,
+        248
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3165283203125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    },
+    "_page_56_Picture_4": {
+      "version": "1.0",
+      "source_path": "/oled/analog-four-mkii/incoming/_page_56_Picture_4.jpeg",
+      "updated_at": "2025-12-25T19:31:42.537274Z",
+      "oled_bbox": [
+        21,
+        22,
+        495,
+        249
+      ],
+      "normalize_params": {
+        "target_size": [
+          128,
+          64
+        ]
+      },
+      "validation": {
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.21142578125
+      },
+      "overrides": {
+        "force_on": [],
+        "force_off": []
+      },
+      "flags": {
+        "manual_status": "ok"
+      },
+      "notes": ""
+    }
+  }
+}
