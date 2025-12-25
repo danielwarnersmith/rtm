@@ -8,14 +8,144 @@ interface TocEntry {
   level: number; // 1 = main section (1., 2., etc), 2 = subsection (1.1, 2.1), 3 = sub-subsection (1.1.1)
 }
 
+interface SvgEntry {
+  id: string;
+  filename: string;
+  element: HTMLElement;
+}
+
+type MenuMode = "toc" | "svg";
+
 export function TableOfContents() {
   const [isOpen, setIsOpen] = useState(false);
   const [entries, setEntries] = useState<TocEntry[]>([]);
+  const [svgEntries, setSvgEntries] = useState<SvgEntry[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSection, setSelectedSection] = useState<TocEntry | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [menuMode, setMenuMode] = useState<MenuMode>("toc");
   const searchInputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const isDev = process.env.NODE_ENV === "development";
+
+  // Extract SVG entries from the page (dev mode only)
+  useEffect(() => {
+    if (!isDev) {
+      setSvgEntries([]);
+      return;
+    }
+
+    // Wait a bit for content to render
+    const timeout = setTimeout(() => {
+      const article = document.querySelector("article");
+      if (!article) {
+        setSvgEntries([]);
+        return;
+      }
+
+      // Find all SVG elements directly or in containers from CustomImg
+      const svgElements = Array.from(article.querySelectorAll("svg"));
+      const svgContainers = new Set<HTMLElement>();
+
+      svgElements.forEach((svg) => {
+        // Find the parent container (usually a span or div from CustomImg)
+        let container: HTMLElement | null = svg.parentElement;
+        // Walk up to find the actual container (span or div, skip nested elements)
+        while (
+          container &&
+          container.tagName !== "SPAN" &&
+          container.tagName !== "DIV" &&
+          container !== article
+        ) {
+          container = container.parentElement;
+        }
+        // Use the container if it's a valid span or div (not article)
+        if (
+          container &&
+          container !== article &&
+          (container.tagName === "SPAN" || container.tagName === "DIV")
+        ) {
+          svgContainers.add(container);
+        } else if (svg.parentElement && svg.parentElement !== article) {
+          // Fallback: use the direct parent if it's not the article
+          svgContainers.add(svg.parentElement as HTMLElement);
+        }
+      });
+
+      // Also check for img elements with .svg src (fallback case)
+      const svgImages = Array.from(
+        article.querySelectorAll("img[src$='.svg']")
+      );
+      svgImages.forEach((img) => {
+        let container: HTMLElement | null = img.parentElement;
+        while (
+          container &&
+          container.tagName !== "SPAN" &&
+          container.tagName !== "DIV" &&
+          container !== article
+        ) {
+          container = container.parentElement;
+        }
+        if (
+          container &&
+          container !== article &&
+          (container.tagName === "SPAN" || container.tagName === "DIV")
+        ) {
+          svgContainers.add(container);
+        }
+      });
+
+      const svgs: SvgEntry[] = [];
+      Array.from(svgContainers).forEach((container, index) => {
+        // Try to get filename from SVG or img src
+        const svg = container.querySelector("svg");
+        const img = container.querySelector("img");
+        let filename = `SVG ${index + 1}`;
+
+        if (img && img.src) {
+          try {
+            const url = new URL(img.src);
+            const pathParts = url.pathname.split("/");
+            filename = pathParts[pathParts.length - 1] || filename;
+          } catch {
+            // If URL parsing fails, try extracting from src string
+            const parts = img.src.split("/");
+            filename = parts[parts.length - 1] || filename;
+          }
+        } else if (svg) {
+          // For inline SVGs, try to extract from preceding heading or text
+          let prevSibling: Element | null = container.previousElementSibling;
+          let attempts = 0;
+          while (prevSibling && attempts < 5) {
+            if (prevSibling.tagName.match(/^H[1-6]$/)) {
+              const headingText = prevSibling.textContent?.trim().substring(0, 40);
+              if (headingText) {
+                filename = `${headingText}...`;
+                break;
+              }
+            }
+            prevSibling = prevSibling.previousElementSibling;
+            attempts++;
+          }
+        }
+
+        // Create a unique ID for this SVG
+        const id = `svg-${index}`;
+        if (!container.id) {
+          container.id = id;
+        }
+        svgs.push({
+          id: container.id || id,
+          filename,
+          element: container,
+        });
+      });
+
+      setSvgEntries(svgs);
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [isDev]);
 
   // Extract TOC entries from the page
   useEffect(() => {
@@ -123,6 +253,21 @@ export function TableOfContents() {
 
   // What to display
   const items = useMemo(() => {
+    // SVG mode
+    if (menuMode === "svg") {
+      const filtered = searchQuery
+        ? svgEntries.filter((e) =>
+            e.filename.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+        : svgEntries;
+      return filtered.map((e) => ({
+        id: e.id,
+        text: e.filename,
+        level: 1,
+      }));
+    }
+
+    // TOC mode
     if (selectedSection) {
       const children = getChildren(selectedSection);
       const filtered = searchQuery
@@ -135,13 +280,52 @@ export function TableOfContents() {
 
     // Show main sections or search all entries
     if (searchQuery) {
-      return entries.filter((e) =>
+      const matchingEntries = entries.filter((e) =>
         e.text.toLowerCase().includes(searchQuery.toLowerCase())
       );
+      
+      // In dev mode, also include matching SVG entries in search results
+      if (isDev && svgEntries.length > 0) {
+        const matchingSvgs = svgEntries
+          .filter((e) =>
+            e.filename.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+          .map((e) => ({
+            id: e.id,
+            text: e.filename,
+            level: 1,
+          }));
+        
+        // If there are matching SVGs, add them to results
+        if (matchingSvgs.length > 0) {
+          return [...matchingEntries, ...matchingSvgs];
+        }
+      }
+      
+      return matchingEntries;
     }
 
-    return mainSections;
-  }, [selectedSection, searchQuery, mainSections, entries, getChildren]);
+    // Add SVG entry to main sections if in dev mode
+    const sections = [...mainSections];
+    if (isDev && svgEntries.length > 0) {
+      sections.push({
+        id: "svg-menu",
+        text: `SVG Images (${svgEntries.length})`,
+        level: 1,
+      });
+    }
+
+    return sections;
+  }, [
+    menuMode,
+    selectedSection,
+    searchQuery,
+    mainSections,
+    entries,
+    getChildren,
+    svgEntries,
+    isDev,
+  ]);
 
   // Reset selected index when items change
   useEffect(() => {
@@ -180,6 +364,7 @@ export function TableOfContents() {
       setSearchQuery("");
       setSelectedSection(null);
       setSelectedIndex(0);
+      setMenuMode("toc");
     }
     return () => {
       document.body.style.overflow = "";
@@ -187,20 +372,50 @@ export function TableOfContents() {
   }, [isOpen]);
 
   // Navigate to entry
-  const navigateTo = useCallback((id: string) => {
-    searchInputRef.current?.blur();
-    setIsOpen(false);
-    setTimeout(() => {
-      document.getElementById(id)?.scrollIntoView({ behavior: "instant" });
-      history.pushState(null, "", `#${id}`);
-    }, 50);
-  }, []);
+  const navigateTo = useCallback(
+    (id: string) => {
+      searchInputRef.current?.blur();
+      setIsOpen(false);
+
+      setTimeout(() => {
+        // Check if this is an SVG entry (works in both SVG mode and TOC mode search)
+        const svgEntry = svgEntries.find((e) => e.id === id);
+        if (svgEntry) {
+          // Calculate offset for sticky header
+          // Header is h-16 (64px) + safe area inset + some padding
+          // Using a larger offset (120px) to ensure SVG is well visible below header
+          const headerOffset = 120;
+          const elementTop = svgEntry.element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementTop - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+
+          // Highlight briefly
+          svgEntry.element.style.outline = "2px solid rgb(59 130 246)";
+          svgEntry.element.style.outlineOffset = "4px";
+          setTimeout(() => {
+            svgEntry.element.style.outline = "";
+            svgEntry.element.style.outlineOffset = "";
+          }, 2000);
+        } else {
+          // Regular TOC entry
+          document.getElementById(id)?.scrollIntoView({ behavior: "instant" });
+          history.pushState(null, "", `#${id}`);
+        }
+      }, 50);
+    },
+    [menuMode, svgEntries]
+  );
 
   // Go back to top level
   const goBack = useCallback(() => {
     setSelectedSection(null);
     setSearchQuery("");
     setSelectedIndex(0);
+    setMenuMode("toc");
     // Keep focus on input
     setTimeout(() => searchInputRef.current?.focus(), 0);
   }, []);
@@ -208,18 +423,38 @@ export function TableOfContents() {
   // Handle item selection
   const handleSelect = useCallback(
     (item: TocEntry) => {
-      const hasChildren = !selectedSection && getChildren(item).length > 0;
-      if (hasChildren) {
-        setSelectedSection(item);
+      // Special handling for SVG menu entry
+      if (item.id === "svg-menu" && menuMode === "toc") {
+        setMenuMode("svg");
         setSearchQuery("");
         setSelectedIndex(0);
-        // Keep focus on input
         setTimeout(() => searchInputRef.current?.focus(), 0);
-      } else {
-        navigateTo(item.id);
+        return;
       }
+
+      // Check if this is an SVG item (from search results in TOC mode)
+      if (isDev && menuMode === "toc" && svgEntries.some((e) => e.id === item.id)) {
+        navigateTo(item.id);
+        return;
+      }
+
+      // TOC mode: check for children
+      if (menuMode === "toc") {
+        const hasChildren = !selectedSection && getChildren(item).length > 0;
+        if (hasChildren) {
+          setSelectedSection(item);
+          setSearchQuery("");
+          setSelectedIndex(0);
+          // Keep focus on input
+          setTimeout(() => searchInputRef.current?.focus(), 0);
+          return;
+        }
+      }
+
+      // Navigate to the item
+      navigateTo(item.id);
     },
-    [selectedSection, getChildren, navigateTo]
+    [selectedSection, getChildren, navigateTo, menuMode, isDev, svgEntries]
   );
 
   // Keyboard navigation within modal
@@ -229,7 +464,11 @@ export function TableOfContents() {
         e.preventDefault();
         setIsOpen(false);
       }
-      if ((e.key === "Backspace" || e.key === "ArrowLeft") && !searchQuery && selectedSection) {
+      if (
+        (e.key === "Backspace" || e.key === "ArrowLeft") &&
+        !searchQuery &&
+        (selectedSection || menuMode === "svg")
+      ) {
         goBack();
       }
       if (e.key === "ArrowDown") {
@@ -245,10 +484,20 @@ export function TableOfContents() {
         handleSelect(items[selectedIndex]);
       }
     },
-    [searchQuery, selectedSection, goBack, items, selectedIndex, handleSelect, setIsOpen]
+    [
+      searchQuery,
+      selectedSection,
+      menuMode,
+      goBack,
+      items,
+      selectedIndex,
+      handleSelect,
+      setIsOpen,
+    ]
   );
 
-  if (entries.length === 0) return null;
+  // Don't render if no entries and not in dev mode with SVGs
+  if (entries.length === 0 && (!isDev || svgEntries.length === 0)) return null;
 
   return (
     <>
@@ -292,12 +541,16 @@ export function TableOfContents() {
           >
             {/* Search */}
             <div className="flex items-center gap-2 border-b border-neutral-200 px-4 dark:border-neutral-800">
-              {selectedSection && (
+              {(selectedSection || menuMode === "svg") && (
                 <button
                   onClick={goBack}
                   className="flex max-w-[200px] items-center gap-1 rounded-md bg-neutral-100 px-2 py-1 text-xs text-neutral-700 transition-colors hover:bg-neutral-200 active:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:active:bg-neutral-700"
                 >
-                  <span className="truncate">{selectedSection.text}</span>
+                  <span className="truncate">
+                    {menuMode === "svg"
+                      ? "SVG Images"
+                      : selectedSection?.text}
+                  </span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -321,7 +574,13 @@ export function TableOfContents() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleInputKeyDown}
-                placeholder={selectedSection ? "Filter..." : "Jump to section..."}
+                placeholder={
+                  menuMode === "svg"
+                    ? "Filter SVGs..."
+                    : selectedSection
+                      ? "Filter..."
+                      : "Jump to section..."
+                }
                 className="min-w-0 flex-1 bg-transparent py-4 pl-[7px] text-base text-neutral-900 outline-none placeholder:text-neutral-400 sm:text-sm dark:text-white"
               />
               <kbd className="hidden flex-shrink-0 rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs text-neutral-500 shadow-none sm:block dark:bg-neutral-800 dark:text-neutral-400">
@@ -339,7 +598,10 @@ export function TableOfContents() {
               ) : (
                 items.map((item, index) => {
                   const hasChildren =
-                    !selectedSection && getChildren(item).length > 0;
+                    menuMode === "toc" &&
+                    !selectedSection &&
+                    item.id !== "svg-menu" &&
+                    getChildren(item).length > 0;
                   const isSelected = index === selectedIndex;
 
                   return (
@@ -354,6 +616,22 @@ export function TableOfContents() {
                         }`}
                       >
                         <span className="truncate">{item.text}</span>
+                        {menuMode === "svg" && (
+                          <svg
+                            className="ml-2 mr-1 h-[15px] w-[15px] flex-shrink-0 text-neutral-400"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <line x1="9" y1="9" x2="15" y2="9" />
+                            <line x1="9" y1="15" x2="15" y2="15" />
+                          </svg>
+                        )}
                         {hasChildren && (
                           <svg
                             className="ml-2 mr-1 h-[15px] w-[15px] flex-shrink-0 text-neutral-400"
