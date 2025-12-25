@@ -29,6 +29,7 @@ function App() {
   const [filter, setFilter] = useState<FilterStatus>('all')
   const [statusMenuOpen, setStatusMenuOpen] = useState(false)
   const [statusMenuIndex, setStatusMenuIndex] = useState(0)
+  const [statusChangeHistory, setStatusChangeHistory] = useState<Array<{ itemId: string; previousStatus: Item['status'] }>>([])
 
   const filteredItems = filter === 'all' 
     ? items 
@@ -109,6 +110,33 @@ function App() {
         }
       }
 
+      // Command/Ctrl+Z for undo (only when not in status menu)
+      if ((e.key === 'z' || e.key === 'Z') && (e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey && !statusMenuOpen) {
+        e.preventDefault()
+        if (statusChangeHistory.length > 0) {
+          const lastChange = statusChangeHistory[statusChangeHistory.length - 1]
+          const { itemId, previousStatus } = lastChange
+          
+          // Revert the status change
+          updateItemState(itemId, { manual_status: previousStatus })
+            .then(() => {
+              // Update the item in the list
+              setItems(prevItems => 
+                prevItems.map(item => 
+                  item.id === itemId ? { ...item, status: previousStatus } : item
+                )
+              )
+              // Remove from history
+              setStatusChangeHistory(prev => prev.slice(0, -1))
+            })
+            .catch((err) => {
+              console.error('Failed to undo status:', err)
+              alert(`Failed to undo status: ${err instanceof Error ? err.message : 'Unknown error'}`)
+            })
+        }
+        return
+      }
+
       // j/k for navigation - use filtered items (only when Control is not held)
       if (e.key === 'j' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         e.preventDefault()
@@ -140,6 +168,11 @@ function App() {
       if (statusMenuOpen && !e.ctrlKey && selectedItemId) {
         const selectedStatus = statusOptions[statusMenuIndex]
         setStatusMenuOpen(false)
+        
+        // Find the current status before changing
+        const currentItem = items.find(item => item.id === selectedItemId)
+        const previousStatus = currentItem?.status || 'ok'
+        
         // Apply the status change immediately
         updateItemState(selectedItemId, { manual_status: selectedStatus })
           .then(() => {
@@ -149,6 +182,8 @@ function App() {
                 item.id === selectedItemId ? { ...item, status: selectedStatus } : item
               )
             )
+            // Add to history for undo
+            setStatusChangeHistory(prev => [...prev, { itemId: selectedItemId, previousStatus }])
           })
           .catch((err) => {
             console.error('Failed to update status:', err)
@@ -165,7 +200,7 @@ function App() {
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('keyup', handleKeyUp)
     }
-  }, [filteredItems, selectedItemId, statusMenuOpen, statusMenuIndex])
+  }, [filteredItems, selectedItemId, statusMenuOpen, statusMenuIndex, statusChangeHistory, items])
 
   // Load device after items are loaded (can use items as fallback)
   useEffect(() => {
@@ -217,7 +252,18 @@ function App() {
         items={items}
         selectedId={selectedItemId}
         onSelect={setSelectedItemId}
-        onStatusChange={loadItems}
+        onStatusChange={(itemId, newStatus, previousStatus) => {
+          // Update local state
+          setItems(prevItems => 
+            prevItems.map(item => 
+              item.id === itemId ? { ...item, status: newStatus } : item
+            )
+          )
+          // Add to history for undo
+          if (previousStatus) {
+            setStatusChangeHistory(prev => [...prev, { itemId, previousStatus }])
+          }
+        }}
         device={device}
         filter={filter}
         onFilterChange={setFilter}
@@ -242,7 +288,19 @@ function App() {
           <Editor
             itemId={selectedItemId}
             onRerun={loadItems}
-            items={items}
+            items={filteredItems}
+            onStatusChange={(itemId, newStatus, previousStatus) => {
+              // Update local state
+              setItems(prevItems => 
+                prevItems.map(item => 
+                  item.id === itemId ? { ...item, status: newStatus } : item
+                )
+              )
+              // Add to history for undo
+              if (previousStatus) {
+                setStatusChangeHistory(prev => [...prev, { itemId, previousStatus }])
+              }
+            }}
           />
         ) : (
                   <div className="flex items-center justify-center w-full h-full">

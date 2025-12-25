@@ -9,7 +9,7 @@ interface SidebarProps {
   items: Item[]
   selectedId: string | null
   onSelect: (id: string) => void
-  onStatusChange?: () => void | Promise<void>
+  onStatusChange?: (itemId: string, newStatus: Item['status'], previousStatus?: Item['status']) => void | Promise<void>
   device?: string
   filter: FilterStatus
   onFilterChange: (filter: FilterStatus) => void
@@ -49,17 +49,16 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
   const handleStatusChange = async (itemId: string, newStatus: Item['status']) => {
     try {
       setContextMenu(null)
-      // Optimistically update the local items list
-      const updatedItems = items.map(item => 
-        item.id === itemId ? { ...item, status: newStatus } : item
-      )
-      // Note: This won't actually update the parent's items, but we'll refresh below
+      
+      // Get the previous status before changing
+      const currentItem = items.find(item => item.id === itemId)
+      const previousStatus = currentItem?.status || 'ok'
       
       await updateItemState(itemId, { manual_status: newStatus })
       
-      // Refresh the items list to get the updated status from the server
+      // Notify parent with previous status for undo history
       if (onStatusChange) {
-        const result = onStatusChange()
+        const result = onStatusChange(itemId, newStatus, previousStatus)
         if (result instanceof Promise) {
           await result
         }
@@ -67,10 +66,6 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
     } catch (err) {
       console.error('Failed to update status:', err)
       alert(`Failed to update status: ${err instanceof Error ? err.message : 'Unknown error'}`)
-      // Refresh anyway to get the current state
-      if (onStatusChange) {
-        onStatusChange()
-      }
     }
   }
 
@@ -215,7 +210,7 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
         </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="text-xs text-neutral-500 dark:text-neutral-400">{filteredCount} items</div>
+        <div className="text-xs text-neutral-500 dark:text-neutral-400">{filteredCount} items</div>
             {rejectedCount > 0 && (
               <div className="relative" ref={overflowMenuRef}>
                 <button
@@ -284,7 +279,7 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
                 className="cursor-pointer"
                 title="Right-click to change status"
               >
-                {getStatusBadge(item.status)}
+              {getStatusBadge(item.status)}
               </div>
             </div>
             <div className="text-[11px] text-neutral-500 dark:text-neutral-400">

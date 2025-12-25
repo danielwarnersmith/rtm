@@ -73,7 +73,7 @@ def process_image(
     
     # Detect OLED bbox
     bbox, confidence, metrics = detect_oled_bbox(image)
-    is_qualifying, reason_codes = qualify_oled(bbox, confidence, metrics)
+    is_qualifying, reason_codes = qualify_oled(bbox, confidence, metrics, image=image)
     
     # Get paths
     public_oled_dir = repo_root / "public" / "oled" / device

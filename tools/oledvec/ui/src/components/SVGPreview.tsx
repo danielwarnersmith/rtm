@@ -103,7 +103,7 @@ export default function SVGPreview({ svgUrl }: SVGPreviewProps) {
         setIsLoading(false)
         // Only clear content if we don't have any loaded content
         if (!loadedUrl) {
-          setSvgContent('')
+        setSvgContent('')
         }
       })
 

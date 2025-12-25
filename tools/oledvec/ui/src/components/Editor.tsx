@@ -8,15 +8,28 @@ interface EditorProps {
   itemId: string
   onRerun: () => void
   items?: Item[]
+  onStatusChange?: (itemId: string, newStatus: Item['status'], previousStatus?: Item['status']) => void | Promise<void>
 }
 
-export default function Editor({ itemId, onRerun, items }: EditorProps) {
+export default function Editor({ itemId, onRerun, items, onStatusChange }: EditorProps) {
   const [item, setItem] = useState<ItemResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
   const [threshold, setThreshold] = useState<number | null>(null)
   const [useAutoThreshold, setUseAutoThreshold] = useState(true)
+  const [statusContextMenu, setStatusContextMenu] = useState<{ x: number; y: number } | null>(null)
+
+  // Close context menu on outside click
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setStatusContextMenu(null)
+    }
+    if (statusContextMenu) {
+      document.addEventListener('click', handleClickOutside)
+      return () => document.removeEventListener('click', handleClickOutside)
+    }
+  }, [statusContextMenu])
   
   // Undo/redo history for pixel overrides
   const [overrideHistory, setOverrideHistory] = useState<Array<{
@@ -458,11 +471,113 @@ export default function Editor({ itemId, onRerun, items }: EditorProps) {
               rejected: 'Rejected',
             }
             return (
-              <span className={`text-[10px] px-1.5 py-0.5 rounded font-semibold uppercase ${badgeClasses[status]}`}>
-                {labels[status]}
-              </span>
+              <div
+                onContextMenu={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  const rect = e.currentTarget.getBoundingClientRect()
+                  const menuWidth = 120 // min-w-[120px]
+                  const menuHeight = 120 // approximate height
+                  // Position menu to the left of the badge, aligned to the right edge
+                  let x = rect.right - menuWidth
+                  let y = rect.bottom + 4
+                  // Adjust if would go offscreen
+                  if (x < 0) x = rect.left
+                  if (y + menuHeight > window.innerHeight) y = rect.top - menuHeight
+                  setStatusContextMenu({ x, y })
+                }}
+                className="cursor-pointer"
+                title="Right-click to change status"
+              >
+                <span className={`text-[10px] px-1.5 py-0.5 rounded font-semibold uppercase ${badgeClasses[status]}`}>
+                  {labels[status]}
+                </span>
+              </div>
             )
           })()}
+        </div>
+      )}
+      {statusContextMenu && (
+        <div
+          className="fixed bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg shadow-lg z-50 py-1 min-w-[120px]"
+          style={{ left: `${statusContextMenu.x}px`, top: `${statusContextMenu.y}px` }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={async () => {
+              setStatusContextMenu(null)
+              if (!items) return
+              const currentItem = items.find(i => i.id === itemId)
+              if (!currentItem) return
+              const previousStatus = currentItem.status
+              try {
+                await updateItemState(itemId, { manual_status: 'ok' })
+                if (onStatusChange) {
+                  const result = onStatusChange(itemId, 'ok', previousStatus)
+                  if (result instanceof Promise) {
+                    await result
+                  }
+                }
+              } catch (err) {
+                console.error('Failed to update status:', err)
+                alert(`Failed to update status: ${err instanceof Error ? err.message : 'Unknown error'}`)
+              }
+            }}
+            className="w-full text-left px-3 py-1.5 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-700 flex items-center gap-2"
+          >
+            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+            OK
+          </button>
+          <button
+            onClick={async () => {
+              setStatusContextMenu(null)
+              if (!items) return
+              const currentItem = items.find(i => i.id === itemId)
+              if (!currentItem) return
+              const previousStatus = currentItem.status
+              try {
+                await updateItemState(itemId, { manual_status: 'needs_review' })
+                if (onStatusChange) {
+                  const result = onStatusChange(itemId, 'needs_review', previousStatus)
+                  if (result instanceof Promise) {
+                    await result
+                  }
+                }
+              } catch (err) {
+                console.error('Failed to update status:', err)
+                alert(`Failed to update status: ${err instanceof Error ? err.message : 'Unknown error'}`)
+              }
+            }}
+            className="w-full text-left px-3 py-1.5 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-700 flex items-center gap-2"
+          >
+            <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
+            Review
+          </button>
+          <button
+            onClick={async () => {
+              setStatusContextMenu(null)
+              if (!items) return
+              const currentItem = items.find(i => i.id === itemId)
+              if (!currentItem) return
+              const previousStatus = currentItem.status
+              try {
+                await updateItemState(itemId, { manual_status: 'rejected' })
+                if (onStatusChange) {
+                  const result = onStatusChange(itemId, 'rejected', previousStatus)
+                  if (result instanceof Promise) {
+                    await result
+                  }
+                }
+              } catch (err) {
+                console.error('Failed to update status:', err)
+                alert(`Failed to update status: ${err instanceof Error ? err.message : 'Unknown error'}`)
+              }
+            }}
+            className="w-full text-left px-3 py-1.5 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-700 flex items-center gap-2"
+          >
+            <span className="w-2 h-2 rounded-full bg-red-500"></span>
+            Rejected
+          </button>
         </div>
       )}
       <div className="flex-1 p-6 flex flex-col overflow-y-auto pb-20">
@@ -533,19 +648,19 @@ export default function Editor({ itemId, onRerun, items }: EditorProps) {
 
         <div className="pt-4 pb-4 flex gap-4">
           <div className="flex-1 flex flex-col">
-            <h3 className="text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">SVG Preview</h3>
+          <h3 className="text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">SVG Preview</h3>
             <div className="flex-1">
-              <SVGPreview svgUrl={item.svg_url} />
+          <SVGPreview svgUrl={item.svg_url} />
             </div>
-          </div>
+        </div>
 
           <div className="flex-1 flex flex-col">
-            <h3 className="text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">Notes</h3>
-            <textarea
-              value={item.state.notes}
-              onChange={(e) => handleNotesChange(e.target.value)}
+          <h3 className="text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">Notes</h3>
+          <textarea
+            value={item.state.notes}
+            onChange={(e) => handleNotesChange(e.target.value)}
               className="w-full h-full p-2 border border-neutral-300 dark:border-neutral-700 rounded text-sm bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 resize-none"
-            />
+          />
           </div>
         </div>
       </div>

@@ -325,8 +325,8 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
                 raise HTTPException(status_code=400, detail="Could not detect OLED bbox")
             bbox = detected_bbox
         
-        # Re-run qualification check
-        is_qualifying, reason_codes = qualify_oled(bbox, confidence, metrics)
+        # Re-run qualification check (pass image for diagram detection)
+        is_qualifying, reason_codes = qualify_oled(bbox, confidence, metrics, image=image)
         
         # Normalize
         normalized = normalize_image(image, bbox)
