@@ -2,15 +2,17 @@ import { useState, useEffect, useRef } from 'react'
 import { Item, updateItemState } from '../api'
 import { ThemeToggle } from './ThemeToggle'
 
+type FilterStatus = 'all' | 'ok' | 'needs_review' | 'rejected'
+
 interface SidebarProps {
   items: Item[]
   selectedId: string | null
   onSelect: (id: string) => void
   onStatusChange?: () => void | Promise<void>
   device?: string
+  filter: FilterStatus
+  onFilterChange: (filter: FilterStatus) => void
 }
-
-type FilterStatus = 'all' | 'ok' | 'needs_review' | 'rejected'
 
 function formatDeviceName(device: string): string {
   // Convert "analog-rytm-mkii" to "Analog Rytm MKII"
@@ -26,8 +28,7 @@ function formatDeviceName(device: string): string {
     .join(' ')
 }
 
-export default function Sidebar({ items, selectedId, onSelect, onStatusChange, device }: SidebarProps) {
-  const [filter, setFilter] = useState<FilterStatus>('all')
+export default function Sidebar({ items, selectedId, onSelect, onStatusChange, device, filter, onFilterChange }: SidebarProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [contextMenu, setContextMenu] = useState<{ itemId: string; x: number; y: number } | null>(null)
   
@@ -127,7 +128,7 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
         )}
         <div className="flex items-center gap-1 mb-2">
           <button
-            onClick={() => setFilter('all')}
+            onClick={() => onFilterChange('all')}
             className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
               filter === 'all'
                 ? 'bg-blue-600 text-white'
@@ -137,7 +138,7 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
             All
           </button>
           <button
-            onClick={() => setFilter('ok')}
+            onClick={() => onFilterChange('ok')}
             className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
               filter === 'ok'
                 ? 'bg-green-600 text-white'
@@ -147,7 +148,7 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
             Ok
           </button>
           <button
-            onClick={() => setFilter('needs_review')}
+            onClick={() => onFilterChange('needs_review')}
             className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
               filter === 'needs_review'
                 ? 'bg-yellow-600 text-white'
@@ -157,7 +158,7 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
             Review
           </button>
           <button
-            onClick={() => setFilter('rejected')}
+            onClick={() => onFilterChange('rejected')}
             className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
               filter === 'rejected'
                 ? 'bg-red-600 text-white'

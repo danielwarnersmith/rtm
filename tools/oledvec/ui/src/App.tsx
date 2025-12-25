@@ -18,12 +18,33 @@ function formatDeviceName(device: string): string {
     .join(' ')
 }
 
+type FilterStatus = 'all' | 'ok' | 'needs_review' | 'rejected'
+
 function App() {
   const [items, setItems] = useState<Item[]>([])
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [device, setDevice] = useState<string>('')
+  const [filter, setFilter] = useState<FilterStatus>('all')
+
+  const filteredItems = filter === 'all' 
+    ? items 
+    : items.filter(item => item.status === filter)
+
+  // If selected item is not in filtered list, select first item in filtered list
+  useEffect(() => {
+    if (filteredItems.length > 0 && selectedItemId) {
+      const isSelectedInFiltered = filteredItems.some(item => item.id === selectedItemId)
+      if (!isSelectedInFiltered) {
+        setSelectedItemId(filteredItems[0].id)
+      }
+    } else if (filteredItems.length > 0 && !selectedItemId) {
+      setSelectedItemId(filteredItems[0].id)
+    } else if (filteredItems.length === 0) {
+      setSelectedItemId(null)
+    }
+  }, [filter, filteredItems, selectedItemId])
 
   useEffect(() => {
     loadItems()
@@ -38,35 +59,35 @@ function App() {
         return
       }
 
-      // j/k for navigation
+      // j/k for navigation - use filtered items
       if (e.key === 'j' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         e.preventDefault()
-        if (items.length === 0) return
+        if (filteredItems.length === 0) return
         
-        const currentIndex = items.findIndex(item => item.id === selectedItemId)
-        if (currentIndex < items.length - 1) {
-          setSelectedItemId(items[currentIndex + 1].id)
+        const currentIndex = filteredItems.findIndex(item => item.id === selectedItemId)
+        if (currentIndex < filteredItems.length - 1) {
+          setSelectedItemId(filteredItems[currentIndex + 1].id)
         } else {
           // Wrap to first item
-          setSelectedItemId(items[0].id)
+          setSelectedItemId(filteredItems[0].id)
         }
       } else if (e.key === 'k' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         e.preventDefault()
-        if (items.length === 0) return
+        if (filteredItems.length === 0) return
         
-        const currentIndex = items.findIndex(item => item.id === selectedItemId)
+        const currentIndex = filteredItems.findIndex(item => item.id === selectedItemId)
         if (currentIndex > 0) {
-          setSelectedItemId(items[currentIndex - 1].id)
+          setSelectedItemId(filteredItems[currentIndex - 1].id)
         } else {
           // Wrap to last item
-          setSelectedItemId(items[items.length - 1].id)
+          setSelectedItemId(filteredItems[filteredItems.length - 1].id)
         }
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [items, selectedItemId])
+  }, [filteredItems, selectedItemId])
 
   // Load device after items are loaded (can use items as fallback)
   useEffect(() => {
@@ -119,6 +140,8 @@ function App() {
         onSelect={setSelectedItemId}
         onStatusChange={loadItems}
         device={device}
+        filter={filter}
+        onFilterChange={setFilter}
       />
         <div className="flex-1 flex flex-col overflow-hidden bg-[#F5F1EB] dark:bg-neutral-950">
           <div className="flex-1 overflow-auto">
