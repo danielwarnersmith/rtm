@@ -12,11 +12,6 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
   const { src, alt, ...rest } = props;
   const imageSrc = withBasePath(src);
   const isSvg = typeof src === "string" && src.toLowerCase().endsWith(".svg");
-  
-  // Log in development to help debug
-  if (typeof window !== "undefined" && process.env.NODE_ENV === "development" && isSvg) {
-    console.log("[CustomImg] Detected SVG:", src, "Resolved to:", imageSrc);
-  }
   const [svgContent, setSvgContent] = useState<string | null>(null);
   const [svgError, setSvgError] = useState(false);
 
@@ -43,7 +38,7 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
         }
       })
       .catch((err) => {
-        console.error("Failed to load SVG:", err, "Source:", imageSrc);
+        console.error("[CustomImg] Failed to load SVG:", err, "Source:", imageSrc);
         setSvgError(true);
       });
   }, [imageSrc, isSvg]);
@@ -73,8 +68,9 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
         // Add class and style attributes if not present
         let newAttrs = attrs;
         if (!newAttrs.includes('class=') && !newAttrs.includes('className=')) {
-          newAttrs += ' class="max-w-full h-auto"';
+          newAttrs += ' class="h-auto"';
         }
+        
         if (!newAttrs.includes('style=')) {
           newAttrs += ' style="max-width: 100%; height: auto; display: block;"';
         }
@@ -82,7 +78,6 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
       }
     );
 
-    // Use a span with block display to avoid nesting issues with <p> tags
     return (
       <span
         className={[
@@ -98,8 +93,7 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
     );
   }
 
-  // For SVG files still loading or that failed, or non-SVG files, use regular img tag
-  // This ensures images are visible immediately while SVG loads in background
+  // For SVG files that failed, or non-SVG files, use regular img tag
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
