@@ -34,6 +34,7 @@ class ItemStateUpdate(BaseModel):
     overrides: Optional[Dict[str, List[List[int]]]] = None
     flags: Optional[Dict[str, Any]] = None
     notes: Optional[str] = None
+    manual_status: Optional[str] = None  # "ok", "needs_review", "rejected", or None to clear
 
 
 class ItemResponse(BaseModel):
@@ -103,6 +104,16 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
             validation = item_state.get("validation", {})
             is_qualifying = validation.get("is_qualifying", False)
             
+            # Check for manual status override
+            flags = item_state.get("flags", {})
+            manual_status = flags.get("manual_status")
+            
+            # Use manual status if set, otherwise use qualification status
+            if manual_status in ["ok", "needs_review", "rejected"]:
+                status = manual_status
+            else:
+                status = "ok" if is_qualifying else "rejected"
+            
             source_path = item_state.get("source_path", "")
             source_url = f"/api/public{source_path}" if source_path else None
             
@@ -122,7 +133,7 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
             
             items.append({
                 "id": item_id,
-                "status": "ok" if is_qualifying else "rejected",
+                "status": status,
                 "confidence": validation.get("confidence", 0.0),
                 "source_url": source_url,
                 "preview_url": preview_url,
@@ -207,8 +218,35 @@ def create_app(device: str, repo_root: Optional[Path] = None) -> FastAPI:
                 ]
             updates["overrides"] = overrides
         
+        # Handle manual status update first (before flags, so it doesn't get overwritten)
+        if update.manual_status is not None:
+            # Store manual status in flags
+            if "flags" not in item_state:
+                item_state["flags"] = {}
+            if update.manual_status == "" or update.manual_status is None:
+                # Clear manual status
+                item_state["flags"].pop("manual_status", None)
+            else:
+                # Set manual status
+                if update.manual_status not in ["ok", "needs_review", "rejected"]:
+                    raise HTTPException(
+                        status_code=400,
+                        detail=f"Invalid manual_status: {update.manual_status}. Must be 'ok', 'needs_review', or 'rejected'"
+                    )
+                item_state["flags"]["manual_status"] = update.manual_status
+        
+        # Handle flags update (merge with existing flags, including manual_status if set above)
         if update.flags is not None:
-            updates["flags"] = update.flags
+            # Merge flags instead of replacing
+            if "flags" not in item_state:
+                item_state["flags"] = {}
+            item_state["flags"].update(update.flags)
+            # Create a copy to avoid reference issues
+            updates["flags"] = item_state["flags"].copy()
+        elif update.manual_status is not None:
+            # If only manual_status was updated, still need to set flags
+            # Create a copy to avoid reference issues
+            updates["flags"] = item_state["flags"].copy()
         
         if update.notes is not None:
             updates["notes"] = update.notes

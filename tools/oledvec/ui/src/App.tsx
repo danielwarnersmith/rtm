@@ -118,6 +118,7 @@ function App() {
         items={items}
         selectedId={selectedItemId}
         onSelect={setSelectedItemId}
+        onStatusChange={loadItems}
       />
         <div className="flex-1 flex flex-col overflow-hidden bg-[#F5F1EB] dark:bg-neutral-950">
           <div className="flex-shrink-0 flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-sm border-b border-neutral-200 dark:bg-neutral-950/80 dark:border-neutral-800">
@@ -145,6 +146,7 @@ function App() {
           <Editor
             itemId={selectedItemId}
             onRerun={loadItems}
+            items={items}
           />
         ) : (
                   <div className="flex items-center justify-center w-full h-full">

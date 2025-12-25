@@ -50,6 +50,7 @@ export interface ItemStateUpdate {
   };
   flags?: Record<string, any>;
   notes?: string;
+  manual_status?: string; // "ok", "needs_review", "rejected", or "" to clear
 }
 
 export async function getDevice(): Promise<{ device: string }> {
