@@ -44,6 +44,8 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange, onSelectionC
   }, [sourceUrl])
 
   // Set up canvas and draw whenever image or bbox changes
+  // Serialize bbox for dependency comparison to ensure changes are detected
+  const bboxKey = bbox ? bbox.join(',') : 'null'
   useEffect(() => {
     if (image && canvasRef.current) {
       const canvas = canvasRef.current
@@ -84,7 +86,7 @@ export default function BboxCanvas({ sourceUrl, bbox, onBboxChange, onSelectionC
         }
       }
     }
-  }, [image, bbox, selectionState])
+  }, [image, bboxKey, selectionState])
 
   function drawBbox(ctx: CanvasRenderingContext2D, bbox: number[] | null, scale: number) {
     if (!bbox || bbox.length !== 4) return

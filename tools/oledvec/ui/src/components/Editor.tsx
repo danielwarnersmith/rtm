@@ -201,15 +201,19 @@ export default function Editor({ itemId, onRerun, items, onStatusChange }: Edito
   }, [item, itemId, useAutoThreshold, saveCurrentState, onRerun])
 
   const handleBboxChange = useCallback((bbox: number[]) => {
-    if (!item) return
-    setItem({
-      ...item,
-      state: {
-        ...item.state,
-        oled_bbox: bbox,
-      },
+    setItem((currentItem) => {
+      if (!currentItem) return currentItem
+      // Create a new array to ensure React detects the change
+      const newBbox = [...bbox]
+      return {
+        ...currentItem,
+        state: {
+          ...currentItem.state,
+          oled_bbox: newBbox,
+        },
+      }
     })
-  }, [item])
+  }, [])
 
   // Handle keyboard shortcuts (must be after function definitions)
   useEffect(() => {
