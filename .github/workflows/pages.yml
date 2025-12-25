@@ -40,6 +40,15 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Fix font URLs for basePath
+        run: |
+          # Get repository name for basePath
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          echo "Repository: $REPO_NAME"
+          # Fix font URLs in CSS files to include basePath
+          find out/_next/static/css -name "*.css" -exec sed -i "s|url(/fonts/|url(/${REPO_NAME}/fonts/|g" {} \;
+          echo "Fixed font URLs in CSS files"
+
       - name: Disable Jekyll processing
         run: touch out/.nojekyll
 
