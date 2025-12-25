@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { Item, updateItemState } from '../api'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -31,12 +32,17 @@ function formatDeviceName(device: string): string {
 export default function Sidebar({ items, selectedId, onSelect, onStatusChange, device, filter, onFilterChange }: SidebarProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [contextMenu, setContextMenu] = useState<{ itemId: string; x: number; y: number } | null>(null)
+  const [bulkUpdating, setBulkUpdating] = useState(false)
+  const [overflowMenuOpen, setOverflowMenuOpen] = useState(false)
+  const [menuPosition, setMenuPosition] = useState<{ top: number; left: number } | null>(null)
+  const overflowMenuRef = useRef<HTMLDivElement>(null)
   
   const filteredItems = filter === 'all' 
     ? items 
     : items.filter(item => item.status === filter)
   
   const filteredCount = filteredItems.length
+  const rejectedCount = items.filter(item => item.status === 'rejected').length
 
   const handleStatusChange = async (itemId: string, newStatus: Item['status']) => {
     try {
@@ -72,15 +78,52 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
     setContextMenu({ itemId, x: e.clientX, y: e.clientY })
   }
 
+  const handleBulkUpdateRejected = async () => {
+    const rejectedItems = items.filter(item => item.status === 'rejected')
+    if (rejectedItems.length === 0) {
+      alert('No rejected items to update')
+      return
+    }
+
+    if (!confirm(`Update ${rejectedItems.length} rejected item(s) to "Needs Review"?`)) {
+      return
+    }
+
+    setBulkUpdating(true)
+    try {
+      // Update all rejected items to needs_review
+      const updatePromises = rejectedItems.map(item => 
+        updateItemState(item.id, { manual_status: 'needs_review' })
+      )
+      await Promise.all(updatePromises)
+      
+      // Refresh the items list
+      if (onStatusChange) {
+        const result = onStatusChange()
+        if (result instanceof Promise) {
+          await result
+        }
+      }
+    } catch (err) {
+      console.error('Failed to bulk update items:', err)
+      alert(`Failed to update items: ${err instanceof Error ? err.message : 'Unknown error'}`)
+    } finally {
+      setBulkUpdating(false)
+    }
+  }
+
   useEffect(() => {
-    const handleClickOutside = () => {
-      setContextMenu(null)
+    const handleClickOutside = (e: MouseEvent) => {
+      if (contextMenu) {
+        setContextMenu(null)
+      }
+      if (overflowMenuOpen && overflowMenuRef.current && !overflowMenuRef.current.contains(e.target as Node)) {
+        setOverflowMenuOpen(false)
+      }
     }
-    if (contextMenu) {
-      document.addEventListener('click', handleClickOutside)
-      return () => document.removeEventListener('click', handleClickOutside)
-    }
-  }, [contextMenu])
+    document.addEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside)
+  }, [contextMenu, overflowMenuOpen])
 
   // Scroll selected item into view when selection changes
   useEffect(() => {
@@ -120,7 +163,7 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
 
   return (
     <div className="w-[280px] bg-white dark:bg-neutral-950 border-r border-neutral-200 dark:border-neutral-800 flex flex-col overflow-hidden">
-      <div className="p-4 border-b border-neutral-200 dark:border-neutral-800">
+      <div className="p-4 border-b border-neutral-200 dark:border-neutral-800 relative overflow-visible">
         {device && (
           <div className="text-base font-semibold text-neutral-900 dark:text-white mb-3">
             {formatDeviceName(device)} Screens
@@ -169,7 +212,54 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
           </button>
         </div>
         <div className="flex items-center justify-between">
-          <div className="text-xs text-neutral-500 dark:text-neutral-400">{filteredCount} items</div>
+          <div className="flex items-center gap-2">
+            <div className="text-xs text-neutral-500 dark:text-neutral-400">{filteredCount} items</div>
+            {rejectedCount > 0 && (
+              <div className="relative" ref={overflowMenuRef}>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    if (overflowMenuRef.current) {
+                      const rect = overflowMenuRef.current.getBoundingClientRect()
+                      setMenuPosition({
+                        top: rect.bottom + 4,
+                        left: rect.left
+                      })
+                    }
+                    setOverflowMenuOpen(!overflowMenuOpen)
+                  }}
+                  className="p-1 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
+                  aria-label="More options"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                  </svg>
+                </button>
+                {overflowMenuOpen && menuPosition && typeof document !== 'undefined' && createPortal(
+                  <div 
+                    className="fixed z-[100] w-56 rounded-md bg-white dark:bg-neutral-800 shadow-lg border border-neutral-200 dark:border-neutral-700 py-1"
+                    style={{
+                      top: `${menuPosition.top}px`,
+                      left: `${menuPosition.left}px`
+                    }}
+                  >
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setOverflowMenuOpen(false)
+                        handleBulkUpdateRejected()
+                      }}
+                      disabled={bulkUpdating}
+                      className="w-full px-4 py-2 text-left text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      {bulkUpdating ? 'Updating...' : `Mark ${rejectedCount} rejected as Review`}
+                    </button>
+                  </div>,
+                  document.body
+                )}
+              </div>
+            )}
+          </div>
           <ThemeToggle />
         </div>
       </div>
