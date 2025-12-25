@@ -13,6 +13,8 @@ interface SidebarProps {
   device?: string
   filter: FilterStatus
   onFilterChange: (filter: FilterStatus) => void
+  statusMenuOpen?: boolean
+  statusMenuIndex?: number
 }
 
 function formatDeviceName(device: string): string {
@@ -29,7 +31,7 @@ function formatDeviceName(device: string): string {
     .join(' ')
 }
 
-export default function Sidebar({ items, selectedId, onSelect, onStatusChange, device, filter, onFilterChange }: SidebarProps) {
+export default function Sidebar({ items, selectedId, onSelect, onStatusChange, device, filter, onFilterChange, statusMenuOpen, statusMenuIndex }: SidebarProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [contextMenu, setContextMenu] = useState<{ itemId: string; x: number; y: number } | null>(null)
   const [bulkUpdating, setBulkUpdating] = useState(false)
@@ -321,6 +323,30 @@ export default function Sidebar({ items, selectedId, onSelect, onStatusChange, d
             Rejected
           </button>
         </div>
+      )}
+      {statusMenuOpen && selectedId && typeof document !== 'undefined' && createPortal(
+        <div className="fixed inset-0 z-[90] flex items-center justify-center pointer-events-none">
+          <div className="bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg shadow-lg z-[100] py-1 min-w-[120px] pointer-events-auto">
+            {(['ok', 'needs_review', 'rejected'] as const).map((status, index) => {
+              const labels = { ok: 'OK', needs_review: 'Review', rejected: 'Rejected' }
+              const colors = { ok: 'bg-green-500', needs_review: 'bg-yellow-500', rejected: 'bg-red-500' }
+              return (
+                <div
+                  key={status}
+                  className={`w-full text-left px-3 py-1.5 text-sm flex items-center gap-2 ${
+                    statusMenuIndex === index
+                      ? 'bg-blue-100 dark:bg-blue-900/30'
+                      : ''
+                  }`}
+                >
+                  <span className={`w-2 h-2 rounded-full ${colors[status]}`}></span>
+                  {labels[status]}
+                </div>
+              )
+            })}
+          </div>
+        </div>,
+        document.body
       )}
     </div>
   )

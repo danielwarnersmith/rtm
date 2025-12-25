@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { listItems, getDevice, type Item } from './api'
+import { useState, useEffect, useRef } from 'react'
+import { listItems, getDevice, updateItemState, type Item } from './api'
 import { ThemeProvider } from './components/ThemeProvider'
 import Sidebar from './components/Sidebar'
 import Editor from './components/Editor'
@@ -27,6 +27,8 @@ function App() {
   const [error, setError] = useState<string | null>(null)
   const [device, setDevice] = useState<string>('')
   const [filter, setFilter] = useState<FilterStatus>('all')
+  const [statusMenuOpen, setStatusMenuOpen] = useState(false)
+  const [statusMenuIndex, setStatusMenuIndex] = useState(0)
 
   const filteredItems = filter === 'all' 
     ? items 
@@ -50,8 +52,10 @@ function App() {
     loadItems()
   }, [])
 
-  // Handle keyboard shortcuts for navigation (j/k)
+  // Handle keyboard shortcuts for navigation (j/k) and status menu (Ctrl+j/k)
   useEffect(() => {
+    const statusOptions: Array<Item['status']> = ['ok', 'needs_review', 'rejected']
+    
     function handleKeyDown(e: KeyboardEvent) {
       // Only handle shortcuts when not typing in inputs
       const target = e.target as HTMLElement
@@ -59,7 +63,29 @@ function App() {
         return
       }
 
-      // j/k for navigation - use filtered items
+      // Control key held - open status menu and navigate with j/k
+      if (e.ctrlKey && !e.metaKey && !e.altKey) {
+        if (!statusMenuOpen && selectedItemId) {
+          // Open status menu when Control is first pressed
+          setStatusMenuOpen(true)
+          setStatusMenuIndex(0)
+          e.preventDefault()
+          return
+        }
+        
+        if (statusMenuOpen) {
+          if (e.key === 'j') {
+            e.preventDefault()
+            setStatusMenuIndex((prev) => (prev + 1) % statusOptions.length)
+          } else if (e.key === 'k') {
+            e.preventDefault()
+            setStatusMenuIndex((prev) => (prev - 1 + statusOptions.length) % statusOptions.length)
+          }
+          return
+        }
+      }
+
+      // j/k for navigation - use filtered items (only when Control is not held)
       if (e.key === 'j' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         e.preventDefault()
         if (filteredItems.length === 0) return
@@ -85,9 +111,30 @@ function App() {
       }
     }
 
+    function handleKeyUp(e: KeyboardEvent) {
+      // When Control is released, apply the selected status
+      if (statusMenuOpen && !e.ctrlKey && selectedItemId) {
+        const selectedStatus = statusOptions[statusMenuIndex]
+        setStatusMenuOpen(false)
+        // Apply the status change immediately
+        updateItemState(selectedItemId, { manual_status: selectedStatus })
+          .then(() => {
+            loadItems()
+          })
+          .catch((err) => {
+            console.error('Failed to update status:', err)
+            alert(`Failed to update status: ${err instanceof Error ? err.message : 'Unknown error'}`)
+          })
+      }
+    }
+
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [filteredItems, selectedItemId])
+    window.addEventListener('keyup', handleKeyUp)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('keyup', handleKeyUp)
+    }
+  }, [filteredItems, selectedItemId, statusMenuOpen, statusMenuIndex])
 
   // Load device after items are loaded (can use items as fallback)
   useEffect(() => {
@@ -131,6 +178,7 @@ function App() {
     }
   }
 
+
   return (
     <ThemeProvider>
       <div className="flex w-full h-screen overflow-hidden bg-[#F5F1EB] dark:bg-neutral-950">
@@ -142,6 +190,8 @@ function App() {
         device={device}
         filter={filter}
         onFilterChange={setFilter}
+        statusMenuOpen={statusMenuOpen}
+        statusMenuIndex={statusMenuIndex}
       />
         <div className="flex-1 flex flex-col overflow-hidden bg-[#F5F1EB] dark:bg-neutral-950">
           <div className="flex-1 overflow-auto">
