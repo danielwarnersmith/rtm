@@ -34,19 +34,43 @@ function App() {
     ? items 
     : items.filter(item => item.status === filter)
 
-  // If selected item is not in filtered list, select first item in filtered list
+  // If selected item is not in filtered list, select next item in filtered list
   useEffect(() => {
     if (filteredItems.length > 0 && selectedItemId) {
       const isSelectedInFiltered = filteredItems.some(item => item.id === selectedItemId)
       if (!isSelectedInFiltered) {
-        setSelectedItemId(filteredItems[0].id)
+        // Find the index of the previously selected item in the full items list
+        const previousIndex = items.findIndex(item => item.id === selectedItemId)
+        if (previousIndex >= 0) {
+          // Find the next item after the previous selection that's in the filtered list
+          let nextItem = null
+          for (let i = previousIndex + 1; i < items.length; i++) {
+            if (filteredItems.some(item => item.id === items[i].id)) {
+              nextItem = items[i]
+              break
+            }
+          }
+          // If no next item found, look backwards
+          if (!nextItem) {
+            for (let i = previousIndex - 1; i >= 0; i--) {
+              if (filteredItems.some(item => item.id === items[i].id)) {
+                nextItem = items[i]
+                break
+              }
+            }
+          }
+          // If still no item found, use first in filtered list
+          setSelectedItemId(nextItem?.id || filteredItems[0].id)
+        } else {
+          setSelectedItemId(filteredItems[0].id)
+        }
       }
     } else if (filteredItems.length > 0 && !selectedItemId) {
       setSelectedItemId(filteredItems[0].id)
     } else if (filteredItems.length === 0) {
       setSelectedItemId(null)
     }
-  }, [filter, filteredItems, selectedItemId])
+  }, [filter, filteredItems, selectedItemId, items])
 
   useEffect(() => {
     loadItems()
@@ -119,11 +143,18 @@ function App() {
         // Apply the status change immediately
         updateItemState(selectedItemId, { manual_status: selectedStatus })
           .then(() => {
-            loadItems()
+            // Update the item in the list without full reload to preserve scroll
+            setItems(prevItems => 
+              prevItems.map(item => 
+                item.id === selectedItemId ? { ...item, status: selectedStatus } : item
+              )
+            )
           })
           .catch((err) => {
             console.error('Failed to update status:', err)
             alert(`Failed to update status: ${err instanceof Error ? err.message : 'Unknown error'}`)
+            // Reload on error to get correct state
+            loadItems()
           })
       }
     }
