@@ -9,13 +9,20 @@
  * Get the base path for the application.
  *
  * Checks for:
- * 1. Explicit NEXT_PUBLIC_BASE_PATH environment variable
- * 2. GitHub Pages/Actions environment variables
+ * 1. Explicit NEXT_PUBLIC_BASE_PATH environment variable (available in browser)
+ * 2. GitHub Pages/Actions environment variables (server-side only)
  *
  * @returns The base path string, or empty string for root deployment
  */
 export function getBasePath(): string {
-  // Prefer explicit public base path when present (available in browser bundles).
+  // In browser, NEXT_PUBLIC_BASE_PATH is injected by Next.js at build time
+  // In Node.js/server, we can also check GitHub Pages env vars
+  if (typeof window !== "undefined") {
+    // Client-side: only use NEXT_PUBLIC_BASE_PATH
+    return process.env.NEXT_PUBLIC_BASE_PATH || "";
+  }
+  
+  // Server-side: check NEXT_PUBLIC_BASE_PATH first, then fall back to GitHub Pages detection
   const explicit = process.env.NEXT_PUBLIC_BASE_PATH;
   if (explicit) return explicit;
 
@@ -28,6 +35,7 @@ export function getBasePath(): string {
 
 /**
  * Cached base path value.
+ * Note: In browser, this uses NEXT_PUBLIC_BASE_PATH which is injected at build time.
  */
 export const BASE_PATH = getBasePath();
 

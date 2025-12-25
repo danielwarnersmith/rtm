@@ -15,7 +15,7 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
   
   // Log in development to help debug
   if (typeof window !== "undefined" && process.env.NODE_ENV === "development" && isSvg) {
-    console.log("[CustomImg] Detected SVG:", src, "Resolved to:", imageSrc);
+    console.log("[CustomImg] Detected SVG:", src, "Resolved to:", imageSrc, "Base path:", process.env.NEXT_PUBLIC_BASE_PATH);
   }
   const [svgContent, setSvgContent] = useState<string | null>(null);
   const [svgError, setSvgError] = useState(false);
@@ -27,10 +27,22 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
     setSvgContent(null);
     setSvgError(false);
 
-    fetch(imageSrc as string)
+    // Ensure we have a valid imageSrc
+    if (!imageSrc || typeof imageSrc !== "string") {
+      console.error("[CustomImg] Invalid imageSrc for SVG:", imageSrc);
+      setSvgError(true);
+      return;
+    }
+
+    // Use absolute URL to ensure proper resolution with base path
+    const fetchUrl = imageSrc.startsWith("/") && typeof window !== "undefined"
+      ? `${window.location.origin}${imageSrc}`
+      : imageSrc;
+
+    fetch(fetchUrl)
       .then((res) => {
         if (!res.ok) {
-          throw new Error(`Failed to fetch SVG: ${res.status} ${res.statusText} - ${imageSrc}`);
+          throw new Error(`Failed to fetch SVG: ${res.status} ${res.statusText} - ${fetchUrl}`);
         }
         return res.text();
       })
@@ -43,7 +55,7 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
         }
       })
       .catch((err) => {
-        console.error("Failed to load SVG:", err, "Source:", imageSrc);
+        console.error("Failed to load SVG:", err, "Source:", imageSrc, "Fetch URL:", fetchUrl);
         setSvgError(true);
       });
   }, [imageSrc, isSvg]);
