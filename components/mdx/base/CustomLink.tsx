@@ -1,12 +1,13 @@
 import Link from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
+import type { JSX } from "react";
 import { stripSectionPrefix } from "../utils";
 
 /**
  * Custom anchor component that uses Next.js Link for internal navigation.
  * External links open in a new tab with security attributes.
  */
-export function CustomLink(props: ComponentPropsWithoutRef<"a">) {
+export function CustomLink(props: ComponentPropsWithoutRef<"a">): JSX.Element {
   const href = props.href;
   const { children, ...rest } = props;
 

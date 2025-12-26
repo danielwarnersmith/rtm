@@ -1,14 +1,15 @@
 import type { ComponentPropsWithoutRef } from "react";
+import type { JSX } from "react";
 import { getTextContent } from "../utils";
 
 /**
  * Factory function to create custom heading components with IDs for navigation.
  * Strips section number prefixes for cleaner display.
  */
-export function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
+export function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6): (props: ComponentPropsWithoutRef<`h${typeof level}`>) => JSX.Element {
   const Tag = `h${level}` as const;
   
-  return function Heading(props: ComponentPropsWithoutRef<typeof Tag>) {
+  return function Heading(props: ComponentPropsWithoutRef<typeof Tag>): JSX.Element {
     const { children, ...rest } = props;
     
     // Extract text from children (handles nested elements like spans)

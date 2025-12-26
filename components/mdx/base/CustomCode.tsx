@@ -1,9 +1,10 @@
 import type { ComponentPropsWithoutRef } from "react";
+import type { JSX } from "react";
 
 /**
  * Custom inline code styling.
  */
-export function CustomCode(props: ComponentPropsWithoutRef<"code">) {
+export function CustomCode(props: ComponentPropsWithoutRef<"code">): JSX.Element {
   return (
     <code
       {...props}

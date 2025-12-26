@@ -25,3 +25,25 @@ export function getTextContent(children: ReactNode): string {
   return text;
 }
 
+/**
+ * Utility to build className strings from multiple sources.
+ * Filters out falsy values and joins with spaces.
+ */
+export function cn(...classes: (string | undefined | null | false)[]): string {
+  return classes.filter(Boolean).join(" ").trim();
+}
+
+/**
+ * Common regex patterns used across components
+ */
+export const REGEX_PATTERNS = {
+  /** Matches section numbers like "1.", "1.1", "1.1.1" */
+  SECTION_NUMBER: /^(\d+(?:\.\d+)*)/,
+  /** Matches purely numeric strings */
+  NUMERIC: /^\d+$/,
+  /** Matches separator rows (all dashes) */
+  SEPARATOR_ROW: /^-+$/,
+  /** Matches heading tags */
+  HEADING_TAG: /^H[1-6]$/,
+} as const;
+

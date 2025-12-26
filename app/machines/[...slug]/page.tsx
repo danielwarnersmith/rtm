@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
 import { allMachines } from "contentlayer/generated";
-import { useMDXComponent } from "next-contentlayer2/hooks";
-import { MDXComponents } from "@/components/mdx/MDXComponents";
 import { TableOfContents } from "@/components/TableOfContents";
 import { StickyTitle } from "@/components/StickyTitle";
+import { MDXContent } from "./MDXContent";
 import type { Metadata } from "next";
 
 interface MachinePageProps {
@@ -44,14 +43,6 @@ export async function generateMetadata(
   };
 }
 
-/**
- * MDX content renderer component.
- * Uses the useMDXComponent hook to render compiled MDX.
- */
-function MDXContent({ code }: { code: string }) {
-  const Component = useMDXComponent(code);
-  return <Component components={MDXComponents} />;
-}
 
 /**
  * Machine manual page component.

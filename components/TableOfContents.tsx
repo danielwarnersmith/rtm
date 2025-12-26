@@ -2,6 +2,23 @@
 
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 
+// Debounce utility function
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
 interface TocEntry {
   id: string;
   text: string;
@@ -27,139 +44,134 @@ export function TableOfContents() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const isDev = process.env.NODE_ENV === "development";
+  
+  // Debounce search query for better performance
+  const debouncedSearchQuery = useDebounce(searchQuery, 150);
 
-  // Extract SVG entries from the page (dev mode only)
-  useEffect(() => {
-    if (!isDev) {
-      setSvgEntries([]);
-      return;
-    }
+  // Memoize article element query
+  const articleElement = useMemo(() => {
+    if (typeof document === "undefined") return null;
+    return document.querySelector("article");
+  }, []);
 
-    // Wait a bit for content to render
-    const timeout = setTimeout(() => {
-      const article = document.querySelector("article");
-      if (!article) {
-        setSvgEntries([]);
-        return;
+  // Extract SVG entries from the page (dev mode only) - memoized
+  const extractedSvgEntries = useMemo(() => {
+    if (!isDev || !articleElement) return [];
+
+    // Find all SVG elements directly or in containers from CustomImg
+    const svgElements = Array.from(articleElement.querySelectorAll("svg"));
+    const svgContainers = new Set<HTMLElement>();
+
+    svgElements.forEach((svg) => {
+      // Find the parent container (usually a span or div from CustomImg)
+      let container: HTMLElement | null = svg.parentElement;
+      // Walk up to find the actual container (span or div, skip nested elements)
+      while (
+        container &&
+        container.tagName !== "SPAN" &&
+        container.tagName !== "DIV" &&
+        container !== articleElement
+      ) {
+        container = container.parentElement;
+      }
+      // Use the container if it's a valid span or div (not article)
+      if (
+        container &&
+        container !== articleElement &&
+        (container.tagName === "SPAN" || container.tagName === "DIV")
+      ) {
+        svgContainers.add(container);
+      } else if (svg.parentElement && svg.parentElement !== articleElement) {
+        // Fallback: use the direct parent if it's not the article
+        svgContainers.add(svg.parentElement as HTMLElement);
+      }
+    });
+
+    // Also check for img elements with .svg src (fallback case)
+    const svgImages = Array.from(
+      articleElement.querySelectorAll("img[src$='.svg']")
+    );
+    svgImages.forEach((img) => {
+      let container: HTMLElement | null = img.parentElement;
+      while (
+        container &&
+        container.tagName !== "SPAN" &&
+        container.tagName !== "DIV" &&
+        container !== articleElement
+      ) {
+        container = container.parentElement;
+      }
+      if (
+        container &&
+        container !== articleElement &&
+        (container.tagName === "SPAN" || container.tagName === "DIV")
+      ) {
+        svgContainers.add(container);
+      }
+    });
+
+    const svgs: SvgEntry[] = [];
+    Array.from(svgContainers).forEach((container, index) => {
+      // Try to get filename from SVG or img src
+      const svg = container.querySelector("svg");
+      const img = container.querySelector("img");
+      let filename = `SVG ${index + 1}`;
+
+      if (img && img.src) {
+        try {
+          const url = new URL(img.src);
+          const pathParts = url.pathname.split("/");
+          filename = pathParts[pathParts.length - 1] || filename;
+        } catch {
+          // If URL parsing fails, try extracting from src string
+          const parts = img.src.split("/");
+          filename = parts[parts.length - 1] || filename;
+        }
+      } else if (svg) {
+        // For inline SVGs, try to extract from preceding heading or text
+        let prevSibling: Element | null = container.previousElementSibling;
+        let attempts = 0;
+        while (prevSibling && attempts < 5) {
+          if (prevSibling.tagName.match(/^H[1-6]$/)) {
+            const headingText = prevSibling.textContent?.trim().substring(0, 40);
+            if (headingText) {
+              filename = `${headingText}...`;
+              break;
+            }
+          }
+          prevSibling = prevSibling.previousElementSibling;
+          attempts++;
+        }
       }
 
-      // Find all SVG elements directly or in containers from CustomImg
-      const svgElements = Array.from(article.querySelectorAll("svg"));
-      const svgContainers = new Set<HTMLElement>();
-
-      svgElements.forEach((svg) => {
-        // Find the parent container (usually a span or div from CustomImg)
-        let container: HTMLElement | null = svg.parentElement;
-        // Walk up to find the actual container (span or div, skip nested elements)
-        while (
-          container &&
-          container.tagName !== "SPAN" &&
-          container.tagName !== "DIV" &&
-          container !== article
-        ) {
-          container = container.parentElement;
-        }
-        // Use the container if it's a valid span or div (not article)
-        if (
-          container &&
-          container !== article &&
-          (container.tagName === "SPAN" || container.tagName === "DIV")
-        ) {
-          svgContainers.add(container);
-        } else if (svg.parentElement && svg.parentElement !== article) {
-          // Fallback: use the direct parent if it's not the article
-          svgContainers.add(svg.parentElement as HTMLElement);
-        }
+      // Create a unique ID for this SVG
+      const id = `svg-${index}`;
+      if (!container.id) {
+        container.id = id;
+      }
+      svgs.push({
+        id: container.id || id,
+        filename,
+        element: container,
       });
+    });
 
-      // Also check for img elements with .svg src (fallback case)
-      const svgImages = Array.from(
-        article.querySelectorAll("img[src$='.svg']")
-      );
-      svgImages.forEach((img) => {
-        let container: HTMLElement | null = img.parentElement;
-        while (
-          container &&
-          container.tagName !== "SPAN" &&
-          container.tagName !== "DIV" &&
-          container !== article
-        ) {
-          container = container.parentElement;
-        }
-        if (
-          container &&
-          container !== article &&
-          (container.tagName === "SPAN" || container.tagName === "DIV")
-        ) {
-          svgContainers.add(container);
-        }
-      });
+    return svgs;
+  }, [isDev, articleElement]);
 
-      const svgs: SvgEntry[] = [];
-      Array.from(svgContainers).forEach((container, index) => {
-        // Try to get filename from SVG or img src
-        const svg = container.querySelector("svg");
-        const img = container.querySelector("img");
-        let filename = `SVG ${index + 1}`;
-
-        if (img && img.src) {
-          try {
-            const url = new URL(img.src);
-            const pathParts = url.pathname.split("/");
-            filename = pathParts[pathParts.length - 1] || filename;
-          } catch {
-            // If URL parsing fails, try extracting from src string
-            const parts = img.src.split("/");
-            filename = parts[parts.length - 1] || filename;
-          }
-        } else if (svg) {
-          // For inline SVGs, try to extract from preceding heading or text
-          let prevSibling: Element | null = container.previousElementSibling;
-          let attempts = 0;
-          while (prevSibling && attempts < 5) {
-            if (prevSibling.tagName.match(/^H[1-6]$/)) {
-              const headingText = prevSibling.textContent?.trim().substring(0, 40);
-              if (headingText) {
-                filename = `${headingText}...`;
-                break;
-              }
-            }
-            prevSibling = prevSibling.previousElementSibling;
-            attempts++;
-          }
-        }
-
-        // Create a unique ID for this SVG
-        const id = `svg-${index}`;
-        if (!container.id) {
-          container.id = id;
-        }
-        svgs.push({
-          id: container.id || id,
-          filename,
-          element: container,
-        });
-      });
-
-      setSvgEntries(svgs);
-    }, 100);
-
-    return () => clearTimeout(timeout);
-  }, [isDev]);
-
-  // Extract TOC entries from the page
-  useEffect(() => {
-    const article = document.querySelector("article");
-    if (!article) return;
+  // Extract TOC entries from the page - memoized
+  const extractedTocEntries = useMemo(() => {
+    if (!articleElement) return [];
 
     // Find the TABLE OF CONTENTS section
-    const tocHeading = Array.from(article.querySelectorAll("h1, h2")).find(
+    const headings = Array.from(articleElement.querySelectorAll("h1, h2"));
+    const tocHeading = headings.find(
       (el) => el.textContent?.includes("TABLE OF CONTENTS")
     );
 
     if (!tocHeading) {
       // Fallback to extracting all headings if no TOC table found
-      const elements = article.querySelectorAll("h1[id], h2[id], h3[id], h4[id]");
+      const elements = articleElement.querySelectorAll("h1[id], h2[id], h3[id], h4[id]");
       const extracted: TocEntry[] = [];
       elements.forEach((el) => {
         const id = el.id;
@@ -169,8 +181,7 @@ export function TableOfContents() {
           extracted.push({ id, text, level });
         }
       });
-      setEntries(extracted);
-      return;
+      return extracted;
     }
 
     // Find the table after the TOC heading
@@ -191,8 +202,7 @@ export function TableOfContents() {
     }
 
     if (!tocTable) {
-      setEntries([]);
-      return;
+      return [];
     }
 
     // Extract entries from the table
@@ -226,8 +236,24 @@ export function TableOfContents() {
       }
     });
 
-    setEntries(extracted);
-  }, []);
+    return extracted;
+  }, [articleElement]);
+
+  // Update state when extracted data changes (with delay for SVG to allow rendering)
+  useEffect(() => {
+    if (!isDev) {
+      setSvgEntries([]);
+    } else {
+      const timeout = setTimeout(() => {
+        setSvgEntries(extractedSvgEntries);
+      }, 100);
+      return () => clearTimeout(timeout);
+    }
+  }, [isDev, extractedSvgEntries]);
+
+  useEffect(() => {
+    setEntries(extractedTocEntries);
+  }, [extractedTocEntries]);
 
   // Get main sections (level 1)
   const mainSections = useMemo(
@@ -251,13 +277,15 @@ export function TableOfContents() {
     [entries]
   );
 
-  // What to display
+  // What to display - use debounced search query
   const items = useMemo(() => {
+    const query = debouncedSearchQuery.toLowerCase();
+    
     // SVG mode
     if (menuMode === "svg") {
-      const filtered = searchQuery
+      const filtered = query
         ? svgEntries.filter((e) =>
-            e.filename.toLowerCase().includes(searchQuery.toLowerCase())
+            e.filename.toLowerCase().includes(query)
           )
         : svgEntries;
       return filtered.map((e) => ({
@@ -270,25 +298,25 @@ export function TableOfContents() {
     // TOC mode
     if (selectedSection) {
       const children = getChildren(selectedSection);
-      const filtered = searchQuery
+      const filtered = query
         ? children.filter((e) =>
-            e.text.toLowerCase().includes(searchQuery.toLowerCase())
+            e.text.toLowerCase().includes(query)
           )
         : children;
       return filtered;
     }
 
     // Show main sections or search all entries
-    if (searchQuery) {
+    if (query) {
       const matchingEntries = entries.filter((e) =>
-        e.text.toLowerCase().includes(searchQuery.toLowerCase())
+        e.text.toLowerCase().includes(query)
       );
       
       // In dev mode, also include matching SVG entries in search results
       if (isDev && svgEntries.length > 0) {
         const matchingSvgs = svgEntries
           .filter((e) =>
-            e.filename.toLowerCase().includes(searchQuery.toLowerCase())
+            e.filename.toLowerCase().includes(query)
           )
           .map((e) => ({
             id: e.id,
@@ -319,7 +347,7 @@ export function TableOfContents() {
   }, [
     menuMode,
     selectedSection,
-    searchQuery,
+    debouncedSearchQuery,
     mainSections,
     entries,
     getChildren,
@@ -407,7 +435,7 @@ export function TableOfContents() {
         }
       }, 50);
     },
-    [menuMode, svgEntries]
+    [svgEntries]
   );
 
   // Go back to top level

@@ -1,5 +1,6 @@
 "use client";
 
+import { memo, useMemo, useCallback } from "react";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { Children as ReactChildren, isValidElement } from "react";
 
@@ -27,15 +28,15 @@ interface ClickableTableRowProps extends ComponentPropsWithoutRef<"tr"> {
   shouldHide?: boolean;
 }
 
-export function ClickableTableRow({ children, shouldHide, ...rest }: ClickableTableRowProps) {
-  if (shouldHide) {
-    return null;
-  }
+function ClickableTableRowComponent({ children, shouldHide, ...rest }: ClickableTableRowProps) {
+  // Memoize href lookup to avoid re-computation on every render
+  // Hooks must be called before any early returns
+  const rowHref = useMemo(() => findFirstHref(children), [children]);
   
-  // Find if row contains a link
-  const rowHref = findFirstHref(children);
-  
-  const handleRowClick = rowHref ? () => {
+  // Memoize click handler
+  const handleRowClick = useCallback(() => {
+    if (!rowHref) return;
+    
     if (rowHref.startsWith('#')) {
       // Use getElementById to handle IDs that start with numbers
       const id = rowHref.slice(1);
@@ -47,16 +48,28 @@ export function ClickableTableRow({ children, shouldHide, ...rest }: ClickableTa
     } else {
       window.location.href = rowHref;
     }
-  } : undefined;
+  }, [rowHref]);
+  
+  // Memoize className
+  const className = useMemo(() => {
+    return `hover:bg-neutral-50 active:bg-neutral-50 dark:hover:bg-neutral-800/50 dark:active:bg-neutral-800/50 ${rowHref ? 'cursor-pointer' : ''}`;
+  }, [rowHref]);
+  
+  if (shouldHide) {
+    return null;
+  }
   
   return (
     <tr
       {...rest}
-      className={`hover:bg-neutral-50 active:bg-neutral-50 dark:hover:bg-neutral-800/50 dark:active:bg-neutral-800/50 ${rowHref ? 'cursor-pointer' : ''}`}
-      onClick={handleRowClick}
+      className={className}
+      onClick={rowHref ? handleRowClick : undefined}
     >
       {children}
     </tr>
   );
 }
+
+// Memoize component to prevent unnecessary re-renders
+export const ClickableTableRow = memo(ClickableTableRowComponent);
 

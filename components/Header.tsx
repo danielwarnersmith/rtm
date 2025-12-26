@@ -1,5 +1,6 @@
 "use client";
 
+import { memo, useMemo } from "react";
 import Link from "next/link";
 import { useHeader } from "./HeaderContext";
 import { ThemeToggle } from "./ThemeToggle";
@@ -8,8 +9,15 @@ import { ThemeToggle } from "./ThemeToggle";
  * Navigation header with optional sticky title display.
  * Shows machine name when scrolled past the page title.
  */
-export function Header() {
+function HeaderComponent() {
   const { title } = useHeader();
+
+  // Memoize title container className
+  const titleContainerClassName = useMemo(() => {
+    return `flex items-center overflow-hidden transition-all duration-300 ease-out ${
+      title ? "max-w-[300px] opacity-100" : "max-w-0 opacity-0"
+    }`;
+  }, [title]);
 
   return (
     <>
@@ -26,11 +34,7 @@ export function Header() {
             </Link>
             
             {/* Animated title separator and text */}
-            <div
-              className={`flex items-center overflow-hidden transition-all duration-300 ease-out ${
-                title ? "max-w-[300px] opacity-100" : "max-w-0 opacity-0"
-              }`}
-            >
+            <div className={titleContainerClassName}>
               <span className="mx-2 text-neutral-300 dark:text-neutral-600">/</span>
               <span className="whitespace-nowrap text-sm font-medium text-neutral-600 dark:text-neutral-400">
                 {title}
@@ -52,4 +56,6 @@ export function Header() {
     </>
   );
 }
+
+export const Header = memo(HeaderComponent);
 

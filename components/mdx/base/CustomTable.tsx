@@ -1,3 +1,4 @@
+import { memo, useMemo } from "react";
 import type { ComponentPropsWithoutRef } from "react";
 import { Children as ReactChildren, isValidElement } from "react";
 import { getTextContent } from "../utils";
@@ -40,95 +41,117 @@ export function CustomThead(props: ComponentPropsWithoutRef<"thead">) {
 /**
  * Custom table header cell with smart alignment.
  */
-export function CustomTh(props: ComponentPropsWithoutRef<"th">) {
+function CustomThComponent(props: ComponentPropsWithoutRef<"th">) {
   const { children, style, align, ...rest } = props;
-  // Check for explicit alignment from markdown (e.g., |:---|)
-  const hasExplicitAlign = style?.textAlign || align;
   
-  // Right-align only if no explicit alignment AND content looks numeric or is "Page"
-  const text = typeof children === "string" ? children.trim() : "";
-  const isNumericColumn = text === "Page" || /^\d+$/.test(text);
-  const shouldRightAlign = !hasExplicitAlign && isNumericColumn;
+  // Memoize alignment computation
+  const className = useMemo(() => {
+    // Check for explicit alignment from markdown (e.g., |:---|)
+    const hasExplicitAlign = style?.textAlign || align;
+    
+    // Right-align only if no explicit alignment AND content looks numeric or is "Page"
+    const text = typeof children === "string" ? children.trim() : "";
+    const isNumericColumn = text === "Page" || /^\d+$/.test(text);
+    const shouldRightAlign = !hasExplicitAlign && isNumericColumn;
+    
+    return `first:pl-4 last:pr-4 py-2 font-semibold text-neutral-900 dark:text-neutral-100 ${
+      shouldRightAlign ? "text-right" : "text-left"
+    }`;
+  }, [children, style?.textAlign, align]);
   
   return (
     <th
       {...rest}
       style={style}
-      className={`first:pl-4 last:pr-4 py-2 font-semibold text-neutral-900 dark:text-neutral-100 ${
-        shouldRightAlign ? "text-right" : "text-left"
-      }`}
+      className={className}
     >
       {children}
     </th>
   );
 }
 
+export const CustomTh = memo(CustomThComponent);
+
 /**
  * Custom table data cell with smart alignment.
  */
-export function CustomTd(props: ComponentPropsWithoutRef<"td">) {
+function CustomTdComponent(props: ComponentPropsWithoutRef<"td">) {
   const { children, style, align, ...rest } = props;
-  // Check for explicit alignment from markdown (e.g., |:---|)
-  const hasExplicitAlign = style?.textAlign || align;
   
-  // Right-align only if no explicit alignment AND content is purely numeric
-  const text = typeof children === "string" ? children.trim() : "";
-  const isNumeric = /^\d+$/.test(text);
-  const shouldRightAlign = !hasExplicitAlign && isNumeric;
+  // Memoize alignment and style computation
+  const { className, mergedStyle } = useMemo(() => {
+    // Check for explicit alignment from markdown (e.g., |:---|)
+    const hasExplicitAlign = style?.textAlign || align;
+    
+    // Right-align only if no explicit alignment AND content is purely numeric
+    const text = typeof children === "string" ? children.trim() : "";
+    const isNumeric = /^\d+$/.test(text);
+    const shouldRightAlign = !hasExplicitAlign && isNumeric;
+    
+    const className = `border-b border-neutral-200 first:pl-4 last:pr-4 py-2 dark:border-neutral-700 ${
+      shouldRightAlign
+        ? "text-right tabular-nums text-neutral-500 dark:text-neutral-400"
+        : "text-left text-neutral-700 dark:text-neutral-300"
+    }`;
+    
+    const mergedStyle = { borderBottomWidth: '0.5px' as const, ...style };
+    
+    return { className, mergedStyle };
+  }, [children, style, align]);
   
   return (
     <td
       {...rest}
-      style={{ borderBottomWidth: '0.5px', ...style }}
-      className={`border-b border-neutral-200 first:pl-4 last:pr-4 py-2 dark:border-neutral-700 ${
-        shouldRightAlign
-          ? "text-right tabular-nums text-neutral-500 dark:text-neutral-400"
-          : "text-left text-neutral-700 dark:text-neutral-300"
-      }`}
+      style={mergedStyle}
+      className={className}
     >
       {children}
     </td>
   );
 }
 
+export const CustomTd = memo(CustomTdComponent);
+
 /**
  * Custom table row with smart hiding and click behavior.
  */
-export function CustomTr(props: ComponentPropsWithoutRef<"tr">) {
+function CustomTrComponent(props: ComponentPropsWithoutRef<"tr">) {
   const { children, ...rest } = props;
   
-  // Collect cell contents
-  const cells: string[] = [];
-  ReactChildren.forEach(children, (child) => {
-    if (isValidElement(child)) {
-      const text = getTextContent(child.props.children).trim();
-      cells.push(text);
+  // Memoize cell text extraction and hide logic
+  const shouldHide = useMemo(() => {
+    // Collect cell contents
+    const cells: string[] = [];
+    ReactChildren.forEach(children, (child) => {
+      if (isValidElement(child)) {
+        const text = getTextContent(child.props.children).trim();
+        cells.push(text);
+      }
+    });
+    
+    // Hide rows where ALL cells contain only dashes (separator rows)
+    if (cells.length > 0 && cells.every(cell => /^-+$/.test(cell))) {
+      return true;
     }
-  });
-  
-  // Determine if row should be hidden
-  let shouldHide = false;
-  
-  // Hide rows where ALL cells contain only dashes (separator rows)
-  if (cells.length > 0 && cells.every(cell => /^-+$/.test(cell))) {
-    shouldHide = true;
-  }
-  
-  // Hide completely empty rows
-  if (cells.length > 0 && cells.every(cell => !cell)) {
-    shouldHide = true;
-  }
-  
-  // Hide 2-column TOC rows where either column is empty
-  if (cells.length === 2 && (!cells[0] || !cells[1])) {
-    shouldHide = true;
-  }
-  
-  // Hide duplicate header rows (e.g., "Section Page" that ended up in tbody)
-  const fullText = cells.join(" ").trim();
-  if (fullText === "Section Page") {
-    shouldHide = true;
-  }
+    
+    // Hide completely empty rows
+    if (cells.length > 0 && cells.every(cell => !cell)) {
+      return true;
+    }
+    
+    // Hide 2-column TOC rows where either column is empty
+    if (cells.length === 2 && (!cells[0] || !cells[1])) {
+      return true;
+    }
+    
+    // Hide duplicate header rows (e.g., "Section Page" that ended up in tbody)
+    const fullText = cells.join(" ").trim();
+    if (fullText === "Section Page") {
+      return true;
+    }
+    
+    return false;
+  }, [children]);
   
   return (
     <ClickableTableRow {...rest} shouldHide={shouldHide}>
@@ -136,4 +159,6 @@ export function CustomTr(props: ComponentPropsWithoutRef<"tr">) {
     </ClickableTableRow>
   );
 }
+
+export const CustomTr = memo(CustomTrComponent);
 
