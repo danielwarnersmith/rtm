@@ -156,10 +156,15 @@ tr {
 
   body {
     @apply bg-[#F5F1EB] text-neutral-900 antialiased;
+    overflow-x: hidden;
   }
 
   .dark body {
     @apply bg-neutral-950 text-neutral-50;
+  }
+
+  html {
+    overflow-x: hidden;
   }
 }
 

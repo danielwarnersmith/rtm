@@ -26,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="bg-white dark:bg-neutral-950">
-      <body className="min-h-screen bg-white dark:bg-neutral-950">
+    <html lang="en" suppressHydrationWarning className="bg-[#F5F1EB] dark:bg-neutral-950 overflow-x-hidden">
+      <body className="min-h-screen bg-[#F5F1EB] dark:bg-neutral-950 overflow-x-hidden">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -37,7 +37,7 @@ export default function RootLayout({
             <Header />
 
             {/* Main Content */}
-            <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 flex flex-col items-center">
+            <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 flex flex-col items-center w-full overflow-x-hidden">
               {children}
             </main>
 

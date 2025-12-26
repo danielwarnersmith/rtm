@@ -69,7 +69,7 @@ export default async function MachinePage({ params }: MachinePageProps) {
 
   return (
     <>
-      <article className="prose prose-neutral max-w-3xl px-4 dark:prose-invert">
+      <article className="prose prose-neutral max-w-3xl px-4 dark:prose-invert w-full overflow-x-hidden">
         {/* Document Header - wrapped in StickyTitle for scroll detection */}
         <StickyTitle title={machine.title}>
           <header className="pb-8">

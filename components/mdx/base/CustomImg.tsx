@@ -68,11 +68,11 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
         // Add class and style attributes if not present
         let newAttrs = attrs;
         if (!newAttrs.includes('class=') && !newAttrs.includes('className=')) {
-          newAttrs += ' class="h-auto"';
+          newAttrs += ' class="h-auto w-full max-w-full"';
         }
         
         if (!newAttrs.includes('style=')) {
-          newAttrs += ' style="max-width: 100%; height: auto; display: block;"';
+          newAttrs += ' style="max-width: 100%; width: 100%; height: auto; display: block;"';
         }
         return `<svg${newAttrs}>`;
       }
@@ -83,11 +83,12 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
         className={[
           "my-6 flex justify-center overflow-hidden rounded-md border",
           "border-neutral-200 dark:border-neutral-800",
+          "w-full max-w-full",
           typeof props.className === "string" ? props.className : "",
         ]
           .join(" ")
           .trim()}
-        style={{ display: "block" }}
+        style={{ display: "block", width: "100%", maxWidth: "100%" }}
         dangerouslySetInnerHTML={{ __html: styledSvg }}
       />
     );

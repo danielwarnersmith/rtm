@@ -8,10 +8,10 @@ import { ClickableTableRow } from "../ClickableTableRow";
  */
 export function CustomTable(props: ComponentPropsWithoutRef<"table">) {
   return (
-    <div className="-mx-4 overflow-x-auto">
+    <div className="-mx-4 overflow-x-auto sm:mx-0">
       <table
         {...props}
-        className="w-full border-collapse border-t border-neutral-200 text-sm dark:border-neutral-700"
+        className="w-full min-w-full border-collapse border-t border-neutral-200 text-sm dark:border-neutral-700"
         style={{ borderTopWidth: '0.5px' }}
       />
     </div>
