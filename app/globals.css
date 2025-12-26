@@ -155,7 +155,7 @@ tr {
   }
 
   body {
-    @apply bg-[#F5F1EB] text-neutral-900 antialiased;
+    @apply bg-white text-neutral-900 antialiased;
     overflow-x: hidden;
   }
 
