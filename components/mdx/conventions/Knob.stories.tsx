@@ -7,6 +7,15 @@ const meta = {
   parameters: {
     layout: 'padded',
   },
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'The knob name to display (e.g., TRACK LEVEL, DATA ENTRY)',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+  },
 } satisfies Meta<typeof Knob>;
 
 export default meta;

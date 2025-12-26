@@ -5,10 +5,15 @@ import '../app/globals.css';
 const preview: Preview = {
   parameters: {
     controls: {
+      // Auto-detect color and date controls
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+      // Sort controls alphabetically for better organization
+      sort: 'alpha',
+      // Show expanded controls with descriptions
+      expanded: true,
     },
   },
   globalTypes: {

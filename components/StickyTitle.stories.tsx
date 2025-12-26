@@ -10,6 +10,23 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
+  argTypes: {
+    title: {
+      control: 'text',
+      description: 'The title to display in the header when the section scrolls out of view',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+    },
+    children: {
+      control: false,
+      description: 'The content to wrap. When it scrolls out of view, the title appears in the header.',
+      table: {
+        type: { summary: 'ReactNode' },
+      },
+    },
+  },
   decorators: [
     (Story, context) => {
       // Sync ThemeProvider with Storybook's global theme

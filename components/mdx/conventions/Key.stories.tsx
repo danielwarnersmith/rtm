@@ -7,6 +7,15 @@ const meta = {
   parameters: {
     layout: 'padded',
   },
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'The key name to display (e.g., FUNC, PLAY, TRIG 1-16)',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+  },
 } satisfies Meta<typeof Key>;
 
 export default meta;
@@ -41,5 +50,12 @@ export const InContext: Story = {
       </p>
     </div>
   ),
+};
+
+export const Interactive: Story = {
+  args: {
+    children: 'FUNC',
+  },
+  // This story uses the default render which will use controls
 };
 
