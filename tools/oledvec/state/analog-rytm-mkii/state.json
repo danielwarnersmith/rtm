@@ -4,7 +4,7 @@
     "_page_12_Figure_6": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_12_Figure_6.jpeg",
-      "updated_at": "2025-12-24T18:41:30.162908Z",
+      "updated_at": "2025-12-26T02:12:15.490196Z",
       "oled_bbox": [
         0,
         0,
@@ -28,18 +28,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_96_Picture_14": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_96_Picture_14.jpeg",
-      "updated_at": "2025-12-24T18:41:30.164977Z",
+      "updated_at": "2025-12-26T02:12:31.214718Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        275
+        32,
+        15,
+        497,
+        250
       ],
       "normalize_params": {
         "target_size": [
@@ -48,28 +50,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9940078482668411,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9376,
+        "reason_codes": [],
+        "pixel_density": 0.30322265625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_30_Picture_14": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_30_Picture_14.jpeg",
-      "updated_at": "2025-12-24T18:41:30.166157Z",
+      "updated_at": "2025-12-26T02:12:50.038643Z",
       "oled_bbox": [
-        0,
-        0,
-        551,
-        277
+        31,
+        18,
+        496,
+        249
       ],
       "normalize_params": {
         "target_size": [
@@ -78,28 +81,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9962084034934842,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.247802734375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_99_Figure_2": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_99_Figure_2.jpeg",
-      "updated_at": "2025-12-24T18:41:30.167651Z",
+      "updated_at": "2025-12-26T02:13:15.313915Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        282
+        38,
+        22,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -108,23 +112,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9927247563651206,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3031005859375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_45_Picture_18": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_45_Picture_18.jpeg",
-      "updated_at": "2025-12-24T18:41:30.168375Z",
+      "updated_at": "2025-12-26T02:13:18.570983Z",
       "oled_bbox": [
         0,
         0,
@@ -151,13 +156,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_27_Picture_7": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_27_Picture_7.jpeg",
-      "updated_at": "2025-12-24T18:41:30.169252Z",
+      "updated_at": "2025-12-26T02:13:20.116967Z",
       "oled_bbox": [
         0,
         0,
@@ -183,18 +190,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_73_Picture_10": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_73_Picture_10.jpeg",
-      "updated_at": "2025-12-24T18:41:30.170973Z",
+      "updated_at": "2025-12-26T02:13:43.467908Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        277
+        32,
+        14,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -203,23 +212,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9969353037425654,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3115234375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_16_Picture_16": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_16_Picture_16.jpeg",
-      "updated_at": "2025-12-24T18:41:30.173516Z",
+      "updated_at": "2025-12-26T02:13:46.071501Z",
       "oled_bbox": [
         0,
         0,
@@ -245,18 +255,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_31_Picture_13": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_31_Picture_13.jpeg",
-      "updated_at": "2025-12-24T18:41:30.175299Z",
+      "updated_at": "2025-12-26T02:14:13.825921Z",
       "oled_bbox": [
-        0,
-        0,
-        545,
-        270
+        26,
+        12,
+        494,
+        249
       ],
       "normalize_params": {
         "target_size": [
@@ -265,28 +277,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9946367652055725,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9367871485943775,
+        "reason_codes": [],
+        "pixel_density": 0.2379150390625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_56_Picture_7": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_56_Picture_7.jpeg",
-      "updated_at": "2025-12-24T18:41:30.177061Z",
+      "updated_at": "2025-12-26T02:14:42.388930Z",
       "oled_bbox": [
-        0,
-        0,
-        542,
-        284
+        23,
+        25,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -295,28 +308,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9800666545397848,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.2235107421875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_43_Picture_7": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_43_Picture_7.jpeg",
-      "updated_at": "2025-12-24T18:41:30.178469Z",
+      "updated_at": "2025-12-26T02:14:57.989902Z",
       "oled_bbox": [
-        0,
-        0,
-        541,
-        277
+        24,
+        18,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -325,17 +339,18 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9889781591784168,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3134765625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_61_Picture_22": {
@@ -371,7 +386,7 @@
     "_page_40_Picture_1": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_40_Picture_1.jpeg",
-      "updated_at": "2025-12-24T18:41:30.186580Z",
+      "updated_at": "2025-12-26T02:15:00.494241Z",
       "oled_bbox": [
         0,
         0,
@@ -398,18 +413,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_92_Picture_26": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_92_Picture_26.jpeg",
-      "updated_at": "2025-12-24T18:41:30.188063Z",
+      "updated_at": "2025-12-26T02:15:18.342903Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        282
+        30,
+        18,
+        495,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -418,28 +435,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9927247563651206,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.3062744140625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_95_Picture_8": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_95_Picture_8.jpeg",
-      "updated_at": "2025-12-24T18:41:30.189619Z",
+      "updated_at": "2025-12-26T02:15:36.820112Z",
       "oled_bbox": [
-        0,
-        0,
-        552,
-        282
+        36,
+        20,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -448,28 +466,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9898839808818994,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3109130859375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_77_Picture_22": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_77_Picture_22.jpeg",
-      "updated_at": "2025-12-24T18:41:30.191297Z",
+      "updated_at": "2025-12-26T02:15:53.223526Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        282
+        32,
+        20,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -478,23 +497,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9927247563651206,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.325439453125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_45_Picture_14": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_45_Picture_14.jpeg",
-      "updated_at": "2025-12-24T18:41:30.192328Z",
+      "updated_at": "2025-12-26T02:15:56.511883Z",
       "oled_bbox": [
         0,
         0,
@@ -520,18 +540,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_75_Picture_20": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_75_Picture_20.jpeg",
-      "updated_at": "2025-12-24T18:41:30.194110Z",
+      "updated_at": "2025-12-26T02:16:14.216077Z",
       "oled_bbox": [
-        0,
-        0,
-        560,
-        285
+        34,
+        20,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -540,28 +562,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9913959899749373,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.301025390625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_77_Picture_8": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_77_Picture_8.jpeg",
-      "updated_at": "2025-12-24T18:41:30.195605Z",
+      "updated_at": "2025-12-26T02:16:32.020725Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        278
+        28,
+        17,
+        494,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -570,23 +593,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9933404096395015,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.31787109375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_47_Picture_16": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_47_Picture_16.jpeg",
-      "updated_at": "2025-12-24T18:41:30.196628Z",
+      "updated_at": "2025-12-26T02:16:34.737185Z",
       "oled_bbox": [
         0,
         0,
@@ -612,7 +636,9 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_60_Picture_13": {
@@ -648,12 +674,12 @@
     "_page_99_Picture_14": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_99_Picture_14.jpeg",
-      "updated_at": "2025-12-24T18:41:30.202791Z",
+      "updated_at": "2025-12-26T02:16:55.466351Z",
       "oled_bbox": [
-        0,
-        0,
-        546,
-        275
+        33,
+        12,
+        494,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -662,28 +688,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9954525474525475,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.3009033203125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_67_Picture_12": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_67_Picture_12.jpeg",
-      "updated_at": "2025-12-24T18:41:30.204579Z",
+      "updated_at": "2025-12-26T02:17:15.973493Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        282
+        28,
+        14,
+        495,
+        249
       ],
       "normalize_params": {
         "target_size": [
@@ -692,23 +719,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9877533620121692,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.2056884765625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_15_Picture_4": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_15_Picture_4.jpeg",
-      "updated_at": "2025-12-24T18:41:30.206936Z",
+      "updated_at": "2025-12-26T02:17:18.676779Z",
       "oled_bbox": [
         0,
         0,
@@ -732,13 +760,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_62_Picture_9": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_62_Picture_9.jpeg",
-      "updated_at": "2025-12-24T18:41:30.208102Z",
+      "updated_at": "2025-12-26T02:17:20.382244Z",
       "oled_bbox": [
         0,
         0,
@@ -765,18 +795,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_93_Picture_20": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_93_Picture_20.jpeg",
-      "updated_at": "2025-12-24T18:41:30.210463Z",
+      "updated_at": "2025-12-26T02:17:37.025969Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        285
+        30,
+        21,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -785,23 +817,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9864769518733543,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3031005859375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_35_Picture_6": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_35_Picture_6.jpeg",
-      "updated_at": "2025-12-24T18:41:30.211556Z",
+      "updated_at": "2025-12-26T02:18:31.004753Z",
       "oled_bbox": [
         0,
         0,
@@ -827,18 +860,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_58_Picture_11": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_58_Picture_11.jpeg",
-      "updated_at": "2025-12-24T18:41:30.213544Z",
+      "updated_at": "2025-12-26T02:18:55.500532Z",
       "oled_bbox": [
-        0,
-        0,
-        543,
-        278
+        24,
+        22,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -847,23 +882,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9890178464962837,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.2208251953125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_36_Picture_25": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_36_Picture_25.jpeg",
-      "updated_at": "2025-12-24T18:41:30.214827Z",
+      "updated_at": "2025-12-26T02:18:57.500351Z",
       "oled_bbox": [
         0,
         0,
@@ -889,13 +925,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_63_Picture_17": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_63_Picture_17.jpeg",
-      "updated_at": "2025-12-24T18:41:30.215998Z",
+      "updated_at": "2025-12-26T02:18:59.101300Z",
       "oled_bbox": [
         0,
         0,
@@ -921,13 +959,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_11_Picture_2": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_11_Picture_2.jpeg",
-      "updated_at": "2025-12-24T18:41:30.218961Z",
+      "updated_at": "2025-12-26T02:19:00.834386Z",
       "oled_bbox": [
         0,
         0,
@@ -953,13 +993,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_66_Picture_22": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_66_Picture_22.jpeg",
-      "updated_at": "2025-12-24T18:41:30.220294Z",
+      "updated_at": "2025-12-26T02:19:02.594286Z",
       "oled_bbox": [
         0,
         0,
@@ -985,13 +1027,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_7_Picture_22": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_7_Picture_22.jpeg",
-      "updated_at": "2025-12-24T18:41:30.221627Z",
+      "updated_at": "2025-12-26T02:19:03.936294Z",
       "oled_bbox": [
         0,
         0,
@@ -1017,13 +1061,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_59_Picture_20": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_59_Picture_20.jpeg",
-      "updated_at": "2025-12-24T18:41:30.222805Z",
+      "updated_at": "2025-12-26T02:19:05.158182Z",
       "oled_bbox": [
         0,
         0,
@@ -1049,7 +1095,9 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_51_Picture_17": {
@@ -1085,7 +1133,7 @@
     "_page_58_Figure_18": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_58_Figure_18.jpeg",
-      "updated_at": "2025-12-24T18:41:30.228241Z",
+      "updated_at": "2025-12-26T02:19:06.392880Z",
       "oled_bbox": [
         0,
         0,
@@ -1111,18 +1159,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_97_Picture_28": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_97_Picture_28.jpeg",
-      "updated_at": "2025-12-24T18:41:30.230498Z",
+      "updated_at": "2025-12-26T02:19:22.378365Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        283
+        32,
+        14,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1131,23 +1181,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9913351297760378,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.305419921875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_35_Picture_16": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_35_Picture_16.jpeg",
-      "updated_at": "2025-12-24T18:41:30.231787Z",
+      "updated_at": "2025-12-26T02:19:24.491639Z",
       "oled_bbox": [
         0,
         0,
@@ -1173,13 +1224,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_73_Picture_3": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_73_Picture_3.jpeg",
-      "updated_at": "2025-12-24T18:41:30.233167Z",
+      "updated_at": "2025-12-26T02:19:25.796738Z",
       "oled_bbox": [
         0,
         0,
@@ -1205,18 +1258,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_74_Figure_17": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_74_Figure_17.jpeg",
-      "updated_at": "2025-12-24T18:41:30.235371Z",
+      "updated_at": "2025-12-26T02:19:40.760982Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        283
+        30,
+        20,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1225,28 +1280,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9863812778775416,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_98_Picture_9": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_98_Picture_9.jpeg",
-      "updated_at": "2025-12-24T18:41:30.237395Z",
+      "updated_at": "2025-12-26T02:19:55.743334Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        278
+        32,
+        17,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1255,23 +1311,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9962220458714404,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3056640625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_63_Picture_10": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_63_Picture_10.jpeg",
-      "updated_at": "2025-12-24T18:41:30.238811Z",
+      "updated_at": "2025-12-26T02:19:57.735198Z",
       "oled_bbox": [
         0,
         0,
@@ -1297,18 +1354,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_60_Picture_5": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_60_Picture_5.jpeg",
-      "updated_at": "2025-12-24T18:41:30.241011Z",
+      "updated_at": "2025-12-26T02:20:17.166280Z",
       "oled_bbox": [
-        0,
-        0,
-        528,
-        284
+        16,
+        21,
+        496,
+        249
       ],
       "normalize_params": {
         "target_size": [
@@ -1317,28 +1376,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9702084667093469,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.220703125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_94_Figure_2": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_94_Figure_2.jpeg",
-      "updated_at": "2025-12-24T18:41:30.243477Z",
+      "updated_at": "2025-12-26T02:20:34.086345Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        277
+        36,
+        19,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1347,28 +1407,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9969353037425654,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.298828125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_99_Picture_8": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_99_Picture_8.jpeg",
-      "updated_at": "2025-12-24T18:41:30.245503Z",
+      "updated_at": "2025-12-26T02:21:14.438358Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        277
+        30,
+        18,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1377,17 +1438,18 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9976544088366051,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.302734375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_23_Picture_11": {
@@ -1423,12 +1485,12 @@
     "_page_96_Picture_4": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_96_Picture_4.jpeg",
-      "updated_at": "2025-12-24T18:41:30.252495Z",
+      "updated_at": "2025-12-26T02:21:38.815607Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        283
+        30,
+        21,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1437,23 +1499,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9863812778775416,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.307373046875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_1_Picture_15": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_1_Picture_15.jpeg",
-      "updated_at": "2025-12-24T18:41:30.254085Z",
+      "updated_at": "2025-12-26T02:22:38.207526Z",
       "oled_bbox": [
         0,
         0,
@@ -1479,13 +1542,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_13_Figure_3": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_13_Figure_3.jpeg",
-      "updated_at": "2025-12-24T18:41:30.258109Z",
+      "updated_at": "2025-12-26T02:22:39.756031Z",
       "oled_bbox": [
         0,
         0,
@@ -1509,7 +1574,9 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_51_Picture_1": {
@@ -1545,7 +1612,7 @@
     "_page_60_Picture_15": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_60_Picture_15.jpeg",
-      "updated_at": "2025-12-24T18:41:30.264719Z",
+      "updated_at": "2025-12-26T02:22:41.189431Z",
       "oled_bbox": [
         0,
         0,
@@ -1571,13 +1638,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_37_Picture_6": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_37_Picture_6.jpeg",
-      "updated_at": "2025-12-24T18:41:30.266618Z",
+      "updated_at": "2025-12-26T02:22:42.576367Z",
       "oled_bbox": [
         0,
         0,
@@ -1603,13 +1672,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_47_Picture_7": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_47_Picture_7.jpeg",
-      "updated_at": "2025-12-24T18:41:30.268282Z",
+      "updated_at": "2025-12-26T02:22:43.968426Z",
       "oled_bbox": [
         0,
         0,
@@ -1635,7 +1706,9 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_57_Picture_16": {
@@ -1671,7 +1744,7 @@
     "_page_105_Picture_0": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_105_Picture_0.jpeg",
-      "updated_at": "2025-12-24T18:41:30.300844Z",
+      "updated_at": "2025-12-26T02:22:45.721924Z",
       "oled_bbox": [
         0,
         0,
@@ -1697,18 +1770,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_53_Picture_6": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_53_Picture_6.jpeg",
-      "updated_at": "2025-12-24T18:41:30.303678Z",
+      "updated_at": "2025-12-26T02:23:00.485281Z",
       "oled_bbox": [
-        0,
-        0,
-        536,
-        284
+        27,
+        23,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1717,28 +1792,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9758507199915913,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.178466796875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_30_Picture_12": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_30_Picture_12.jpeg",
-      "updated_at": "2025-12-24T18:41:30.306229Z",
+      "updated_at": "2025-12-26T02:23:15.984692Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        290
+        32,
+        20,
+        497,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1747,23 +1823,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9818760853386257,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3272705078125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_48_Picture_10": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_48_Picture_10.jpeg",
-      "updated_at": "2025-12-24T18:41:30.307946Z",
+      "updated_at": "2025-12-26T02:23:17.728700Z",
       "oled_bbox": [
         0,
         0,
@@ -1790,13 +1867,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_33_Picture_17": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_33_Picture_17.jpeg",
-      "updated_at": "2025-12-24T18:41:30.309648Z",
+      "updated_at": "2025-12-26T02:23:18.997448Z",
       "oled_bbox": [
         0,
         0,
@@ -1822,18 +1901,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_92_Picture_16": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_92_Picture_16.jpeg",
-      "updated_at": "2025-12-24T18:41:30.312180Z",
+      "updated_at": "2025-12-26T02:23:34.689489Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        284
+        33,
+        20,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1842,28 +1923,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.989955289289695,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.30419921875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_68_Picture_9": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_68_Picture_9.jpeg",
-      "updated_at": "2025-12-24T18:41:30.314834Z",
+      "updated_at": "2025-12-26T02:24:01.428461Z",
       "oled_bbox": [
-        0,
-        0,
-        532,
-        277
+        20,
+        14,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1872,28 +1954,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9824706169756521,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.2886962890625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_27_Picture_1": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_27_Picture_1.jpeg",
-      "updated_at": "2025-12-24T18:41:30.317867Z",
+      "updated_at": "2025-12-26T02:24:15.500880Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        284
+        31,
+        21,
+        496,
+        250
       ],
       "normalize_params": {
         "target_size": [
@@ -1902,23 +1985,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.989955289289695,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9368000000000001,
+        "reason_codes": [],
+        "pixel_density": 0.12841796875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_46_Picture_21": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_46_Picture_21.jpeg",
-      "updated_at": "2025-12-24T18:41:30.320381Z",
+      "updated_at": "2025-12-26T02:24:18.159383Z",
       "oled_bbox": [
         0,
         0,
@@ -1944,18 +2028,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_56_Picture_1": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_56_Picture_1.jpeg",
-      "updated_at": "2025-12-24T18:41:30.329341Z",
+      "updated_at": "2025-12-26T02:24:32.765744Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        285
+        32,
+        24,
+        497,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1964,28 +2050,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9885851318944845,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.2037353515625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_100_Picture_7": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_100_Picture_7.jpeg",
-      "updated_at": "2025-12-24T18:41:30.332309Z",
+      "updated_at": "2025-12-26T02:24:49.149935Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        275
+        30,
+        18,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -1994,23 +2081,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9976373571783408,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3009033203125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_20_Figure_5": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_20_Figure_5.jpeg",
-      "updated_at": "2025-12-24T18:41:30.336952Z",
+      "updated_at": "2025-12-26T02:24:52.477373Z",
       "oled_bbox": [
         0,
         0,
@@ -2036,13 +2124,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_77_Picture_3": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_77_Picture_3.jpeg",
-      "updated_at": "2025-12-24T18:41:30.339188Z",
+      "updated_at": "2025-12-26T02:24:54.224154Z",
       "oled_bbox": [
         0,
         0,
@@ -2068,18 +2158,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_16_Picture_11": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_16_Picture_11.jpeg",
-      "updated_at": "2025-12-24T18:41:30.342268Z",
+      "updated_at": "2025-12-26T02:25:06.889061Z",
       "oled_bbox": [
-        0,
-        0,
-        533,
-        282
+        19,
+        23,
+        495,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -2088,28 +2180,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9763894987558714,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.172119140625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_34_Picture_17": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_34_Picture_17.jpeg",
-      "updated_at": "2025-12-24T18:41:30.345080Z",
+      "updated_at": "2025-12-26T02:25:29.127997Z",
       "oled_bbox": [
-        0,
-        0,
-        545,
-        275
+        28,
+        17,
+        495,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -2118,23 +2211,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9947242702251877,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.2991943359375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_67_Picture_4": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_67_Picture_4.jpeg",
-      "updated_at": "2025-12-24T18:41:30.348944Z",
+      "updated_at": "2025-12-26T02:25:31.965200Z",
       "oled_bbox": [
         0,
         0,
@@ -2158,18 +2252,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_25_Picture_20": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_25_Picture_20.jpeg",
-      "updated_at": "2025-12-24T18:41:30.352173Z",
+      "updated_at": "2025-12-26T02:25:51.725364Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        270
+        28,
+        11,
+        494,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -2178,28 +2274,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9916777980165958,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.192626953125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_75_Picture_8": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_75_Picture_8.jpeg",
-      "updated_at": "2025-12-24T18:41:30.355191Z",
+      "updated_at": "2025-12-26T02:26:04.352514Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        283
+        30,
+        16,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -2208,23 +2305,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9892120716426303,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.310546875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_66_Picture_5": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_66_Picture_5.jpeg",
-      "updated_at": "2025-12-24T18:41:30.357487Z",
+      "updated_at": "2025-12-26T02:26:06.355557Z",
       "oled_bbox": [
         0,
         0,
@@ -2251,18 +2349,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_93_Picture_10": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_93_Picture_10.jpeg",
-      "updated_at": "2025-12-24T18:41:30.360641Z",
+      "updated_at": "2025-12-26T02:26:20.393858Z",
       "oled_bbox": [
-        0,
-        0,
-        546,
-        282
+        33,
+        19,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -2271,23 +2371,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9856227106227107,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.30322265625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_52_Picture_6": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_52_Picture_6.jpeg",
-      "updated_at": "2025-12-24T18:41:30.362781Z",
+      "updated_at": "2025-12-26T02:26:22.133781Z",
       "oled_bbox": [
         0,
         0,
@@ -2313,18 +2414,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_96_Picture_25": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_96_Picture_25.jpeg",
-      "updated_at": "2025-12-24T18:41:30.365819Z",
+      "updated_at": "2025-12-26T02:26:35.903277Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        283
+        33,
+        21,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -2333,28 +2436,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9913351297760378,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.307861328125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_69_Picture_5": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_69_Picture_5.jpeg",
-      "updated_at": "2025-12-24T18:41:30.368985Z",
+      "updated_at": "2025-12-26T02:26:58.922522Z",
       "oled_bbox": [
-        0,
-        0,
-        538,
-        275
+        23,
+        17,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -2363,23 +2467,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9896262250760393,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.2220458984375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_38_Picture_12": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_38_Picture_12.jpeg",
-      "updated_at": "2025-12-24T18:41:30.371144Z",
+      "updated_at": "2025-12-26T02:27:00.584047Z",
       "oled_bbox": [
         0,
         0,
@@ -2406,18 +2511,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_91_Picture_9": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_91_Picture_9.jpeg",
-      "updated_at": "2025-12-24T18:41:30.374316Z",
+      "updated_at": "2025-12-26T02:27:15.364957Z",
       "oled_bbox": [
-        0,
-        0,
-        542,
-        277
+        25,
+        15,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -2426,23 +2533,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9897012002611001,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.300048828125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_45_Picture_1": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_45_Picture_1.jpeg",
-      "updated_at": "2025-12-24T18:41:30.376657Z",
+      "updated_at": "2025-12-26T02:27:16.952866Z",
       "oled_bbox": [
         0,
         0,
@@ -2469,18 +2577,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_100_Picture_14": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_100_Picture_14.jpeg",
-      "updated_at": "2025-12-24T18:41:30.379818Z",
+      "updated_at": "2025-12-26T02:27:34.457480Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        282
+        33,
+        17,
+        495,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -2489,23 +2599,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9927247563651206,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.3018798828125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_58_Picture_1": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_58_Picture_1.jpeg",
-      "updated_at": "2025-12-24T18:41:30.382196Z",
+      "updated_at": "2025-12-26T02:27:36.081686Z",
       "oled_bbox": [
         0,
         0,
@@ -2532,13 +2643,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_53_Picture_25": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_53_Picture_25.jpeg",
-      "updated_at": "2025-12-24T18:41:30.384534Z",
+      "updated_at": "2025-12-26T02:27:37.111348Z",
       "oled_bbox": [
         0,
         0,
@@ -2564,13 +2677,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_39_Picture_15": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_39_Picture_15.jpeg",
-      "updated_at": "2025-12-24T18:41:30.386638Z",
+      "updated_at": "2025-12-26T02:27:38.135666Z",
       "oled_bbox": [
         0,
         0,
@@ -2596,13 +2711,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_9_Picture_3": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_9_Picture_3.jpeg",
-      "updated_at": "2025-12-24T18:41:30.393169Z",
+      "updated_at": "2025-12-26T02:27:39.392046Z",
       "oled_bbox": [
         0,
         0,
@@ -2626,18 +2743,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_29_Picture_1": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_29_Picture_1.jpeg",
-      "updated_at": "2025-12-24T18:41:30.396731Z",
+      "updated_at": "2025-12-26T02:27:54.754577Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        278
+        38,
+        19,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -2646,28 +2765,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9983832358573572,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3150634765625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_40_Picture_6": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_40_Picture_6.jpeg",
-      "updated_at": "2025-12-24T18:41:30.400207Z",
+      "updated_at": "2025-12-26T02:28:09.302582Z",
       "oled_bbox": [
-        0,
-        0,
-        543,
-        277
+        27,
+        15,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -2676,28 +2796,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9904242375890062,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.36328125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_30_Picture_7": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_30_Picture_7.jpeg",
-      "updated_at": "2025-12-24T18:41:30.403113Z",
+      "updated_at": "2025-12-26T02:28:23.575581Z",
       "oled_bbox": [
-        0,
-        0,
-        541,
-        275
+        26,
+        15,
+        495,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -2706,23 +2827,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9918111241808101,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.2047119140625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_19_Picture_28": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_19_Picture_28.jpeg",
-      "updated_at": "2025-12-24T18:41:30.405748Z",
+      "updated_at": "2025-12-26T02:28:25.113043Z",
       "oled_bbox": [
         0,
         0,
@@ -2748,13 +2870,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_27_Picture_17": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_27_Picture_17.jpeg",
-      "updated_at": "2025-12-24T18:41:30.408474Z",
+      "updated_at": "2025-12-26T02:28:26.265293Z",
       "oled_bbox": [
         0,
         0,
@@ -2780,18 +2904,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_68_Picture_7": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_68_Picture_7.jpeg",
-      "updated_at": "2025-12-24T18:41:30.411621Z",
+      "updated_at": "2025-12-26T02:28:43.168651Z",
       "oled_bbox": [
-        0,
-        0,
-        537,
-        275
+        23,
+        19,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -2800,28 +2926,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9888979177247335,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.2056884765625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_91_Figure_19": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_91_Figure_19.jpeg",
-      "updated_at": "2025-12-24T18:41:30.415170Z",
+      "updated_at": "2025-12-26T02:29:04.957365Z",
       "oled_bbox": [
-        0,
-        0,
-        544,
-        275
+        32,
+        13,
+        494,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -2830,28 +2957,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9939959893048128,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.3011474609375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_78_Picture_10": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_78_Picture_10.jpeg",
-      "updated_at": "2025-12-24T18:41:30.418350Z",
+      "updated_at": "2025-12-26T02:29:26.975521Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        275
+        31,
+        17,
+        497,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -2860,28 +2988,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9961867499589019,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9375708502024291,
+        "reason_codes": [],
+        "pixel_density": 0.2978515625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_62_Picture_15": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_62_Picture_15.jpeg",
-      "updated_at": "2025-12-24T18:41:30.421788Z",
+      "updated_at": "2025-12-26T02:29:59.593343Z",
       "oled_bbox": [
-        0,
-        0,
-        532,
-        282
+        17,
+        22,
+        497,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -2890,28 +3019,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9756792246573882,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.2225341796875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_32_Picture_24": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_32_Picture_24.jpeg",
-      "updated_at": "2025-12-24T18:41:30.425342Z",
+      "updated_at": "2025-12-26T02:30:19.074399Z",
       "oled_bbox": [
-        0,
-        0,
-        535,
-        275
+        20,
+        14,
+        496,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -2920,23 +3050,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9874412914188616,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383805668016194,
+        "reason_codes": [],
+        "pixel_density": 0.216552734375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_1_Figure_7": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_1_Figure_7.jpeg",
-      "updated_at": "2025-12-24T18:41:30.427786Z",
+      "updated_at": "2025-12-26T02:30:20.710471Z",
       "oled_bbox": [
         0,
         0,
@@ -2962,18 +3093,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_23_Picture_9": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_23_Picture_9.jpeg",
-      "updated_at": "2025-12-24T18:41:30.431390Z",
+      "updated_at": "2025-12-26T02:30:39.713689Z",
       "oled_bbox": [
-        0,
-        0,
-        531,
-        278
+        19,
+        19,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -2982,28 +3115,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.980372312319636,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.197509765625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_59_Picture_3": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_59_Picture_3.jpeg",
-      "updated_at": "2025-12-24T18:41:30.435114Z",
+      "updated_at": "2025-12-26T02:30:57.715594Z",
       "oled_bbox": [
-        0,
-        0,
-        524,
-        279
+        16,
+        19,
+        494,
+        250
       ],
       "normalize_params": {
         "target_size": [
@@ -3012,28 +3146,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9739815042819229,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9352,
+        "reason_codes": [],
+        "pixel_density": 0.2122802734375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_98_Picture_21": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_98_Picture_21.jpeg",
-      "updated_at": "2025-12-24T18:41:30.438721Z",
+      "updated_at": "2025-12-26T02:31:13.653660Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        283
+        29,
+        21,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -3042,17 +3177,18 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9863812778775416,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.306884765625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_56_Picture_3": {
@@ -3088,12 +3224,12 @@
     "_page_38_Picture_8": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_38_Picture_8.jpeg",
-      "updated_at": "2025-12-24T18:41:30.449267Z",
+      "updated_at": "2025-12-26T02:31:27.801936Z",
       "oled_bbox": [
-        0,
-        0,
-        543,
-        275
+        27,
+        17,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -3102,28 +3238,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9932677046710197,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.3575439453125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_91_Picture_6": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_91_Picture_6.jpeg",
-      "updated_at": "2025-12-24T18:41:30.453059Z",
+      "updated_at": "2025-12-26T02:31:43.111023Z",
       "oled_bbox": [
-        0,
-        0,
-        530,
-        282
+        19,
+        20,
+        494,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -3132,28 +3269,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9742526428475846,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.301025390625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_63_Picture_24": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_63_Picture_24.jpeg",
-      "updated_at": "2025-12-24T18:41:30.457015Z",
+      "updated_at": "2025-12-26T02:32:00.286445Z",
       "oled_bbox": [
-        0,
-        0,
-        551,
-        285
+        32,
+        19,
+        495,
+        249
       ],
       "normalize_params": {
         "target_size": [
@@ -3162,28 +3300,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9850714808800587,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.18115234375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_65_Picture_18": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_65_Picture_18.jpeg",
-      "updated_at": "2025-12-24T18:41:30.460427Z",
+      "updated_at": "2025-12-26T02:32:17.064716Z",
       "oled_bbox": [
+        18,
         17,
-        16,
-        496,
-        250
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -3192,23 +3331,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9949975806451614,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.1451416015625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_63_Picture_1": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_63_Picture_1.jpeg",
-      "updated_at": "2025-12-24T18:41:30.463491Z",
+      "updated_at": "2025-12-26T02:32:18.824153Z",
       "oled_bbox": [
         0,
         0,
@@ -3234,18 +3374,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_31_Picture_9": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_31_Picture_9.jpeg",
-      "updated_at": "2025-12-24T18:41:30.467264Z",
+      "updated_at": "2025-12-26T02:32:46.542219Z",
       "oled_bbox": [
-        0,
-        0,
-        539,
-        278
+        22,
+        20,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -3254,23 +3396,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9861360633200305,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.2586669921875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_30_Picture_10": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_30_Picture_10.jpeg",
-      "updated_at": "2025-12-24T18:41:30.470219Z",
+      "updated_at": "2025-12-26T02:32:47.827279Z",
       "oled_bbox": [
         0,
         0,
@@ -3296,13 +3439,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_37_Picture_11": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_37_Picture_11.jpeg",
-      "updated_at": "2025-12-24T18:41:30.473241Z",
+      "updated_at": "2025-12-26T02:32:48.709029Z",
       "oled_bbox": [
         0,
         0,
@@ -3328,13 +3473,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_50_Picture_15": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_50_Picture_15.jpeg",
-      "updated_at": "2025-12-24T18:41:30.476436Z",
+      "updated_at": "2025-12-26T02:32:49.577229Z",
       "oled_bbox": [
         0,
         0,
@@ -3360,18 +3507,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_100_Picture_21": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_100_Picture_21.jpeg",
-      "updated_at": "2025-12-24T18:41:30.480394Z",
+      "updated_at": "2025-12-26T02:33:08.527447Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        282
+        31,
+        15,
+        497,
+        249
       ],
       "normalize_params": {
         "target_size": [
@@ -3380,28 +3529,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9905941800366795,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391967871485944,
+        "reason_codes": [],
+        "pixel_density": 0.2960205078125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_16_Picture_7": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_16_Picture_7.jpeg",
-      "updated_at": "2025-12-24T18:41:30.484256Z",
+      "updated_at": "2025-12-26T02:33:23.592899Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        283
+        30,
+        17,
+        496,
+        249
       ],
       "normalize_params": {
         "target_size": [
@@ -3410,17 +3560,18 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9863812778775416,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.186279296875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_55_Picture_9": {
@@ -3456,7 +3607,7 @@
     "_page_65_Picture_22": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_65_Picture_22.jpeg",
-      "updated_at": "2025-12-24T18:41:30.493386Z",
+      "updated_at": "2025-12-26T02:33:25.028443Z",
       "oled_bbox": [
         0,
         0,
@@ -3483,18 +3634,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_47_Picture_5": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_47_Picture_5.jpeg",
-      "updated_at": "2025-12-24T18:41:30.497151Z",
+      "updated_at": "2025-12-26T02:33:47.202102Z",
       "oled_bbox": [
-        0,
-        0,
-        546,
-        277
+        32,
+        16,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -3503,28 +3656,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9925933272503671,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.30078125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_37_Picture_4": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_37_Picture_4.jpeg",
-      "updated_at": "2025-12-24T18:41:30.501235Z",
+      "updated_at": "2025-12-26T02:34:10.929298Z",
       "oled_bbox": [
-        0,
-        0,
-        528,
-        283
+        23,
+        22,
+        497,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -3533,28 +3687,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9715186315451333,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9375708502024291,
+        "reason_codes": [],
+        "pixel_density": 0.41650390625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_27_Picture_20": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_27_Picture_20.jpeg",
-      "updated_at": "2025-12-24T18:41:30.505080Z",
+      "updated_at": "2025-12-26T02:34:27.828692Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        271
+        38,
+        11,
+        495,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -3563,23 +3718,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9880233082906369,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.3375244140625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_15_Picture_16": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_15_Picture_16.jpeg",
-      "updated_at": "2025-12-24T18:41:30.508392Z",
+      "updated_at": "2025-12-26T02:34:29.850968Z",
       "oled_bbox": [
         0,
         0,
@@ -3605,13 +3761,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_52_Picture_4": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_52_Picture_4.jpeg",
-      "updated_at": "2025-12-24T18:41:30.511410Z",
+      "updated_at": "2025-12-26T02:34:31.204640Z",
       "oled_bbox": [
         0,
         0,
@@ -3637,18 +3795,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_94_Picture_13": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_94_Picture_13.jpeg",
-      "updated_at": "2025-12-24T18:41:30.515704Z",
+      "updated_at": "2025-12-26T02:34:47.789057Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        282
+        29,
+        18,
+        496,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -3657,23 +3817,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9905941800366795,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383805668016194,
+        "reason_codes": [],
+        "pixel_density": 0.3099365234375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_32_Picture_13": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_32_Picture_13.jpeg",
-      "updated_at": "2025-12-24T18:41:30.518949Z",
+      "updated_at": "2025-12-26T02:34:49.242678Z",
       "oled_bbox": [
         0,
         0,
@@ -3700,18 +3861,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_41_Picture_9": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_41_Picture_9.jpeg",
-      "updated_at": "2025-12-24T18:41:30.530775Z",
+      "updated_at": "2025-12-26T02:35:05.290948Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        278
+        28,
+        16,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -3720,28 +3883,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9933404096395015,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.144775390625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_54_Picture_9": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_54_Picture_9.jpeg",
-      "updated_at": "2025-12-24T18:41:30.534559Z",
+      "updated_at": "2025-12-26T02:35:21.719768Z",
       "oled_bbox": [
-        0,
-        0,
-        541,
-        290
+        26,
+        21,
+        496,
+        249
       ],
       "normalize_params": {
         "target_size": [
@@ -3750,23 +3914,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9715163490343552,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383935742971887,
+        "reason_codes": [],
+        "pixel_density": 0.177001953125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_67_Figure_15": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_67_Figure_15.jpeg",
-      "updated_at": "2025-12-24T18:41:30.540548Z",
+      "updated_at": "2025-12-26T02:35:23.475240Z",
       "oled_bbox": [
         0,
         0,
@@ -3790,18 +3955,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_42_Picture_3": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_42_Picture_3.jpeg",
-      "updated_at": "2025-12-24T18:41:30.545040Z",
+      "updated_at": "2025-12-26T02:35:35.655827Z",
       "oled_bbox": [
-        0,
-        0,
-        536,
-        278
+        23,
+        16,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -3810,28 +3977,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9839746859229035,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.315673828125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_101_Picture_5": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_101_Picture_5.jpeg",
-      "updated_at": "2025-12-24T18:41:30.549713Z",
+      "updated_at": "2025-12-26T02:35:47.738190Z",
       "oled_bbox": [
-        0,
-        0,
-        550,
-        275
+        35,
+        16,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -3840,23 +4008,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9983656198347106,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3038330078125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_16_Picture_13": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_16_Picture_13.jpeg",
-      "updated_at": "2025-12-24T18:41:30.552899Z",
+      "updated_at": "2025-12-26T02:35:49.388655Z",
       "oled_bbox": [
         0,
         0,
@@ -3882,18 +4051,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_48_Picture_8": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_48_Picture_8.jpeg",
-      "updated_at": "2025-12-24T18:41:30.557050Z",
+      "updated_at": "2025-12-26T02:36:09.742835Z",
       "oled_bbox": [
-        0,
-        0,
-        540,
-        282
+        21,
+        21,
+        497,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -3902,23 +4073,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9813613081166273,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9375708502024291,
+        "reason_codes": [],
+        "pixel_density": 0.3101806640625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_43_Picture_2": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_43_Picture_2.jpeg",
-      "updated_at": "2025-12-24T18:41:30.560182Z",
+      "updated_at": "2025-12-26T02:36:13.758184Z",
       "oled_bbox": [
         0,
         0,
@@ -3945,18 +4117,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_26_Picture_11": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_26_Picture_11.jpeg",
-      "updated_at": "2025-12-24T18:41:30.564502Z",
+      "updated_at": "2025-12-26T02:36:25.286550Z",
       "oled_bbox": [
-        0,
-        0,
-        548,
-        283
+        26,
+        18,
+        495,
+        249
       ],
       "normalize_params": {
         "target_size": [
@@ -3965,28 +4139,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.985673570452142,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.1358642578125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_79_Picture_16": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_79_Picture_16.jpeg",
-      "updated_at": "2025-12-24T18:41:30.568768Z",
+      "updated_at": "2025-12-26T02:36:36.541581Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        282
+        32,
+        16,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -3995,28 +4170,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9927247563651206,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.302490234375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_55_Picture_4": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_55_Picture_4.jpeg",
-      "updated_at": "2025-12-24T18:41:30.572858Z",
+      "updated_at": "2025-12-26T02:36:55.447704Z",
       "oled_bbox": [
-        0,
-        0,
-        522,
-        283
+        15,
+        22,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4025,28 +4201,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9672718411112464,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.197509765625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_101_Picture_11": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_101_Picture_11.jpeg",
-      "updated_at": "2025-12-24T18:41:30.578023Z",
+      "updated_at": "2025-12-26T02:37:08.791530Z",
       "oled_bbox": [
-        0,
-        0,
-        552,
-        277
+        36,
+        18,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4055,23 +4232,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9969314079422382,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.302001953125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_24_Picture_13": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_24_Picture_13.jpeg",
-      "updated_at": "2025-12-24T18:41:30.581559Z",
+      "updated_at": "2025-12-26T02:37:10.600927Z",
       "oled_bbox": [
         0,
         0,
@@ -4097,18 +4275,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_24_Picture_4": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_24_Picture_4.jpeg",
-      "updated_at": "2025-12-24T18:41:30.585999Z",
+      "updated_at": "2025-12-26T02:37:22.647086Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        277
+        29,
+        18,
+        496,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -4117,28 +4297,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9947623838551223,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383805668016194,
+        "reason_codes": [],
+        "pixel_density": 0.2216796875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_73_Picture_23": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_73_Picture_23.jpeg",
-      "updated_at": "2025-12-24T18:41:30.590456Z",
+      "updated_at": "2025-12-26T02:37:34.405575Z",
       "oled_bbox": [
-        0,
-        0,
-        560,
-        283
+        34,
+        22,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4147,28 +4328,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9941658253407369,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.2999267578125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_95_Picture_18": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_95_Picture_18.jpeg",
-      "updated_at": "2025-12-24T18:41:30.594778Z",
+      "updated_at": "2025-12-26T02:37:44.052595Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        285
+        30,
+        21,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4177,23 +4359,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9864769518733543,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3009033203125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_45_Picture_3": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_45_Picture_3.jpeg",
-      "updated_at": "2025-12-24T18:41:30.598490Z",
+      "updated_at": "2025-12-26T02:37:45.727312Z",
       "oled_bbox": [
         0,
         0,
@@ -4219,18 +4402,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_35_Picture_2": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_35_Picture_2.jpeg",
-      "updated_at": "2025-12-24T18:41:30.605471Z",
+      "updated_at": "2025-12-26T02:38:01.740126Z",
       "oled_bbox": [
-        0,
-        0,
-        552,
-        275
+        36,
+        15,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4239,28 +4424,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9969130434782609,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3458251953125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_44_Picture_2": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_44_Picture_2.jpeg",
-      "updated_at": "2025-12-24T18:41:30.609634Z",
+      "updated_at": "2025-12-26T02:38:19.546737Z",
       "oled_bbox": [
-        0,
-        0,
-        539,
-        275
+        25,
+        19,
+        496,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -4269,28 +4455,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9903545285882948,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383805668016194,
+        "reason_codes": [],
+        "pixel_density": 0.3409423828125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_69_Picture_7": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_69_Picture_7.jpeg",
-      "updated_at": "2025-12-24T18:41:30.613969Z",
+      "updated_at": "2025-12-26T02:38:34.381669Z",
       "oled_bbox": [
-        0,
-        0,
-        544,
-        277
+        26,
+        16,
+        495,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -4299,23 +4486,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9911472711828414,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.20751953125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_19_Picture_6": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_19_Picture_6.jpeg",
-      "updated_at": "2025-12-24T18:41:30.618054Z",
+      "updated_at": "2025-12-26T02:38:36.173286Z",
       "oled_bbox": [
         0,
         0,
@@ -4341,18 +4529,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_97_Picture_11": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_97_Picture_11.jpeg",
-      "updated_at": "2025-12-24T18:41:30.622383Z",
+      "updated_at": "2025-12-26T02:38:49.281130Z",
       "oled_bbox": [
-        0,
-        0,
-        550,
-        278
+        35,
+        14,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4361,28 +4551,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9940608240680183,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3028564453125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_31_Picture_11": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_31_Picture_11.jpeg",
-      "updated_at": "2025-12-24T18:41:30.626636Z",
+      "updated_at": "2025-12-26T02:39:05.447969Z",
       "oled_bbox": [
-        0,
-        0,
-        538,
-        278
+        23,
+        18,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4391,28 +4582,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9854156080340188,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.179443359375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_42_Figure_17": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_42_Figure_17.jpeg",
-      "updated_at": "2025-12-24T18:41:30.631059Z",
+      "updated_at": "2025-12-26T02:39:19.104105Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        278
+        33,
+        17,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4421,28 +4613,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9983832358573572,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.192626953125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_64_Picture_23": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_64_Picture_23.jpeg",
-      "updated_at": "2025-12-24T18:41:30.635567Z",
+      "updated_at": "2025-12-26T02:39:29.684842Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        275
+        32,
+        12,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4451,23 +4644,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9961867499589019,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.155517578125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_24_Picture_18": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_24_Picture_18.jpeg",
-      "updated_at": "2025-12-24T18:41:30.639277Z",
+      "updated_at": "2025-12-26T02:39:31.203665Z",
       "oled_bbox": [
         0,
         0,
@@ -4493,18 +4687,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_58_Picture_8": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_58_Picture_8.jpeg",
-      "updated_at": "2025-12-24T18:41:30.643667Z",
+      "updated_at": "2025-12-26T02:39:45.271242Z",
       "oled_bbox": [
-        0,
-        0,
-        535,
-        282
+        23,
+        22,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4513,23 +4709,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9778100351295818,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.192626953125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_36_Picture_3": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_36_Picture_3.jpeg",
-      "updated_at": "2025-12-24T18:41:30.647627Z",
+      "updated_at": "2025-12-26T02:39:46.861315Z",
       "oled_bbox": [
         0,
         0,
@@ -4555,18 +4752,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_99_Picture_20": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_99_Picture_20.jpeg",
-      "updated_at": "2025-12-24T18:41:30.652513Z",
+      "updated_at": "2025-12-26T02:40:02.409171Z",
       "oled_bbox": [
-        0,
-        0,
-        556,
-        282
+        32,
+        19,
+        494,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -4575,23 +4774,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9927247563651206,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.302490234375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_12_Figure_4": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_12_Figure_4.jpeg",
-      "updated_at": "2025-12-24T18:41:30.659490Z",
+      "updated_at": "2025-12-26T02:40:04.352746Z",
       "oled_bbox": [
         0,
         0,
@@ -4615,18 +4815,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_78_Figure_19": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_78_Figure_19.jpeg",
-      "updated_at": "2025-12-24T18:41:30.665271Z",
+      "updated_at": "2025-12-26T02:40:14.819593Z",
       "oled_bbox": [
-        0,
-        0,
-        559,
-        282
+        35,
+        19,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4635,23 +4837,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9948553013867214,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.2886962890625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_45_Picture_20": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_45_Picture_20.jpeg",
-      "updated_at": "2025-12-24T18:41:30.669567Z",
+      "updated_at": "2025-12-26T02:40:16.323538Z",
       "oled_bbox": [
         0,
         0,
@@ -4677,13 +4880,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_28_Picture_11": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_28_Picture_11.jpeg",
-      "updated_at": "2025-12-24T18:41:30.673647Z",
+      "updated_at": "2025-12-26T02:40:17.389625Z",
       "oled_bbox": [
         0,
         0,
@@ -4709,13 +4914,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_19_Picture_1": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_19_Picture_1.jpeg",
-      "updated_at": "2025-12-24T18:41:30.677762Z",
+      "updated_at": "2025-12-26T02:40:18.317231Z",
       "oled_bbox": [
         0,
         0,
@@ -4741,18 +4948,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_47_Picture_14": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_47_Picture_14.jpeg",
-      "updated_at": "2025-12-24T18:41:30.682722Z",
+      "updated_at": "2025-12-26T02:40:32.513156Z",
       "oled_bbox": [
-        0,
-        0,
-        548,
-        275
+        28,
+        15,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4761,28 +4970,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.996909090909091,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.3111572265625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_48_Picture_3": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_48_Picture_3.jpeg",
-      "updated_at": "2025-12-24T18:41:30.687223Z",
+      "updated_at": "2025-12-26T02:40:48.128159Z",
       "oled_bbox": [
-        0,
-        0,
-        532,
-        278
+        18,
+        19,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4791,23 +5001,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9810927949369828,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.322998046875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_51_Picture_5": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_51_Picture_5.jpeg",
-      "updated_at": "2025-12-24T18:41:30.691398Z",
+      "updated_at": "2025-12-26T02:40:50.151200Z",
       "oled_bbox": [
         0,
         0,
@@ -4833,13 +5044,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_25_Picture_13": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_25_Picture_13.jpeg",
-      "updated_at": "2025-12-24T18:41:30.695781Z",
+      "updated_at": "2025-12-26T02:40:51.172444Z",
       "oled_bbox": [
         0,
         0,
@@ -4866,13 +5079,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_68_Figure_12": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_68_Figure_12.jpeg",
-      "updated_at": "2025-12-24T18:41:30.702815Z",
+      "updated_at": "2025-12-26T02:40:52.934149Z",
       "oled_bbox": [
         0,
         0,
@@ -4896,18 +5111,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_92_Picture_6": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_92_Picture_6.jpeg",
-      "updated_at": "2025-12-24T18:41:30.707936Z",
+      "updated_at": "2025-12-26T02:41:06.969620Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        277
+        32,
+        17,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -4916,23 +5133,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9976544088366051,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.30859375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_41_Picture_12": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_41_Picture_12.jpeg",
-      "updated_at": "2025-12-24T18:41:30.711915Z",
+      "updated_at": "2025-12-26T02:41:08.392433Z",
       "oled_bbox": [
         0,
         0,
@@ -4958,13 +5176,15 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_64_Picture_15": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_64_Picture_15.jpeg",
-      "updated_at": "2025-12-24T18:41:30.716952Z",
+      "updated_at": "2025-12-26T02:41:19.768917Z",
       "oled_bbox": [
         6,
         12,
@@ -4979,27 +5199,30 @@
       },
       "validation": {
         "is_qualifying": false,
-        "confidence": 0.995755097385935,
+        "confidence": 0.9375708502024291,
         "reason_codes": [
-          "area_too_large"
-        ]
+          "bbox_too_large"
+        ],
+        "pixel_density": 0.17919921875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_74_Figure_13": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_74_Figure_13.jpeg",
-      "updated_at": "2025-12-24T18:41:30.725416Z",
+      "updated_at": "2025-12-26T02:41:37.360089Z",
       "oled_bbox": [
-        0,
-        0,
-        546,
-        277
+        28,
+        18,
+        495,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -5008,28 +5231,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9925933272503671,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.3267822265625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_44_Picture_10": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_44_Picture_10.jpeg",
-      "updated_at": "2025-12-24T18:41:30.732392Z",
+      "updated_at": "2025-12-26T02:42:01.462856Z",
       "oled_bbox": [
-        0,
-        0,
-        541,
-        278
+        23,
+        21,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -5038,28 +5262,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9875769624596071,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.372802734375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_61_Picture_1": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_61_Picture_1.jpeg",
-      "updated_at": "2025-12-24T18:41:30.737367Z",
+      "updated_at": "2025-12-26T02:42:13.194437Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        282
+        28,
+        23,
+        494,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -5068,28 +5293,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9877533620121692,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9383870967741936,
+        "reason_codes": [],
+        "pixel_density": 0.17626953125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_43_Picture_11": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_43_Picture_11.jpeg",
-      "updated_at": "2025-12-24T18:41:30.742023Z",
+      "updated_at": "2025-12-26T02:42:25.395538Z",
       "oled_bbox": [
-        0,
-        0,
-        538,
-        275
+        23,
+        15,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -5098,23 +5324,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9896262250760393,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.1907958984375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_61_Picture_17": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_61_Picture_17.jpeg",
-      "updated_at": "2025-12-24T18:41:30.746261Z",
+      "updated_at": "2025-12-26T02:42:27.470518Z",
       "oled_bbox": [
         0,
         0,
@@ -5140,18 +5367,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_41_Picture_3": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_41_Picture_3.jpeg",
-      "updated_at": "2025-12-24T18:41:30.750967Z",
+      "updated_at": "2025-12-26T02:42:43.076907Z",
       "oled_bbox": [
-        0,
-        0,
-        548,
-        283
+        34,
+        18,
+        495,
+        249
       ],
       "normalize_params": {
         "target_size": [
@@ -5160,28 +5389,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.985673570452142,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9375903614457832,
+        "reason_codes": [],
+        "pixel_density": 0.1666259765625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_24_Picture_2": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_24_Picture_2.jpeg",
-      "updated_at": "2025-12-24T18:41:30.756058Z",
+      "updated_at": "2025-12-26T02:42:56.823487Z",
       "oled_bbox": [
-        0,
-        0,
-        534,
-        275
+        19,
+        16,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -5190,28 +5420,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9867129724208377,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.18994140625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_94_Picture_23": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_94_Picture_23.jpeg",
-      "updated_at": "2025-12-24T18:41:30.761188Z",
+      "updated_at": "2025-12-26T02:43:09.655055Z",
       "oled_bbox": [
-        0,
-        0,
-        549,
-        282
+        30,
+        16,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -5220,23 +5451,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9877533620121692,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.305908203125
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_42_Picture_9": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_42_Picture_9.jpeg",
-      "updated_at": "2025-12-24T18:41:30.765405Z",
+      "updated_at": "2025-12-26T02:43:11.407019Z",
       "oled_bbox": [
         0,
         0,
@@ -5262,18 +5494,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_34_Picture_5": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_34_Picture_5.jpeg",
-      "updated_at": "2025-12-24T18:41:30.770623Z",
+      "updated_at": "2025-12-26T02:43:29.943807Z",
       "oled_bbox": [
-        0,
-        0,
-        541,
-        278
+        26,
+        19,
+        496,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -5282,28 +5516,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9875769624596071,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.94,
+        "reason_codes": [],
+        "pixel_density": 0.355712890625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_40_Picture_14": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_40_Picture_14.jpeg",
-      "updated_at": "2025-12-24T18:41:30.775523Z",
+      "updated_at": "2025-12-26T02:43:44.750552Z",
       "oled_bbox": [
-        0,
-        0,
-        553,
-        277
+        29,
+        14,
+        495,
+        247
       ],
       "normalize_params": {
         "target_size": [
@@ -5312,17 +5547,18 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9976544088366051,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391902834008097,
+        "reason_codes": [],
+        "pixel_density": 0.338623046875
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_52_Picture_2": {
@@ -5358,7 +5594,7 @@
     "_page_29_Picture_9": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_29_Picture_9.jpeg",
-      "updated_at": "2025-12-24T18:41:30.787764Z",
+      "updated_at": "2025-12-26T02:43:46.221028Z",
       "oled_bbox": [
         0,
         0,
@@ -5384,18 +5620,20 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     },
     "_page_55_Picture_11": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_55_Picture_11.jpeg",
-      "updated_at": "2025-12-24T18:41:30.793483Z",
+      "updated_at": "2025-12-26T02:44:05.244957Z",
       "oled_bbox": [
-        0,
-        0,
-        542,
-        275
+        31,
+        16,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -5404,28 +5642,29 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9925394163032539,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.2447509765625
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_52_Picture_10": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_52_Picture_10.jpeg",
-      "updated_at": "2025-12-24T18:41:30.798773Z",
+      "updated_at": "2025-12-26T02:44:27.711896Z",
       "oled_bbox": [
-        0,
-        0,
-        540,
-        277
+        25,
+        16,
+        495,
+        248
       ],
       "normalize_params": {
         "target_size": [
@@ -5434,23 +5673,24 @@
         ]
       },
       "validation": {
-        "is_qualifying": false,
-        "confidence": 0.9882551143200964,
-        "reason_codes": [
-          "area_too_large"
-        ]
+        "is_qualifying": true,
+        "confidence": 0.9391935483870968,
+        "reason_codes": [],
+        "pixel_density": 0.204833984375
       },
       "overrides": {
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "ok"
+      },
       "notes": ""
     },
     "_page_7_Picture_20": {
       "version": "1.0",
       "source_path": "/oled/analog-rytm-mkii/incoming/_page_7_Picture_20.jpeg",
-      "updated_at": "2025-12-24T18:41:30.803485Z",
+      "updated_at": "2025-12-26T02:44:29.325423Z",
       "oled_bbox": [
         0,
         0,
@@ -5476,7 +5716,9 @@
         "force_on": [],
         "force_off": []
       },
-      "flags": {},
+      "flags": {
+        "manual_status": "rejected"
+      },
       "notes": ""
     }
   }
