@@ -14,11 +14,9 @@ export function Tip({ children }: CalloutProps) {
   const tipIcon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="32"
       viewBox="0 0 100 100"
       fill="none"
-      className="mt-0.5"
+      className="mt-0.5 w-10 h-10 sm:w-8 sm:h-8"
       aria-label="Tip"
     >
       <path
@@ -31,9 +29,9 @@ export function Tip({ children }: CalloutProps) {
   );
 
   return (
-    <div className="my-6 flex flex-col gap-2 sm:flex-row sm:gap-4 rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800/50">
+    <div className="my-6 -mx-4 flex flex-col gap-2 sm:flex-row sm:gap-4 rounded-lg border border-neutral-950 py-4 px-4 dark:border-neutral-50 sm:mx-0 sm:rounded-lg">
       <div className="flex-shrink-0">{tipIcon}</div>
-      <div className="text-neutral-950 dark:text-neutral-50 [&>p]:my-0 [&>p]:text-neutral-950 [&>p]:dark:text-neutral-50">{children}</div>
+      <div className="font-normal text-neutral-950 dark:text-neutral-50 [&>p]:my-0 [&>p]:text-neutral-950 [&>p]:dark:text-neutral-50 [&>p]:font-normal">{children}</div>
     </div>
   );
 }
