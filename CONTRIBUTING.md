@@ -110,16 +110,47 @@ Custom components available in MDX files:
 | `npm run dev` | Start development server |
 | `npm run build` | Production build + Pagefind |
 | `npm run lint` | Run ESLint |
+| `npm run storybook` | Start Storybook development server |
+| `npm run build-storybook` | Build static Storybook site |
 | `./import-manual.sh` | Import converted PDF |
 | `scripts/convert-manual-conventions.py` | Convert formatting to components |
+
+## Component Development with Storybook
+
+Storybook provides an isolated environment for developing and testing UI components.
+
+### Running Storybook
+
+```bash
+npm run storybook
+```
+
+Open http://localhost:6006 to view components in isolation.
+
+### Story Locations
+
+Stories are co-located with components:
+- `components/*.stories.tsx` - Component stories
+- `components/mdx/**/*.stories.tsx` - MDX component stories
+
+### Dark Mode Testing
+
+Use the theme toggle in Storybook's toolbar to switch between light and dark modes. The toggle applies the `dark` class to the `<html>` element, matching the app's behavior.
+
+### Available Stories
+
+- **Header** - Navigation header with title display
+- **TableOfContents** - Floating TOC modal
+- **MDX Components** - Key, Knob, Tip, and other MDX-specific components
 
 ## Testing Changes
 
 1. Run `npm run dev` for live preview
-2. Run `npm run build` to catch MDX errors
-3. Test search after build (requires full build)
-4. Check both light and dark themes
-5. Test on mobile viewport
+2. Run `npm run storybook` to test components in isolation
+3. Run `npm run build` to catch MDX errors
+4. Test search after build (requires full build)
+5. Check both light and dark themes
+6. Test on mobile viewport
 
 ## Common Issues
 
