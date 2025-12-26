@@ -29,10 +29,23 @@ export function Tip({ children }: CalloutProps) {
   );
 
   return (
-    <div className="my-6 -mx-4 flex flex-col gap-2 sm:flex-row sm:gap-4 rounded-lg border border-neutral-950 py-4 px-4 dark:border-neutral-50 sm:mx-0 sm:rounded-lg">
-      <div className="flex-shrink-0">{tipIcon}</div>
-      <div className="font-normal text-neutral-950 dark:text-neutral-50 [&>p]:my-0 [&>p]:text-neutral-950 [&>p]:dark:text-neutral-50 [&>p]:font-normal">{children}</div>
-    </div>
+    <>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .tip-callout li::marker {
+          color: rgb(10 10 10);
+          font-weight: 400;
+        }
+        .dark .tip-callout li::marker {
+          color: rgb(250 250 250);
+        }
+      `}} />
+      <div className="my-6 -mx-4 flex flex-col gap-2 sm:flex-row sm:gap-4 rounded-lg border border-neutral-950 py-4 px-4 dark:border-neutral-50 sm:mx-0 sm:rounded-lg">
+        <div className="flex-shrink-0">{tipIcon}</div>
+        <div className="tip-callout font-normal text-neutral-950 dark:text-neutral-50 [&>p]:my-0 [&>p]:text-neutral-950 [&>p]:dark:text-neutral-50 [&>p]:font-normal [&>ul]:my-0 [&>ul]:text-neutral-950 [&>ul]:dark:text-neutral-50 [&>ul]:font-normal [&>ol]:my-0 [&>ol]:text-neutral-950 [&>ol]:dark:text-neutral-50 [&>ol]:font-normal [&_li]:text-neutral-950 [&_li]:dark:text-neutral-50 [&_li]:font-normal">
+          {children}
+        </div>
+      </div>
+    </>
   );
 }
 

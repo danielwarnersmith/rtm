@@ -33,10 +33,23 @@ export function Warning({ children }: CalloutProps) {
   );
 
   return (
-    <div className="my-6 -mx-4 flex flex-col gap-1.5 sm:flex-row sm:gap-4 rounded-lg border border-amber-700 pt-2 pb-4 sm:pt-4 px-4 dark:border-amber-400 sm:mx-0 sm:rounded-lg">
-      <div className="flex-shrink-0">{warningIcon}</div>
-      <div className="font-normal text-amber-700 dark:text-amber-400 [&>p]:my-0 [&>p]:text-amber-700 [&>p]:dark:text-amber-400 [&>p]:font-normal [&_a]:text-amber-700 [&_a]:dark:text-amber-400 [&_strong]:text-amber-700 [&_strong]:dark:text-amber-400 [&_li]:text-amber-700 [&_li]:dark:text-amber-400 [&_li::marker]:text-amber-700 [&_li::marker]:dark:text-amber-400">{children}</div>
-    </div>
+    <>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .warning-callout li::marker {
+          color: rgb(180 83 9);
+          font-weight: 400;
+        }
+        .dark .warning-callout li::marker {
+          color: rgb(251 191 36);
+        }
+      `}} />
+      <div className="my-6 -mx-4 flex flex-col gap-1.5 sm:flex-row sm:gap-4 rounded-lg border border-amber-700 pt-2 pb-4 sm:pt-4 px-4 dark:border-amber-400 sm:mx-0 sm:rounded-lg">
+        <div className="flex-shrink-0">{warningIcon}</div>
+        <div className="warning-callout font-normal text-amber-700 dark:text-amber-400 [&>p]:my-0 [&>p]:text-amber-700 [&>p]:dark:text-amber-400 [&>p]:font-normal [&>ul]:my-0 [&>ul]:text-amber-700 [&>ul]:dark:text-amber-400 [&>ul]:font-normal [&>ol]:my-0 [&>ol]:text-amber-700 [&>ol]:dark:text-amber-400 [&>ol]:font-normal [&_a]:text-amber-700 [&_a]:dark:text-amber-400 [&_strong]:text-amber-700 [&_strong]:dark:text-amber-400 [&_li]:text-amber-700 [&_li]:dark:text-amber-400 [&_li]:font-normal">
+          {children}
+        </div>
+      </div>
+    </>
   );
 }
 
