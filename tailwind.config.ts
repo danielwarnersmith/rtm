@@ -17,6 +17,8 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./content/**/*.{md,mdx}",
     "./.contentlayer/generated/**/*.{js,mjs}",
+    "./.storybook/**/*.{js,ts,jsx,tsx}",
+    "./stories/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {

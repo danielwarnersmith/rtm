@@ -41,13 +41,23 @@ const meta = {
     layout: 'fullscreen',
   },
   decorators: [
-    (Story) => (
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-        <HeaderProvider>
-          <Story />
-        </HeaderProvider>
-      </ThemeProvider>
-    ),
+    (Story, context) => {
+      // Sync ThemeProvider with Storybook's global theme
+      const theme = context.globals?.theme || 'light';
+      
+      return (
+        <ThemeProvider 
+          attribute="class" 
+          defaultTheme={theme} 
+          forcedTheme={theme}
+          enableSystem={false}
+        >
+          <HeaderProvider>
+            <Story />
+          </HeaderProvider>
+        </ThemeProvider>
+      );
+    },
   ],
 } satisfies Meta<typeof Header>;
 
@@ -57,12 +67,22 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const WithTitleControls: Story = {
-  render: () => (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-      <HeaderProvider>
-        <HeaderWithControls />
-      </HeaderProvider>
-    </ThemeProvider>
-  ),
+  render: (args, context) => {
+    // Sync ThemeProvider with Storybook's global theme
+    const theme = context.globals?.theme || 'light';
+    
+    return (
+      <ThemeProvider 
+        attribute="class" 
+        defaultTheme={theme}
+        forcedTheme={theme}
+        enableSystem={false}
+      >
+        <HeaderProvider>
+          <HeaderWithControls />
+        </HeaderProvider>
+      </ThemeProvider>
+    );
+  },
 };
 

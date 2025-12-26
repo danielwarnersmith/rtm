@@ -12,7 +12,9 @@
     "oled:venv": "cd tools/oledvec/engine-python && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
     "oled:process": "sh -c 'if [ -z \"$DEVICE\" ]; then echo \"Error: DEVICE environment variable is required. Example: DEVICE=analog-rytm-mkii npm run oled:process\"; exit 1; fi' && cd tools/oledvec/engine-python && source venv/bin/activate && python -m oledvec process \"$DEVICE\"",
     "oled:review": "sh -c 'if [ -z \"$DEVICE\" ]; then echo \"Error: DEVICE environment variable is required. Example: DEVICE=analog-rytm-mkii npm run oled:review\"; exit 1; fi' && cd tools/oledvec/engine-python && source venv/bin/activate && python -m oledvec server --device \"$DEVICE\"",
-    "oled:dev": "sh -c 'if [ -z \"$DEVICE\" ]; then echo \"Error: DEVICE environment variable is required. Example: DEVICE=analog-rytm-mkii npm run oled:dev\"; exit 1; fi' && concurrently --names \"SERVER,UI\" --prefix-colors \"blue,green\" \"DEVICE=$DEVICE npm run oled:review\" \"cd tools/oledvec/ui && npm run dev\""
+    "oled:dev": "sh -c 'if [ -z \"$DEVICE\" ]; then echo \"Error: DEVICE environment variable is required. Example: DEVICE=analog-rytm-mkii npm run oled:dev\"; exit 1; fi' && concurrently --names \"SERVER,UI\" --prefix-colors \"blue,green\" \"DEVICE=$DEVICE npm run oled:review\" \"cd tools/oledvec/ui && npm run dev\"",
+    "storybook": "PATH=\"/Applications/Cursor.app/Contents/Resources/app/bin:$PATH\" storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "keywords": [
     "documentation",
@@ -43,6 +45,19 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "concurrently": "^9.2.1",
-    "pagefind": "^1.4.0"
+    "pagefind": "^1.4.0",
+    "storybook": "^10.1.10",
+    "@storybook/nextjs-vite": "^10.1.10",
+    "@chromatic-com/storybook": "^4.1.3",
+    "@storybook/addon-vitest": "^10.1.10",
+    "@storybook/addon-a11y": "^10.1.10",
+    "@storybook/addon-docs": "^10.1.10",
+    "@storybook/addon-onboarding": "^10.1.10",
+    "vite": "^7.3.0",
+    "eslint-plugin-storybook": "^10.1.10",
+    "vitest": "^4.0.16",
+    "playwright": "^1.57.0",
+    "@vitest/browser-playwright": "^4.0.16",
+    "@vitest/coverage-v8": "^4.0.16"
   }
 }

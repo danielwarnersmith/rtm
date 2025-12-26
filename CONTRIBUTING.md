@@ -143,6 +143,24 @@ Use the theme toggle in Storybook's toolbar to switch between light and dark mod
 - **TableOfContents** - Floating TOC modal
 - **MDX Components** - Key, Knob, Tip, and other MDX-specific components
 
+### Editor Integration
+
+Storybook can open files in your editor (Cursor) when you click on story file links. To enable this:
+
+1. **Quick setup (automatic):** The `npm run storybook` script automatically adds Cursor to PATH.
+
+2. **Permanent setup (recommended):** Add Cursor to your PATH permanently:
+   ```bash
+   # Run the setup script
+   source .storybook/setup-cursor.sh
+   
+   # Add to your shell profile (~/.zshrc or ~/.bash_profile)
+   echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+   source ~/.zshrc
+   ```
+
+   After this, Storybook will be able to open files in Cursor without any PATH modifications.
+
 ## Testing Changes
 
 1. Run `npm run dev` for live preview

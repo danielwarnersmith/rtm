@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/nextjs-vite';
+import React, { useEffect } from 'react';
 import '../app/globals.css';
 
 const preview: Preview = {
@@ -24,19 +25,28 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => {
-      const theme = context.globals.theme || 'light';
+      // Use context to get theme from globals
+      // Context provides: args, argTypes, globals, hooks, parameters, viewMode
+      const theme = context.globals?.theme || context.parameters?.theme || 'light';
       
-      // Apply dark class to html element immediately
-      if (typeof document !== 'undefined') {
-        const html = document.documentElement;
-        if (theme === 'dark') {
-          html.classList.add('dark');
-        } else {
-          html.classList.remove('dark');
-        }
-      }
+      // React component wrapper to handle theme changes reactively
+      const ThemedWrapper = () => {
+        useEffect(() => {
+          // Apply dark class to html element based on theme from context
+          if (typeof document !== 'undefined') {
+            const html = document.documentElement;
+            if (theme === 'dark') {
+              html.classList.add('dark');
+            } else {
+              html.classList.remove('dark');
+            }
+          }
+        }, [theme]);
+        
+        return React.createElement(Story);
+      };
       
-      return Story();
+      return React.createElement(ThemedWrapper);
     },
   ],
 };
