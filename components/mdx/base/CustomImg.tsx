@@ -12,6 +12,7 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
   const { src, alt, ...rest } = props;
   const imageSrc = withBasePath(src);
   const isSvg = typeof src === "string" && src.toLowerCase().endsWith(".svg");
+  const isOledScreen = typeof src === "string" && src.includes("/oled/");
   const [svgContent, setSvgContent] = useState<string | null>(null);
   const [svgError, setSvgError] = useState(false);
 
@@ -84,6 +85,7 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
           "my-6 flex justify-center overflow-hidden rounded-md border",
           "border-neutral-200 dark:border-neutral-800",
           "w-full max-w-full",
+          isOledScreen ? "p-3" : "",
           typeof props.className === "string" ? props.className : "",
         ]
           .join(" ")
