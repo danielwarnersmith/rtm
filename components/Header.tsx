@@ -13,14 +13,8 @@ export function Header() {
 
   return (
     <>
-      {/* Safe area background - extends header color under Dynamic Island */}
-      <div
-        className="fixed top-0 left-0 right-0 z-50 bg-white transition-colors duration-200 dark:bg-neutral-950"
-        style={{ height: "env(safe-area-inset-top)" }}
-      />
-
-      {/* Navigation Header */}
-      <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white pt-[env(safe-area-inset-top)] transition-colors duration-200 dark:border-neutral-800 dark:bg-neutral-950">
+      {/* Navigation Header - using fixed positioning for reliable stickiness */}
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-neutral-200 bg-white pt-[env(safe-area-inset-top)] transition-colors duration-200 dark:border-neutral-800 dark:bg-neutral-950">
         <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo / Site Title */}
           <div className="flex items-center gap-3">
@@ -52,6 +46,9 @@ export function Header() {
           </ul>
         </nav>
       </header>
+      
+      {/* Spacer to prevent content from going under fixed header */}
+      <div style={{ height: `calc(4rem + env(safe-area-inset-top, 0px))` }} />
     </>
   );
 }

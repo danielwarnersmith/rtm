@@ -1,6 +1,4 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
-import { withBasePath } from "@/lib/basePath";
 
 interface CalloutProps {
   children: ReactNode;
@@ -9,19 +7,36 @@ interface CalloutProps {
 /**
  * Warning callout component.
  * Displays important warnings with the Elektron warning icon.
+ * Icon uses theme-responsive foreground color.
  */
 export function Warning({ children }: CalloutProps) {
+  // Inline SVG with theme-responsive foreground color
+  const warningIcon = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 100 100"
+      fill="none"
+      className="mt-0.5"
+      aria-label="Warning"
+    >
+      <path
+        fill="hsl(var(--foreground))"
+        d="M50 66.69a5 5 0 1 1 0 10.002 5 5 0 0 1 0-10.001Zm0-31.5a5.407 5.407 0 0 1 5.378 5.968L53.496 59.21a3.884 3.884 0 0 1-3.862 3.482 3.782 3.782 0 0 1-3.77-3.49l-1.4-18.028A5.553 5.553 0 0 1 50 35.191Z"
+      />
+      <path
+        fill="hsl(var(--foreground))"
+        fillRule="evenodd"
+        d="M44.839 14.75c2.324-3.92 7.998-3.92 10.322 0L94.59 81.244c1.818 3.066-.392 6.946-3.956 6.946H9.366c-3.565 0-5.774-3.88-3.956-6.947L44.84 14.75Zm5.59 9.666a.5.5 0 0 0-.859 0l-32.032 54.02a.5.5 0 0 0 .43.755h64.063a.5.5 0 0 0 .43-.755L50.43 24.416Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+
   return (
     <div className="my-6 flex gap-4 rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-700/50 dark:bg-amber-900/20">
-      <div className="flex-shrink-0">
-        <Image
-          src={withBasePath("/icons/warning.jpeg") ?? "/icons/warning.jpeg"}
-          alt="Warning"
-          width={24}
-          height={24}
-          className="mt-0.5"
-        />
-      </div>
+      <div className="flex-shrink-0">{warningIcon}</div>
       <div className="text-amber-900 dark:text-amber-100 [&>p]:my-0">{children}</div>
     </div>
   );
