@@ -43,41 +43,75 @@ function HeaderComponent() {
           </div>
 
           {/* Navigation Links */}
-          <ul className="flex items-center gap-6">
+          <ul className="flex items-center gap-2 sm:gap-6">
             {!isHomePage && (
-              <li>
-                <button
-                  onClick={() => {
-                    // Dispatch custom event to trigger TOC modal
-                    window.dispatchEvent(new CustomEvent('openTOC'));
-                  }}
-                  className="hidden items-center gap-2 rounded-md bg-neutral-100 px-3 py-1.5 text-left text-sm text-neutral-500 transition-colors hover:bg-neutral-200 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800 sm:flex"
-                  aria-label="Open table of contents"
-                >
-                  <span>Contents</span>
-                  <div className="flex items-center gap-1">
-                    <kbd className="flex h-5 w-5 items-center justify-center rounded border border-neutral-300 font-mono text-xs font-medium leading-none text-neutral-400 dark:border-neutral-600 dark:text-neutral-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="26"
-                        height="26"
-                        viewBox="0 0 23.5 23.5"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-2.5 w-2.5"
-                      >
-                        <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
-                      </svg>
-                    </kbd>
-                    <kbd className="flex h-5 w-5 items-center justify-center rounded border border-neutral-300 font-mono text-[12px] font-weight-[100] leading-none text-neutral-400 dark:border-neutral-600 dark:text-neutral-500">
-                      K
-                    </kbd>
-                  </div>
-                </button>
-              </li>
+              <>
+                {/* Mobile: Icon-only button */}
+                <li className="sm:hidden">
+                  <button
+                    onClick={() => {
+                      // Dispatch custom event to trigger TOC modal
+                      window.dispatchEvent(new CustomEvent('openTOC'));
+                    }}
+                    className="flex items-center justify-center rounded-lg p-2 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 active:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 dark:active:bg-neutral-700"
+                    aria-label="Open table of contents"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5"
+                    >
+                      <line x1="8" y1="6" x2="21" y2="6" />
+                      <line x1="8" y1="12" x2="21" y2="12" />
+                      <line x1="8" y1="18" x2="21" y2="18" />
+                      <line x1="3" y1="6" x2="3.01" y2="6" />
+                      <line x1="3" y1="12" x2="3.01" y2="12" />
+                      <line x1="3" y1="18" x2="3.01" y2="18" />
+                    </svg>
+                  </button>
+                </li>
+                {/* Desktop: Full button with text and keyboard shortcuts */}
+                <li className="hidden sm:block">
+                  <button
+                    onClick={() => {
+                      // Dispatch custom event to trigger TOC modal
+                      window.dispatchEvent(new CustomEvent('openTOC'));
+                    }}
+                    className="flex items-center gap-2 rounded-md bg-neutral-100 px-3 py-1.5 text-left text-sm text-neutral-500 transition-colors hover:bg-neutral-200 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800"
+                    aria-label="Open table of contents"
+                  >
+                    <span>Contents</span>
+                    <div className="flex items-center gap-1">
+                      <kbd className="flex h-5 w-5 items-center justify-center rounded border border-neutral-300 font-mono text-xs font-medium leading-none text-neutral-400 dark:border-neutral-600 dark:text-neutral-500">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="26"
+                          height="26"
+                          viewBox="0 0 23.5 23.5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="h-2.5 w-2.5"
+                        >
+                          <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                        </svg>
+                      </kbd>
+                      <kbd className="flex h-5 w-5 items-center justify-center rounded border border-neutral-300 font-mono text-[12px] font-weight-[100] leading-none text-neutral-400 dark:border-neutral-600 dark:text-neutral-500">
+                        K
+                      </kbd>
+                    </div>
+                  </button>
+                </li>
+              </>
             )}
             <li>
               <ThemeToggle />
