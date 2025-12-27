@@ -28,20 +28,6 @@ const nextConfig = {
     // next/image optimization doesn't work with static export hosts like Pages
     images: { unoptimized: true },
   }),
-  // Fix vendor chunks issue with Contentlayer
-  experimental: {
-    serverComponentsExternalPackages: ['contentlayer2', '@contentlayer2/core', 'next-contentlayer2'],
-  },
-  webpack: (config, { dev, isServer }) => {
-    if (dev && isServer) {
-      // Disable server-side vendor chunk optimization to fix Contentlayer vendor chunks error
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: false,
-      };
-    }
-    return config;
-  },
 };
 
 // Wrap config with Contentlayer for MDX content processing

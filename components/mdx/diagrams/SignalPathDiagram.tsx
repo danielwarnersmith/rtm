@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Theme-aware signal path diagram for Analog Four MKII
  * Replaces the static JPEG with an SVG that adapts to light/dark themes

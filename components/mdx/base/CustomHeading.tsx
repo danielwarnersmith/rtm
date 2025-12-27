@@ -1,3 +1,5 @@
+"use client";
+
 import type { ComponentPropsWithoutRef } from "react";
 import type { JSX } from "react";
 import { getTextContent } from "../utils";

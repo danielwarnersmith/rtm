@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
 import type { JSX } from "react";

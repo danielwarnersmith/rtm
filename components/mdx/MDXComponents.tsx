@@ -25,7 +25,7 @@ import { Tip, Warning, Footnotes, Footnote } from "./callouts";
 import { Key, Knob, LED, Param } from "./conventions";
 
 // Diagram components
-import * as Diagrams from "./diagrams";
+import { SignalPathDiagram } from "./diagrams";
 
 /**
  * MDX component mapping.
@@ -61,5 +61,5 @@ export const MDXComponents = {
   Footnotes,
   Footnote,
   // Diagram components
-  ...Diagrams,
+  SignalPathDiagram,
 };
