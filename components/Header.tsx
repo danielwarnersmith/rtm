@@ -45,6 +45,39 @@ function HeaderComponent() {
           {/* Navigation Links */}
           <ul className="flex items-center gap-6">
             <li>
+              <button
+                onClick={() => {
+                  // Dispatch custom event to trigger TOC modal
+                  window.dispatchEvent(new CustomEvent('openTOC'));
+                }}
+                className="hidden items-center gap-2 rounded-md bg-neutral-100 px-3 py-1.5 text-left text-sm text-neutral-500 transition-colors hover:bg-neutral-200 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800 sm:flex"
+                aria-label="Open table of contents"
+              >
+                <span>Contents</span>
+                <div className="flex items-center gap-0.5">
+                  <kbd className="flex h-5 w-5 items-center justify-center rounded border border-neutral-300 font-mono text-xs font-medium leading-none text-neutral-400 dark:border-neutral-600 dark:text-neutral-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-2.5 w-2.5"
+                    >
+                      <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                    </svg>
+                  </kbd>
+                  <kbd className="flex h-5 w-5 items-center justify-center rounded border border-neutral-300 font-mono text-xs font-medium leading-none text-neutral-400 dark:border-neutral-600 dark:text-neutral-500">
+                    K
+                  </kbd>
+                </div>
+              </button>
+            </li>
+            <li>
               <ThemeToggle />
             </li>
           </ul>

@@ -370,7 +370,7 @@ export function TableOfContents() {
     }
   }, [selectedIndex, items.length]);
 
-  // Keyboard shortcuts
+  // Keyboard shortcuts and custom event listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -378,8 +378,18 @@ export function TableOfContents() {
         setIsOpen(true);
       }
     };
+    
+    const handleOpenTOC = () => {
+      setIsOpen(true);
+    };
+    
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("openTOC", handleOpenTOC);
+    
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("openTOC", handleOpenTOC);
+    };
   }, []);
 
   // Modal open/close effects
@@ -529,34 +539,6 @@ export function TableOfContents() {
 
   return (
     <>
-      {/* Trigger */}
-      <div className="fixed bottom-6 right-6 z-40 flex items-center gap-2">
-        <kbd className="hidden rounded bg-neutral-800 px-2 py-1 font-mono text-xs text-neutral-300 sm:block dark:bg-neutral-200 dark:text-neutral-700">
-          ⌘K
-        </kbd>
-        <button
-          onClick={() => setIsOpen(true)}
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-900 text-white shadow-lg hover:bg-neutral-800 active:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 dark:active:bg-neutral-100"
-          aria-label="Open table of contents"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="15" y2="12" />
-            <line x1="3" y1="18" x2="18" y2="18" />
-          </svg>
-        </button>
-      </div>
-
       {/* Modal */}
       {isOpen && (
         <div
