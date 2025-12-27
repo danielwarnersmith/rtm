@@ -1,3 +1,4 @@
+/* postcss-ignore-file - Tailwind directives are processed at build time */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -174,13 +175,24 @@ tr {
   .prose strong,
   .prose b {
     font-weight: 500;
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply leading-tight text-neutral-700 dark:text-neutral-300;
+  }
+
+  /* Normalize spacing - consistent margins throughout */
+  .prose > *:first-child {
+    margin-top: 0 !important;
+  }
+
+  .prose > *:last-child {
+    margin-bottom: 0 !important;
   }
 
   .prose p {
     font-weight: 300;
     @apply text-[24px] leading-tight text-neutral-800 dark:text-neutral-400;
     margin-top: 0 !important;
+    margin-bottom: 0.75em !important;
   }
   .prose a {
     @apply text-[21px] leading-tight;
@@ -190,6 +202,14 @@ tr {
   .prose li {
     font-weight: 300;
     @apply text-[24px] leading-tight text-neutral-800 dark:text-neutral-400;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .prose ul,
+  .prose ol {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   .prose ol li::marker {
@@ -201,16 +221,20 @@ tr {
   .prose h1 a {
     @apply text-[28px] leading-normal;
     font-weight: 600 !important;
+    margin-top: 2em !important;
     margin-bottom: 0 !important;
-    margin-top: 3.0em !important;
+  }
+
+  .prose h1:first-child {
+    margin-top: 0 !important;
   }
 
   .prose h2,
   .prose h2 a {
     @apply text-[24px] leading-tight;
     font-weight: 600 !important;
-    margin-bottom: 0.1em !important;
-    margin-top: 0.5em !important;
+    margin-top: 1.5em !important;
+    margin-bottom: 0.15em !important;
   }
 
   .prose h3,
@@ -219,14 +243,32 @@ tr {
     text-transform: uppercase;
     font-variant-caps: all-small-caps;
     font-weight: 500 !important;
-    margin-top: 1.25em !important;
-    margin-bottom: 0.5em !important;
+    margin-top: 1.5em !important;
+    margin-bottom: 0 !important;
   }
 
   .prose h4,
   .prose h4 a {
     @apply text-[16px] leading-tight;
     font-weight: 200 !important;
+    margin-top: 1.5em !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Consistent spacing after headings */
+  .prose h1 + *,
+  .prose h2 + *,
+  .prose h3 + *,
+  .prose h4 + * {
+    margin-top: 0 !important;
+  }
+
+  /* Consistent spacing for block elements */
+  .prose blockquote,
+  .prose pre,
+  .prose hr {
+    margin-top: 1.5em !important;
+    margin-bottom: 0 !important;
   }
 
   /* Offset anchor links to account for sticky header (h-16 = 4rem) */
@@ -240,6 +282,11 @@ tr {
   }
 
   /* Table border styling */
+  .prose table {
+    margin-top: 2em !important;
+    margin-bottom: 4em !important;
+  }
+
   .prose tr {
     @apply border-b border-neutral-200 dark:border-neutral-800;
   }

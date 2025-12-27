@@ -35,6 +35,7 @@ The import script normalizes these common abbreviations to uppercase:
 - `cv`, `Cv` → `CV`
 - `fx`, `Fx` → `FX`
 - `lfo`, `Lfo` → `LFO` (also handles `LFO1`, `LFO2`, `LFOs`)
+- `os`, `Os` → `OS`
 
 ## Icon Classification
 

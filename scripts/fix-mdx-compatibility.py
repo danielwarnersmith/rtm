@@ -21,6 +21,7 @@ ABBREVIATIONS = {
     'cv': 'CV',
     'fx': 'FX',
     'lfo': 'LFO',
+    'os': 'OS',
 }
 
 

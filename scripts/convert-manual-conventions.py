@@ -35,6 +35,7 @@ ABBREVIATIONS: dict[str, str] = {
     "cv": "CV",
     "fx": "FX",
     "lfo": "LFO",
+    "os": "OS",
 }
 
 
