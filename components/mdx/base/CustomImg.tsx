@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import type { ComponentPropsWithoutRef } from "react";
 import { withBasePath } from "@/lib/basePath";
+import { cn } from "../utils";
 
 // SVG content cache to avoid refetching the same SVGs
 const svgCache = new Map<string, string>();
@@ -105,25 +106,18 @@ export function CustomImg(props: ComponentPropsWithoutRef<"img">) {
     return styledSvg;
   }, [isSvg, svgContent, svgError]);
 
-  // Memoize className construction
-  const containerClassName = useMemo(() => {
-    return [
-      "my-6 flex justify-center overflow-hidden rounded-md border",
-      "border-neutral-200 dark:border-neutral-800",
-      "w-full max-w-full",
-      isOledScreen ? "p-3" : "",
-      typeof props.className === "string" ? props.className : "",
-    ]
-      .join(" ")
-      .trim();
-  }, [isOledScreen, props.className]);
+  const containerClassName = cn(
+    "my-6 flex justify-center overflow-hidden rounded-md border",
+    "border-neutral-200 dark:border-neutral-800",
+    "w-full max-w-full",
+    isOledScreen && "p-3",
+    props.className
+  );
 
-  const imgClassName = useMemo(() => {
-    return [
-      "my-6 h-auto max-w-full rounded-md",
-      typeof props.className === "string" ? props.className : "",
-    ].join(" ").trim();
-  }, [props.className]);
+  const imgClassName = cn(
+    "my-6 h-auto max-w-full rounded-md",
+    props.className
+  );
 
   // For SVG files that have loaded successfully, render inline to support CSS variables
   if (isSvg && transformedSvg) {

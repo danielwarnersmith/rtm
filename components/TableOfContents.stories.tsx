@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TableOfContents } from './TableOfContents';
+import { TableOfContents } from './TableOfContents/index';
 import { useEffect } from 'react';
 
 // Mock article element with headings for TOC to work

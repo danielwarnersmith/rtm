@@ -1,7 +1,7 @@
 import { memo, useMemo } from "react";
 import type { ComponentPropsWithoutRef } from "react";
 import { Children as ReactChildren, isValidElement } from "react";
-import { getTextContent } from "../utils";
+import { getTextContent, REGEX_PATTERNS } from "../utils";
 import { ClickableTableRow } from "../ClickableTableRow";
 
 /**
@@ -51,7 +51,7 @@ function CustomThComponent(props: ComponentPropsWithoutRef<"th">) {
     
     // Right-align only if no explicit alignment AND content looks numeric or is "Page"
     const text = typeof children === "string" ? children.trim() : "";
-    const isNumericColumn = text === "Page" || /^\d+$/.test(text);
+    const isNumericColumn = text === "Page" || REGEX_PATTERNS.NUMERIC.test(text);
     const shouldRightAlign = !hasExplicitAlign && isNumericColumn;
     
     return `first:pl-4 last:pr-4 py-2 font-semibold text-neutral-900 dark:text-neutral-100 ${
@@ -85,7 +85,7 @@ function CustomTdComponent(props: ComponentPropsWithoutRef<"td">) {
     
     // Right-align only if no explicit alignment AND content is purely numeric
     const text = typeof children === "string" ? children.trim() : "";
-    const isNumeric = /^\d+$/.test(text);
+    const isNumeric = REGEX_PATTERNS.NUMERIC.test(text);
     const shouldRightAlign = !hasExplicitAlign && isNumeric;
     
     const className = `border-b border-neutral-200 first:pl-4 last:pr-4 py-2 dark:border-neutral-700 ${
@@ -130,7 +130,7 @@ function CustomTrComponent(props: ComponentPropsWithoutRef<"tr">) {
     });
     
     // Hide rows where ALL cells contain only dashes (separator rows)
-    if (cells.length > 0 && cells.every(cell => /^-+$/.test(cell))) {
+    if (cells.length > 0 && cells.every(cell => REGEX_PATTERNS.SEPARATOR_ROW.test(cell))) {
       return true;
     }
     

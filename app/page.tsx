@@ -4,6 +4,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { allMachines } from "contentlayer/generated";
 import { BASE_PATH } from "@/lib/basePath";
+import { sortMachinesByDate } from "@/lib/machines";
+import { MachineMetadata } from "@/components/MachineMetadata";
+import { SearchInput, SearchResults } from "@/components/Search";
 import type { Pagefind, PagefindResult, GroupedResult } from "@/types/pagefind";
 
 /**
@@ -93,12 +96,7 @@ export default function HomePage() {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Sort machines by date (newest first)
-  const sortedMachines = [...allMachines].sort((a, b) => {
-    if (a.date && b.date) {
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    }
-    return a.title.localeCompare(b.title);
-  });
+  const sortedMachines = sortMachinesByDate(allMachines);
 
   /**
    * Initialize Pagefind on component mount.
@@ -122,21 +120,6 @@ export default function HomePage() {
     }
 
     loadPagefind();
-  }, []);
-
-  /**
-   * Keyboard shortcut: Cmd/Ctrl + K to focus search
-   */
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        searchInputRef.current?.focus();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   /**
@@ -188,7 +171,7 @@ export default function HomePage() {
     [performSearch]
   );
 
-  const showSearchResults = query.trim() && isPagefindLoaded && !error;
+  const showSearchResults = Boolean(query.trim() && isPagefindLoaded && !error);
 
   return (
     <div className="w-full space-y-8">
@@ -200,52 +183,14 @@ export default function HomePage() {
       </section>
 
       {/* Search Input */}
-      <div className="relative">
-        <input
-          ref={searchInputRef}
-          type="text"
-          value={query}
-          onChange={(e) => handleSearch(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Escape") {
-              handleSearch("");
-              e.currentTarget.blur();
-            }
-            if (e.key === "Enter") {
-              e.currentTarget.blur();
-            }
-          }}
-          placeholder="Search..."
-          className="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 pr-12 text-neutral-900 placeholder-neutral-500 shadow-sm transition-colors focus:border-neutral-900 focus:outline-none focus:ring-0 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-400 dark:focus:border-white"
-          disabled={!isPagefindLoaded && !error}
-        />
-        {isLoading ? (
-          <div className="absolute right-4 top-1/2 -translate-y-1/2">
-            <div className="h-5 w-5 animate-spin rounded-full border-2 border-neutral-400 border-t-transparent" />
-          </div>
-        ) : query && (
-          <button
-            onClick={() => handleSearch("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-neutral-400 transition-colors hover:bg-neutral-100 active:bg-neutral-100 hover:text-neutral-600 active:text-neutral-600 dark:hover:bg-neutral-800 dark:active:bg-neutral-800 dark:hover:text-neutral-300 dark:active:text-neutral-300"
-            aria-label="Clear search"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        )}
-      </div>
+      <SearchInput
+        ref={searchInputRef}
+        value={query}
+        onChange={handleSearch}
+        isLoading={isLoading}
+        isPagefindLoaded={isPagefindLoaded}
+        error={error}
+      />
 
       {/* Error Message */}
       {error && (
@@ -255,65 +200,12 @@ export default function HomePage() {
       )}
 
       {/* Search Results */}
-      {showSearchResults && results.length > 0 && (
-        <section className="space-y-4">
-          <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">
-            {results.length} manual{results.length === 1 ? "" : "s"} with matches
-          </h2>
-          <ul className="space-y-4">
-            {results.map((result) => (
-              <li key={result.id}>
-                <div className="rounded-lg border border-neutral-200 p-5 dark:border-neutral-800">
-                  {/* Manual title */}
-                  <Link
-                    href={result.url}
-                    className="font-semibold text-neutral-900 hover:underline dark:text-white"
-                  >
-                    {result.title}
-                  </Link>
-                  <span className="ml-2 text-xs text-neutral-500">
-                    {result.mentions.length} mention{result.mentions.length === 1 ? "" : "s"}
-                  </span>
-
-                  {/* Mentions list */}
-                  <ul className="mt-3 space-y-2">
-                    {result.mentions.map((mention) => {
-                      const mentionUrl = mention.anchor
-                        ? `${result.url}#${mention.anchor}`
-                        : result.url;
-                      return (
-                        <li key={mention.id}>
-                          <Link
-                            href={mentionUrl}
-                            className="group block rounded-md p-3 -mx-3 transition-colors hover:bg-neutral-50/50 active:bg-neutral-50/50 dark:hover:bg-neutral-800/30 dark:active:bg-neutral-800/30"
-                          >
-                            {mention.title && (
-                              <span className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                                {mention.title}
-                              </span>
-                            )}
-                            <span
-                              className="block text-sm text-neutral-600 dark:text-neutral-400 [&_mark]:bg-yellow-200 [&_mark]:dark:bg-yellow-500/40 [&_mark]:dark:text-yellow-100 [&_mark]:px-0.5 [&_mark]:rounded"
-                              dangerouslySetInnerHTML={{ __html: mention.excerpt }}
-                            />
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {/* No Results Message */}
-      {showSearchResults && !isLoading && results.length === 0 && (
-        <p className="text-neutral-600 dark:text-neutral-400">
-          No results found for &ldquo;{query}&rdquo;. Try a different search term.
-        </p>
-      )}
+      <SearchResults
+        results={results}
+        query={query}
+        isLoading={isLoading}
+        showSearchResults={showSearchResults}
+      />
 
       {/* Machine List (null state when no search query) */}
       {!showSearchResults && (
@@ -341,27 +233,7 @@ export default function HomePage() {
                         {machine.description}
                       </p>
                     )}
-                    {machine.tags && machine.tags.length > 0 && (
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {machine.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    {machine.date && (
-                      <time className="mt-3 block text-xs text-neutral-500 dark:text-neutral-500">
-                        {new Date(machine.date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                      </time>
-                    )}
+                    <MachineMetadata date={machine.date} tags={machine.tags} layout="vertical" />
                   </Link>
                 </li>
               ))}

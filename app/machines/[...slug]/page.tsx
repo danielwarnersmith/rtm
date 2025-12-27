@@ -3,6 +3,7 @@ import { allMachines } from "contentlayer/generated";
 import { TableOfContents } from "@/components/TableOfContents";
 import { StickyTitle } from "@/components/StickyTitle";
 import { MDXContent } from "./MDXContent";
+import { MachineMetadata } from "@/components/MachineMetadata";
 import type { Metadata } from "next";
 
 interface MachinePageProps {
@@ -16,10 +17,6 @@ interface MachinePageProps {
  * This enables full static generation at build time.
  */
 export async function generateStaticParams() {
-  // Safeguard: ensure allMachines is available
-  if (!allMachines || allMachines.length === 0) {
-    return [];
-  }
   return allMachines.map((machine) => ({
     slug: machine.slug.split("/"),
   }));
@@ -55,12 +52,6 @@ export async function generateMetadata(
 export default async function MachinePage({ params }: MachinePageProps) {
   const { slug } = await params;
   const slugPath = slug.join("/");
-  
-  // Safeguard: ensure allMachines is available (handles HMR edge cases)
-  if (!allMachines || allMachines.length === 0) {
-    notFound();
-  }
-  
   const machine = allMachines.find((m) => m.slug === slugPath);
 
   // Return 404 if document not found
@@ -80,29 +71,7 @@ export default async function MachinePage({ params }: MachinePageProps) {
                 {machine.description}
               </p>
             )}
-            <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-neutral-500">
-              {machine.date && (
-                <time>
-                  {new Date(machine.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </time>
-              )}
-              {machine.tags && machine.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {machine.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium dark:bg-neutral-800"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
+            <MachineMetadata date={machine.date} tags={machine.tags} />
           </header>
         </StickyTitle>
 
