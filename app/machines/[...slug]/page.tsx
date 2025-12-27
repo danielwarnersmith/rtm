@@ -16,6 +16,10 @@ interface MachinePageProps {
  * This enables full static generation at build time.
  */
 export async function generateStaticParams() {
+  // Safeguard: ensure allMachines is available
+  if (!allMachines || allMachines.length === 0) {
+    return [];
+  }
   return allMachines.map((machine) => ({
     slug: machine.slug.split("/"),
   }));
@@ -51,6 +55,13 @@ export async function generateMetadata(
 export default async function MachinePage({ params }: MachinePageProps) {
   const { slug } = await params;
   const slugPath = slug.join("/");
+  
+  // Safeguard: ensure allMachines is available (handles HMR edge cases)
+  if (!allMachines || allMachines.length === 0) {
+    // During HMR, Contentlayer might be regenerating - return 404 to trigger retry
+    notFound();
+  }
+  
   const machine = allMachines.find((m) => m.slug === slugPath);
 
   // Return 404 if document not found
