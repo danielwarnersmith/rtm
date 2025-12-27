@@ -13,7 +13,7 @@ export function CustomTable(props: ComponentPropsWithoutRef<"table">) {
       <table
         {...props}
         className="w-full min-w-full border-collapse border-t border-neutral-200 text-sm dark:border-neutral-700"
-        style={{ borderTopWidth: '0.5px' }}
+        style={{ borderTopWidth: '0.5px', marginTop: '1em', marginBottom: '2em'}}
       />
     </div>
   );
