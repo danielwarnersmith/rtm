@@ -28,22 +28,16 @@ const nextConfig = {
     // next/image optimization doesn't work with static export hosts like Pages
     images: { unoptimized: true },
   }),
-  // Improve HMR reliability with Contentlayer
+  // Fix vendor chunks issue with Contentlayer
+  experimental: {
+    serverComponentsExternalPackages: ['contentlayer2', '@contentlayer2/core', 'next-contentlayer2'],
+  },
   webpack: (config, { dev, isServer }) => {
-    if (dev) {
-      // Improve file watching for better HMR
-      // Don't ignore .contentlayer so webpack can detect when Contentlayer regenerates
-      config.watchOptions = {
-        aggregateTimeout: 500, // Longer delay to allow Contentlayer to finish regenerating
-        ignored: [
-          '**/node_modules/**',
-          '**/.next/cache/**', // Only ignore cache, not the entire .next directory
-          '**/out/**',
-          '**/public/pagefind/**',
-        ],
-        // Use polling as fallback for better reliability with Contentlayer
-        // This is especially helpful on macOS where native watching can be unreliable
-        poll: 1000,
+    if (dev && isServer) {
+      // Disable server-side vendor chunk optimization to fix Contentlayer vendor chunks error
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: false,
       };
     }
     return config;

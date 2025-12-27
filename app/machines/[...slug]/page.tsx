@@ -58,7 +58,6 @@ export default async function MachinePage({ params }: MachinePageProps) {
   
   // Safeguard: ensure allMachines is available (handles HMR edge cases)
   if (!allMachines || allMachines.length === 0) {
-    // During HMR, Contentlayer might be regenerating - return 404 to trigger retry
     notFound();
   }
   
