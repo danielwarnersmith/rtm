@@ -7,15 +7,6 @@ const meta = {
   parameters: {
     layout: 'padded',
   },
-  argTypes: {
-    children: {
-      control: 'text',
-      description: 'The LED indicator name to display (e.g., PATTERN PAGE, OCTAVE)',
-      table: {
-        type: { summary: 'string' },
-      },
-    },
-  },
 } satisfies Meta<typeof LED>;
 
 export default meta;

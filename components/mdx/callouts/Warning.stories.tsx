@@ -7,15 +7,6 @@ const meta = {
   parameters: {
     layout: 'padded',
   },
-  argTypes: {
-    children: {
-      control: false,
-      description: 'The warning content (can include paragraphs, lists, links, etc.)',
-      table: {
-        type: { summary: 'ReactNode' },
-      },
-    },
-  },
 } satisfies Meta<typeof Warning>;
 
 export default meta;

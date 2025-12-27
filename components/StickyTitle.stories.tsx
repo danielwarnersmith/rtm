@@ -10,26 +10,8 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
-  argTypes: {
-    title: {
-      control: 'text',
-      description: 'The title to display in the header when the section scrolls out of view',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-      },
-    },
-    children: {
-      control: false,
-      description: 'The content to wrap. When it scrolls out of view, the title appears in the header.',
-      table: {
-        type: { summary: 'ReactNode' },
-      },
-    },
-  },
   decorators: [
     (Story, context) => {
-      // Sync ThemeProvider with Storybook's global theme
       const theme = context.globals?.theme || 'light';
       
       return (
@@ -41,7 +23,7 @@ const meta = {
         >
           <HeaderProvider>
             <Header />
-            <div className="min-h-screen">
+            <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
               <Story />
             </div>
           </HeaderProvider>
@@ -56,20 +38,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    title: 'Analog Four MKII',
+    title: 'Section Title',
     children: (
-      <div className="mx-auto max-w-3xl px-4 py-8">
-        <h1 className="mb-4 text-4xl font-bold">Analog Four MKII</h1>
-        <p className="mb-8 text-lg text-neutral-600 dark:text-neutral-400">
+      <div className="prose dark:prose-invert max-w-none">
+        <h1>Section Title</h1>
+        <p>
           Scroll down to see the title appear in the header when this section scrolls out of view.
+          The StickyTitle component uses IntersectionObserver to detect when its children leave the viewport.
         </p>
-        <div className="space-y-4">
-          {Array.from({ length: 20 }, (_, i) => (
-            <p key={i} className="text-neutral-700 dark:text-neutral-300">
-              This is paragraph {i + 1}. Keep scrolling to see the sticky title behavior.
-              The title will appear in the header when the heading scrolls out of view.
-            </p>
-          ))}
+        <p>
+          This is useful for showing section titles in a sticky header as users scroll through long content.
+        </p>
+        <div className="h-screen bg-neutral-100 dark:bg-neutral-900 flex items-center justify-center">
+          <p className="text-neutral-500 dark:text-neutral-400">
+            Scroll down to see the title in the header
+          </p>
         </div>
       </div>
     ),
@@ -78,36 +61,24 @@ export const Default: Story = {
 
 export const WithLongContent: Story = {
   args: {
-    title: 'Documentation Section',
+    title: 'Analog Four MKII',
     children: (
-      <div className="mx-auto max-w-3xl px-4 py-8">
-        <header className="mb-8">
-          <h1 className="mb-2 text-4xl font-bold">Documentation Section</h1>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            This is a longer section with more content to demonstrate the sticky title behavior.
+      <div className="prose dark:prose-invert max-w-none">
+        <h1>Analog Four MKII</h1>
+        <p>
+          This section demonstrates how the StickyTitle component works with longer content.
+          As you scroll, the title will appear in the header when this section title scrolls out of view.
+        </p>
+        <h2>Features</h2>
+        <ul>
+          <li>Four analog voices</li>
+          <li>Powerful sequencer</li>
+          <li>Real-time control</li>
+        </ul>
+        <div className="h-[200vh] bg-gradient-to-b from-neutral-50 to-neutral-100 dark:from-neutral-900 dark:to-neutral-950 flex items-start justify-center pt-20">
+          <p className="text-neutral-500 dark:text-neutral-400">
+            Scroll to see the title appear in the header
           </p>
-        </header>
-        <div className="space-y-6">
-          <section>
-            <h2 className="mb-4 text-2xl font-semibold">Section 1</h2>
-            <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-              Content for section 1. Scroll down to see the title change in the header.
-            </p>
-          </section>
-          <section>
-            <h2 className="mb-4 text-2xl font-semibold">Section 2</h2>
-            <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-              Content for section 2. The sticky title will remain visible in the header.
-            </p>
-          </section>
-          {Array.from({ length: 15 }, (_, i) => (
-            <section key={i}>
-              <h2 className="mb-4 text-2xl font-semibold">Section {i + 3}</h2>
-              <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-                More content to demonstrate scrolling behavior.
-              </p>
-            </section>
-          ))}
         </div>
       </div>
     ),

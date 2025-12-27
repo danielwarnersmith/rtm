@@ -12,110 +12,40 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const WithAnchorLink: Story = {
-  render: () => {
-    // Create mock elements for anchor links to work
-    if (typeof document !== 'undefined') {
-      const intro = document.getElementById('introduction') || document.createElement('div');
-      intro.id = 'introduction';
-      intro.textContent = 'Introduction Section';
-      if (!document.getElementById('introduction')) {
-        document.body.appendChild(intro);
-      }
-      
-      const design = document.getElementById('sound-design') || document.createElement('div');
-      design.id = 'sound-design';
-      design.textContent = 'Sound Design Section';
-      if (!document.getElementById('sound-design')) {
-        document.body.appendChild(design);
-      }
-    }
-    
-    return (
-      <div className="prose dark:prose-invert max-w-none">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr>
-              <th className="border-b border-neutral-200 px-4 py-2 text-left dark:border-neutral-800">
-                Section
-              </th>
-              <th className="border-b border-neutral-200 px-4 py-2 text-left dark:border-neutral-800">
-                Description
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <ClickableTableRow>
-              <td className="px-4 py-2">
-                <a href="#introduction">1. Introduction</a>
-              </td>
-              <td className="px-4 py-2 text-neutral-600 dark:text-neutral-400">
-                Getting started with the device
-              </td>
-            </ClickableTableRow>
-            <ClickableTableRow>
-              <td className="px-4 py-2">
-                <a href="#sound-design">2. Sound Design</a>
-              </td>
-              <td className="px-4 py-2 text-neutral-600 dark:text-neutral-400">
-                Creating and editing sounds
-              </td>
-            </ClickableTableRow>
-            <ClickableTableRow>
-              <td className="px-4 py-2">
-                <a href="#sequencing">3. Sequencing</a>
-              </td>
-              <td className="px-4 py-2 text-neutral-600 dark:text-neutral-400">
-                Building patterns and sequences
-              </td>
-            </ClickableTableRow>
-          </tbody>
-        </table>
-        <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
-          Hover over rows to see the hover effect. Click a row to navigate to the section.
-        </p>
-      </div>
-    );
-  },
-};
-
-export const WithExternalLink: Story = {
+export const WithLink: Story = {
   render: () => (
     <div className="prose dark:prose-invert max-w-none">
       <table className="w-full border-collapse">
         <thead>
-          <tr>
-            <th className="border-b border-neutral-200 px-4 py-2 text-left dark:border-neutral-800">
-              Resource
-            </th>
-            <th className="border-b border-neutral-200 px-4 py-2 text-left dark:border-neutral-800">
-              Type
-            </th>
+          <tr className="border-b border-neutral-200 dark:border-neutral-800">
+            <th className="px-4 py-2 text-left">Section</th>
+            <th className="px-4 py-2 text-left">Description</th>
           </tr>
         </thead>
         <tbody>
           <ClickableTableRow>
             <td className="px-4 py-2">
-              <a href="https://www.elektron.se" target="_blank" rel="noopener noreferrer">
-                Official Website
-              </a>
+              <a href="#introduction">1. Introduction</a>
             </td>
-            <td className="px-4 py-2 text-neutral-600 dark:text-neutral-400">
-              Documentation
-            </td>
+            <td className="px-4 py-2">Getting started with the device</td>
           </ClickableTableRow>
           <ClickableTableRow>
             <td className="px-4 py-2">
-              <a href="https://www.elektron.se/support" target="_blank" rel="noopener noreferrer">
-                Support
-              </a>
+              <a href="#sound-design">2. Sound Design</a>
             </td>
-            <td className="px-4 py-2 text-neutral-600 dark:text-neutral-400">
-              Help & Support
+            <td className="px-4 py-2">Creating and shaping sounds</td>
+          </ClickableTableRow>
+          <ClickableTableRow>
+            <td className="px-4 py-2">
+              <a href="#sequencing">3. Sequencing</a>
             </td>
+            <td className="px-4 py-2">Building patterns and sequences</td>
           </ClickableTableRow>
         </tbody>
       </table>
+      <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
+        Click on any row to navigate to the linked section. The entire row is clickable.
+      </p>
     </div>
   ),
 };
@@ -125,27 +55,23 @@ export const WithoutLink: Story = {
     <div className="prose dark:prose-invert max-w-none">
       <table className="w-full border-collapse">
         <thead>
-          <tr>
-            <th className="border-b border-neutral-200 px-4 py-2 text-left dark:border-neutral-800">
-              Parameter
-            </th>
-            <th className="border-b border-neutral-200 px-4 py-2 text-left dark:border-neutral-800">
-              Value
-            </th>
+          <tr className="border-b border-neutral-200 dark:border-neutral-800">
+            <th className="px-4 py-2 text-left">Parameter</th>
+            <th className="px-4 py-2 text-left">Value</th>
           </tr>
         </thead>
         <tbody>
           <ClickableTableRow>
             <td className="px-4 py-2">Volume</td>
-            <td className="px-4 py-2 text-neutral-600 dark:text-neutral-400">75%</td>
+            <td className="px-4 py-2">50%</td>
           </ClickableTableRow>
           <ClickableTableRow>
             <td className="px-4 py-2">Frequency</td>
-            <td className="px-4 py-2 text-neutral-600 dark:text-neutral-400">440 Hz</td>
+            <td className="px-4 py-2">440 Hz</td>
           </ClickableTableRow>
           <ClickableTableRow>
             <td className="px-4 py-2">Decay</td>
-            <td className="px-4 py-2 text-neutral-600 dark:text-neutral-400">1.5s</td>
+            <td className="px-4 py-2">1.2s</td>
           </ClickableTableRow>
         </tbody>
       </table>
@@ -156,44 +82,89 @@ export const WithoutLink: Story = {
   ),
 };
 
-export const InTableOfContents: Story = {
-  render: () => {
-    // Create mock elements
-    if (typeof document !== 'undefined') {
-      ['introduction', 'getting-started', 'basic-concepts'].forEach((id) => {
-        if (!document.getElementById(id)) {
-          const el = document.createElement('div');
-          el.id = id;
-          el.textContent = `${id} section`;
-          document.body.appendChild(el);
-        }
-      });
-    }
-    
-    return (
+export const MixedTable: Story = {
+  render: () => (
       <div className="prose dark:prose-invert max-w-none">
-        <h2>Table of Contents</h2>
         <table className="w-full border-collapse">
+          <thead>
+            <tr className="border-b border-neutral-200 dark:border-neutral-800">
+              <th className="px-4 py-2 text-left">Number</th>
+              <th className="px-4 py-2 text-left">Section</th>
+              <th className="px-4 py-2 text-left">Status</th>
+            </tr>
+          </thead>
           <tbody>
             <ClickableTableRow>
+              <td className="px-4 py-2">1.</td>
               <td className="px-4 py-2">
-                <a href="#introduction">1. Introduction</a>
+                <a href="#introduction">Introduction</a>
               </td>
+              <td className="px-4 py-2">Complete</td>
             </ClickableTableRow>
             <ClickableTableRow>
-              <td className="px-4 py-2">
-                <a href="#getting-started">1.1 Getting Started</a>
-              </td>
+              <td className="px-4 py-2">2.</td>
+              <td className="px-4 py-2">Overview</td>
+              <td className="px-4 py-2">In Progress</td>
             </ClickableTableRow>
             <ClickableTableRow>
+              <td className="px-4 py-2">3.</td>
               <td className="px-4 py-2">
-                <a href="#basic-concepts">1.2 Basic Concepts</a>
+                <a href="#sound-design">Sound Design</a>
               </td>
+              <td className="px-4 py-2">Complete</td>
+            </ClickableTableRow>
+            <ClickableTableRow>
+              <td className="px-4 py-2">4.</td>
+              <td className="px-4 py-2">
+                <a href="#sequencing">Sequencing</a>
+              </td>
+              <td className="px-4 py-2">Pending</td>
             </ClickableTableRow>
           </tbody>
         </table>
+        <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
+          This table has a mix of clickable rows (with links) and non-clickable rows.
+          Hover over rows with links to see the interactive styling.
+        </p>
       </div>
-    );
-  },
+    ),
+};
+
+export const ShouldHide: Story = {
+  render: () => (
+    <div className="prose dark:prose-invert max-w-none">
+      <table className="w-full border-collapse">
+        <thead>
+          <tr className="border-b border-neutral-200 dark:border-neutral-800">
+            <th className="px-4 py-2 text-left">Item</th>
+            <th className="px-4 py-2 text-left">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ClickableTableRow>
+            <td className="px-4 py-2">
+              <a href="#visible">Visible Row</a>
+            </td>
+            <td className="px-4 py-2">Shown</td>
+          </ClickableTableRow>
+          <ClickableTableRow shouldHide>
+            <td className="px-4 py-2">
+              <a href="#hidden">Hidden Row</a>
+            </td>
+            <td className="px-4 py-2">Not rendered</td>
+          </ClickableTableRow>
+          <ClickableTableRow>
+            <td className="px-4 py-2">
+              <a href="#visible2">Another Visible Row</a>
+            </td>
+            <td className="px-4 py-2">Shown</td>
+          </ClickableTableRow>
+        </tbody>
+      </table>
+      <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
+        Rows with <code>shouldHide</code> prop are not rendered (useful for conditional table rows).
+      </p>
+    </div>
+  ),
 };
 

@@ -7,15 +7,6 @@ const meta = {
   parameters: {
     layout: 'padded',
   },
-  argTypes: {
-    children: {
-      control: 'text',
-      description: 'The parameter name to display (e.g., VOL, FREQ, DECAY)',
-      table: {
-        type: { summary: 'string' },
-      },
-    },
-  },
 } satisfies Meta<typeof Param>;
 
 export default meta;
